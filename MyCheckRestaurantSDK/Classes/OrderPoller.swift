@@ -55,6 +55,8 @@ public class OrderPoller {
     return polling
   }
   
+  
+  //The function doing the actaul polling. calls itself again after receiving a response / failing with a 'pollingInterval' delay.
   private func poll(){
     if !polling{
       return
