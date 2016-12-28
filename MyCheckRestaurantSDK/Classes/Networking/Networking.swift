@@ -41,6 +41,7 @@ class Networking {
         self.publishableKey = publishableKey
     }
     /// Login a user and get an access_token that can be used for getting and setting data on the user
+    ///
     ///    - parameters:
     ///    - refreshToken: The refresh token acquired from your server (that intern calls the MyCheck server that generates it)
     ///    - publishableKey: The publishable key used for the refresh token
@@ -78,7 +79,7 @@ class Networking {
     
     
     //MARK: - private functions
-    internal  func request(_ url: String , method: HTTPMethod , parameters: Parameters? = nil , success: (( _ object: NSDictionary  ) -> Void)? , fail: ((NSError) -> Void)? , encoding: ParameterEncoding = URLEncoding.default) -> Alamofire.Request? {
+  internal  func request(_ url: String , method: HTTPMethod , parameters: Parameters? = nil , success: (( _ object: [String: Any]  ) -> Void)? , fail: ((NSError) -> Void)? , encoding: ParameterEncoding = URLEncoding.default) -> Alamofire.Request? {
 //        guard let token = token  else{
 //            if let fail = fail {
 //                fail(notLoggedInError())
@@ -106,7 +107,7 @@ class Networking {
                 switch response.result {
                 case .success(let JSON):
                     if let success = success {
-                        success( JSON as! NSDictionary)
+                        success( JSON as! [String : Any] )
                     }
                     
                     

@@ -1,0 +1,6 @@
+framework module Pods_MyCheckRestaurantSDK_Example {
+  umbrella header "Pods-MyCheckRestaurantSDK_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
