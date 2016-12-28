@@ -107,6 +107,7 @@
 		B093484B1637B3D3AF65DF2232FDBADC /* mach_excServer.h in Headers */ = {isa = PBXBuildFile; fileRef = E8126420F1C51BB85DA2B836F2BCB888 /* mach_excServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B22517821E12A4050068802F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22517811E12A4050068802F /* Item.swift */; };
 		B28F5A228DFAE08A3D03872A3184BD4A /* Pods-MyCheckRestaurantSDK_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2384A6E3154B3CE84CDB969F2B6781CB /* Pods-MyCheckRestaurantSDK_Example-dummy.m */; };
+		B29D49B11E13C70E00F1F4D7 /* OrderPoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D49B01E13C70E00F1F4D7 /* OrderPoller.swift */; };
 		B463F69830E14729FFE94C5A67EC7CCA /* QuickSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 619FABEE3F2346A69E397EF6EE68A261 /* QuickSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B504C102BF962E3AFD3645ACD9D736F0 /* Networking+Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8782222AB7D79DE39F942C7EBAF5A6 /* Networking+Order.swift */; };
 		B5BAC0CC34E661BF6AF4F47148E6A0A2 /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 92527EF37D0E246C2ABA7369B638F12D /* QCKDSL.m */; };
@@ -348,6 +349,7 @@
 		ACB0D8AE36249A6E6F805FB6B1D8B2E7 /* XCTestObservationCenter+Register.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XCTestObservationCenter+Register.m"; path = "Sources/NimbleObjectiveC/XCTestObservationCenter+Register.m"; sourceTree = "<group>"; };
 		ADD2E299E23222441963354D3A3AADB7 /* Contain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Contain.swift; path = Sources/Nimble/Matchers/Contain.swift; sourceTree = "<group>"; };
 		B22517811E12A4050068802F /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B29D49B01E13C70E00F1F4D7 /* OrderPoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderPoller.swift; sourceTree = "<group>"; };
 		B2BF4211D0496BF4D84AA85BB466E601 /* Pods-MyCheckRestaurantSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyCheckRestaurantSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B2FC2FF95CCBE27B6A79445D68EA2708 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3731209A9DA117C088C6ADE202595F0 /* CwlCatchBadInstruction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlCatchBadInstruction.swift; path = Sources/Lib/CwlPreconditionTesting/CwlPreconditionTesting/CwlCatchBadInstruction.swift; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				F7660C51B5D0CF2CFBD10740E7B419C7 /* extenshions tools */,
 				72B8DCC7FEE9A3BB8EEF739DC9046075 /* Networking */,
 				471CBCD7309EC7A65E3AC50395145700 /* objects */,
+				B29D49B01E13C70E00F1F4D7 /* OrderPoller.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1265,6 +1268,7 @@
 				FF7ADCA9ECBCEECD0D4D589E305A2966 /* Networking+GetCode.swift in Sources */,
 				B22517821E12A4050068802F /* Item.swift in Sources */,
 				B504C102BF962E3AFD3645ACD9D736F0 /* Networking+Order.swift in Sources */,
+				B29D49B11E13C70E00F1F4D7 /* OrderPoller.swift in Sources */,
 				F4213CE7FD760FFEE8C701B473433162 /* Networking.swift in Sources */,
 				3C21364A73ADC69B8F18AE6499C5DAC4 /* Order.swift in Sources */,
 			);

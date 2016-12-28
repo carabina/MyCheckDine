@@ -167,3 +167,9 @@ internal func printIfDebug(_ items: Any...){
         print (items )
     }
 }
+
+func delay(_ delay:Double, closure:@escaping ()->()) {
+  let when = DispatchTime.now() + delay
+  DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
+}
+

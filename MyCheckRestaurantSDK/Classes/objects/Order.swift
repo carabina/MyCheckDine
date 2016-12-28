@@ -142,8 +142,10 @@ open class Order: Decodable {
   ///wether or not this order is a quick service order (over the counter purchase)
   let quickService: Bool
   
+  //The md5 of the order. used to check if the order was updated or not.
+  internal var md5: String
   public required init?(json: JSON) {
-    
+    md5 = "TO-DO"//TO-DO get real md5
     guard let orderId: String = "order_id" <~~ json else{
     return nil
     }
