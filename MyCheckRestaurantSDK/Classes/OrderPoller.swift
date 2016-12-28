@@ -36,7 +36,7 @@ public class OrderPoller {
   ///This delegate will be called when the order is updated.
   var delegate :OrderPollerDelegate?
   
-  ///Should be called to start polling. make sure to set a delegate in order to receive order updates.
+  ///Should be called in order to start polling. make sure to set a delegate in order to receive order updates.
   func startPolling(){
     if polling{
     return
