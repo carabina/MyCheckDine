@@ -76,5 +76,23 @@ open class Item: Decodable {
     self.modifiers = modifiers
     
   }
+  
+  internal func createReorderJSON(amount: Int) -> JSON? {
+    //creating modifiers json
+    var modifierJSONs :[JSON] = []
+    for modifier in modifiers{
+      if let json = modifier.createReorderJSON(amount:1){
+      modifierJSONs.append(json)
+      }
+    }
+    return jsonify([
+      "ID" ~~> self.Id,
+      "Quantity" ~~> amount,
+      "Modifiers" ~~> jsonify(modifierJSONs),
+      "Price" ~~> self.price,
+      "Serial_id" ~~> self.serialId
+      ])
+  }
+  
 }
 

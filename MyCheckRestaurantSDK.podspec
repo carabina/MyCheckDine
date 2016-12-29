@@ -29,7 +29,6 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
-s.iod.swift-version = '3.0'
   s.source_files = 'MyCheckRestaurantSDK/Classes/**/*'
 s.dependency 'Alamofire', '~> 4.0'
 s.dependency   'Gloss', '~> 1.1'

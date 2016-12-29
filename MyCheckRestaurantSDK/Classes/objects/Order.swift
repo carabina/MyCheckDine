@@ -23,19 +23,18 @@ public enum Status: String {
 
 
 ///Holds the information about the tax in the currant order.
-struct BillSummary {
+ public struct BillSummary {
   ///The amount paid in total from the bill.
-  let paidAmount: Double
+   public let paidAmount: Double
   ///The total of the bill.
-  let totalAmount: Double
+   public let totalAmount: Double
   //The balance of the bill.
-  let balance: Double
+   public let balance: Double
   ///Information about the tax in the currant bill.
-  let tax : TaxInfo
+   public let tax : TaxInfo
   ///Information about the currant users payments in the bill.
-  let userSummary : UserSummary
-  ///The items ordered
-  let items : [Item]
+   public let userSummary : UserSummary
+
   
   
   
@@ -67,20 +66,17 @@ struct BillSummary {
     self.userSummary = userSummary
 
     
-    guard let items: [Item] = "items" <~~ json else{
-      return nil
-    }
-    self.items = items
+   
     
   }
 }
 
 ///Holds information about the logged in users payments.
-struct UserSummary {
+ public struct UserSummary {
   ///The amount already paid by the user.
-  let paidAmount: Double
+   public let paidAmount: Double
   ///The amount of tip the user paid
-  let paidTip: Double
+   public let paidTip: Double
   
   public  init?(json: JSON){
     guard let paidAmount: Double = "bill.user_summary.paid_amount" <~~ json else{
@@ -95,11 +91,11 @@ struct UserSummary {
   }
 }
 ///Holds the information about the tax in the currant order.
-struct TaxInfo {
+ public struct TaxInfo {
   ///The percentage of the total amount that must be charged as tax.
-  let percentage: Double
+   public let percentage: Double
   ///The amount (in the currency the venue is using) of tax that must be charge.
-  let taxAmount: Double
+   public let taxAmount: Double
   
   public  init?(json: JSON){
  
@@ -128,24 +124,31 @@ struct TaxInfo {
 ///Represents an order in a venue. The order includes the orders status , bill information and some general information.
 open class Order: Decodable {
   ///The Id of the order
-  let orderId : String
+   open let orderId : String
   /// The status of the order.
-  let status : Status
+   open let status : Status
   ///The Id of the restaurant the order belongs to.
-  let restaurantId : String
+   open let restaurantId : String
   ///A summary of the orders bill.
-  let summary : BillSummary
+   open let summary : BillSummary
   ///The date time the order was opened.
-  let openTime : Date
+   open let openTime : Date
   ///The 4 digit code used by the client to connect to the POS.
-  let clientCode: String?
+   open let clientCode: String?
   ///wether or not this order is a quick service order (over the counter purchase)
-  let quickService: Bool
+  open let quickService: Bool
   
+  ///The items ordered
+ open let items : [Item]
   //The md5 of the order. used to check if the order was updated or not.
-  internal var md5: String
+  internal var stamp: String
   public required init?(json: JSON) {
-    md5 = "TO-DO"//TO-DO get real md5
+    
+    guard let stamp: String = "stamp" <~~ json else{
+      return nil
+    }
+    self.stamp = stamp
+    
     guard let orderId: String = "order_id" <~~ json else{
     return nil
     }
@@ -182,6 +185,19 @@ open class Order: Decodable {
       return nil
     }
     self.summary = summary
+  
+    
+    guard let items: [Item] = "items" <~~ json else{
+      return nil
+    }
+    self.items = items
     
   }
+  static func ==(lhs: Order, rhs: Order) -> Bool {
+    return lhs.stamp == rhs.stamp
+  }
+  static func !=(lhs: Order, rhs: Order) -> Bool {
+    return !(lhs.stamp == rhs.stamp)
+  }
+
 }

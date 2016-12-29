@@ -21,6 +21,7 @@ extension Networking{
  
 
     func generateCode( hotelId: String?, restaurantId: String, success: @escaping ((String) -> Void) , fail: ((NSError) -> Void)? ) -> Alamofire.Request?{
+      
         var params : Parameters = [  "restaurant_id" :  restaurantId]
         
         if let hotelId = hotelId{

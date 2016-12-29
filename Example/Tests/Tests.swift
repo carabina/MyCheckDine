@@ -9,7 +9,8 @@ class BasicFlowTest: QuickSpec {
   
   final let restaurantId = "2"
   final let hotelId = "1"
-  
+  final let updateExpectedValues = [2 ,5]
+  var updatedCount = 0
   //called whenever a SDK function fails
   var fail : ((NSError) -> Void) = { error in
     print(error)
@@ -42,9 +43,24 @@ class BasicFlowTest: QuickSpec {
               expect(code.characters.count) == 4 // user not logged in
               self.openTabe(code: code)
               self.addItemsToOpenTable(code: code, BID: self.restaurantId)
+              MyCheck.shared.poller.delegate = self
+
+              MyCheck.shared.poller.startPolling()
+              sleep(2)
               
-              MyCheck.shared.getOrder(success: { order in
-                self.closeTable(code: code, BID: self.restaurantId)
+              MyCheck.shared.getOrder(order: nil ,success: { order in
+                let count = self.updatedCount
+                 expect(MyCheck.shared.poller.order!.items.count ).to( equal( self.updateExpectedValues[self.updatedCount - 1]))//checking that the amount of items reorderd is good
+                MyCheck.shared.reorderItems(items: [(3, order.items.first!)], success: {
+                
+                  sleep(7)
+                  expect(count ).to( equal( 1 + self.updatedCount))//checking that the amount of items reorderd is good
+
+                  expect(MyCheck.shared.poller.order!.items.count ).to( equal( self.updateExpectedValues[self.updatedCount]))//checking that the amount of items reorderd is good
+
+                  self.closeTable(code: code, BID: self.restaurantId)
+
+                }, fail: self.fail)
 
               }, fail: self.fail)
             }, fail: self.fail)
@@ -55,7 +71,6 @@ class BasicFlowTest: QuickSpec {
       }
     }
   }
-  
   
   
   
@@ -200,3 +215,17 @@ class BasicFlowTest: QuickSpec {
   
 }
 
+extension BasicFlowTest : OrderPollerDelegate{
+  
+  func orderUpdated(order:Order){
+    updatedCount += 1
+    expect(self.updatedCount).to( beLessThan( updateExpectedValues.count))//checking that this isnt called more than expected
+
+  expect(order.items.count ).to( equal( updateExpectedValues[updatedCount]))//checking that the amount of items reorderd is good
+  }
+  
+ 
+  func failingToReceiveUpdates(lastReceivedError: Error , failCount:Int){
+  
+  }
+}

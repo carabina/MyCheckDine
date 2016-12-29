@@ -15,7 +15,8 @@ public enum ErrorCodes {
     static let notLoggedIn = 972
     static let MissingPublishableKey = 976
     static let notConifgured = 977
-    
+  static let noOrderUpdate = 122
+
 }
 
 
@@ -103,7 +104,12 @@ class Networking {
                 printIfDebug(response)
                 
             }.responseJSON { response in
-                
+//              if let request = response.request{
+//                if let body = request.httpBody{
+//                  print("BODY IS: ")
+//              print( NSString(data: body, encoding: String.Encoding.utf8.rawValue))
+//                }
+//              }
                 switch response.result {
                 case .success(let JSON):
                     if let success = success {
