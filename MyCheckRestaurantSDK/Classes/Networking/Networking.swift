@@ -104,12 +104,12 @@ class Networking {
                 printIfDebug(response)
                 
             }.responseJSON { response in
-//              if let request = response.request{
-//                if let body = request.httpBody{
-//                  print("BODY IS: ")
-//              print( NSString(data: body, encoding: String.Encoding.utf8.rawValue))
-//                }
-//              }
+              if let request = response.request{
+                if let body = request.httpBody{
+                  print("BODY IS: ")
+              print( NSString(data: body, encoding: String.Encoding.utf8.rawValue))
+                }
+              }
                 switch response.result {
                 case .success(let JSON):
                     if let success = success {
