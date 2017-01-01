@@ -15,6 +15,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		89A6FA04AD500D0E1B2D5BAF /* Pods_MyCheckRestaurantSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588BFADB052CA7C45BF8B093 /* Pods_MyCheckRestaurantSDK_Example.framework */; };
 		90EA9C5CCBD124870CAE4357 /* Pods_MyCheckRestaurantSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919B2B1C4D9D481EF48AB9DC /* Pods_MyCheckRestaurantSDK_Tests.framework */; };
+		B23C605D1E18F8B0000A53FB /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = B23C605C1E18F8B0000A53FB /* .swift-version */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		919B2B1C4D9D481EF48AB9DC /* Pods_MyCheckRestaurantSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCheckRestaurantSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9787D4C46B71BCD711F3E761 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		B23C605C1E18F8B0000A53FB /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		B26684EB1E10FF2600F70333 /* MyCheckRestaurantSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyCheckRestaurantSDK.framework; path = "../../../../Library/Developer/Xcode/DerivedData/MyCheckRestaurantSDK-cjwuavyjcpczalftirzbloemtatw/Build/Products/Debug-iphonesimulator/MyCheckRestaurantSDK/MyCheckRestaurantSDK.framework"; sourceTree = "<group>"; };
 		BB649913DED3B30609D47FF3 /* Pods-MyCheckRestaurantSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCheckRestaurantSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCheckRestaurantSDK_Tests/Pods-MyCheckRestaurantSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E158CB0F99E35C49B647BE39 /* Pods-MyCheckRestaurantSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCheckRestaurantSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyCheckRestaurantSDK_Tests/Pods-MyCheckRestaurantSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				15F66573FD20BF10761F1487 /* MyCheckRestaurantSDK.podspec */,
 				9787D4C46B71BCD711F3E761 /* README.md */,
 				32F4246BC618232882FC9B45 /* LICENSE */,
+				B23C605C1E18F8B0000A53FB /* .swift-version */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B23C605D1E18F8B0000A53FB /* .swift-version in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,

@@ -50,13 +50,13 @@ class BasicFlowTest: QuickSpec {
               
               MyCheck.shared.getOrder(order: nil ,success: { order in
                 let count = self.updatedCount
-                 expect(MyCheck.shared.poller.order!.items.count ).to( equal( self.updateExpectedValues[self.updatedCount - 1]))//checking that the amount of items reorderd is good
+                //  expect(MyCheck.shared.poller.order!.items.count ).to( equal( self.updateExpectedValues[self.updatedCount - 1]))//checking that the amount of items reorderd is good
                 MyCheck.shared.reorderItems(items: [(3, order.items.first!)], success: {
-                
+                self.flushPendingItemsInPOS(code: code, BID: self.restaurantId)
                   sleep(7)
                   expect(count ).to( equal( 1 + self.updatedCount))//checking that the amount of items reorderd is good
 
-                  expect(MyCheck.shared.poller.order!.items.count ).to( equal( self.updateExpectedValues[self.updatedCount]))//checking that the amount of items reorderd is good
+                    //  expect(MyCheck.shared.poller.order!.items.count ).to( equal( self.updateExpectedValues[self.updatedCount]))//checking that the amount of items reorderd is good
 
                   self.closeTable(code: code, BID: self.restaurantId)
 
@@ -203,6 +203,54 @@ class BasicFlowTest: QuickSpec {
     
   }
   
+    
+    
+    
+    //adds items to a table if one is open from the POS side
+    func flushPendingItemsInPOS(code: String, BID: String) -> NSInteger{
+        var toReturn = -1
+        //creating a semaphore so the call will be done synchroniously
+        let semaphore = DispatchSemaphore(value: 0)
+        var urlStr = "https://test.mycheckapp.com/api/setAllPollPendingsAsDone?BID=\(BID)&ClientCode=\(code)&SecurityWord=\"itsnotwhatyouthinksheismysister\"" as NSString
+        let str = urlStr.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+        let URL = NSURL(string:str!)!
+        
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: URL as URL) { data, response, error in
+            XCTAssertNotNil(data, "data should not be nil")
+            XCTAssertNil(error, "error should be nil")
+            
+            if let HTTPResponse = response as? HTTPURLResponse,
+                let responseURL = HTTPResponse.url
+            {
+                XCTAssertEqual(responseURL.absoluteString, URL.absoluteString, "HTTP response URL should be equal to original URL")
+                XCTAssertEqual(HTTPResponse.statusCode, 200, "HTTP response status code should be 200")
+                let json: NSDictionary? = self.convertDataToJSON(data: data! as NSData)
+                let datastring = NSString(data:data!, encoding:String.Encoding.utf8.rawValue)
+                //  let success : NSNumber = json?.objectForKey("Success") as! NSNumber
+                toReturn = (datastring?.contains("Success\":true"))!  ? 0 : -3
+                print(json)
+            } else {
+                XCTFail("Response was not NSHTTPURLResponse")
+            }
+            
+            semaphore.signal() // 2
+        }
+        
+        task.resume()
+        //        let timeout = dispatch_time_t() + UInt64(DefaultTimeoutLengthInNanoSeconds)// twice cause we are calling 2 apis
+        //        let dTime = DispatchTime(uptimeNanoseconds: timeout)
+        
+        //        if semaphore.wait(timeout: dTime) == DispatchTimeoutResult.timedOut { // 3
+        //            XCTFail("\(URL.description) timed out")
+        //        }
+        return toReturn ;
+        
+        
+    }
+
+    
   func convertDataToJSON(data: NSData) -> NSDictionary? {
     do {
       return try JSONSerialization.jsonObject(with: data as Data, options: []) as? [String:AnyObject] as NSDictionary?
