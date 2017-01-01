@@ -15,7 +15,7 @@ public enum ErrorCodes {
     static let notLoggedIn = 972
     static let MissingPublishableKey = 976
     static let notConifgured = 977
-  static let noOrderUpdate = 122
+  static let noOrderUpdate = 304
 
 }
 
@@ -118,11 +118,11 @@ class Networking {
                     
                     
                     
-                    
                 case .failure(let error):
                     
                     
                     if let fail = fail {
+                        
                         if let data = response.data {
                             
                             let jsonDic = Networking.convertDataToDictionary(data)
