@@ -88,7 +88,7 @@ class Networking {
 //            return nil
 //        }
         //adding general parameters
-        var finalParams : Parameters = ["publishableKey":publishableKey]
+        var finalParams : Parameters = ["publishableKey":publishableKey] 
 
         if var params = parameters{
             if let token = token {
@@ -140,6 +140,13 @@ class Networking {
                                     fail(error as NSError)
                                 }
                             }else{
+                                if let res = response.response{
+                                    let errorWithMessage = NSError(domain: Const.serverErrorDomain, code: res.statusCode, userInfo: [NSLocalizedDescriptionKey : error.localizedDescription])
+                                    
+                                    fail(errorWithMessage)
+
+                                return
+                                }
                                 fail(error as NSError)
                             }
                         }

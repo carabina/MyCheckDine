@@ -88,7 +88,7 @@ open class Item: Decodable {
     return jsonify([
       "ID" ~~> self.Id,
       "Quantity" ~~> amount,
-      "Modifiers" ~~> jsonify(modifierJSONs),
+      "Modifiers" ~~> modifierJSONs,
       "Price" ~~> self.price,
       "Serial_id" ~~> self.serialId
       ])

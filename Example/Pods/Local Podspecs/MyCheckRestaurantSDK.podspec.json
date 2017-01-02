@@ -2,8 +2,8 @@
   "name": "MyCheckRestaurantSDK",
   "version": "0.1.0",
   "summary": "A short description of MyCheckRestaurantSDK.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/MyCheckRestaurantSDK",
+  "description": "README.md",
+  "homepage": "http://www.mycheck.io/",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "elad schiller": "eladsc@mycheck.co.il"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/MyCheckRestaurantSDK.git",
+    "git": "https://bitbucket.org/erez_spatz/mycheckrestaurantsdk-ios.git",
     "tag": "0.1.0"
   },
   "platforms": {
