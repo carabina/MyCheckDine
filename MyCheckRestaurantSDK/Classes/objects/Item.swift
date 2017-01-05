@@ -12,24 +12,27 @@ import Gloss
 ///Represents A single item in an order , or a modifier of an item.
 open class Item: Decodable {
   ///The Id of the item.
-  let Id : Int
+  open let Id : Int
   ///The name of the item as it was received from the POS.
-  let name : String
+ open let name : String
   ///The price of the item
-  let price : Double
+ open let price : Double
   ///The amount of the item. At present this will always be 1. If more than 1 item is ordered , multiple Items of the same kind will appear in the bill.
-  let quantity : Int
+ open let quantity : Int
   ///Was the item paid for.
-  let paid : Bool
+ open let paid : Bool
   ///The serial Id of the item.
-  let serialId : String?
+ open let serialId : String?
   ///Is this item allowed to be reorders.
-  let validForReorder :Bool
+ open let validForReorder :Bool
   ///Should this item be displayed in the reorder list.
-  let showInReorder : Bool
+ open let showInReorder : Bool
   ///modifiers of the item. This can be a list of toppings or any other kind of complementary item.
-  let modifiers : [Item]
-  public required init?(json: JSON) {
+ open let modifiers : [Item]
+  
+    
+    //The constructor is for internal use only. Items should be obtained from an Order objects items array or from the modifiers array in the Items object.
+    public required init?(json: JSON) {
 
     guard let Id: Int = "id" <~~ json else{
       return nil

@@ -23,19 +23,18 @@ public enum Status: String {
 
 
 ///Holds the information about the tax in the currant order.
- public struct BillSummary {
+ public struct Bill {
   ///The amount paid in total from the bill.
    public let paidAmount: Double
   ///The total of the bill.
    public let totalAmount: Double
   //The balance of the bill.
    public let balance: Double
-  ///Information about the tax in the currant bill.
-   public let tax : TaxInfo
+ 
   ///Information about the currant users payments in the bill.
    public let userSummary : UserSummary
-
-  
+    ///The amount (in the currency the venue is using) of tax that must be charge.
+    public let taxAmount: Double
   
   
   public  init?(json: JSON){
@@ -53,11 +52,7 @@ public enum Status: String {
       return nil
     }
     self.balance = balance
-    guard let  tax : TaxInfo = TaxInfo.init(json: json) else{
-    return nil
-    }
-    
-    self.tax = tax
+   
     
     guard let  userSummary : UserSummary = UserSummary.init(json: json) else{
       return nil
@@ -67,7 +62,16 @@ public enum Status: String {
 
     
    
+    guard let taxAmountStr: String = "bill.global_summary.tax_amount" <~~ json else{
+        
+        return nil
+    }
+    guard let taxAmount = Double( taxAmountStr) else{
+        return nil
+    }
     
+    self.taxAmount = taxAmount
+
   }
 }
 
@@ -91,23 +95,13 @@ public enum Status: String {
   }
 }
 ///Holds the information about the tax in the currant order.
- public struct TaxInfo {
+ public struct TaxSettings {
   ///The percentage of the total amount that must be charged as tax.
    public let percentage: Double
-  ///The amount (in the currency the venue is using) of tax that must be charge.
-   public let taxAmount: Double
+
   
   public  init?(json: JSON){
  
-    guard let taxAmountStr: String = "bill.global_summary.tax_amount" <~~ json else{
-     
-      return nil
-    }
-    guard let taxAmount = Double( taxAmountStr) else{
-    return nil
-    }
-   
-    self.taxAmount = taxAmount
     
     guard let percentageStr: String = "tax_settings.percentage" <~~ json else{
       return nil
@@ -121,6 +115,32 @@ public enum Status: String {
   }
 }
 
+///Holds general settings related to the venue.
+public struct Settings {
+    ///whether or not splitting the bill is allowed in this order. If not, only a full payment of the bill will be accepted
+    public let splitEnabled: Bool
+    
+    ///whether or not this order is a quick service order (over the counter purchase)
+    public let quickService: Bool
+    
+    public  init?(json: JSON){
+        
+        
+        if let splitEnabled: Bool = "settings.split_is_enabled" <~~ json {
+            self.splitEnabled = splitEnabled
+        }else{
+            self.splitEnabled = false
+        }
+        
+        if let quickService: Bool = "settings.is_quick_service" <~~ json {
+            self.quickService = quickService
+        }else{
+            self.quickService = false
+        }
+        
+    }
+}
+
 ///Represents an order in a venue. The order includes the orders status , bill information and some general information.
 open class Order: Decodable {
   ///The Id of the order
@@ -130,17 +150,22 @@ open class Order: Decodable {
   ///The Id of the restaurant the order belongs to.
    open let restaurantId : String
   ///A summary of the orders bill.
-   open let summary : BillSummary
+   open let summary : Bill
   ///The date time the order was opened.
    open let openTime : Date
   ///The 4 digit code used by the client to connect to the POS.
    open let clientCode: String?
-  ///wether or not this order is a quick service order (over the counter purchase)
-  open let quickService: Bool
+ 
   
   ///The items ordered
  open let items : [Item]
   //The md5 of the order. used to check if the order was updated or not.
+    
+    ///Information about the tax in the currant bill.
+    public let tax : TaxSettings
+    ///General settings related to the order's venue.
+    public let settings : Settings
+    
   internal var stamp: String
   public required init?(json: JSON) {
     
@@ -176,12 +201,8 @@ open class Order: Decodable {
    
     clientCode = "client_code" <~~ json
     
-    if let quickService: Bool = "is_quick_service" <~~ json {
-      self.quickService = quickService
-    }else{
-    self.quickService = false
-    }
-       guard let summary: BillSummary = BillSummary(json: json) else{
+    
+       guard let summary: Bill = Bill(json: json) else{
       return nil
     }
     self.summary = summary
@@ -192,6 +213,18 @@ open class Order: Decodable {
     }
     self.items = items
     
+
+    guard let  tax : TaxSettings = TaxSettings.init(json: json) else{
+        return nil
+    }
+    
+    self.tax = tax
+    
+    guard let  settings : Settings = Settings.init(json: json) else{
+        return nil
+    }
+    
+    self.settings = settings
   }
   static func ==(lhs: Order, rhs: Order) -> Bool {
     return lhs.stamp == rhs.stamp

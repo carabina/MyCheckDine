@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'MyCheckRestaurantSDK'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of MyCheckRestaurantSDK.'
+s.summary          = 'A SDK that enables the developer to open a table at a restaurant, follow the order and reorder items.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -22,7 +22,7 @@ s.description      = 'README.md'
 
   s.homepage         = 'http://www.mycheck.io/'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.license          = { :type => 'Custom', :file => 'LICENSE' }
   s.author           = { 'elad schiller' => 'eladsc@mycheck.co.il' }
 s.source           = { :git => 'https://bitbucket.org/erez_spatz/mycheckrestaurantsdk-ios.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'

@@ -46,7 +46,7 @@ MyCheck.shared.configure(YOUR_PUBLISHABLE_KEY, environment: .sandbox)
 ```
 This will setup the SDK to work with the desired environment.
 
-Before using any other functions you will have to login the user. Login is done by first obtaining a refresh token from your server (that, in turn, will obtain it from the MyCheck server using the secret). One you have the refresh token call the login function on the MyCheck singleton:
+Before using any other functions you will have to login the user. Login is done by first obtaining a refresh token from your server (that, in turn, will obtain it from the MyCheck server using the secret). Once you have the refresh token call the login function on the MyCheck singleton:
 
 
 ```

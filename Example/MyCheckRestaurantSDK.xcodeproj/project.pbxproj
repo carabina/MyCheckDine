@@ -13,10 +13,15 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		72469F2609133DA168105AE1 /* Pods_MyCheckRestaurantSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588BFADB052CA7C45BF8B093 /* Pods_MyCheckRestaurantSDK_Example.framework */; };
 		89A6FA04AD500D0E1B2D5BAF /* Pods_MyCheckRestaurantSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588BFADB052CA7C45BF8B093 /* Pods_MyCheckRestaurantSDK_Example.framework */; };
 		90EA9C5CCBD124870CAE4357 /* Pods_MyCheckRestaurantSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919B2B1C4D9D481EF48AB9DC /* Pods_MyCheckRestaurantSDK_Tests.framework */; };
+		B226C0B51E1CEB3D0045D73A /* SuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226C0B41E1CEB3D0045D73A /* SuperViewController.swift */; };
+		B226C0B71E1D423C0045D73A /* DineInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226C0B61E1D423C0045D73A /* DineInViewController.swift */; };
 		B23C605D1E18F8B0000A53FB /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = B23C605C1E18F8B0000A53FB /* .swift-version */; };
+		B270D7F81E1BEB91009BA1E2 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B270D7F71E1BEB91009BA1E2 /* ConfigureViewController.swift */; };
+		B270D7FA1E1BFB46009BA1E2 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B270D7F91E1BFB46009BA1E2 /* TerminalViewController.swift */; };
+		B27D02DC1E1CDE310099E514 /* TerminalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D02DB1E1CDE310099E514 /* TerminalModel.swift */; };
+		B27D02DE1E1CE2900099E514 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D02DD1E1CE2900099E514 /* SessionViewController.swift */; };
 		B2CBB8D11E193196001F9827 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		B2CBB8D21E193196001F9827 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		B2CBB8D61E193196001F9827 /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = B23C605C1E18F8B0000A53FB /* .swift-version */; };
@@ -64,8 +69,14 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		919B2B1C4D9D481EF48AB9DC /* Pods_MyCheckRestaurantSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCheckRestaurantSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9787D4C46B71BCD711F3E761 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		B226C0B41E1CEB3D0045D73A /* SuperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperViewController.swift; sourceTree = "<group>"; };
+		B226C0B61E1D423C0045D73A /* DineInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DineInViewController.swift; sourceTree = "<group>"; };
 		B23C605C1E18F8B0000A53FB /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		B26684EB1E10FF2600F70333 /* MyCheckRestaurantSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyCheckRestaurantSDK.framework; path = "../../../../Library/Developer/Xcode/DerivedData/MyCheckRestaurantSDK-cjwuavyjcpczalftirzbloemtatw/Build/Products/Debug-iphonesimulator/MyCheckRestaurantSDK/MyCheckRestaurantSDK.framework"; sourceTree = "<group>"; };
+		B270D7F71E1BEB91009BA1E2 /* ConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
+		B270D7F91E1BFB46009BA1E2 /* TerminalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
+		B27D02DB1E1CDE310099E514 /* TerminalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalModel.swift; sourceTree = "<group>"; };
+		B27D02DD1E1CE2900099E514 /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		B2CBB8DF1E193196001F9827 /* one.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = one.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2CBB8E01E193197001F9827 /* MyCheckRestaurantSDK_Example copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MyCheckRestaurantSDK_Example copy-Info.plist"; path = "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/Example/MyCheckRestaurantSDK_Example copy-Info.plist"; sourceTree = "<absolute>"; };
 		BB649913DED3B30609D47FF3 /* Pods-MyCheckRestaurantSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCheckRestaurantSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCheckRestaurantSDK_Tests/Pods-MyCheckRestaurantSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,7 +90,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				89A6FA04AD500D0E1B2D5BAF /* Pods_MyCheckRestaurantSDK_Example.framework in Frameworks */,
-				72469F2609133DA168105AE1 /* Pods_MyCheckRestaurantSDK_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +137,8 @@
 		607FACD21AFB9204008FA782 /* Example for MyCheckRestaurantSDK */ = {
 			isa = PBXGroup;
 			children = (
+				B27D02DA1E1CDDDB0099E514 /* model */,
+				B270D7F61E1BEB6F009BA1E2 /* ViewControllers */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -193,6 +205,26 @@
 				919B2B1C4D9D481EF48AB9DC /* Pods_MyCheckRestaurantSDK_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B270D7F61E1BEB6F009BA1E2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B270D7F71E1BEB91009BA1E2 /* ConfigureViewController.swift */,
+				B270D7F91E1BFB46009BA1E2 /* TerminalViewController.swift */,
+				B27D02DD1E1CE2900099E514 /* SessionViewController.swift */,
+				B226C0B41E1CEB3D0045D73A /* SuperViewController.swift */,
+				B226C0B61E1D423C0045D73A /* DineInViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B27D02DA1E1CDDDB0099E514 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				B27D02DB1E1CDE310099E514 /* TerminalModel.swift */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,15 +296,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 27QYBCZ5ZQ;
 						LastSwiftMigration = 0820;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 27QYBCZ5ZQ;
 						LastSwiftMigration = 0820;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -430,6 +464,12 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				B27D02DC1E1CDE310099E514 /* TerminalModel.swift in Sources */,
+				B226C0B71E1D423C0045D73A /* DineInViewController.swift in Sources */,
+				B27D02DE1E1CE2900099E514 /* SessionViewController.swift in Sources */,
+				B270D7FA1E1BFB46009BA1E2 /* TerminalViewController.swift in Sources */,
+				B226C0B51E1CEB3D0045D73A /* SuperViewController.swift in Sources */,
+				B270D7F81E1BEB91009BA1E2 /* ConfigureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,8 +533,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -539,8 +581,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -559,6 +603,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -568,8 +613,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CCD3F73094258BA367DE009F /* Pods-MyCheckRestaurantSDK_Example.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 27QYBCZ5ZQ;
 				INFOPLIST_FILE = MyCheckRestaurantSDK/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -582,8 +630,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 060FDB2BC2F2E9FAE856A201 /* Pods-MyCheckRestaurantSDK_Example.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 27QYBCZ5ZQ;
 				INFOPLIST_FILE = MyCheckRestaurantSDK/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -596,6 +647,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB649913DED3B30609D47FF3 /* Pods-MyCheckRestaurantSDK_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 27QYBCZ5ZQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -617,6 +670,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E158CB0F99E35C49B647BE39 /* Pods-MyCheckRestaurantSDK_Tests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 27QYBCZ5ZQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

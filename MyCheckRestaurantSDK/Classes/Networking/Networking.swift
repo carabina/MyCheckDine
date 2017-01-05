@@ -9,14 +9,20 @@
 import UIKit
 import Alamofire
 
-
-public enum ErrorCodes {
+//A number of error codes you might encounter
+internal enum ErrorCodes {
+    ///A non JSON answer received from the server or parsing failed on the JSON passed.
     static let badJSON = 971
+    /// The user is not logged in.
     static let notLoggedIn = 972
-    static let MissingPublishableKey = 976
+    ///No action can be made since a publishable key was not supplied.
+    static let missingPublishableKey = 976
+    ///The SDK was not configured.
     static let notConifgured = 977
+    ///The order was not updated.
   static let noOrderUpdate = 304
-
+    ///Access token expired. A new one must be generated using login.
+    static let tokenExpired = 121
 }
 
 
@@ -101,17 +107,21 @@ class Networking {
             .validate(statusCode: 200..<201)
             .validate(contentType: ["application/json"])
             .responseString{ response in
-                printIfDebug(response)
                 
-            }.responseJSON { response in
-              if let request = response.request{
-                if let body = request.httpBody{
-                  print("BODY IS: ")
-              print( NSString(data: body, encoding: String.Encoding.utf8.rawValue))
+                if let data = response.data {
+                    if let json = String(data: data, encoding: String.Encoding.utf8){
+                    self.broadcastString(string:"RESPONSE: \n" + json)                }
                 }
-              }
+                            }.responseJSON { response in
+                
+//                if let value = response.result.value{
+//                    self.broadcastString( string:value as! String )
+//                }
+
+                
                 switch response.result {
                 case .success(let JSON):
+                    self.broadcastString(string: "Success callback called")
                     if let success = success {
                         success( JSON as! [String : Any] )
                     }
@@ -121,8 +131,7 @@ class Networking {
                 case .failure(let error):
                     
                     
-                    if let fail = fail {
-                        
+                    
                         if let data = response.data {
                             
                             let jsonDic = Networking.convertDataToDictionary(data)
@@ -133,27 +142,68 @@ class Networking {
                                 let code = JSON["code"] as? Int
                                 if let code = code , let msgKey = msgKey {
                                     
+                                    //expired token handeling (login again)
+                                    if let refreshToken = self.refreshToken, code == ErrorCodes.tokenExpired{
+                                        self.login(refreshToken, success: {token in
+                                        self.request(url, method: method, parameters: finalParams, success: success, fail: fail)
+                                            return
+                                        }, fail: fail)
+                                        
+                                    }
                                     let errorWithMessage = NSError(domain: Const.serverErrorDomain, code: code, userInfo: [NSLocalizedDescriptionKey : msgKey])
-                                    
+                                    self.broadcastString(string: "Fail callback called")
+                                    if let fail = fail {
                                     fail(errorWithMessage)
+                                    }
                                 } else{
-                                    fail(error as NSError)
-                                }
+                                    self.broadcastString(string: "Fail callback called")
+                                    if let fail = fail {
+                                        fail(error as NSError)
+                                    }                                }
                             }else{
                                 if let res = response.response{
                                     let errorWithMessage = NSError(domain: Const.serverErrorDomain, code: res.statusCode, userInfo: [NSLocalizedDescriptionKey : error.localizedDescription])
                                     
-                                    fail(errorWithMessage)
-
+                                    self.broadcastString(string: "Fail callback called")
+                                    if let fail = fail {
+                                        fail(errorWithMessage)
+                                    }
                                 return
                                 }
-                                fail(error as NSError)
-                            }
-                        }
+                                self.broadcastString(string: "Fail callback called")
+
+                                if let fail = fail {
+                                    fail(error as NSError)
+                                }                            }
+                        
                     }
                     
                 }
         }
+    if let request = request.request ,  MyCheck.logDebugData {
+
+        if let url = request.url{
+   
+            
+            broadcastString(string: "SENDING: \nURL:\n \(url.absoluteString)")
+          if  let body = request.httpBody {
+            let bodyStr = NSString(data: body, encoding: String.Encoding.utf8.rawValue)
+
+            printIfDebug("BODY IS: ")
+            printIfDebug( bodyStr)
+            
+            broadcastString(string: "BODY: ")
+            broadcastString(string: bodyStr as! String)
+          }else{
+            broadcastString(string:"NO BODY ")
+
+            }
+
+
+
+
+        }
+    }
         return request
     }
     
@@ -190,5 +240,11 @@ class Networking {
     }
     private func isConfigured() -> Bool {
         return publishableKey != nil
+    }
+    func broadcastString(string: String){
+        if MyCheck.logDebugData {
+
+    NotificationCenter.default.post(name:  Notification.Name("MyCheck comunication ouput") , object: string)
+        }
     }
 }

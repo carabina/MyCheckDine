@@ -2,12 +2,12 @@
 //  AppDelegate.swift
 //  MyCheckRestaurantSDK
 //
-//  Created by elad schiller on 12/25/2016.
-//  Copyright (c) 2016 elad schiller. All rights reserved.
+//  Created by elad schillerrr on 12/25/2016.
+//  Copyright (c) 2016 MyCheck LTD. All rights reserved.
 //
 
 import UIKit
-
+import MyCheckRestaurantSDK
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        _ = TerminalModel.shared // initializing the terminal singleton
+        
+        MyCheck.logDebugData = true
+        if !UserDefaults.standard.bool(forKey: "notFirstLaunch"){
+            UserDefaults.standard.set("pk_aPLuh3Xf1lKgrynHLusn124as1vDU", forKey: "publishableKey")
+            
+            UserDefaults.standard.set("eyJpdiI6ImErWVpjVE9HZG11ZDNQWHBwd1VpRWc9PSIsInZhbHVlIjoiS3VkVnhMZHkxYUo1WlNBOTllZ2hrdz09IiwibWFjIjoiZWExOTFkNjkzYzIyZmJhOGM3NDNkMThiN2MyMDRmODg1YzMwOThiY2NmMzJkM2EyOWM0Y2I2NTg0YTUxMDAyOCJ9", forKey: "refreshToken")
+            UserDefaults.standard.set(true, forKey: "notFirstLaunch")
+             UserDefaults.standard.synchronize()
+
+        }
         return true
     }
 

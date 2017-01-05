@@ -8,15 +8,15 @@
 
 import UIKit
 
-///This delegate will be updated on changes to the users Order.
+///This delegate will be updated on changes to the users order.
 public protocol OrderPollerDelegate {
   
-  ///called when the order was updated.
+  ///Called when the order was updated.
   ///
-  /// - parameter order:     The up to date order.
+  /// - parameter order: The up to date order.
   func orderUpdated(order:Order)
   
-  ///called when the poller fails to receive updates. It is not called on every failed call but rather after a few consecutive fails
+  ///Called when the poller fails to receive updates. It is not called on every failed call but rather after a few consecutive fails
   ///
   /// - parameter lastReceivedError:     The error that caused the last server call to fail.
   /// - parameter failCount:     The amount of consecutive calls to the server that failed.
@@ -38,7 +38,7 @@ public class OrderPoller {
   ///This delegate will be called when the order is updated.
   public var delegate :OrderPollerDelegate?
   
-  ///Should be called in order to start polling. make sure to set a delegate in order to receive order updates.
+  ///Should be called in order to start polling. Make sure to set a delegate in order to receive order updates.
   public func startPolling(){
     if polling{
       return
@@ -52,7 +52,7 @@ public class OrderPoller {
     polling = false
   }
   
-  ///Returns weather the poller is On or not
+  ///Returns weather the poller is on or not.
   public  func isPolling() -> Bool{
     return polling
   }
