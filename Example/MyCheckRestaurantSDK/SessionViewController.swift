@@ -21,8 +21,7 @@ class SessionViewController: SuperViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        connectionLabel.text = MyCheck.shared.isLoggedIn() ? "Connected" : "Disconnected"
-        connectionImg.image = MyCheck.shared.isLoggedIn() ? #imageLiteral(resourceName: "led_green") : #imageLiteral(resourceName: "led_red")
+      updateLoggedInUI()
         refreshTokenLabel.text = UserDefaults.standard.string(forKey: "refreshToken")
         
     }
@@ -35,14 +34,16 @@ class SessionViewController: SuperViewController {
     @IBAction func loginPressed(_ sender: Any) {
         if let refresh = refreshTokenLabel.text{
             MyCheck.shared.login(refresh, success: {
-                self.connectionImg.image =  #imageLiteral(resourceName: "led_green")
-                self.connectionLabel.text =  "Connected"
-
-                UserDefaults.standard.set("eyJpdiI6ImErWVpjVE9HZG11ZDNQWHBwd1VpRWc9PSIsInZhbHVlIjoiS3VkVnhMZHkxYUo1WlNBOTllZ2hrdz09IiwibWFjIjoiZWExOTFkNjkzYzIyZmJhOGM3NDNkMThiN2MyMDRmODg1YzMwOThiY2NmMzJkM2EyOWM0Y2I2NTg0YTUxMDAyOCJ9", forKey: "refreshToken")
+               self.updateLoggedInUI()
+                UserDefaults.standard.set("eyJpdiI6IlkwRWhvaDBwNHpURWZSRHl3Y3pMZnc9PSIsInZhbHVlIjoiQ0VIU21RS1g1N3FqeWFCdkdIaTdzUT09IiwibWFjIjoiOTE4ZjAwYzAwMWJiZWJhMGRlMDBkZWJjMTIzM2NlYzg3YjdhZGFjNDA4ZTVhMTk5NWM5NjcyMDJmYWZkMGUxYSJ9", forKey: "refreshToken")
                 UserDefaults.standard.synchronize()
             
             }, fail: self.fail)
         }
+    }
+    @IBAction func logoutPressed(_ sender: Any) {
+        MyCheck.shared.logout()
+        updateLoggedInUI()
     }
     /*
     // MARK: - Navigation
@@ -53,5 +54,22 @@ class SessionViewController: SuperViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    private func updateLoggedInUI(){
+        connectionLabel.text = MyCheck.shared.isLoggedIn() ? "Logged in" : "Not logged in"
+        connectionImg.image = MyCheck.shared.isLoggedIn() ? #imageLiteral(resourceName: "led_green") : #imageLiteral(resourceName: "led_red")
+        self.tabBarItem.badgeValue = " "
+        if #available(iOS 10.0, *) {
+            self.tabBarItem.badgeColor = MyCheck.shared.isLoggedIn() ? UIColor.green : UIColor.red
+        } else {
+            self.tabBarItem.badgeValue = connectionLabel.text
+        }
 
+    }
+}
+
+extension SessionViewController : UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

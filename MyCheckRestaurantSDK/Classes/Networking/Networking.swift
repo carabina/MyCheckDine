@@ -110,6 +110,9 @@ class Networking {
                 
                 if let data = response.data {
                     if let json = String(data: data, encoding: String.Encoding.utf8){
+                        if let response = response.response{
+                           self.broadcastString(string:"STATUS: \(response.statusCode)" )
+                        }
                     self.broadcastString(string:"RESPONSE: \n" + json)                }
                 }
                             }.responseJSON { response in
@@ -151,7 +154,9 @@ class Networking {
                                         
                                     }
                                     let errorWithMessage = NSError(domain: Const.serverErrorDomain, code: code, userInfo: [NSLocalizedDescriptionKey : msgKey])
+                                    
                                     self.broadcastString(string: "Fail callback called")
+                                    
                                     if let fail = fail {
                                     fail(errorWithMessage)
                                     }
@@ -163,8 +168,9 @@ class Networking {
                             }else{
                                 if let res = response.response{
                                     let errorWithMessage = NSError(domain: Const.serverErrorDomain, code: res.statusCode, userInfo: [NSLocalizedDescriptionKey : error.localizedDescription])
-                                    
+                                    if errorWithMessage.code != ErrorCodes.noOrderUpdate{
                                     self.broadcastString(string: "Fail callback called")
+                                    }
                                     if let fail = fail {
                                         fail(errorWithMessage)
                                     }

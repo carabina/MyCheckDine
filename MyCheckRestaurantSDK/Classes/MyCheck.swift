@@ -107,6 +107,14 @@ open class MyCheck{
         }
     }
     
+    open func logout(){
+        if let network = network{
+    network.token = nil
+        network.refreshToken = nil
+        
+        }
+    }
+    
     
     
     
@@ -167,8 +175,13 @@ open class MyCheck{
             }
         }, fail: { error in
             if error.code == ErrorCodes.noOrderUpdate{
+                if MyCheck.logDebugData {
+                    
+                    NotificationCenter.default.post(name:  Notification.Name("MyCheck comunication ouput") , object: "Success callback called")
+                }
                 if let success = success , let order = order {
                     success(order)
+                    
                 }
                 return
             }

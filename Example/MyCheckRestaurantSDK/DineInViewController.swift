@@ -27,6 +27,9 @@ class DineInViewController: UITableViewController {
         super.viewDidLoad()
         MyCheck.shared.poller.delegate = self
         // Do any additional setup after loading the view.
+        
+        restaurantIdField.text = UserDefaults.standard.string(forKey: "BID")
+
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -53,6 +56,10 @@ class DineInViewController: UITableViewController {
             MyCheck.shared.generateCode(hotelId: nil, restaurantId: ID, success: {
                 code in
                 self.codeLabel.text = code
+                if let BID = self.restaurantIdField.text{
+                UserDefaults.standard.set(BID, forKey: "BID")
+                UserDefaults.standard.synchronize()
+                }
                 
             }, fail: {error in
                 
@@ -62,24 +69,23 @@ class DineInViewController: UITableViewController {
     @IBAction func getOrderPressed(_ sender: UIButton) {
         
         MyCheck.shared.getOrder(order: nil, success: { order in
-            
+            self.lastOrder = order
         }, fail: {error in })
     }
     @IBAction func stepperPressed(_ sender: UIStepper) {
         
-        itemsQuantityLabel.text = "\(sender.value)"
-    }
+        itemsQuantityLabel.text = Int(sender.value).description    }
     @IBAction func reorderPressed(_ sender: Any) {
-        if let order = lastOrder , order.items.count > 0{
+             if let order = lastOrder ,let qntStr = itemsQuantityLabel.text, let qnt = Int(qntStr), order.items.count > 0{
             var items :[(Int , Item)] = []
             switch itemsSeg.selectedSegmentIndex {
             case firstSeg:
-                items.append((Int(itemsQuantityLabel.text!)! ,order.items.first! ))
+                items.append((qnt ,order.items.first!))
             case lastSeg:
-                items.append((Int(itemsQuantityLabel.text!)! ,order.items.last! ))
+                items.append((qnt ,order.items.last! ))
             case allSeg:
                 for item in order.items{
-                    items.append((Int(itemsQuantityLabel.text!)! ,item ))
+                    items.append((qnt ,item ))
                 }
             default:
                 break
@@ -88,6 +94,7 @@ class DineInViewController: UITableViewController {
             
             
         }else{//no order
+            
             let alert = UIAlertController(title: "Error", message: "You must have an order with items before reordering. If the order is open press 'Get order' or turn on the poller", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
             present(alert, animated: true, completion: nil)
@@ -103,9 +110,17 @@ class DineInViewController: UITableViewController {
 extension DineInViewController : OrderPollerDelegate{
     func orderUpdated(order:Order){
     pollCount.text = "\(Int(pollCount.text!)! + 1)"
+        lastOrder = order
     }
     func failingToReceiveUpdates(lastReceivedError: Error , failCount:Int){
     terminal(string: "OrderPollerDelegate fail called", success: false)
     }
 
+}
+
+extension DineInViewController : UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

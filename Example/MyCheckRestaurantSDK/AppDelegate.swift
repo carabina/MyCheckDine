@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MyCheck.logDebugData = true
         if !UserDefaults.standard.bool(forKey: "notFirstLaunch"){
             UserDefaults.standard.set("pk_aPLuh3Xf1lKgrynHLusn124as1vDU", forKey: "publishableKey")
-            
+            UserDefaults.standard.set("2", forKey: "BID")
+
             UserDefaults.standard.set("eyJpdiI6ImErWVpjVE9HZG11ZDNQWHBwd1VpRWc9PSIsInZhbHVlIjoiS3VkVnhMZHkxYUo1WlNBOTllZ2hrdz09IiwibWFjIjoiZWExOTFkNjkzYzIyZmJhOGM3NDNkMThiN2MyMDRmODg1YzMwOThiY2NmMzJkM2EyOWM0Y2I2NTg0YTUxMDAyOCJ9", forKey: "refreshToken")
             UserDefaults.standard.set(true, forKey: "notFirstLaunch")
              UserDefaults.standard.synchronize()
