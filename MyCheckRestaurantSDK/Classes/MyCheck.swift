@@ -85,8 +85,8 @@ open class MyCheck{
             return
         }
         
-        let loginFunc = {
-            let request = self.network!.login( refreshToken , success: {token in
+        let loginFunc : () -> Void = {
+          self.network!.login( refreshToken , success: {token in
                 success()
                 
             }, fail: fail)

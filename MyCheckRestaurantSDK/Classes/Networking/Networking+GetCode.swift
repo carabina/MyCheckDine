@@ -19,7 +19,7 @@ extension Networking{
   ///    - success: A block that is called if the call complete succesfully
   ///    - fail: Called when the function fails for any reason
  
-
+    @discardableResult
     func generateCode( hotelId: String?, restaurantId: String, success: @escaping ((String) -> Void) , fail: ((NSError) -> Void)? ) -> Alamofire.Request?{
       
         var params : Parameters = [  "restaurant_id" :  restaurantId]

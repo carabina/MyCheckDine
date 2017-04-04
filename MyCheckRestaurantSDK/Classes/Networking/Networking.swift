@@ -43,6 +43,18 @@ class Networking {
     var publishableKey : String
     var refreshToken: String?
     var token : String?
+    
+    
+    private var _UUID : String? = nil
+    private var UUID : String  {
+        get{
+            if let UUID = _UUID{
+        return UUID
+        }
+            _UUID  = NSUUID().uuidString
+            return _UUID!
+        } }
+    
     init( publishableKey: String , environment: Environment){
         self.environment = environment
         self.publishableKey = publishableKey
@@ -55,6 +67,7 @@ class Networking {
     ///    - success: A block that is called if the user is logged in succesfully
     ///    - fail: Called when the function fails for any reason
     ///
+    @discardableResult
     func login( _ refreshToken: String , success: @escaping ((String) -> Void) , fail: ((NSError) -> Void)? ) -> Alamofire.Request?{
         let params : Parameters = [ "refreshToken": refreshToken , "publishableKey": publishableKey]
         
@@ -86,7 +99,8 @@ class Networking {
     
     
     //MARK: - private functions
-  internal  func request(_ url: String , method: HTTPMethod , parameters: Parameters? = nil , success: (( _ object: [String: Any]  ) -> Void)? , fail: ((NSError) -> Void)? , encoding: ParameterEncoding = URLEncoding.default) -> Alamofire.Request? {
+    @discardableResult
+  internal  func request(_ url: String , method: HTTPMethod , parameters: Parameters? = nil , encoding: ParameterEncoding = URLEncoding.default, success: (( _ object: [String: Any]  ) -> Void)? , fail: ((NSError) -> Void)? ) -> Alamofire.Request? {
 //        guard let token = token  else{
 //            if let fail = fail {
 //                fail(notLoggedInError())
@@ -102,8 +116,13 @@ class Networking {
             }
             finalParams.append(other:params)
         }
-        
-        let request = Alamofire.request( url,method: method , parameters:finalParams , encoding:  encoding)
+    let headers: HTTPHeaders = [
+        "X-Uuid": UUID,
+        "device": UIDevice.current.name,
+        "OSVersion":UIDevice.current.systemVersion
+    ]
+
+    let request = Alamofire.request( url,method: method , parameters:finalParams , encoding:  encoding , headers: headers)
             .validate(statusCode: 200..<201)
             .validate(contentType: ["application/json"])
             .responseString{ response in
@@ -196,7 +215,7 @@ class Networking {
             let bodyStr = NSString(data: body, encoding: String.Encoding.utf8.rawValue)
 
             printIfDebug("BODY IS: ")
-            printIfDebug( bodyStr)
+            printIfDebug( bodyStr ?? "No body")
             
             broadcastString(string: "BODY: ")
             broadcastString(string: bodyStr as! String)

@@ -12,7 +12,8 @@ import Gloss
 extension Networking{
   
   //Place an order to the POS. The items sent will be reordered and served to the user. This will only succeed if their is an open order.
-  open func reorderItems(items: [(amount: Int , item: Item)] , success: @escaping (() -> Void) , fail: ((NSError) -> Void)? ) -> Alamofire.Request?{
+    @discardableResult
+    open func reorderItems(items: [(amount: Int , item: Item)] , success: @escaping (() -> Void) , fail: ((NSError) -> Void)? ) -> Alamofire.Request?{
     
     //creating items JSON
     var itemJSONs :[JSON] = []
@@ -25,8 +26,8 @@ extension Networking{
     }
     let jsonData = try! JSONSerialization.data(withJSONObject: itemJSONs, options: JSONSerialization.WritingOptions())
 
-    let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) as! String
-    var params : Parameters = ["items": jsonString]
+    let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+    let params : Parameters = ["items": jsonString]
     
   
     if let domain = domain {

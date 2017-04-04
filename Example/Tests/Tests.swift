@@ -41,8 +41,8 @@ class BasicFlowTest: QuickSpec {
             MyCheck.shared.generateCode(hotelId: self.hotelId , restaurantId: self.restaurantId, success: {
               code in
               expect(code.characters.count) == 4 // user not logged in
-                // let _ = self.openTabe(code: code)
-                //  let _ = self.addItemsToOpenTable(code: code, BID: self.restaurantId)
+                 let _ = self.openTabe(code: code)
+                  let _ = self.addItemsToOpenTable(code: code, BID: self.restaurantId)
               MyCheck.shared.poller.delegate = self
 
               MyCheck.shared.poller.startPolling()
@@ -58,7 +58,7 @@ class BasicFlowTest: QuickSpec {
 
                     //  expect(MyCheck.shared.poller.order!.items.count ).to( equal( self.updateExpectedValues[self.updatedCount]))//checking that the amount of items reorderd is good
 
-                    //  self.closeTable(code: code, BID: self.restaurantId)
+                      self.closeTable(code: code, BID: self.restaurantId)
 done()
                 }, fail: self.fail)
 

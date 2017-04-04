@@ -19,7 +19,7 @@ extension Networking{
   ///    - success: A block that is called if the call complete succesfully
   ///    - fail: Called when the function fails for any reason
   
-
+    @discardableResult
   func getOrder( orderId: String?, stamp: String?, success: @escaping ((Order) -> Void) , fail: ((NSError) -> Void)? ) -> Alamofire.Request?{
     var params : Parameters = [   :  ]
     
