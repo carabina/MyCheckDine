@@ -29,7 +29,7 @@ s.source           = { :git => 'https://bitbucket.org/erez_spatz/mycheckrestaura
 
   s.ios.deployment_target = '8.0'
   s.source_files = 'MyCheckRestaurantSDK/Classes/**/*'
-s.dependency 'Alamofire', '~> 4.0'
+s.dependency 'MyCheckCore'
 s.dependency   'Gloss', '~> 1.1'
 
   # s.resource_bundles = {

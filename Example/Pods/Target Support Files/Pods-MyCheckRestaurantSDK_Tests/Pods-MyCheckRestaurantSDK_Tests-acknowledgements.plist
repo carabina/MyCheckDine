@@ -75,6 +75,35 @@ SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Copyright (c) 2017 eladsc &lt;eladsc@mycheck.co.il&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</string>
+			<key>License</key>
+			<string>MIT</string>
+			<key>Title</key>
+			<string>MyCheckCore</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>MyCheck SDK License Agreement
 October 2015
 MyCheck Software Development Kit License Agreement
@@ -116,7 +145,7 @@ As used in this Agreement, “Personally Identifiable Information” means infor
 2. Miscellaneous. These terms are governed by the laws of the State of Israel without regard to conflict of laws principles. MyCheck and you agree to submit to the exclusive jurisdiction of the courts located in Tel Aviv, Israel and waive any jurisdictional, venue, or inconvenient forum objections to such courts. The United Nations Convention for the International Sale of Goods shall not apply. You may not assign this Agreement. Any attempted assignment by you shall be void. These terms constitute the entire agreement between you and MyCheck with respect to the Software and supersede all prior written or oral communications, understandings and agreements. Any waiver of these terms must be in writing and signed by the waiving party to be effective. If any provision of these terms is found to be invalid or unenforceable, the remaining terms will continue to be valid and enforceable to the fullest extent permitted by law. Nothing stated in this Agreement will be construed as creating the relationships of joint venturers, partners, employer and employee, franchisor and franchisee, master and servant, or principal and agent. You will be solely responsible for all costs, expenses, and losses associated with its use of the Software and development of any Developer Software.
 </string>
 			<key>License</key>
-			<string>MIT</string>
+			<string>Custom</string>
 			<key>Title</key>
 			<string>MyCheckRestaurantSDK</string>
 			<key>Type</key>

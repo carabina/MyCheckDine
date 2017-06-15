@@ -93,7 +93,9 @@ open class Item: Decodable {
       "Quantity" ~~> amount,
       "Modifiers" ~~> modifierJSONs,
       "Price" ~~> self.price,
-      "Serial_id" ~~> self.serialId
+      "Serial_id" ~~> self.serialId,
+      "Name" ~~> self.name
+
       ])
   }
   

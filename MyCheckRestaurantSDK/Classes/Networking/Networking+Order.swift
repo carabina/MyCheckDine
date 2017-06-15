@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-extension Networking{
+extension Dine{
   
   
   /// Returns the updated order details. if nothing changed an error will be returned. If no order Id is supplied the last order will be returned if it is open.
@@ -20,7 +20,7 @@ extension Networking{
   ///    - fail: Called when the function fails for any reason
   
     @discardableResult
-  func getOrder( orderId: String?, stamp: String?, success: @escaping ((Order) -> Void) , fail: ((NSError) -> Void)? ) -> Alamofire.Request?{
+  func callGetOrder( orderId: String?, stamp: String?, success: @escaping ((Order) -> Void) , fail: ((NSError) -> Void)? ) -> Alamofire.Request?{
     var params : Parameters = [   :  ]
     
     if let orderId = orderId{
