@@ -64,7 +64,7 @@ public class OrderPoller {
       return
     }
     
-    MyCheck.shared.getOrder(order: order, success: {order in
+    Dine.shared.getOrder(order: order, success: {order in
       
       self.failCount = 0 // only counting consecutive fails.
       self.lastUpdate = Date()

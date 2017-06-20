@@ -4,6 +4,7 @@
 import Quick
 import Nimble
 import MyCheckRestaurantSDK
+import MyCheckCore
 class BasicFlowTest: QuickSpec {
   
   let DefaultTimeoutLengthInNanoSeconds = Int64(Double(NSEC_PER_SEC) * 13.0)
@@ -26,33 +27,33 @@ class BasicFlowTest: QuickSpec {
       
       it("can perform all server calls") {
         
-        expect(MyCheck.shared.isLoggedIn()) == false // user not logged in
+        expect(Session.shared.isLoggedIn()) == false // user not logged in
         
         waitUntil(timeout:6000.0) { done in
-          MyCheck.shared.configure("pk_aPLuh3Xf1lKgrynHLusn124as1vDU", environment: .test)
+          Session.shared.configure("pk_fXACc6bLgs3zECbwSZyaXl7NrIa9P", environment: .test)
           sleep(2)
           
           //testing login
-          MyCheck.shared.login("eyJpdiI6ImErWVpjVE9HZG11ZDNQWHBwd1VpRWc9PSIsInZhbHVlIjoiS3VkVnhMZHkxYUo1WlNBOTllZ2hrdz09IiwibWFjIjoiZWExOTFkNjkzYzIyZmJhOGM3NDNkMThiN2MyMDRmODg1YzMwOThiY2NmMzJkM2EyOWM0Y2I2NTg0YTUxMDAyOCJ9" , success: {
+          Session.shared.login("eyJpdiI6IlN3cFBYM2pteUN0SFBFU082aWI0Rmc9PSIsInZhbHVlIjoia1BOejUxbVByUjZDNk1oSzBJM1lteWpvVndyRyt5SHVvbWp5VmRIRGlPaVNQbGxmV0FFNE91RGtVVSttd2h2YyIsIm1hYyI6ImMzZjUxZTNmZGYwMDJmODY4ZmFlYWY5NWNhM2RkZWZkYWVlODg1YWRkOWNiOTBhODMyODE4MjdhMjdhZTVmM2MifQ==" , success: {
             
-            expect(MyCheck.shared.isLoggedIn()) == true // user logged in
+            expect(Session.shared.isLoggedIn()) == true // user logged in
             
             
             //opening a table
-            MyCheck.shared.generateCode(hotelId: self.hotelId , restaurantId: self.restaurantId, success: {
+            Dine.shared.generateCode(hotelId: self.hotelId , restaurantId: self.restaurantId, success: {
               code in
               expect(code.characters.count) == 4 // user not logged in
                  let _ = self.openTabe(code: code)
                   let _ = self.addItemsToOpenTable(code: code, BID: self.restaurantId)
-              MyCheck.shared.poller.delegate = self
+              Dine.shared.poller.delegate = self
 
-              MyCheck.shared.poller.startPolling()
+              Dine.shared.poller.startPolling()
               sleep(2)
               
-              MyCheck.shared.getOrder(order: nil ,success: { order in
+              Dine.shared.getOrder(order: nil ,success: { order in
                 let count = self.updatedCount
                 //  expect(MyCheck.shared.poller.order!.items.count ).to( equal( self.updateExpectedValues[self.updatedCount - 1]))//checking that the amount of items reorderd is good
-                MyCheck.shared.reorderItems(items: [(3, order.items.last!)], success: {
+                Dine.shared.reorderItems(items: [(3, order.items.last!)], success: {
                      let _ = self.flushPendingItemsInPOS(code: code, BID: self.restaurantId)
                     //sleep(7)
                     //  expect(count ).to( equal( 1 + self.updatedCount))//checking that the amount of items reorderd is good

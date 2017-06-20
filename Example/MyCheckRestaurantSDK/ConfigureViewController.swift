@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MyCheckCore
 import MyCheckRestaurantSDK
 class ConfigureViewController: UIViewController {
 
@@ -42,7 +43,7 @@ class ConfigureViewController: UIViewController {
                environment = Environment.production
             }
         if let key = publishableKeyField.text{
-        MyCheck.shared.configure(key , environment: environment)
+        Session.shared.configure(key , environment: environment)
 
             performSegue(withIdentifier: "pushMainApp", sender: nil)
         

@@ -8,6 +8,7 @@
 
 import UIKit
 import MyCheckRestaurantSDK
+import MyCheckCore
 class SessionViewController: SuperViewController {
 
     @IBOutlet weak var connectionLabel: UILabel!
@@ -33,16 +34,16 @@ class SessionViewController: SuperViewController {
  // MARK: - actions
     @IBAction func loginPressed(_ sender: Any) {
         if let refresh = refreshTokenLabel.text{
-            MyCheck.shared.login(refresh, success: {
+            Session.shared.login(refresh, success: {
                self.updateLoggedInUI()
-                UserDefaults.standard.set("eyJpdiI6IlkwRWhvaDBwNHpURWZSRHl3Y3pMZnc9PSIsInZhbHVlIjoiQ0VIU21RS1g1N3FqeWFCdkdIaTdzUT09IiwibWFjIjoiOTE4ZjAwYzAwMWJiZWJhMGRlMDBkZWJjMTIzM2NlYzg3YjdhZGFjNDA4ZTVhMTk5NWM5NjcyMDJmYWZkMGUxYSJ9", forKey: "refreshToken")
+                UserDefaults.standard.set(refresh, forKey: "refreshToken")
                 UserDefaults.standard.synchronize()
             
             }, fail: self.fail)
         }
     }
     @IBAction func logoutPressed(_ sender: Any) {
-        MyCheck.shared.logout()
+        Session.shared.logout()
         updateLoggedInUI()
     }
     /*
@@ -55,11 +56,11 @@ class SessionViewController: SuperViewController {
     }
     */
     private func updateLoggedInUI(){
-        connectionLabel.text = MyCheck.shared.isLoggedIn() ? "Logged in" : "Not logged in"
-        connectionImg.image = MyCheck.shared.isLoggedIn() ? #imageLiteral(resourceName: "led_green") : #imageLiteral(resourceName: "led_red")
+        connectionLabel.text = Session.shared.isLoggedIn() ? "Logged in" : "Not logged in"
+        connectionImg.image = Session.shared.isLoggedIn() ? #imageLiteral(resourceName: "led_green") : #imageLiteral(resourceName: "led_red")
         self.tabBarItem.badgeValue = " "
         if #available(iOS 10.0, *) {
-            self.tabBarItem.badgeColor = MyCheck.shared.isLoggedIn() ? UIColor.green : UIColor.red
+            self.tabBarItem.badgeColor = Session.shared.isLoggedIn() ? UIColor.green : UIColor.red
         } else {
             self.tabBarItem.badgeValue = connectionLabel.text
         }

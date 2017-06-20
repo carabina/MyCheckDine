@@ -25,7 +25,7 @@ class DineInViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        MyCheck.shared.poller.delegate = self
+        Dine.shared.poller.delegate = self
         // Do any additional setup after loading the view.
         
         restaurantIdField.text = UserDefaults.standard.string(forKey: "BID")
@@ -33,7 +33,7 @@ class DineInViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        pollingSwitch.isOn = MyCheck.shared.poller.isPolling()
+        pollingSwitch.isOn = Dine.shared.poller.isPolling()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -53,7 +53,7 @@ class DineInViewController: UITableViewController {
     
     @IBAction func generateCodePressed(_ sender: Any) {
         if let ID = restaurantIdField.text{
-            MyCheck.shared.generateCode(hotelId: nil, restaurantId: ID, success: {
+            Dine.shared.generateCode(hotelId: nil, restaurantId: ID, success: {
                 code in
                 self.codeLabel.text = code
                 if let BID = self.restaurantIdField.text{
@@ -68,7 +68,7 @@ class DineInViewController: UITableViewController {
     }
     @IBAction func getOrderPressed(_ sender: UIButton) {
         
-        MyCheck.shared.getOrder(order: nil, success: { order in
+        Dine.shared.getOrder(order: nil, success: { order in
             self.lastOrder = order
         }, fail: {error in })
     }
@@ -90,7 +90,7 @@ class DineInViewController: UITableViewController {
             default:
                 break
             }
-            MyCheck.shared.reorderItems(items: items, success: {}, fail: {error in })
+            Dine.shared.reorderItems(items: items, success: {}, fail: {error in })
             
             
         }else{//no order
@@ -103,7 +103,7 @@ class DineInViewController: UITableViewController {
     
     @IBAction func pollingSwitched(_ sender: UISwitch) {
         sender.isOn ?
-            MyCheck.shared.poller.startPolling() : MyCheck.shared.poller.stopPolling()
+            Dine.shared.poller.startPolling() : Dine.shared.poller.stopPolling()
     }
 }
 

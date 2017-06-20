@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MyCheckCore
 import MyCheckRestaurantSDK
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,12 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = TerminalModel.shared // initializing the terminal singleton
         
-        MyCheck.logDebugData = true
+        Session.logDebugData = true
         if !UserDefaults.standard.bool(forKey: "notFirstLaunch"){
-            UserDefaults.standard.set("pk_aPLuh3Xf1lKgrynHLusn124as1vDU", forKey: "publishableKey")
+            UserDefaults.standard.set("pk_4eUo454a5WvduVnLadAjFWxrRwHnR", forKey: "publishableKey")
             UserDefaults.standard.set("2", forKey: "BID")
 
-            UserDefaults.standard.set("eyJpdiI6ImErWVpjVE9HZG11ZDNQWHBwd1VpRWc9PSIsInZhbHVlIjoiS3VkVnhMZHkxYUo1WlNBOTllZ2hrdz09IiwibWFjIjoiZWExOTFkNjkzYzIyZmJhOGM3NDNkMThiN2MyMDRmODg1YzMwOThiY2NmMzJkM2EyOWM0Y2I2NTg0YTUxMDAyOCJ9", forKey: "refreshToken")
+            UserDefaults.standard.set("eyJpdiI6ImprMnJDVnVDZzBsXC9BNXBEWE9JRnJ3PT0iLCJ2YWx1ZSI6Ill2NFliVGpMOHk0QkVhT25BdHk2U3duS1k0WXJrZ2xPeW5aQVhUWWt5c1wvbjZiSGJndExOZEpcL2Z1bmdUMHV2diIsIm1hYyI6IjhjMzcwMWRjYWYxYWM5NTFiYmUyNjUwNTI2MGQ2NDlkMWFjZjZjNzIyZTgxOTRjN2QyMGMwN2JmM2MyYzc3NjIifQ==", forKey: "refreshToken")
             UserDefaults.standard.set(true, forKey: "notFirstLaunch")
              UserDefaults.standard.synchronize()
 
