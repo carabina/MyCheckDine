@@ -4,6 +4,7 @@ target 'MyCheckDine_Example' do
   pod 'MyCheckRestaurantSDK', :path => '../'
   pod 'MyCheckCore', :path => '../../MyCheck-Core'
   pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
+  pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
 
   target 'MyCheckDine_Tests' do
     inherit! :search_paths

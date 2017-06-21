@@ -26,7 +26,11 @@ class WalletUIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Setting up switchs to the last setup
+        applePaySwitch.setOn(LocalData.enabledState(for: .applePay), animated: false)
+        masterPassSwitch.setOn(LocalData.enabledState(for: .masterPass), animated: false)
+        payPalSwitch.setOn(LocalData.enabledState(for: .payPal), animated: false)
+        visaCheckoutSwitch.setOn(LocalData.enabledState(for: .visaCheckout), animated: false)
     }
 
     override func viewWillAppear(_ animated: Bool){
@@ -71,8 +75,11 @@ class WalletUIViewController: UIViewController {
     }
     
     @IBAction func walletTypeSwitchValueChanged(_ sender: UISwitch) {
-        //TO-DO
+       LocalData.saveEnableState(for: methodType(for: sender), isEnabled: sender.isOn)
     }
+    
+    
+    
 }
 
 extension WalletUIViewController : CheckoutDelegate {
@@ -94,3 +101,23 @@ extension WalletUIViewController : MCPaymentMethodsViewControllerDelegate{
         controller.dismiss(animated: true, completion: nil)
     }
 }
+
+//private helper methods
+extension WalletUIViewController{
+    fileprivate func methodType(for uiSwitch: UISwitch) -> PaymentMethodType{
+        switch uiSwitch {
+        case payPalSwitch:
+            return .payPal
+        case masterPassSwitch:
+            return .masterPass
+        case applePaySwitch:
+            return .applePay
+        case visaCheckoutSwitch:
+            return .visaCheckout
+            
+        default:
+            return .non
+        }
+    }
+}
+

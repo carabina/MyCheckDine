@@ -9,6 +9,7 @@
 import UIKit
 import MyCheckCore
 import MyCheckRestaurantSDK
+import MyCheckWalletUI
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -19,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = TerminalModel.shared // initializing the terminal singleton
         
+        
         Session.logDebugData = true
+       
         if !UserDefaults.standard.bool(forKey: "notFirstLaunch"){
             UserDefaults.standard.set("pk_4eUo454a5WvduVnLadAjFWxrRwHnR", forKey: "publishableKey")
             UserDefaults.standard.set("2", forKey: "BID")
@@ -29,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              UserDefaults.standard.synchronize()
 
         }
+        
+       
         return true
     }
 
