@@ -1,6 +1,6 @@
 //
 //  ConfigureViewController.swift
-//  MyCheckRestaurantSDK
+//  MyCheckDine
 //
 //  Created by elad schiller on 1/3/17.
 //  Copyright © 2017 CocoaPods. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 import MyCheckCore
-import MyCheckRestaurantSDK
+import MyCheckDine
 import MyCheckWalletUI
 class ConfigureViewController: UIViewController {
     
@@ -48,12 +48,13 @@ class ConfigureViewController: UIViewController {
             //This code should normaly be after launch in the application delegate.
             Session.shared.configure(key , environment: environment)
             //setting up wallet according to what the user selected.
-            if LocalData.enabledState(for: .payPal){
-                PaypalFactory.initiate("com.mycheck.MyCheckRestaurantSDK-Example")
+            if LocalDataa.enabledState(for: .payPal){
+                PaypalFactory.initiate("com.mycheck.MyCheckDine-Example")
                 
             }
-            performSegue(withIdentifier: "pushMainApp", sender: nil)
-            
+            if LocalDataa.enabledState(for: .applePay){
+            ApplePayFactory.initiate("com.mycheck.MyCheckWalletUI")
+            }
         }else{
             let alert = UIAlertController(title: "Error", message: "Please enter publishable key to continue", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))

@@ -1,13 +1,13 @@
 //
 //  ViewController.swift
-//  MyCheckRestaurantSDK
+//  MyCheckDine
 //
 //  Created by elad schiller on 12/25/2016.
 //  Copyright (c) 2016 elad schiller. All rights reserved.
 //
 
 import UIKit
-import MyCheckRestaurantSDK
+import MyCheckDine
 class ViewController: UIViewController {
 
     override func viewDidLoad() {

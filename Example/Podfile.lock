@@ -18,7 +18,7 @@ PODS:
   - Kingfisher (3.10.2)
   - MyCheckCore (0.0.7):
     - Alamofire (~> 4.0)
-  - MyCheckRestaurantSDK (0.1.0):
+  - MyCheckDine (0.1.0):
     - Gloss (~> 1.1)
     - MyCheckCore
   - MyCheckWalletUI (0.0.14):
@@ -39,7 +39,7 @@ PODS:
 
 DEPENDENCIES:
   - MyCheckCore (from `../../MyCheck-Core`)
-  - MyCheckRestaurantSDK (from `../`)
+  - MyCheckDine (from `../`)
   - MyCheckWalletUI (from `../../MyCheckWalletUI`)
   - MyCheckWalletUI/PayPal (from `../../MyCheckWalletUI`)
   - Nimble (~> 5.1.1)
@@ -48,7 +48,7 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   MyCheckCore:
     :path: ../../MyCheck-Core
-  MyCheckRestaurantSDK:
+  MyCheckDine:
     :path: ../
   MyCheckWalletUI:
     :path: ../../MyCheckWalletUI
@@ -59,11 +59,11 @@ SPEC CHECKSUMS:
   Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
   Kingfisher: 7297492bf8cec9b2e2dee3519f2219948580d98e
   MyCheckCore: 2c0ae300c59ca78be5caf935389589b9de5cbfd3
-  MyCheckRestaurantSDK: ef18b330e20124a8a3a019af57c7d25c26ad86c8
-  MyCheckWalletUI: 464324929dbb363a3ccaae67ae5a3994f54584c3
+  MyCheckDine: 9d877d323249ca4441ec1fbbb2807dc254b18835
+  MyCheckWalletUI: 4d564d4a8ea85b90b9873dc4c31b806ad5c058cb
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
 
-PODFILE CHECKSUM: 92b36cec16ac7a3eb7eee59a1fddd7be16c42a90
+PODFILE CHECKSUM: c29e76abb49e6c873a462655d78e57ea5a87218f
 
 COCOAPODS: 1.2.0.beta.3

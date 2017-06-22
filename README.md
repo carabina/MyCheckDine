@@ -24,7 +24,7 @@ You can add YOUR_USER_NAME@ before the 'bitbucket.org' so the pod tool won't nee
 Inside the target add:
 
 ```
-pod "MyCheckRestaurantSDK"
+pod "MyCheckDine"
 ```
 Now you can run 'pod install'
 
@@ -33,13 +33,13 @@ The MyCheck Singleton will be the single point of contact that will allow you to
 
 Start by adding
 ```
-import MyCheckRestaurantSDK
+import MyCheckDine
 ```
 
 
 to the top of the class where you want to use MyCheck.
 
-In your app delegate's `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?)` function call the configure function of the MyCheckRestaurantSDK singleton:
+In your app delegate's `application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?)` function call the configure function of the MyCheckDine singleton:
 
 ```
 MyCheck.shared.configure(YOUR_PUBLISHABLE_KEY, environment: .sandbox)

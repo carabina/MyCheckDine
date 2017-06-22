@@ -20,7 +20,7 @@
                         <sections>
                             <tableViewSection id="Xwr-Iz-fpy">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="400" id="Yr5-gQ-1lk">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="400" id="Yr5-gQ-1lk">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yr5-gQ-1lk" id="bhI-UJ-fcH">
@@ -530,7 +530,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgy-Je-RvZ">
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgy-Je-RvZ">
                                                                 <rect key="frame" x="286" y="0.0" width="51" height="31"/>
                                                                 <connections>
                                                                     <action selector="walletTypeSwitchValueChanged:" destination="esY-ET-0Jo" eventType="valueChanged" id="lJW-kF-595"/>

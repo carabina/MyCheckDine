@@ -1,13 +1,13 @@
 //
 //  SessionViewController.swift
-//  MyCheckRestaurantSDK
+//  MyCheckDine
 //
 //  Created by elad schiller on 1/4/17.
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 
 import UIKit
-import MyCheckRestaurantSDK
+import MyCheckDine
 import MyCheckCore
 class SessionViewController: SuperViewController {
 

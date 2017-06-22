@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  MyCheckRestaurantSDK
+//  MyCheckDine
 //
 //  Created by elad schillerrr on 12/25/2016.
 //  Copyright (c) 2016 MyCheck LTD. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 import MyCheckCore
-import MyCheckRestaurantSDK
+import MyCheckDine
 import MyCheckWalletUI
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

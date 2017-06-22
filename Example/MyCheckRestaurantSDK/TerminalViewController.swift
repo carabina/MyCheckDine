@@ -1,6 +1,6 @@
 //
 //  TerminalViewController.swift
-//  MyCheckRestaurantSDK
+//  MyCheckDine
 //
 //  Created by elad schiller on 1/3/17.
 //  Copyright © 2017 CocoaPods. All rights reserved.
@@ -82,7 +82,7 @@ class TerminalViewController: UIViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        mailComposerVC.setSubject("MyCheckRestaurantSDK iOS example app output")
+        mailComposerVC.setSubject("MyCheckDine iOS example app output")
         mailComposerVC.setMessageBody(terminalView.text, isHTML: false)
         
         return mailComposerVC

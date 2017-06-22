@@ -3,7 +3,7 @@
 
 import Quick
 import Nimble
-import MyCheckRestaurantSDK
+import MyCheckDine
 import MyCheckCore
 class BasicFlowTest: QuickSpec {
   
