@@ -1,0 +1,30 @@
+{
+  "name": "MyCheckDine",
+  "version": "0.1.0",
+  "summary": "A SDK that enables the developer to open a table at a restaurant, follow the order and reorder items.",
+  "description": "README.md",
+  "homepage": "http://www.mycheck.io/",
+  "license": {
+    "type": "Custom",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "elad schiller": "eladsc@mycheck.co.il"
+  },
+  "source": {
+    "git": "https://bitbucket.org/erez_spatz/mycheckrestaurantsdk-ios.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MyCheckDine/Classes/**/*",
+  "dependencies": {
+    "MyCheckCore": [
+
+    ],
+    "Gloss": [
+      "~> 1.1"
+    ]
+  }
+}

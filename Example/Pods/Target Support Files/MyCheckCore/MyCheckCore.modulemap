@@ -1,0 +1,6 @@
+framework module MyCheckCore {
+  umbrella header "MyCheckCore-umbrella.h"
+
+  export *
+  module * { export * }
+}

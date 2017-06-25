@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MyCheck Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/MyCheck" class="dashAnchor"></a>
+    <a title="MyCheck Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">MyCheckRestaurantSDK Docs</a> (90% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">MyCheckRestaurantSDK Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MyCheck Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Item.html">Item</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MyCheck.html">MyCheck</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Order.html">Order</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OrderPoller.html">OrderPoller</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PaymentRequest.html">PaymentRequest</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Environment.html">Environment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Status.html">Status</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/OrderPollerDelegate.html">OrderPollerDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Bill.html">Bill</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Settings.html">Settings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TaxSettings.html">TaxSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserSummary.html">UserSummary</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MyCheck</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">MyCheck</span></code></pre>
+
+                </div>
+              </div>
+            <p>MyCheckWallet is a singleton that will give you access to all of the MyCheck functionality. It has all the calls needed to manage a user&rsquo;s payment methods.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZvC20MyCheckRestaurantSDK7MyCheck12logDebugDataSb"></a>
+                    <a name="//apple_ref/swift/Variable/logDebugData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvC20MyCheckRestaurantSDK7MyCheck12logDebugDataSb">logDebugData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If set to true the SDK will print to the log otherwise it will not</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">logDebugData</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZvC20MyCheckRestaurantSDK7MyCheck6sharedS0_"></a>
+                    <a name="//apple_ref/swift/Variable/shared" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvC20MyCheckRestaurantSDK7MyCheck6sharedS0_">shared</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This property points to the singleton object. It should be used for calling all the functions in the class.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">shared</span> <span class="o">=</span> <span class="kt">MyCheck</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC20MyCheckRestaurantSDK7MyCheck6pollerCS_11OrderPoller"></a>
+                    <a name="//apple_ref/swift/Property/poller" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC20MyCheckRestaurantSDK7MyCheck6pollerCS_11OrderPoller">poller</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>When activated this object polls the MyCheck server in order to fetch order updates. Call The startPolling function and set the delegate in order to receive updates. You should generally use the poller starting when a 4 digit code is created until the order is closed or canceled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">poller</span> <span class="o">=</span> <span class="kt"><a href="../Classes/OrderPoller.html">OrderPoller</a></span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC20MyCheckRestaurantSDK7MyCheck9configureFTSS11environmentOS_11Environment_T_"></a>
+                    <a name="//apple_ref/swift/Method/configure(_:environment:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC20MyCheckRestaurantSDK7MyCheck9configureFTSS11environmentOS_11Environment_T_">configure(_:environment:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets up the SDK to work on the desired environment with the preferences specified for the publishable key passed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">configure</span><span class="p">(</span><span class="n">_</span> <span class="nv">publishableKey</span><span class="p">:</span> <span class="kt">String</span> <span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="kt"><a href="../Enums/Environment.html">Environment</a></span> <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>publishableKey</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The publishable key created for your app.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>environment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The environment you want to work with (production , sandbox or test).</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC20MyCheckRestaurantSDK7MyCheck5loginFTSS7successFT_T_4failGSqFCSo7NSErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/login(_:success:fail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC20MyCheckRestaurantSDK7MyCheck5loginFTSS7successFT_T_4failGSqFCSo7NSErrorT___T_">login(_:success:fail:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Login a user and get an access_token that can be used for getting and setting data on the user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">login</span><span class="p">(</span> <span class="n">_</span> <span class="nv">refreshToken</span><span class="p">:</span> <span class="kt">String</span>  <span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">,</span> <span class="nv">fail</span><span class="p">:</span> <span class="p">((</span><span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>refreshToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The refresh token acquired from your server (that intern calls the MyCheck server that generates it)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>publishableKey</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The publishable key used for the refresh token</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block that is called if the user is logged in successfully</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called when the function fails for any reason</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC20MyCheckRestaurantSDK7MyCheck10isLoggedInFT_Sb"></a>
+                    <a name="//apple_ref/swift/Method/isLoggedIn()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC20MyCheckRestaurantSDK7MyCheck10isLoggedInFT_Sb">isLoggedIn()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Check if a user is logged in or not</p>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    True if the user is logged in and false otherwise.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">isLoggedIn</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>True if the user is logged in and false otherwise.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC20MyCheckRestaurantSDK7MyCheck12generateCodeFT7hotelIdGSqSS_12restaurantIdSS7successFSST_4failGSqFCSo7NSErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/generateCode(hotelId:restaurantId:success:fail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC20MyCheckRestaurantSDK7MyCheck12generateCodeFT7hotelIdGSqSS_12restaurantIdSS7successFSST_4failGSqFCSo7NSErrorT___T_">generateCode(hotelId:restaurantId:success:fail:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The code generated by the MyCheck server is valid for a limited time, for a specific user in a specific location. The server returns a 4 digit code to the recipient. This code, when entered into the POS enables MyCheck to sync the client with his order on the POS and can start receiving order updates and perform actions on it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">generateCode</span><span class="p">(</span><span class="nv">hotelId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">,</span> <span class="nv">restaurantId</span><span class="p">:</span> <span class="kt">String</span> <span class="p">,</span>  <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">,</span> <span class="nv">fail</span><span class="p">:</span> <span class="p">((</span><span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hotelId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Id of the hotel the venue belongs to. [Optional]</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>restaurantId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The restaurants Id.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block that is called if the call complete successfully</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called when the function fails for any reason</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC20MyCheckRestaurantSDK7MyCheck8getOrderFT5orderGSqCS_5Order_7successGSqFS1_T__4failGSqFCSo7NSErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/getOrder(order:success:fail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC20MyCheckRestaurantSDK7MyCheck8getOrderFT5orderGSqCS_5Order_7successGSqFS1_T__4failGSqFCSo7NSErrorT___T_">getOrder(order:success:fail:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the updated order details.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">getOrder</span><span class="p">(</span> <span class="nv">order</span><span class="p">:</span> <span class="kt"><a href="../Classes/Order.html">Order</a></span><span class="p">?</span> <span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/Order.html">Order</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">,</span> <span class="nv">fail</span><span class="p">:</span> <span class="p">((</span><span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>order</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The last order received. This is used in order to send the stamp (md5) an thus save the server from regenerating the order if nothing has changed.   [Optional]</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block that is called if the call complete successfully</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called when the function fails for any reason</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC20MyCheckRestaurantSDK7MyCheck11makePaymentFT7requestCS_14PaymentRequest12paymentTokenSS_T_"></a>
+                    <a name="//apple_ref/swift/Method/makePayment(request:paymentToken:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC20MyCheckRestaurantSDK7MyCheck11makePaymentFT7requestCS_14PaymentRequest12paymentTokenSS_T_">makePayment(request:paymentToken:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Make a payment for an order</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">makePayment</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/PaymentRequest.html">PaymentRequest</a></span> <span class="p">,</span> <span class="nv">paymentToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The details of the payment that should be charged</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The payment method token that should be used in order to charge the user.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC20MyCheckRestaurantSDK7MyCheck12reorderItemsFT5itemsGSaT6amountSi4itemCS_4Item__7successGSqFT_T__4failGSqFCSo7NSErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/reorderItems(items:success:fail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC20MyCheckRestaurantSDK7MyCheck12reorderItemsFT5itemsGSaT6amountSi4itemCS_4Item__7successGSqFT_T__4failGSqFCSo7NSErrorT___T_">reorderItems(items:success:fail:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Place an order to the POS. The items sent will be reordered and served to the user. This will only succeed if their is an open order.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">reorderItems</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="p">[(</span><span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">,</span> <span class="nv">item</span><span class="p">:</span> <span class="kt"><a href="../Classes/Item.html">Item</a></span><span class="p">)]</span> <span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">,</span> <span class="nv">fail</span><span class="p">:</span> <span class="p">((</span><span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>items</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An array of tuples where the first parameter is an Int that represents the amount of ‘item’ to order and the second parameter is the item to reorder.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block that is called if the call complete successfully</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called when the function fails for any reason</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>MyCheck</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

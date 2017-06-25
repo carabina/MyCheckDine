@@ -1,6 +1,0 @@
-framework module MyCheckRestaurantSDK {
-  umbrella header "MyCheckRestaurantSDK-umbrella.h"
-
-  export *
-  module * { export * }
-}

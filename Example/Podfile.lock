@@ -25,6 +25,10 @@ PODS:
     - Kingfisher (~> 3.0)
     - MyCheckCore
     - MyCheckWalletUI/Core (= 0.0.14)
+  - MyCheckWalletUI/ApplePay (0.0.14):
+    - Kingfisher (~> 3.0)
+    - MyCheckCore
+    - MyCheckWalletUI/Core
   - MyCheckWalletUI/Core (0.0.14):
     - Kingfisher (~> 3.0)
     - MyCheckCore
@@ -41,6 +45,7 @@ DEPENDENCIES:
   - MyCheckCore (from `../../MyCheck-Core`)
   - MyCheckDine (from `../`)
   - MyCheckWalletUI (from `../../MyCheckWalletUI`)
+  - MyCheckWalletUI/ApplePay (from `../../MyCheckWalletUI`)
   - MyCheckWalletUI/PayPal (from `../../MyCheckWalletUI`)
   - Nimble (~> 5.1.1)
   - Quick (~> 1.0.0)
@@ -60,10 +65,10 @@ SPEC CHECKSUMS:
   Kingfisher: 7297492bf8cec9b2e2dee3519f2219948580d98e
   MyCheckCore: 2c0ae300c59ca78be5caf935389589b9de5cbfd3
   MyCheckDine: 9d877d323249ca4441ec1fbbb2807dc254b18835
-  MyCheckWalletUI: 4d564d4a8ea85b90b9873dc4c31b806ad5c058cb
+  MyCheckWalletUI: 2d1509abaec246c0b116383dd5d7e4bac81b1161
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
 
-PODFILE CHECKSUM: c29e76abb49e6c873a462655d78e57ea5a87218f
+PODFILE CHECKSUM: d291724233b07925831879c994dfd707be48be5c
 
 COCOAPODS: 1.2.0.beta.3

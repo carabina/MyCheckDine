@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4D1D4DE678EFE06B0EC4CEFD3952EF6D2306567B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "96C3624047D866750E5BEA5981E1F554BCCD0768" : 9223372036854775807,
+    "5E2598217CBA39E90E74156492C7A949A1684F0A" : 9223372036854775807,
+    "4D1D4DE678EFE06B0EC4CEFD3952EF6D2306567B" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "13084003-C035-40E6-82F9-E46B9F238F35",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "96C3624047D866750E5BEA5981E1F554BCCD0768" : "MyCheck-Core\/",
+    "5E2598217CBA39E90E74156492C7A949A1684F0A" : "MyCheckWalletUI\/",
+    "4D1D4DE678EFE06B0EC4CEFD3952EF6D2306567B" : "MyCheckRestaurantSDK\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MyCheckRestaurantSDK",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/MyCheckRestaurantSDK.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/erez_spatz\/mycheckrestaurantsdk-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4D1D4DE678EFE06B0EC4CEFD3952EF6D2306567B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/erez_spatz\/mycheckwalletui-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5E2598217CBA39E90E74156492C7A949A1684F0A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/erez_spatz\/mycheckcore-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "96C3624047D866750E5BEA5981E1F554BCCD0768"
+    }
+  ]
+}

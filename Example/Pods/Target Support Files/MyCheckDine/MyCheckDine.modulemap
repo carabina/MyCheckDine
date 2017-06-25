@@ -1,0 +1,6 @@
+framework module MyCheckDine {
+  umbrella header "MyCheckDine-umbrella.h"
+
+  export *
+  module * { export * }
+}

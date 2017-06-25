@@ -55,6 +55,8 @@ class ConfigureViewController: UIViewController {
             if LocalDataa.enabledState(for: .applePay){
             ApplePayFactory.initiate("com.mycheck.MyCheckWalletUI")
             }
+            performSegue(withIdentifier: "pushMainApp", sender: nil)
+
         }else{
             let alert = UIAlertController(title: "Error", message: "Please enter publishable key to continue", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
