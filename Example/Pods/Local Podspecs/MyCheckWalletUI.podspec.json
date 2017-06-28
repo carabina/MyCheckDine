@@ -34,7 +34,8 @@
       "source_files": [
         "MyCheckWalletUI/Classes/*",
         "MyCheckWalletUI/Classes/ViewControllers/*",
-        "MyCheckWalletUI/Classes/extensionTools/*"
+        "MyCheckWalletUI/Classes/extensionTools/*",
+        "MyCheckWalletUI/Classes/interfaces/*"
       ],
       "resource_bundles": {
         "MyCheckWalletUI": [

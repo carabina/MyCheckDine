@@ -24,10 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Session.logDebugData = true
        
         if !UserDefaults.standard.bool(forKey: "notFirstLaunch"){
-            UserDefaults.standard.set("pk_4eUo454a5WvduVnLadAjFWxrRwHnR", forKey: "publishableKey")
+            UserDefaults.standard.set("pk_osz6r1mWpO7e5FqOHbeIP7CIYg0Gs", forKey: "publishableKey")
             UserDefaults.standard.set("2", forKey: "BID")
 
-            UserDefaults.standard.set("eyJpdiI6ImprMnJDVnVDZzBsXC9BNXBEWE9JRnJ3PT0iLCJ2YWx1ZSI6Ill2NFliVGpMOHk0QkVhT25BdHk2U3duS1k0WXJrZ2xPeW5aQVhUWWt5c1wvbjZiSGJndExOZEpcL2Z1bmdUMHV2diIsIm1hYyI6IjhjMzcwMWRjYWYxYWM5NTFiYmUyNjUwNTI2MGQ2NDlkMWFjZjZjNzIyZTgxOTRjN2QyMGMwN2JmM2MyYzc3NjIifQ==", forKey: "refreshToken")
+            UserDefaults.standard.set("eyJpdiI6Im5HdlNmZ1RoVEppcVpcL0phUkVwbU93PT0iLCJ2YWx1ZSI6Ilp3dHRZM2haS3lzV285MU5iNHJRUDVxWGk5eStZY2RnbFA2V2x1cFlWTm1Hb0JoQlUzM01qSTRVN1JLNktHNHoiLCJtYWMiOiI0NmFhY2E0ZTY0NDEwYTFmYWY3NDE5MjVlZTQyNmQ4YmQ5YTFmYjNmYTY3NjVlY2VhYjc1ZGI3YTMzN2M5ODVmIn0=", forKey: "refreshToken")
             UserDefaults.standard.set(true, forKey: "notFirstLaunch")
              UserDefaults.standard.synchronize()
 
