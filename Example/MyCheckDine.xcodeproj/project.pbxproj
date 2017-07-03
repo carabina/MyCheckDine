@@ -79,6 +79,7 @@
 		B270D7F91E1BFB46009BA1E2 /* TerminalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
 		B27D02DB1E1CDE310099E514 /* TerminalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalModel.swift; sourceTree = "<group>"; };
 		B27D02DD1E1CE2900099E514 /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
+		B2C0DB3B1F0A5C21001E4BAA /* MyCheckDine_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyCheckDine_Example.entitlements; sourceTree = "<group>"; };
 		B2CBB8E01E193197001F9827 /* MyCheckDine_Example copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyCheckDine_Example copy-Info.plist"; sourceTree = "<group>"; };
 		B2F31E1C1EF9500200071869 /* WalletUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletUIViewController.swift; sourceTree = "<group>"; };
 		B2F31E1F1EF96D4800071869 /* LocalDataa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDataa.swift; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				B2C0DB3B1F0A5C21001E4BAA /* MyCheckDine_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for MyCheckRestaurantSDK */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -299,6 +301,11 @@
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 2NY9PDA74K;
 						LastSwiftMigration = 0820;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+						};
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -594,6 +601,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MyCheckDine_Example.entitlements;
 				DEVELOPMENT_TEAM = 2NY9PDA74K;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = MyCheckRestaurantSDK/Info.plist;
@@ -612,6 +620,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MyCheckDine_Example.entitlements;
 				DEVELOPMENT_TEAM = 2NY9PDA74K;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = MyCheckRestaurantSDK/Info.plist;

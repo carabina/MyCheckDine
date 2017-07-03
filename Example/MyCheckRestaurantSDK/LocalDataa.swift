@@ -8,6 +8,7 @@
 
 import Foundation
 import MyCheckWalletUI
+import MyCheckCore
 struct LocalDataa{
 
     static func saveEnableState(for type:PaymentMethodType ,isEnabled enabled:Bool ){

@@ -49,11 +49,11 @@ class ConfigureViewController: UIViewController {
             Session.shared.configure(key , environment: environment)
             //setting up wallet according to what the user selected.
             if LocalDataa.enabledState(for: .payPal){
-                PaypalFactory.initiate("com.mycheck.MyCheckDine-Example")
+                //   PaypalFactory.initiate("com.mycheck.MyCheckDine-Example")
                 
             }
             if LocalDataa.enabledState(for: .applePay){
-            ApplePayFactory.initiate("com.mycheck.MyCheckWalletUI")
+            ApplePayFactory.initiate(merchantIdentifier: "merchant.com.mycheck")
             }
             performSegue(withIdentifier: "pushMainApp", sender: nil)
 

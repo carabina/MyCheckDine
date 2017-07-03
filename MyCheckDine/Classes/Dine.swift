@@ -44,15 +44,35 @@ public class Dine{
     ///
     ///    - parameter hotelId: The Id of the hotel the venue belongs to. [Optional]
     ///    - parameter restaurantId: The restaurants Id.
+    ///    - parameter displayDelegate:A delegate method that will call functions in order to display and remove view controllers. When using Apple Pay the parameter must be set or else an error will be returned. This is because the user must use touch Id to approve the future payment.
+    ///    - parameter applePayController: Enables the use of Apple Pay. you can equire one from the Wallet singleton.
     ///    - parameter success: A block that is called if the call complete successfully
     ///    - parameter fail: Called when the function fails for any reason
-    
-    open func generateCode(hotelId: String? , restaurantId: String ,  success: @escaping ((String) -> Void) , fail: ((NSError) -> Void)? ) {
+    private var a : PaymentMethodInterface? //TO-DO I added this because of a bad access crash. need to find a better way...
+    open func generateCode(hotelId: String? , restaurantId: String ,displayDelegate: DisplayViewControllerDelegate? = nil, applePayController:ApplePayController? = nil, success: @escaping ((String) -> Void) , fail: ((NSError) -> Void)? ) {
         
-        //        network?.generateCode(hotelId: hotelId, restaurantId: restaurantId, success: { code in
-        //            self.lastOrder = nil //If we had an open order we will want to ditch it at this point.
-        //            success(code)
-        //        }, fail: fail)
+        guard let applePayController = applePayController ,  let method = applePayController.getApplePayPaymentMethod() else {
+            callGenerateCode(hotelId: hotelId, restaurantId: restaurantId, success: success, fail: fail)
+            
+            return
+        }
+        a = method
+
+        if method.isDefault{
+        method.generatePaymentToken(for: nil, displayDelegate: displayDelegate, success: {token in
+            self.callGenerateCode(hotelId: hotelId, restaurantId: restaurantId, success: success, fail: fail)
+        }, fail: {error in
+            if let fail = fail{
+                fail(error)
+            }
+        })
+        }else{
+            self.callGenerateCode(hotelId: hotelId, restaurantId: restaurantId, success: success, fail: fail)
+
+        }
+    }
+    
+    private func callGenerateCode(hotelId: String? , restaurantId: String , success: @escaping ((String) -> Void) , fail: ((NSError) -> Void)? ) {
         
         var params : [String: Any] = [  "restaurant_id" :  restaurantId]
         
@@ -80,8 +100,6 @@ public class Dine{
             }
         }
     }
-    
-    
     
     
     /// Returns the updated order details.

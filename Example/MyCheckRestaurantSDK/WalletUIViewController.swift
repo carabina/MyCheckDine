@@ -58,20 +58,36 @@ class WalletUIViewController: UIViewController {
         
         //when a payment method is available you can get the method from the checkoutViewController using the selectedMethod variable. If it's nil non exist
         if let method = checkoutViewController!.selectedMethod {
-            message =  " " + " token: " + method.token
-            UIPasteboard.general.string = method.token
+            method.generatePaymentToken(for: nil, displayDelegate: self, success: {token in
+                message =  " " + " token: " + token
+                UIPasteboard.general.string = token
+               
+                
+                let alert = UIAlertController(title: "paying with:", message: message, preferredStyle: .alert);
+                let defaultAction = UIAlertAction(title: NSLocalizedString("Ok", comment: "alert ok but"), style: .default, handler:
+                {(alert: UIAlertAction!) in
+                    
+                    
+                })
+                alert.addAction(defaultAction)
+                self.present(alert, animated: true, completion: nil)
+            }, fail: {error in
+            
+                let alert = UIAlertController(title: "error", message: error.localizedDescription, preferredStyle: .alert);
+                let defaultAction = UIAlertAction(title: NSLocalizedString("Ok", comment: "alert ok but"), style: .default, handler:
+                {(alert: UIAlertAction!) in
+                    
+                    
+                })
+                alert.addAction(defaultAction)
+                self.present(alert, animated: true, completion: nil)
+            })
+            
             
         }
         
         
-        let alert = UIAlertController(title: "paying with:", message: message, preferredStyle: .alert);
-        let defaultAction = UIAlertAction(title: NSLocalizedString("Ok", comment: "alert ok but"), style: .default, handler:
-        {(alert: UIAlertAction!) in
-            
-            
-        })
-        alert.addAction(defaultAction)
-        self.present(alert, animated: true, completion: nil)
+        
     }
     
     @IBAction func walletTypeSwitchValueChanged(_ sender: UISwitch) {
@@ -121,3 +137,13 @@ extension WalletUIViewController{
     }
 }
 
+extension WalletUIViewController: DisplayViewControllerDelegate{
+    func display(viewController: UIViewController) {
+        self.present(viewController, animated: true, completion: nil)
+    }
+    func dismiss(viewController: UIViewController) {
+        viewController.dismiss(animated: true, completion: nil)
+    }
+
+
+}

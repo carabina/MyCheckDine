@@ -61,8 +61,9 @@ class SessionViewController: SuperViewController {
         self.tabBarItem.badgeValue = " "
         if #available(iOS 10.0, *) {
             self.tabBarItem.badgeColor = Session.shared.isLoggedIn() ? UIColor.green : UIColor.red
-        } else {
-            self.tabBarItem.badgeValue = connectionLabel.text
+        }else{
+            self.tabBarItem.badgeValue =  Session.shared.isLoggedIn() ? nil : " "
+
         }
 
     }

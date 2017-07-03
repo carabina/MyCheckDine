@@ -8,6 +8,8 @@
 
 import UIKit
 import MyCheckDine
+import MyCheckWalletUI
+import MyCheckCore
 class DineInViewController: UITableViewController {
     
     @IBOutlet weak var restaurantIdField: UITextField!
@@ -53,17 +55,16 @@ class DineInViewController: UITableViewController {
     
     @IBAction func generateCodePressed(_ sender: Any) {
         if let ID = restaurantIdField.text{
-            Dine.shared.generateCode(hotelId: nil, restaurantId: ID, success: {
-                code in
-                self.codeLabel.text = code
-                if let BID = self.restaurantIdField.text{
-                UserDefaults.standard.set(BID, forKey: "BID")
-                UserDefaults.standard.synchronize()
-                }
-                
-            }, fail: {error in
-                
-            })
+            
+            Dine.shared.generateCode(hotelId: nil, restaurantId: ID, displayDelegate: self, applePayController: Wallet.shared.applePayController, success: {
+                    code in
+                    self.codeLabel.text = code
+                    if let BID = self.restaurantIdField.text{
+                        UserDefaults.standard.set(BID, forKey: "BID")
+                        UserDefaults.standard.synchronize()
+                    }
+            }, fail: nil)
+        
         }
     }
     @IBAction func getOrderPressed(_ sender: UIButton) {
@@ -122,5 +123,14 @@ extension DineInViewController : UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension DineInViewController : DisplayViewControllerDelegate{
+    func display(viewController: UIViewController) {
+        self.present(viewController, animated: true, completion: nil)
+    }
+    func dismiss(viewController: UIViewController) {
+        viewController.dismiss(animated: true, completion: nil)
     }
 }
