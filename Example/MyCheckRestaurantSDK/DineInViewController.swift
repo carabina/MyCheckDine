@@ -63,15 +63,19 @@ class DineInViewController: UITableViewController {
                         UserDefaults.standard.set(BID, forKey: "BID")
                         UserDefaults.standard.synchronize()
                     }
-            }, fail: nil)
+            }, fail: {error in
+              TerminalModel.shared.print(string:"app printing: Fail callback called with error: \(error.localizedDescription)")
+            })
         
         }
     }
     @IBAction func getOrderPressed(_ sender: UIButton) {
         
-        Dine.shared.getOrder(order: nil, success: { order in
+        Dine.shared.getOrder(success: { order in
             self.lastOrder = order
-        }, fail: {error in })
+        }, fail: {error in
+ TerminalModel.shared.print(string:"app printing: Fail callback called with error: \(error.localizedDescription)")
+        })
     }
     @IBAction func stepperPressed(_ sender: UIStepper) {
         
@@ -91,7 +95,9 @@ class DineInViewController: UITableViewController {
             default:
                 break
             }
-            Dine.shared.reorderItems(items: items, success: {}, fail: {error in })
+            Dine.shared.reorderItems(items: items, success: {}, fail: {error in
+ TerminalModel.shared.print(string:"app printing: Fail callback called with error: \(error.localizedDescription)")
+            })
             
             
         }else{//no order
@@ -109,7 +115,7 @@ class DineInViewController: UITableViewController {
 }
 
 extension DineInViewController : OrderPollerDelegate{
-    func orderUpdated(order:Order){
+    func orderUpdated(order:Order?){
     pollCount.text = "\(Int(pollCount.text!)! + 1)"
         lastOrder = order
     }

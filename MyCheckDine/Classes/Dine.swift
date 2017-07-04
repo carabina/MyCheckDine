@@ -18,7 +18,8 @@ public class Dine{
     {
         if let singleton = _shared
         {
-            return singleton
+          
+          return singleton
         }
         _shared = Dine()
         return _shared!
@@ -29,7 +30,15 @@ public class Dine{
     
     
     internal init() {
-        
+      Networking.shared.configure(success: { JSON in
+        if let dineConfig = JSON["dine"] as? [String:Any], let intervalNum = dineConfig["pollingInterval"] as? NSNumber{
+          let interval = intervalNum.doubleValue
+          if interval > 0 {
+        self.poller.pollingInterval = interval
+          }
+        }
+      }, fail: nil)
+
     }
     ///When activated this object polls the MyCheck server in order to fetch order updates. Call The startPolling function and set the delegate in order to receive updates. You should generally use the poller starting when a 4 digit code is created until the order is closed or canceled.
     open var poller = OrderPoller()
@@ -100,15 +109,22 @@ public class Dine{
             }
         }
     }
-    
+  /// Returns the updated order details.
+  ///
+  ///    - parameter success: A block that is called if the call complete successfully. If the order returne is nil it means their is no open order.
+  ///    - parameter fail: Called when the function fails for any reason
+  
+  public func getOrder( success: ((Order?) -> Void)? , fail: ((NSError) -> Void)? ){
+ self.getOrder(order: nil, success: success, fail: fail)
+  }
     
     /// Returns the updated order details.
     ///
     ///    - parameter order: The last order received. This is used in order to send the stamp (md5) an thus save the server from regenerating the order if nothing has changed.   [Optional]
-    ///    - parameter success: A block that is called if the call complete successfully
+    ///    - parameter success: A block that is called if the call complete successfully. If the order returne is nil it means their is no open order.
     ///    - parameter fail: Called when the function fails for any reason
     
-    public func getOrder( order: Order? , success: ((Order) -> Void)? , fail: ((NSError) -> Void)? ){
+    internal func getOrder( order: Order?, success: ((Order?) -> Void)? , fail: ((NSError) -> Void)? ){
         var orderId : String? = nil
         var stamp : String? = nil
         if let order = order {
@@ -130,7 +146,7 @@ public class Dine{
                     
                     NotificationCenter.default.post(name:  Notification.Name("MyCheck comunication ouput") , object: "Success callback called")
                 }
-                if let success = success , let order = order {
+                if let success = success  {
                     success(order)
                     
                 }
