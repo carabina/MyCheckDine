@@ -1,0 +1,102 @@
+{
+  "order_id":"47759",
+  "order_status":"Open",
+  "restaurant_id":"2",
+  "open_time":"2017-07-04 11:16:32",
+  "client_code":"2070",
+  "items":[
+           {
+           "id":920834,
+           "name":"BRUSCHETTA",
+           "price":4.95,
+           "quantity":1,
+           "paid":false,
+           "serial_id":"992",
+           "valid_for_reorder":true,
+           "show_in_reorder":true,
+           "modifiers":[
+           
+           ]
+           },
+           {
+           "id":920835,
+           "name":"Tea",
+           "price":1.8,
+           "quantity":1,
+           "paid":false,
+           "serial_id":"9951",
+           "valid_for_reorder":true,
+           "show_in_reorder":true,
+           "modifiers":[
+           
+           ]
+           },
+           {
+           "id":920836,
+           "name":"VEGETARIAN PIZZA",
+           "price":8.95,
+           "quantity":1,
+           "paid":false,
+           "serial_id":"994",
+           "valid_for_reorder":true,
+           "show_in_reorder":true,
+           "modifiers":[
+           
+           ]
+           },
+           {
+           "id":920837,
+           "name":"IL CARLTONI",
+           "price":10.95,
+           "quantity":1,
+           "paid":false,
+           "serial_id":"4563",
+           "valid_for_reorder":true,
+           "show_in_reorder":true,
+           "modifiers":[
+           
+           ]
+           },
+           {
+           "id":920838,
+           "name":"POSH PEPPERONI",
+           "price":13.25,
+           "quantity":1,
+           "paid":false,
+           "serial_id":"1151",
+           "valid_for_reorder":true,
+           "show_in_reorder":true,
+           "modifiers":[
+           
+           ]
+           }
+           ],
+  "tax_settings":{
+    "percentage":"15",
+    "items":[
+    
+    ]
+  },
+  "settings":{
+    "split_is_enabled":true,
+    "is_quick_service":false
+  },
+  "bill":{
+    "reorder_status":{
+      "status":0,
+      "message":""
+    },
+    "global_summary":{
+      "paid_amount":0,
+      "total_amount":39.9,
+      "balance":39.9,
+      "tax_amount":"0.00"
+    },
+    "user_summary":{
+      "paid_amount":0,
+      "paid_tip":0
+    }
+  },
+  "stamp":"6ab19bb726a256246d41ee3566b88a21",
+  "status":"OK"
+}
