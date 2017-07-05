@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>MyCheckRestaurantSDK  Reference</title>
+    <title>MyCheckDine  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,17 +10,17 @@
     
   </head>
   <body>
-    <a title="MyCheckRestaurantSDK  Reference"></a>
+    <a title="MyCheckDine  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">MyCheckRestaurantSDK Docs</a> (90% documented)</p>
+        <p><a href="index.html">MyCheckDine Docs</a> (92% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
-        <a href="index.html">MyCheckRestaurantSDK Reference</a>
+        <a href="index.html">MyCheckDine Reference</a>
         <img id="carat" src="img/carat.png" />
-        MyCheckRestaurantSDK  Reference
+        MyCheckDine  Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -30,10 +30,10 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/Item.html">Item</a>
+                <a href="Classes/Dine.html">Dine</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/MyCheck.html">MyCheck</a>
+                <a href="Classes/Item.html">Item</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/Order.html">Order</a>
@@ -49,9 +49,6 @@
           <li class="nav-group-name">
             <a href="Enums.html">Enums</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Enums/Environment.html">Environment</a>
-              </li>
               <li class="nav-group-task">
                 <a href="Enums/Status.html">Status</a>
               </li>
@@ -90,10 +87,10 @@
             
             <a href='#mycheck-restaurant-sdk' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='mycheck-restaurant-sdk'>MyCheck Restaurant SDK</h1>
 
-<p>An SDK that enables the developer to open a table at a restaurant, follow the order and reorder items.</p>
+<p>An SDK that enables the developer to open a table at a restaurant, follow the order and reorder items (payment - coming soon). </p>
 <a href='#requirements' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='requirements'>Requirements</h2>
 
-<p>iOS 8 or above.</p>
+<p>iOS 9 or above.</p>
 
 <p>Swift 3.0</p>
 <a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
@@ -108,41 +105,45 @@ source 'https://github.com/CocoaPods/Specs.git'
 <p>You can add YOUR_USER_NAME@ before the &lsquo;bitbucket.org&rsquo; so the pod tool won&rsquo;t need to ask you for it every time you update or install.</p>
 
 <p>Inside the target add:</p>
-<pre class="highlight plaintext"><code>pod "MyCheckRestaurantSDK"
+<pre class="highlight plaintext"><code>pod "MyCheckDine"
 </code></pre>
 
 <p>Now you can run &#39;pod install&rsquo;</p>
 <a href='#use' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='use'>Use</h2>
 
-<p>The MyCheck Singleton will be the single point of contact that will allow you to create, follow and make actions on the users order.</p>
+<p>The MyCheck Singleton will be the point of contact that will allow you to create, follow and make actions on the users order. In order to manage the users session (login, logout etc.) you will need to use the session singleton.</p>
 
 <p>Start by adding
 <code>
-import MyCheckRestaurantSDK
+import MyCheckCore
 </code></p>
 
 <p>to the top of the class where you want to use MyCheck.</p>
 
-<p>In your app delegate&rsquo;s <code>application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?)</code> function call the configure function of the MyCheckRestaurantSDK singleton:</p>
-<pre class="highlight plaintext"><code>MyCheck.shared.configure(YOUR_PUBLISHABLE_KEY, environment: .sandbox)
+<p>In your app delegate&rsquo;s <code>application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?)</code> function call the configure function of the Session singleton:</p>
+<pre class="highlight plaintext"><code>Session.shared.configure(YOUR_PUBLISHABLE_KEY, environment: .sandbox)
 </code></pre>
 
 <p>This will setup the SDK to work with the desired environment.</p>
 
-<p>Before using any other functions you will have to login the user. Login is done by first obtaining a refresh token from your server (that, in turn, will obtain it from the MyCheck server using the secret). Once you have the refresh token call the login function on the MyCheck singleton:</p>
-<pre class="highlight plaintext"><code>MyCheck.shared.login(REFRESH_TOKEN, success: HANDLE_SUCCESS
+<p>Before using any other functions you will have to login the user. Login is done by first obtaining a refresh token from your server (that, in turn, will obtain it from the MyCheck server using the secret). Once you have the refresh token call the login function on the Session singleton:</p>
+<pre class="highlight plaintext"><code>Session.shared.login(REFRESH_TOKEN, success: HANDLE_SUCCESS
 }, fail: HANDLE_FAIL)
 
 </code></pre>
 
-<p>Once you are logged in, you can open a table. The first step in the process is generating a 4 digit code. The code generated by the MyCheck server is valid for a limited time, for a specific user in a specific location. This code, when entered into the POS enables MyCheck to sync the client with his order on the POS and can start receiving order updates and perform actions on it. The user will need to have a method of payment in order for this to succeed. Once you have received a code, display it to the user so he, in turn, can show it to his waiter / bartender.</p>
-<pre class="highlight plaintext"><code>MyCheck.shared.generateCode(hotelId: HOTEL_ID , restaurantId: RESTUARANT_ID, success: HANDLE_SUCCESS
+<p>Once you are logged in, you can open a table. Now you can start doing  dine in specific actions using the Dine singleton. Import the Dine module of the SDK.
+<code>
+import MyCheckDine
+</code>
+The first step in the process is generating a 4 digit code. The code generated by the MyCheck server is valid for a limited time, for a specific user in a specific location. This code, when entered into the POS enables MyCheck to sync the client with his order on the POS and can start receiving order updates and perform actions on it. The user will need to have a method of payment in order for this to succeed. Once you have received a code, display it to the user so he, in turn, can show it to his waiter / bartender. If you wish to support Apple Pay you will need some additional setup, please read the Apple Pay section.</p>
+<pre class="highlight plaintext"><code>Dine.shared.generateCode(hotelId: HOTEL_ID , restaurantId: RESTUARANT_ID, success: HANDLE_SUCCESS
 }, fail: HANDLE_FAIL)
 
 </code></pre>
 
 <p>Now that a code was generated and displayed you will probably want to start polling the MyCheck server in order to get order updates. You will get an update when the order is opened, and on every change made to the bill. In order to poll the order, turn on the poller and implement the &#39;OrderPollerDelegate&rsquo;.</p>
-<pre class="highlight plaintext"><code>MyCheck.shared.poller.delegate = self
+<pre class="highlight plaintext"><code>Dine.shared.poller.delegate = self
 
 MyCheck.shared.poller.startPolling()
 
@@ -170,9 +171,41 @@ func failingToReceiveUpdates(lastReceivedError: Error , failCount:Int){
 // handle fail
 })
 </code></pre>
+<a href='#apple-pay' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='apple-pay'>Apple Pay</h2>
+
+<p>In order to set up Apple Pay please review the MyCheckWallet or MyCheckWalletUI docs. Once Apple Pay is set up their are 2 additional changes you will need to make in order for it to work with the Dine SDK.</p>
+<a href='#generate-code' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='generate-code'>Generate Code</h3>
+
+<p>When generating a code MyCheck must be able to charge the default payment method without the users interaction in certain cases (for example if the user walks out and forgets to pay). Apple Pay creates token that can be used only once that expires after some time. For this reason we will need to prompt the user to Pay with Apple Pay at this point. 
+In order to accomplish this the generateCode function has 2 extra optional parameters (that are required for Apple Pay support): 
+1. DisplayViewControllerDelegate :  The delegate function will be called when a Apple Pay view controller needs to be displayed or dismissed.
+2. ApplePayController -  The controller will supply the Dine SDK with means query the wallet about Apple Pay and create Apple Pay tokens. You should get the instance of the ApplePayController from the Wallet singleton (e.g. &#39;Wallet.shared.applePayController&rsquo;)</p>
+
+<p>The code snippet bellow demonstrates how the generate code is called when Apple Pay must be supported</p>
+<pre class="highlight plaintext"><code>Dine.shared.generateCode(hotelId: nil, restaurantId: ID, displayDelegate: self, applePayController: Wallet.shared.applePayController, success: {
+code in
+self.codeLabel.text = code
+if let BID = self.restaurantIdField.text{
+UserDefaults.standard.set(BID, forKey: "BID")
+UserDefaults.standard.synchronize()
+}
+}, fail: {error in
+TerminalModel.shared.print(string:"app printing: Fail callback called with error: \(error.localizedDescription)")
+})
+//DisplayViewControllerDelegate implementation
+func display(viewController: UIViewController) {
+self.present(viewController, animated: true, completion: nil)
+}
+func dismiss(viewController: UIViewController) {
+viewController.dismiss(animated: true, completion: nil)
+}
+</code></pre>
+<a href='#payment' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='payment'>Payment</h3>
+
+<p>Coming soon</p>
 <a href='#authors' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='authors'>Authors</h2>
 
-<p>Elad Schiller, <a href="mailto:eladsc@mycheckapp.com">eladsc@mycheckapp.com</a></p>
+<p>Elad Schiller, <a href="mailto:eladsc@mycheck.co.il">eladsc@mycheck.co.il</a></p>
 <a href='#license' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='license'>License</h2>
 
 <p>Please read the LICENSE file available in the project</p>
@@ -180,7 +213,7 @@ func failingToReceiveUpdates(lastReceivedError: Error , failCount:Int){
           </section>
         </section>
         <section id="footer">
-          <p>MyCheck</p>
+          <p>&copy; 2017 <a class="link" href="http://www.mycheck.io/" target="_blank" rel="external">elad schiller</a>. All rights reserved. (Last updated: 2017-07-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

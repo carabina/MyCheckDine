@@ -1,49 +1,35 @@
 {
   "warnings": [
     {
-      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckRestaurantSDK/Classes/MyCheck.swift",
-      "line": 110,
-      "symbol": "MyCheck.logout()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckRestaurantSDK/Classes/Networking/Networking.swift",
-      "line": null,
-      "symbol": "Networking",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckRestaurantSDK/Classes/objects/Order.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
       "line": 32,
       "symbol": "Bill.balance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckRestaurantSDK/Classes/objects/Order.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
       "line": 40,
       "symbol": "Bill.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckRestaurantSDK/Classes/objects/Order.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
       "line": 85,
       "symbol": "UserSummary.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckRestaurantSDK/Classes/objects/Order.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
       "line": 103,
       "symbol": "TaxSettings.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckRestaurantSDK/Classes/objects/Order.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
       "line": 126,
       "symbol": "Settings.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
