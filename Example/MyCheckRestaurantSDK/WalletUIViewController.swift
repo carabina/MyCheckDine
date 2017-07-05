@@ -48,7 +48,12 @@ class WalletUIViewController: UIViewController {
     
     //MARK: - actions
     @IBAction func paymentMethodsPressed(_ sender: AnyObject) {
-        let controller = MCPaymentMethodsViewController.createPaymentMethodsViewController(self)
+      guard let controller = MCPaymentMethodsViewController.createPaymentMethodsViewController(self) else{
+        let alert = UIAlertController(title: "Error", message: "You must login in order to display the MCPaymentMethodsViewControllera", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+        present(alert, animated: true, completion: nil)
+        return
+      }
         self.present(controller, animated: true, completion: nil)
     }
     

@@ -78,6 +78,10 @@ class TerminalViewController: UIViewController {
     }
     
     
+  @IBAction func trashPressed(_ sender: Any) {
+  self.terminalView.text = nil
+  
+  }
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
