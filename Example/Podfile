@@ -1,16 +1,21 @@
 use_frameworks!
 
 target 'MyCheckDine_Example' do
-  pod 'MyCheckDine', :path => '../'
+  pod 'MyCheckDine'
+  #, :path => '../'
   #pod 'MyCheckCore', :path => '../../MyCheck-Core'
-  pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
+  pod 'MyCheckWalletUI'
+  #, :path => '../../MyCheckWalletUI'
   #pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
-  pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
+  pod 'MyCheckWalletUI/ApplePay'
+  #, :path => '../../MyCheckWalletUI'
 
   target 'MyCheckDine_Tests' do
     inherit! :search_paths
-    pod 'MyCheckDine', :path => '../'
-    pod 'MyCheckCore', :path => '../../MyCheck-Core'
+    pod 'MyCheckDine'
+    #, :path => '../'
+    pod 'MyCheckCore'
+    #, :path => '../../MyCheck-Core'
 
     pod 'Quick', '~> 1.0.0'
   pod 'Nimble', '~> 5.1.1'

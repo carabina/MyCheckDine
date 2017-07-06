@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.5.0)
   - Gloss (1.2.4)
-  - Kingfisher (3.10.2)
+  - Kingfisher (3.10.3)
   - MyCheckCore (0.0.7):
     - Alamofire (~> 4.0)
   - MyCheckDine (0.1.0):
@@ -31,16 +31,16 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   MyCheckCore:
-    :path: "../../MyCheck-Core"
+    :path: ../../MyCheck-Core
   MyCheckDine:
-    :path: "../"
+    :path: ../
   MyCheckWalletUI:
-    :path: "../../MyCheckWalletUI"
+    :path: ../../MyCheckWalletUI
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
-  Kingfisher: 7297492bf8cec9b2e2dee3519f2219948580d98e
+  Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
   MyCheckCore: 2c0ae300c59ca78be5caf935389589b9de5cbfd3
   MyCheckDine: 9d877d323249ca4441ec1fbbb2807dc254b18835
   MyCheckWalletUI: 56da5a9a9c6a7041e3a9e50fefc4826ba09ea192
@@ -49,4 +49,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 58bf471d9c8194afc09e41c188ef1c164e6232ba
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.2.0.beta.3

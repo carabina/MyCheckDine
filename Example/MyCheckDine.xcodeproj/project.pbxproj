@@ -15,6 +15,7 @@
 		607FACEC1AFB9204008FA782 /* TestPoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* TestPoller.swift */; };
 		90EA9C5CCBD124870CAE4357 /* Pods_MyCheckRestaurantSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919B2B1C4D9D481EF48AB9DC /* Pods_MyCheckRestaurantSDK_Tests.framework */; };
 		AACC0EF745003DAD1E7F02B1 /* Pods_MyCheckDine_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C8777827ECE40BDD56E8B54 /* Pods_MyCheckDine_Example.framework */; };
+		B20307A01F0E2BFE00DA8584 /* DelayMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B203079F1F0E2BFE00DA8584 /* DelayMock.swift */; };
 		B226C0B51E1CEB3D0045D73A /* SuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226C0B41E1CEB3D0045D73A /* SuperViewController.swift */; };
 		B226C0B71E1D423C0045D73A /* DineInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226C0B61E1D423C0045D73A /* DineInViewController.swift */; };
 		B23C605D1E18F8B0000A53FB /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = B23C605C1E18F8B0000A53FB /* .swift-version */; };
@@ -23,6 +24,7 @@
 		B260FB201F0CC6C8002605EE /* RequestProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B260FB1D1F0CC6C8002605EE /* RequestProtocolMock.swift */; };
 		B260FB231F0CC839002605EE /* configure.json in Resources */ = {isa = PBXBuildFile; fileRef = B260FB211F0CC839002605EE /* configure.json */; };
 		B260FB241F0CC839002605EE /* login.json in Resources */ = {isa = PBXBuildFile; fileRef = B260FB221F0CC839002605EE /* login.json */; };
+		B270CC7B1F0E57100064983D /* orderDetailsNoItems.json in Resources */ = {isa = PBXBuildFile; fileRef = B270CC7A1F0E57100064983D /* orderDetailsNoItems.json */; };
 		B270D7F81E1BEB91009BA1E2 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B270D7F71E1BEB91009BA1E2 /* ConfigureViewController.swift */; };
 		B270D7FA1E1BFB46009BA1E2 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B270D7F91E1BFB46009BA1E2 /* TerminalViewController.swift */; };
 		B27D02DC1E1CDE310099E514 /* TerminalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D02DB1E1CDE310099E514 /* TerminalModel.swift */; };
@@ -78,6 +80,7 @@
 		919B2B1C4D9D481EF48AB9DC /* Pods_MyCheckRestaurantSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCheckRestaurantSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9787D4C46B71BCD711F3E761 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9C75D87B997A0518F223A428 /* Pods-MyCheckDine_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCheckDine_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCheckDine_Tests/Pods-MyCheckDine_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B203079F1F0E2BFE00DA8584 /* DelayMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayMock.swift; sourceTree = "<group>"; };
 		B226C0B41E1CEB3D0045D73A /* SuperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperViewController.swift; sourceTree = "<group>"; };
 		B226C0B61E1D423C0045D73A /* DineInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DineInViewController.swift; sourceTree = "<group>"; };
 		B23C605C1E18F8B0000A53FB /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
@@ -87,6 +90,7 @@
 		B260FB211F0CC839002605EE /* configure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configure.json; sourceTree = "<group>"; };
 		B260FB221F0CC839002605EE /* login.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = login.json; sourceTree = "<group>"; };
 		B26684EB1E10FF2600F70333 /* MyCheckRestaurantSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyCheckRestaurantSDK.framework; path = "../../../../Library/Developer/Xcode/DerivedData/MyCheckRestaurantSDK-cjwuavyjcpczalftirzbloemtatw/Build/Products/Debug-iphonesimulator/MyCheckRestaurantSDK/MyCheckRestaurantSDK.framework"; sourceTree = "<group>"; };
+		B270CC7A1F0E57100064983D /* orderDetailsNoItems.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orderDetailsNoItems.json; sourceTree = "<group>"; };
 		B270D7F71E1BEB91009BA1E2 /* ConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
 		B270D7F91E1BFB46009BA1E2 /* TerminalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
 		B27D02DB1E1CDE310099E514 /* TerminalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalModel.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				B260FB1D1F0CC6C8002605EE /* RequestProtocolMock.swift */,
+				B203079F1F0E2BFE00DA8584 /* DelayMock.swift */,
 			);
 			path = mockObjects;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				B260FB221F0CC839002605EE /* login.json */,
 				B2AD9B6D1F0BE95900059FAA /* generateCode.json */,
 				B2AD9B6F1F0BE99F00059FAA /* orderDetails.json */,
+				B270CC7A1F0E57100064983D /* orderDetailsNoItems.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -395,6 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B270CC7B1F0E57100064983D /* orderDetailsNoItems.json in Resources */,
 				B2AD9B6E1F0BE95900059FAA /* generateCode.json in Resources */,
 				B2AD9B701F0BE99F00059FAA /* orderDetails.json in Resources */,
 				B260FB231F0CC839002605EE /* configure.json in Resources */,
@@ -417,7 +424,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6B7EB39AE3F47ECB93C664FB /* [CP] Copy Pods Resources */ = {
@@ -447,7 +454,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B516176880978B53CB87B600 /* [CP] Copy Pods Resources */ = {
@@ -519,6 +526,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20307A01F0E2BFE00DA8584 /* DelayMock.swift in Sources */,
 				B260FB1E1F0CC6C8002605EE /* XCTestCase+JSON.swift in Sources */,
 				B260FB201F0CC6C8002605EE /* RequestProtocolMock.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* TestPoller.swift in Sources */,

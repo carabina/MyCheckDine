@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import XCTest
+
 extension XCTestCase{
 
  internal func getJSONFromFile(named name: String) -> [String:Any]? {
