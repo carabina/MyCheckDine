@@ -10,7 +10,7 @@
            "name":"BRUSCHETTA",
            "price":4.95,
            "quantity":1,
-           "paid":false,
+           "paid":true,
            "serial_id":"992",
            "valid_for_reorder":true,
            "show_in_reorder":true,

@@ -29,8 +29,8 @@ extension Dine{
     if let stamp = stamp{
       params ["stamp"] = stamp
     }
-    if let domain = network.domain {
-      let urlStr = domain + "/restaurants/api/v1/order"
+    if let domain = Networking.shared.domain {
+      let urlStr = domain + URIs.orderDetails 
       
         network.request(urlStr, method: .get, parameters: params , success: { JSON in
         guard let order = Order(json: JSON) else {

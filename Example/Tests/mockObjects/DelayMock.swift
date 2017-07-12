@@ -10,13 +10,13 @@ import Foundation
 @testable import MyCheckDine
 
 //calls the delay function in order to allow mocking the response from the network
-struct DelayMock: DelayInterface{
+internal struct DelayMock: DelayInterface{
     var delayCalled: (Double) ->()
     
     init(callback: @escaping (Double) ->() ) {
         delayCalled = callback
     }
-    static func delay(_ delay:Double, closure:@escaping ()->()){
+    func delay(_ delay:Double, closure:@escaping ()->()){
         delayCalled(delay)
         closure()
         

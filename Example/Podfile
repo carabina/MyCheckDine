@@ -3,33 +3,41 @@ source 'https://bitbucket.org/erez_spatz/pod-spec-repo.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'MyCheckDine_Example' do
-  pod 'MyCheckDine'
-  #, :path => '../'
-  #pod 'MyCheckCore', :path => '../../MyCheck-Core'
-  pod 'MyCheckWalletUI'
-  #, :path => '../../MyCheckWalletUI'
-  #pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
-  pod 'MyCheckWalletUI/ApplePay'
-  #, :path => '../../MyCheckWalletUI'
-
-  target 'MyCheckDine_Tests' do
-    inherit! :search_paths
-    pod 'MyCheckDine'
-    #, :path => '../'
-    pod 'MyCheckCore'
-    #, :path => '../../MyCheck-Core'
-
-    pod 'Quick', '~> 1.0.0'
-  pod 'Nimble', '~> 5.1.1'
-  end
-  
-  
-  post_install do |installer|
-      installer.pods_project.targets.each do |target|
-          target.build_configurations.each do |config|
-              config.build_settings['SWIFT_VERSION'] = '3.0'
-          end
-      end
-  end
-  
+    pod 'MyCheckDine', :path => '../'
+    pod 'MyCheckCore', :path => '../../MyCheck-Core'
+    pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
+    #pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
+    pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
+    pod 'MyCheckWalletUI/VisaCheckout', :path => '../../MyCheckWalletUI'
+    
+    target 'MyCheckDine_Tests' do
+        inherit! :search_paths
+        pod 'MyCheckDine', :path => '../'
+        pod 'MyCheckCore', :path => '../../MyCheck-Core'
+        pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
+        #pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
+        pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
+        pod 'MyCheckWalletUI/VisaCheckout', :path => '../../MyCheckWalletUI'
+        
+        
+        pod 'Quick', '~> 1.0.0'
+        pod 'Nimble', '~> 5.1.1'
+    end
+    target 'emptyTargetForTesting' do
+        pod 'MyCheckDine', :path => '../'
+        pod 'MyCheckCore', :path => '../../MyCheck-Core'
+        pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
+        #pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
+        pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
+        pod 'MyCheckWalletUI/VisaCheckout', :path => '../../MyCheckWalletUI'
+    end
+    
+    post_install do |installer|
+        installer.pods_project.targets.each do |target|
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '3.0'
+            end
+        end
+    end
+    
 end

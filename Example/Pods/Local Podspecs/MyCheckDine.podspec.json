@@ -1,6 +1,6 @@
 {
   "name": "MyCheckDine",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "summary": "A SDK that enables the developer to open a table at a restaurant, follow the order and reorder items.",
   "description": "README.md",
   "homepage": "http://www.mycheck.io/",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://bitbucket.org/erez_spatz/mycheckrestaurantsdk-ios.git",
-    "tag": "0.1.0"
+    "tag": "0.0.1"
   },
   "platforms": {
     "ios": "8.0"

@@ -21,7 +21,7 @@ class RequestProtocolMock : RequestProtocol{
     }
     
     
-    func request(_ url: String , method: HTTPMethod , parameters: Parameters? , encoding: ParameterEncoding , success: (( _ object: [String: Any]  ) -> Void)? , fail: ((NSError) -> Void)? )  {
+    func request(_ url: String , method: HTTPMethod , parameters: Parameters? , encoding: ParameterEncoding ,addedHeaders: HTTPHeaders? , success: (( _ object: [String: Any]  ) -> Void)? , fail: ((NSError) -> Void)? )  {
 
         
         switch response {

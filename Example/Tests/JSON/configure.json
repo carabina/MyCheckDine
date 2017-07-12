@@ -4,10 +4,11 @@
     },
     "wallet":{
         "PCI": "https://devpm.mycheckapp.com",
+        "currencyCode": "USD",
         "applePay":{
             "supportedApplePayCardTypes":["Visa","Amex","MasterCard"],
-          "countryCode": "US",
-            "currencyCode": "USD"
+            "countryCode": "US"
+            
         },
         "walletUI":{
             "addCreditImages": {
@@ -46,7 +47,8 @@
                 "MasterpassCheckout": "https://www.mastercard.com/mc_us/wallet/img/en/US/mcpp_wllt_btn_chk_317x074px.png",
                 "PaypalCheckout": "https://s3-eu-west-1.amazonaws.com/cdn-storage/images/Cheesecake/paypal_logo.png",
                 "Masterpass": "https://s3-eu-west-1.amazonaws.com/cdn-storage/images/Cheesecake/mp%402x.png",
-                "Paypal": "https://s3-eu-west-1.amazonaws.com/cdn-storage/images/Cheesecake/pp%402x.png"
+                "Paypal": "https://s3-eu-west-1.amazonaws.com/cdn-storage/images/Cheesecake/pp%402x.png",
+                "ViseCheckout": "https://assets.secure.checkout.visa.com/VCO/images/acc_99x34_wht01.png"
             },
             "checkoutPageColors": {
                 "headerTextColor": "7ea6ab",

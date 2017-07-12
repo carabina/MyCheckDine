@@ -16,10 +16,26 @@ class ConfigureViewController: UIViewController {
     
     @IBOutlet weak var environmentSegControl: UISegmentedControl!
     
+    
+    @IBOutlet weak var applePaySwitch: UISwitch!
+    
+    @IBOutlet weak var payPalSwitch: UISwitch!
+    
+    @IBOutlet weak var masterPassSwitch: UISwitch!
+    
+    @IBOutlet weak var visaCheckoutSwitch: UISwitch!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         publishableKeyField.text = UserDefaults.standard.string(forKey: "publishableKey")
+        
+        // Setting up switchs to the last setup
+        applePaySwitch.setOn(LocalDataa.enabledState(for: .applePay), animated: false)
+        masterPassSwitch.setOn(LocalDataa.enabledState(for: .masterPass), animated: false)
+        payPalSwitch.setOn(LocalDataa.enabledState(for: .payPal), animated: false)
+        visaCheckoutSwitch.setOn(LocalDataa.enabledState(for: .visaCheckout), animated: false)
         
     }
     
@@ -53,24 +69,48 @@ class ConfigureViewController: UIViewController {
                 
             }
             if LocalDataa.enabledState(for: .applePay){
-            ApplePayFactory.initiate(merchantIdentifier: "merchant.com.mycheck")
+                ApplePayFactory.initiate(merchantIdentifier: "merchant.com.mycheck")
+            }
+            if LocalDataa.enabledState(for: .visaCheckout){
+                VisaCheckoutFactory.initiate(apiKey: "S8TQIO2ERW9RIHPE82DC13TA9Uv8FdB9Uu7EBRyZHDCNsp7JU")
             }
             performSegue(withIdentifier: "pushMainApp", sender: nil)
-
+            
         }else{
             let alert = UIAlertController(title: "Error", message: "Please enter publishable key to continue", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
             present(alert, animated: true, completion: nil)
         }
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
+    @IBAction func walletTypeSwitchValueChanged(_ sender: UISwitch) {
+        LocalDataa.saveEnableState(for: methodType(for: sender), isEnabled: sender.isOn)
+    }
 }
+
+//private helper methods
+extension ConfigureViewController {
+    fileprivate func methodType(for uiSwitch: UISwitch) -> PaymentMethodType{
+        switch uiSwitch {
+        case payPalSwitch:
+            return .payPal
+        case masterPassSwitch:
+            return .masterPass
+        case applePaySwitch:
+            return .applePay
+        case visaCheckoutSwitch:
+            return .visaCheckout
+            
+        default:
+            return .non
+        }
+    }
+}
+
+extension ConfigureViewController : UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+

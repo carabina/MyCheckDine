@@ -19,20 +19,41 @@ class DineInViewController: UITableViewController {
     @IBOutlet weak var itemsQuantityLabel: UILabel!
     @IBOutlet weak var pollCount: UILabel!
     @IBOutlet weak var pollingSwitch: UISwitch!
+    @IBOutlet  var amountStack: UIStackView!
+    @IBOutlet weak var amountStackheight: NSLayoutConstraint!
+    @IBOutlet weak var amountField: UITextField!
+    @IBOutlet weak var tipField: UITextField!
+    @IBOutlet  var selectItemsStack: UIStackView!
+    @IBOutlet weak var selectItemStackHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var payTypeSeg: UISegmentedControl!
+    @IBOutlet weak var selectItemSeg: UISegmentedControl!
     
     var lastOrder : Order? = nil
     let firstSeg = 0
     let lastSeg = 1
     let allSeg = 2
     
+    
+    let byAmountSeg = 0
+    let byItemsSeg = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         Dine.shared.poller.delegate = self
-        // Do any additional setup after loading the view.
         
         restaurantIdField.text = UserDefaults.standard.string(forKey: "BID")
-
+        
+        amountStack.isHidden = false
+        amountStack.heightAnchor.constraint(equalToConstant: 22.0).isActive = true
+        
+        selectItemsStack.isHidden = true
+        selectItemsStack.heightAnchor.constraint(equalToConstant: 0.0).isActive = true
+        
+        amountField.addDoneButtonToKeyboard(target:self, action: #selector(self.doneOnKeyboardPressed))
+          tipField.addDoneButtonToKeyboard(target:self, action: #selector(self.doneOnKeyboardPressed))
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         pollingSwitch.isOn = Dine.shared.poller.isPolling()
@@ -57,16 +78,16 @@ class DineInViewController: UITableViewController {
         if let ID = restaurantIdField.text{
             
             Dine.shared.generateCode(hotelId: nil, restaurantId: ID, displayDelegate: self, applePayController: Wallet.shared.applePayController, success: {
-                    code in
-                    self.codeLabel.text = code
-                    if let BID = self.restaurantIdField.text{
-                        UserDefaults.standard.set(BID, forKey: "BID")
-                        UserDefaults.standard.synchronize()
-                    }
+                code in
+                self.codeLabel.text = code
+                if let BID = self.restaurantIdField.text{
+                    UserDefaults.standard.set(BID, forKey: "BID")
+                    UserDefaults.standard.synchronize()
+                }
             }, fail: {error in
-              TerminalModel.shared.print(string:"app printing: Fail callback called with error: \(error.localizedDescription)")
+                TerminalModel.shared.print(string:"app printing: Fail callback called with error: \(error.localizedDescription)")
             })
-        
+            
         }
     }
     @IBAction func getOrderPressed(_ sender: UIButton) {
@@ -74,14 +95,14 @@ class DineInViewController: UITableViewController {
         Dine.shared.getOrder(success: { order in
             self.lastOrder = order
         }, fail: {error in
- TerminalModel.shared.print(string:"app printing: Fail callback called with error: \(error.localizedDescription)")
+            TerminalModel.shared.print(string:"app printing: Fail callback called with error: \(error.localizedDescription)")
         })
     }
     @IBAction func stepperPressed(_ sender: UIStepper) {
         
         itemsQuantityLabel.text = Int(sender.value).description    }
     @IBAction func reorderPressed(_ sender: Any) {
-             if let order = lastOrder ,let qntStr = itemsQuantityLabel.text, let qnt = Int(qntStr), order.items.count > 0{
+        if let order = lastOrder ,let qntStr = itemsQuantityLabel.text, let qnt = Int(qntStr), order.items.count > 0{
             var items :[(Int , Item)] = []
             switch itemsSeg.selectedSegmentIndex {
             case firstSeg:
@@ -96,15 +117,13 @@ class DineInViewController: UITableViewController {
                 break
             }
             Dine.shared.reorderItems(items: items, success: {}, fail: {error in
- TerminalModel.shared.print(string:"app printing: Fail callback called with error: \(error.localizedDescription)")
+                TerminalModel.shared.print(string:"app printing: Fail callback called with error: \(error.localizedDescription)")
             })
             
             
         }else{//no order
             
-            let alert = UIAlertController(title: "Error", message: "You must have an order with items before reordering. If the order is open press 'Get order' or turn on the poller", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
-            present(alert, animated: true, completion: nil)
+            showErrorMessage(message: "You must have an order with items before reordering. If the order is open press 'Get order' or turn on the poller")
         }
     }
     
@@ -112,17 +131,139 @@ class DineInViewController: UITableViewController {
         sender.isOn ?
             Dine.shared.poller.startPolling() : Dine.shared.poller.stopPolling()
     }
+    @IBAction func payPressed(_ sender: Any) {
+        //getting payment method
+        Wallet.shared.getDefaultPaymentMehthod(success: {method in
+           
+            guard let order = self.lastOrder else{
+                self.showErrorMessage(message: "No order")
+                return
+            }
+            
+            guard  (self.tipField.text?.characters.count)! > 0 else{
+                self.showErrorMessage(message: "please enter tip")
+                return
+            }
+            
+            if self.payTypeSeg.selectedSegmentIndex == self.byAmountSeg {
+                
+              self.payByAmount(order: order, paymentMethod: method)
+                
+            }else{//by items
+                
+                self.payByItem(order: order, paymentMethod: method)
+            }
+            
+        }, fail: {
+            error in
+            
+            self.showErrorMessage(message: error.localizedDescription)
+        })
+        
+    }
+    
+    
+    private func payByAmount(order: Order , paymentMethod: PaymentMethodInterface){
+    
+        guard  (self.amountField.text?.characters.count)! > 0 else{
+            self.showErrorMessage(message: "please enter amount")
+            return
+        }
+        
+        
+        if let details = PaymentDetails(order: order, amount: Double(self.amountField.text!), tip: Double(self.tipField.text!), paymentMethod: paymentMethod){
+            
+            Dine.shared.makePayment(paymentDetails: details, success: {
+                
+            }, fail: {error in
+                
+            })
+        }else{
+            self.showErrorMessage(message: "Invalid payment request (invalid amount or closed order)")
+            
+        }
+
+    }
+    
+    @objc private func doneOnKeyboardPressed()
+    {
+    self.tipField.resignFirstResponder()
+        self.amountField.resignFirstResponder()
+    }
+    private func payByItem(order: Order , paymentMethod: PaymentMethodInterface){
+        guard order.items.count > 0 else{
+            self.showErrorMessage(message: "No items in order")
+            
+            return
+        }
+        let items: [Item] = {
+            
+            switch self.itemsSeg.selectedSegmentIndex{
+            case self.firstSeg:
+                return [order.items.first!]
+            case self.lastSeg:
+                return [order.items.last!]
+                
+            case self.allSeg:
+                return order.items
+            default:
+                return []
+            }
+        }()
+        if let details = PaymentDetails(order: order, items: items, tip: Double(self.tipField.text!), paymentMethod: paymentMethod){
+            
+            Dine.shared.makePayment(paymentDetails: details, success: {
+                
+            }, fail: {error in
+                
+            })
+        }else{
+            self.showErrorMessage(message: "Invalid payment request (invalid amount or closed order)")
+
+        }
+
+    }
+    @IBAction func payBySelected(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case byAmountSeg:
+            
+            
+            //           amountStackheight.constant = 25
+            //            selectItemStackHeight.constant = 0
+            //
+            amountStack.isHidden = false
+            selectItemsStack.isHidden = true
+        case byItemsSeg:
+            
+            //            amountStackheight.constant = 0
+            //            selectItemStackHeight.constant = 35
+            //
+            amountStack.isHidden = true
+            selectItemsStack.isHidden = false
+            
+            
+        default:
+            break
+        }
+    }
+    
+    private func showErrorMessage(message: String){
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension DineInViewController : OrderPollerDelegate{
     func orderUpdated(order:Order?){
-    pollCount.text = "\(Int(pollCount.text!)! + 1)"
+        pollCount.text = "\(Int(pollCount.text!)! + 1)"
         lastOrder = order
     }
     func failingToReceiveUpdates(lastReceivedError: Error , failCount:Int){
-    terminal(string: "OrderPollerDelegate fail called", success: false)
+        terminal(string: "OrderPollerDelegate fail called", success: false)
     }
-
+    
 }
 
 extension DineInViewController : UITextFieldDelegate{
