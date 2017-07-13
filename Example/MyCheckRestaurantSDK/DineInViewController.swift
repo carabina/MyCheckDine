@@ -44,10 +44,10 @@ class DineInViewController: UITableViewController {
         restaurantIdField.text = UserDefaults.standard.string(forKey: "BID")
         
         amountStack.isHidden = false
-        amountStack.heightAnchor.constraint(equalToConstant: 22.0).isActive = true
+        //amountStack.heightAnchor.constraint(equalToConstant: 22.0).isActive = true
         
         selectItemsStack.isHidden = true
-        selectItemsStack.heightAnchor.constraint(equalToConstant: 0.0).isActive = true
+       // selectItemsStack.heightAnchor.constraint(equalToConstant: 0.0).isActive = true
         
         amountField.addDoneButtonToKeyboard(target:self, action: #selector(self.doneOnKeyboardPressed))
           tipField.addDoneButtonToKeyboard(target:self, action: #selector(self.doneOnKeyboardPressed))
@@ -147,7 +147,7 @@ class DineInViewController: UITableViewController {
             
             if self.payTypeSeg.selectedSegmentIndex == self.byAmountSeg {
                 
-              self.payByAmount(order: order, paymentMethod: method)
+              self.payByAmount(order: order, paymentMethod: method )
                 
             }else{//by items
                 
@@ -173,7 +173,7 @@ class DineInViewController: UITableViewController {
         
         if let details = PaymentDetails(order: order, amount: Double(self.amountField.text!), tip: Double(self.tipField.text!), paymentMethod: paymentMethod){
             
-            Dine.shared.makePayment(paymentDetails: details, success: {
+            Dine.shared.makePayment(paymentDetails: details, displayDelegate: self, success: {
                 
             }, fail: {error in
                 
@@ -212,7 +212,7 @@ class DineInViewController: UITableViewController {
         }()
         if let details = PaymentDetails(order: order, items: items, tip: Double(self.tipField.text!), paymentMethod: paymentMethod){
             
-            Dine.shared.makePayment(paymentDetails: details, success: {
+            Dine.shared.makePayment(paymentDetails: details, displayDelegate: self, success: {
                 
             }, fail: {error in
                 
