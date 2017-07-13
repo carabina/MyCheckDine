@@ -108,8 +108,8 @@ open class Item: Decodable {
             }
         }
         return jsonify([
-            "ID" ~~> self.Id,
-            "Amnt" ~~> 1.0
+            "id" ~~> self.Id,
+            "amount" ~~> 1.0
             ])
     }
 

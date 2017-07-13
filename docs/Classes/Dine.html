@@ -14,7 +14,7 @@
     <a title="Dine Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">MyCheckDine Docs</a> (92% documented)</p>
+        <p><a href="../index.html">MyCheckDine Docs</a> (87% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -42,9 +42,6 @@
               <li class="nav-group-task">
                 <a href="../Classes/OrderPoller.html">OrderPoller</a>
               </li>
-              <li class="nav-group-task">
-                <a href="../Classes/PaymentRequest.html">PaymentRequest</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -68,6 +65,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/Bill.html">Bill</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaymentDetails.html">PaymentDetails</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Settings.html">Settings</a>
@@ -327,9 +327,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11MyCheckDine4Dine11makePaymentFT7requestCS_14PaymentRequest12paymentTokenSS_T_"></a>
-                    <a name="//apple_ref/swift/Method/makePayment(request:paymentToken:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11MyCheckDine4Dine11makePaymentFT7requestCS_14PaymentRequest12paymentTokenSS_T_">makePayment(request:paymentToken:)</a>
+                    <a name="/s:FC11MyCheckDine4Dine11makePaymentFT14paymentDetailsVS_14PaymentDetails15displayDelegateGSqP11MyCheckCore29DisplayViewControllerDelegate__7successFT_T_4failFCSo7NSErrorT__T_"></a>
+                    <a name="//apple_ref/swift/Method/makePayment(paymentDetails:displayDelegate:success:fail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11MyCheckDine4Dine11makePaymentFT14paymentDetailsVS_14PaymentDetails15displayDelegateGSqP11MyCheckCore29DisplayViewControllerDelegate__7successFT_T_4failFCSo7NSErrorT__T_">makePayment(paymentDetails:displayDelegate:success:fail:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -344,7 +344,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">makePayment</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/PaymentRequest.html">PaymentRequest</a></span> <span class="p">,</span> <span class="nv">paymentToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">makePayment</span><span class="p">(</span><span class="nv">paymentDetails</span><span class="p">:</span> <span class="kt"><a href="../Structs/PaymentDetails.html">PaymentDetails</a></span> <span class="p">,</span> <span class="nv">displayDelegate</span><span class="p">:</span> <span class="kt">DisplayViewControllerDelegate</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span><span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">,</span> <span class="nv">fail</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
                       </div>
@@ -374,6 +374,45 @@
                               <td>
                                 <div>
                                   <p>The payment method token that should be used in order to charge the user.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>displayDelegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A delegate method that will show payment method token creation UI. This must be set only when using Apple Pay.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block that is called if the call complete successfully</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called when the function fails for any reason</p>
 
                                 </div>
                               </td>
@@ -462,7 +501,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="http://www.mycheck.io/" target="_blank" rel="external">elad schiller</a>. All rights reserved. (Last updated: 2017-07-06)</p>
+          <p>&copy; 2017 <a class="link" href="http://www.mycheck.io/" target="_blank" rel="external">elad schiller</a>. All rights reserved. (Last updated: 2017-07-13)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

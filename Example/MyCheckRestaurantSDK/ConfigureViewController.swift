@@ -72,7 +72,7 @@ class ConfigureViewController: UIViewController {
                 ApplePayFactory.initiate(merchantIdentifier: "merchant.com.mycheck")
             }
             if LocalDataa.enabledState(for: .visaCheckout){
-             //   VisaCheckoutFactory.initiate(apiKey: "S8TQIO2ERW9RIHPE82DC13TA9Uv8FdB9Uu7EBRyZHDCNsp7JU")
+                VisaCheckoutFactory.initiate(apiKey: "S8TQIO2ERW9RIHPE82DC13TA9Uv8FdB9Uu7EBRyZHDCNsp7JU")
             }
             performSegue(withIdentifier: "pushMainApp", sender: nil)
             

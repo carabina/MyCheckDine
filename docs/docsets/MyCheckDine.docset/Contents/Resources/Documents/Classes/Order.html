@@ -14,7 +14,7 @@
     <a title="Order Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">MyCheckDine Docs</a> (92% documented)</p>
+        <p><a href="../index.html">MyCheckDine Docs</a> (87% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -42,9 +42,6 @@
               <li class="nav-group-task">
                 <a href="../Classes/OrderPoller.html">OrderPoller</a>
               </li>
-              <li class="nav-group-task">
-                <a href="../Classes/PaymentRequest.html">PaymentRequest</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -70,6 +67,9 @@
                 <a href="../Structs/Bill.html">Bill</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/PaymentDetails.html">PaymentDetails</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/Settings.html">Settings</a>
               </li>
               <li class="nav-group-task">
@@ -88,7 +88,7 @@
             <h1>Order</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">Order</span><span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+                  <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">Order</span><span class="p">:</span> <span class="kt">Decodable</span> <span class="p">,</span> <span class="kt">Equatable</span></code></pre>
 
                 </div>
               </div>
@@ -393,12 +393,72 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFPs9Equatableoi2eeFTxx_Sb"></a>
+                    <a name="//apple_ref/swift/Method/==(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFPs9Equatableoi2eeFTxx_Sb">==(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>General settings related to the order&rsquo;s venue.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span><span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">Order</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">Order</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lhs</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A value to compare.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rhs</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Another value to compare.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="http://www.mycheck.io/" target="_blank" rel="external">elad schiller</a>. All rights reserved. (Last updated: 2017-07-06)</p>
+          <p>&copy; 2017 <a class="link" href="http://www.mycheck.io/" target="_blank" rel="external">elad schiller</a>. All rights reserved. (Last updated: 2017-07-13)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

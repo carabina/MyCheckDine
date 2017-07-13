@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>OrderPollerDelegate Protocol Reference</title>
+    <title>PaymentDetails Struct Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/OrderPollerDelegate" class="dashAnchor"></a>
-    <a title="OrderPollerDelegate Protocol Reference"></a>
+    <a name="//apple_ref/swift/Struct/PaymentDetails" class="dashAnchor"></a>
+    <a title="PaymentDetails Struct Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">MyCheckDine Docs</a> (87% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">MyCheckDine Reference</a>
         <img id="carat" src="../img/carat.png" />
-        OrderPollerDelegate Protocol Reference
+        PaymentDetails Struct Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -85,14 +85,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>OrderPollerDelegate</h1>
+            <h1>PaymentDetails</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">OrderPollerDelegate</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PaymentDetails</span></code></pre>
 
                 </div>
               </div>
-            <p>This delegate will be updated on changes to the users order.</p>
+            <p>A request represents a payment on a specific order.</p>
 
           </section>
           <section class="section task-group-section">
@@ -101,9 +101,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP11MyCheckDine19OrderPollerDelegate12orderUpdatedFT5orderGSqCS_5Order__T_"></a>
-                    <a name="//apple_ref/swift/Method/orderUpdated(order:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP11MyCheckDine19OrderPollerDelegate12orderUpdatedFT5orderGSqCS_5Order__T_">orderUpdated(order:)</a>
+                    <a name="/s:FV11MyCheckDine14PaymentDetailscFT5orderCS_5Order6amountGSqSd_3tipGSqSd_13paymentMethodP11MyCheckCore22PaymentMethodInterface__GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(order:amount:tip:paymentMethod:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV11MyCheckDine14PaymentDetailscFT5orderCS_5Order6amountGSqSd_3tipGSqSd_13paymentMethodP11MyCheckCore22PaymentMethodInterface__GSqS0__">init(order:amount:tip:paymentMethod:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -111,14 +111,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Called when the order was updated.</p>
+                        <p>Create a new payment request for the underlying order supplied. If the amount is bigger than the order balance or if the order is not open nil will be returned.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">orderUpdated</span><span class="p">(</span><span class="nv">order</span><span class="p">:</span><span class="kt"><a href="../Classes/Order.html">Order</a></span><span class="p">?)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">order</span><span class="p">:</span> <span class="kt"><a href="../Classes/Order.html">Order</a></span> <span class="p">,</span> <span class="nv">amount</span><span class="p">:</span><span class="kt">Double</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span> <span class="p">,</span> <span class="nv">tip</span><span class="p">:</span><span class="kt">Double</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span> <span class="p">,</span><span class="nv">paymentMethod</span><span class="p">:</span> <span class="kt">PaymentMethodInterface</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -134,7 +134,46 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The up to date order or nil if their is n order.</p>
+                                  <p>The order that is going to be paid for. If only an order is supplied the payment amount will be the full balance of the order.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>amount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The amount that is going to be paid. The value must be between 0 and the order balance.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tip</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The tip that is going to be paid. If not supplied 0 tip will be paid.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentMethodToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The payment method token that should be used for chaging.</p>
 
                                 </div>
                               </td>
@@ -148,9 +187,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP11MyCheckDine19OrderPollerDelegate23failingToReceiveUpdatesFT17lastReceivedErrorPs5Error_9failCountSi_T_"></a>
-                    <a name="//apple_ref/swift/Method/failingToReceiveUpdates(lastReceivedError:failCount:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP11MyCheckDine19OrderPollerDelegate23failingToReceiveUpdatesFT17lastReceivedErrorPs5Error_9failCountSi_T_">failingToReceiveUpdates(lastReceivedError:failCount:)</a>
+                    <a name="/s:FV11MyCheckDine14PaymentDetailscFT5orderCS_5Order5itemsGSaCS_4Item_3tipGSqSd_13paymentMethodP11MyCheckCore22PaymentMethodInterface__GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(order:items:tip:paymentMethod:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV11MyCheckDine14PaymentDetailscFT5orderCS_5Order5itemsGSaCS_4Item_3tipGSqSd_13paymentMethodP11MyCheckCore22PaymentMethodInterface__GSqS0__">init(order:items:tip:paymentMethod:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -158,14 +197,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Called when the poller fails to receive updates. It is not called on every failed call but rather after a few consecutive fails</p>
+                        <p>Create a new payment request for the underlying order supplied. The amount will be calculated as the sum of all the unpaid items. If the order is not open or if the sum is larger than the balance nil will be returned.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">failingToReceiveUpdates</span><span class="p">(</span><span class="nv">lastReceivedError</span><span class="p">:</span> <span class="kt">Error</span> <span class="p">,</span> <span class="nv">failCount</span><span class="p">:</span><span class="kt">Int</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">order</span><span class="p">:</span> <span class="kt"><a href="../Classes/Order.html">Order</a></span> <span class="p">,</span> <span class="nv">items</span><span class="p">:[</span><span class="kt"><a href="../Classes/Item.html">Item</a></span><span class="p">]</span> <span class="p">,</span> <span class="nv">tip</span><span class="p">:</span><span class="kt">Double</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span> <span class="p">,</span><span class="nv">paymentMethod</span><span class="p">:</span> <span class="kt">PaymentMethodInterface</span> <span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -176,12 +215,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>lastReceivedError</em>
+                                <em>order</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The error that caused the last server call to fail.</p>
+                                  <p>The order that is going to be paid for. If only an order is supplied the payment amount will be the full balance of the order.</p>
 
                                 </div>
                               </td>
@@ -189,12 +228,38 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>failCount</em>
+                                <em>items</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The amount of consecutive calls to the server that failed.</p>
+                                  <p>The items that should be paid for. The total amount that will be sent will be the sum of all the items prices with tax</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tip</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The tip that is going to be paid. If not supplied 0 tip will be paid.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>paymentMethodToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The payment method token that should be used for chaging.</p>
 
                                 </div>
                               </td>

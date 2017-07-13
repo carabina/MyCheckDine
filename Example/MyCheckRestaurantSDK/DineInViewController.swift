@@ -198,7 +198,7 @@ class DineInViewController: UITableViewController {
         }
         let items: [Item] = {
             
-            switch self.itemsSeg.selectedSegmentIndex{
+            switch self.selectItemSeg.selectedSegmentIndex{
             case self.firstSeg:
                 return [order.items.first!]
             case self.lastSeg:

@@ -80,7 +80,6 @@ extension PaymentDetails: PaymentDetailsProtocol{
     
     public var subtotalEntry: BillEntryItem{ get{ return BillEntryItem(name: "Subtotal"  , amount: self.amount)}}
     
-    
     public var taxEntry:  BillEntryItem?{ get{ return nil}}
     
     public var tipEntry:  BillEntryItem?{ get{ return BillEntryItem(name: "Tip"  , amount: self.tip)}}
