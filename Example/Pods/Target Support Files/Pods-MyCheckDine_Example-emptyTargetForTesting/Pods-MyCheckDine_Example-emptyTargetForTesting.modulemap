@@ -1,0 +1,6 @@
+framework module Pods_MyCheckDine_Example_emptyTargetForTesting {
+  umbrella header "Pods-MyCheckDine_Example-emptyTargetForTesting-umbrella.h"
+
+  export *
+  module * { export * }
+}
