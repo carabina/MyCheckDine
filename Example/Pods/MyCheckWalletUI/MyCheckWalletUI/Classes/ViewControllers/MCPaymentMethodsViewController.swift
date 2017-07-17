@@ -137,9 +137,9 @@ doNotStoreCheckbox.isSelected = false
     func showEnterCreditCard(_ show: Bool , animated: Bool){
         creditCardVC!.resetView()
         if show{
-            creditCardVC!.becomeFirstResponder()
+          _ = creditCardVC!.becomeFirstResponder()
         }else{
-            creditCardVC!.resignFirstResponder()
+             _ = creditCardVC!.resignFirstResponder()
             
         }
         creditCardInCenterConstraint.priority = show ? 999 : 1
@@ -271,9 +271,7 @@ doNotStoreCheckbox.isSelected = false
         walletsSuperview.layoutIfNeeded()
 
         walletsSeporator.isHidden = Wallet.shared.factories.count == 0
-        for factory in Wallet.shared.factories{
-        
-        }
+       
     }
     
 }
@@ -285,7 +283,7 @@ extension MCPaymentMethodsViewController : MCAddCreditCardViewControllerDelegate
         outputForTesting.text = error.localizedDescription
     }
     func addedNewPaymentMethod(_ controller: MCAddCreditCardViewController ,token:String){
-        Wallet.shared.getPaymentMethods({ (methods) in
+        Wallet.shared.getPaymentMethods(success: { (methods) in
             self.paymentMethods = methods
             self.creditCardListVC!.paymentMethods = methods
             self.creditCardListVC!.setCreditCardsUI(true)
@@ -326,6 +324,7 @@ extension MCPaymentMethodsViewController : PaymentMethodFactoryDelegate{
     }
     
     func addedPaymentMethod(_ controller: PaymentMethodFactory ,method:PaymentMethodInterface){
+        
         if let creditCardListVC = creditCardListVC{
             creditCardListVC.reloadMethods()
             self.showEnterCreditCard(false , animated: true)

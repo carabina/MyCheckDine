@@ -111,6 +111,29 @@ MyCheck.shared.reorderItems(items: [(3, order.items.first!)], success: {
 // handle fail
 })
 ```
+### Payment
+If you have an open table with a non zero balance and a payment method you can make a payment.
+The first step is to create a `PaymentDetails` object
+
+```
+let details = PaymentDetails(order: THE_ORDER, amount: THE_AMOUNT_TO_CHARGE, tip: TIP_AMOUNT, paymentMethod: A_PAYMENT_METHOD)
+
+// OR 
+
+let details = PaymentDetails(order: THE_ORDER, items: ITEMS_THAT_SHOULD_BE_BOUGHT, tip: TIP_AMOUNT, paymentMethod: A_PAYMENT_METHOD)
+```
+
+The `PaymentDetails` has 2 failable constructors. One is for paying by amount and the second is for paying by items. The constructors will fail if the order supplied is not open or if the amount is greater than the order balance.
+You will also need to get a `PaymentMethodInterface` object, For more on this please review the MyCheckWalletUI documents. 
+Once you have a `PaymentDetails` object call the `makePayment` function.
+
+```
+Dine.shared.makePayment(paymentDetails: details, displayDelegate: self, success: {
+
+}, fail: {error in
+
+})
+```
 
 ## Apple Pay
 
@@ -124,27 +147,30 @@ In order to accomplish this the generateCode function has 2 extra optional param
 The code snippet bellow demonstrates how the generate code is called when Apple Pay must be supported
 
 ```
-Dine.shared.generateCode(hotelId: nil, restaurantId: ID, displayDelegate: self, applePayController: Wallet.shared.applePayController, success: {
+Dine.shared.generateCode(hotelId: nil, restaurantId: THE_ID, displayDelegate: self, applePayController: Wallet.shared.applePayController, success: {
 code in
-self.codeLabel.text = code
-if let BID = self.restaurantIdField.text{
-UserDefaults.standard.set(BID, forKey: "BID")
-UserDefaults.standard.synchronize()
+
 }
 }, fail: {error in
-TerminalModel.shared.print(string:"app printing: Fail callback called with error: \(error.localizedDescription)")
+
 })
+
+
 //DisplayViewControllerDelegate implementation
 func display(viewController: UIViewController) {
+
 self.present(viewController, animated: true, completion: nil)
+
 }
+
+
 func dismiss(viewController: UIViewController) {
+
 viewController.dismiss(animated: true, completion: nil)
+
 }
 ``` 
-### Payment
-Coming soon
-
+In the same manner, you must pass the `displayDelegate` to the payment function in order for Apple Pay to work.
 
 ## Authors
 

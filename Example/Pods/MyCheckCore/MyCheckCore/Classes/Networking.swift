@@ -30,16 +30,20 @@ public enum ErrorCodes : Int {
     case applePayFailed = 978
     ///The order was not updated.
     case missingDisplayViewControllerDelegate = 979
-  ///The order was not updated.
-  case actionCanceledByUser = 980
-  ///Table is not open.
-  case noOpenTable = 10016
-  
+    ///The order was not updated.
+    case actionCanceledByUser = 980
+    ///Visa Checkout parsing error.
+    case visaCheckoutParsingFailed = 981
+    ///No payment method found.
+    case noPaymentMethods = 982
+    ///Table is not open.
+    case noOpenTable = 10016
+    
     case badRequest = -12
-  
-  
-  
-  
+    
+    
+    
+    
     // Returns the apropriate error for the error code. If the error is a server error, the server error description can be passed in the message
     //
     // - Parameter message: The error message. If this is not passed the enum cases' default error message will be used.
@@ -74,9 +78,14 @@ public enum ErrorCodes : Int {
         case .missingDisplayViewControllerDelegate:
             return "When making payments or generating a table code with Apple Pay , the DisplayViewControllerDelegate must be set"
         case .actionCanceledByUser:
-          return "User Canceled the currant action."
+            return "User Canceled the currant action."
         case .noOpenTable:
-          return "Their is no open table"
+            return "Their is no open table"
+        case .visaCheckoutParsingFailed:
+            return "Couldn't parse Visa Checkout response"
+        case .noPaymentMethods:
+            return "No payment methods available"
+   
         default:
             return  ""
         }
@@ -233,7 +242,7 @@ public class Networking {
     ///   - success: Called when the function succeeded
     ///   - fail: Called whent the function fails
     public func configure(_ publishableKey: String? = nil, environment: Environment? = nil, success: ((_ JSON: [String:Any]) -> Void)? , fail:((_ error: NSError) -> Void)?){
-       
+        
         if let environment = environment , let publishableKey = publishableKey{
             self.environment = environment
             self.publishableKey = publishableKey
@@ -249,8 +258,10 @@ public class Networking {
             return
         }
         
-        if let configJSON = configJSON , let success = success{//TO-DO fix bug
-            success(configJSON)
+        if let configJSON = configJSON{
+            if let success = success{
+                success(configJSON)
+            }
             return
         }
         
@@ -259,7 +270,7 @@ public class Networking {
         
         //If the array was not empty it means a call was already made and we do not need to make a second
         if  Networking.awaitingConfigureResponse.count > 1{
-        return
+            return
         }
         network!.request(urlStr, method: .get, parameters: nil , success: { JSON in
             
@@ -274,7 +285,7 @@ public class Networking {
                 return
             }
             self.domain = coreJSON["Domain"] as? String
-          
+            
             //If their is no domain the method should fail
             guard let _ = self.domain else{
                 for (_ , failed) in Networking.awaitingConfigureResponse{
@@ -295,7 +306,7 @@ public class Networking {
             }
             Networking.awaitingConfigureResponse = []
             
-
+            
             
             
         }, fail: fail)
@@ -346,7 +357,7 @@ public class Networking {
             headers.append(other: addedHeaders)
             
         }
-
+        
         
         let request = Alamofire.request( url,method: method , parameters:finalParams , encoding:  encoding , headers: headers)
             .validate(statusCode: 200..<201)
@@ -457,8 +468,8 @@ public class Networking {
     //It will dispose of the singleton an thus triger creation of a new instance next time the shrard property is accessed.
     internal func dispose()
     {
-    Networking._shared = nil
-    
+        Networking._shared = nil
+        
     }
 }
 //MARK: - private functions

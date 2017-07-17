@@ -80,11 +80,10 @@ internal class MCCreditCardsViewController: MCViewController , UIGestureRecogniz
         creditCards.removeAllObjects()
         for i in (0..<creditCardCount) {
             let method = self.paymentMethods[i]
-            var frame = CGRect(x:(margin + cardViewWidth)*CGFloat(i)+startMargin + addCardWidth + secondMargin  , y: 0.5 * (scrollView.frame.size.height-cardHeight), width: cardViewWidth , height: cardHeight)
+            let frame = CGRect(x:(margin + cardViewWidth)*CGFloat(i)+startMargin + addCardWidth + secondMargin  , y: 0.5 * (scrollView.frame.size.height-cardHeight), width: cardViewWidth , height: cardHeight)
             
             //trying to create a card object, set it up and add it to the scroll view
             if  let card : CreditCardView = {
-                var card : CreditCardView? = nil
                 if method.type == .creditCard{
                     return  CreditCardView(frame: frame, method: method)
                     
@@ -168,7 +167,7 @@ internal class MCCreditCardsViewController: MCViewController , UIGestureRecogniz
                 }
             }
         }
-        Wallet.shared.getPaymentMethods({ (array) in
+        Wallet.shared.getPaymentMethods(success: { (array) in
             self.paymentMethods = array
             for cc in self.creditCards as! [CreditCardView]{
                 cc.toggleEditMode()
@@ -189,7 +188,7 @@ internal class MCCreditCardsViewController: MCViewController , UIGestureRecogniz
     }
     internal func reloadMethods(){
         showActivityIndicator(true)
-        Wallet.shared.getPaymentMethods({ (array) in
+        Wallet.shared.getPaymentMethods(success: { (array) in
             self.showActivityIndicator(false)
             self.paymentMethods = array
             self.setCreditCardsUI(true)
@@ -228,7 +227,7 @@ internal class MCCreditCardsViewController: MCViewController , UIGestureRecogniz
             return 0.0
         }
         let doubleIndex = CGFloat(index)
-      var toReturn = (doubleIndex - 0.5) * (cardViewWidth + margin ) + ( self.addCardWidth  + secondMargin  ) / 2
+      let toReturn = (doubleIndex - 0.5) * (cardViewWidth + margin ) + ( self.addCardWidth  + secondMargin  ) / 2
 return toReturn
     }
 }
@@ -270,8 +269,6 @@ extension MCCreditCardsViewController : UIScrollViewDelegate {
         if targetIndex > kMaxIndex{
             targetIndex = kMaxIndex
         }
-        let screenSize = UIScreen.main.bounds
-        let screenWidth = screenSize.width
         targetContentOffset.pointee.x = getXOffset(index: Int( targetIndex))
         currantIndex = Int( targetIndex)
     }

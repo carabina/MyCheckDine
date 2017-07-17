@@ -10,17 +10,18 @@ import Foundation
 
 ///reprisents
 public protocol PaymentDetailsProtocol {
-    var subtotal: BillEntryItem{get }
-    var tax: BillEntryItem?{get }
+    var subtotalEntry: BillEntryItem{get }
     
-    var tip: BillEntryItem?{get }
+    var taxEntry: BillEntryItem?{get }
     
-    var total: BillEntryItem{get }
+    var tipEntry: BillEntryItem?{get }
+    
+    var totalEntry: BillEntryItem{get }
     
 }
 
 public extension PaymentDetailsProtocol{
     func getOrderedBillEntryArray() -> [BillEntryItem] {
-        return [subtotal, tax , tip , total].flatMap {$0} //flat map removes the nil objects.
+        return [subtotalEntry, taxEntry , tipEntry , totalEntry].flatMap {$0} //flat map removes the nil objects.
     }
 }
