@@ -27,15 +27,15 @@ public struct Money {
     
     
     
-    init(value: Double) {
+   public init(value: Double) {
         rawValue = value
     }
     
-    init(value: Float) {
+   public init(value: Float) {
         rawValue =  Double(value)
     }
     
-    init(value: Int) {
+   public init(value: Int) {
         rawValue =  Double(value)
     }
 }

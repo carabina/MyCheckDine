@@ -142,7 +142,7 @@ public struct Settings {
 }
 
 ///Represents an order in a venue. The order includes the orders status , bill information and some general information.
-open class Order: Decodable {
+open class Order: Decodable , Equatable {
   ///The Id of the order
    open let orderId : String
   /// The status of the order.
@@ -226,7 +226,7 @@ open class Order: Decodable {
     
     self.settings = settings
   }
-  static func ==(lhs: Order, rhs: Order) -> Bool {
+  public static func ==(lhs: Order, rhs: Order) -> Bool {
     return lhs.stamp == rhs.stamp
   }
   static func !=(lhs: Order, rhs: Order) -> Bool {

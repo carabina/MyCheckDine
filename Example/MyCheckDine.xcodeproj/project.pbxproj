@@ -40,6 +40,7 @@
 		B2C7A43A1F15131100A96A24 /* ConfigureTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C7A4381F15131100A96A24 /* ConfigureTest.swift */; };
 		B2C7A43B1F15131100A96A24 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C7A4391F15131100A96A24 /* LoginTest.swift */; };
 		B2C7A43D1F15148100A96A24 /* OrderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C7A43C1F15148100A96A24 /* OrderTest.swift */; };
+		B2CDBDCA1F1B5FD400E0117D /* GenerateCodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CDBDC91F1B5FD400E0117D /* GenerateCodeTest.swift */; };
 		B2F31E1D1EF9500200071869 /* WalletUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F31E1C1EF9500200071869 /* WalletUIViewController.swift */; };
 		B2F31E201EF96D4800071869 /* LocalDataa.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F31E1F1EF96D4800071869 /* LocalDataa.swift */; };
 		D1A397DB56551F362C76CA3E /* Pods_MyCheckDine_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A88F68AB93E936A417661F7 /* Pods_MyCheckDine_Tests.framework */; };
@@ -129,6 +130,7 @@
 		B2C7A4391F15131100A96A24 /* LoginTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
 		B2C7A43C1F15148100A96A24 /* OrderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTest.swift; sourceTree = "<group>"; };
 		B2CBB8E01E193197001F9827 /* MyCheckDine_Example copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyCheckDine_Example copy-Info.plist"; sourceTree = "<group>"; };
+		B2CDBDC91F1B5FD400E0117D /* GenerateCodeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateCodeTest.swift; sourceTree = "<group>"; };
 		B2F31E1C1EF9500200071869 /* WalletUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletUIViewController.swift; sourceTree = "<group>"; };
 		B2F31E1F1EF96D4800071869 /* LocalDataa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDataa.swift; sourceTree = "<group>"; };
 		BB649913DED3B30609D47FF3 /* Pods-MyCheckRestaurantSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCheckRestaurantSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCheckRestaurantSDK_Tests/Pods-MyCheckRestaurantSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				B2C7A4381F15131100A96A24 /* ConfigureTest.swift */,
 				B2C7A4391F15131100A96A24 /* LoginTest.swift */,
 				B2C7A43C1F15148100A96A24 /* OrderTest.swift */,
+				B2CDBDC91F1B5FD400E0117D /* GenerateCodeTest.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -432,6 +435,7 @@
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 2NY9PDA74K;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplePay = {
 								enabled = 1;
@@ -520,7 +524,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		651146D2AC1B0435DFB9B48C /* [CP] Check Pods Manifest.lock */ = {
@@ -535,7 +539,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6B7EB39AE3F47ECB93C664FB /* [CP] Copy Pods Resources */ = {
@@ -565,7 +569,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		95D327EF0C0F2EE33E388B60 /* [CP] Embed Pods Frameworks */ = {
@@ -674,6 +678,7 @@
 				B2C7A43D1F15148100A96A24 /* OrderTest.swift in Sources */,
 				B260FB1E1F0CC6C8002605EE /* XCTestCase+JSON.swift in Sources */,
 				B260FB201F0CC6C8002605EE /* RequestProtocolMock.swift in Sources */,
+				B2CDBDCA1F1B5FD400E0117D /* GenerateCodeTest.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* PollerTest.swift in Sources */,
 				B260FB1F1F0CC6C8002605EE /* XCTestCase+Mock.swift in Sources */,
 			);
@@ -837,6 +842,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MyCheckDine_Example.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2NY9PDA74K;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = MyCheckRestaurantSDK/Info.plist;
@@ -845,6 +851,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mycheck.MyCheckDine-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -856,6 +863,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MyCheckDine_Example.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2NY9PDA74K;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = MyCheckRestaurantSDK/Info.plist;
@@ -864,6 +872,8 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mycheck.MyCheckDine-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

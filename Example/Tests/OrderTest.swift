@@ -80,11 +80,11 @@ class OrderTest: QuickSpec {
                 Dine.shared.network = RequestProtocolMock(response: .fail(ErrorCodes.noOpenTable.getError()))
                 //Act
                 Dine.shared.getOrder(order: Order(json: validJSON), success: { order in
-                   
-                    expect(order) == nil
+                    expect("not to succeed") == "false"
+
                     
                 }, fail: {error in
-                    expect("not to fail") == "false"
+                    expect(error) == ErrorCodes.noOpenTable.getError()
                 })
             }
 

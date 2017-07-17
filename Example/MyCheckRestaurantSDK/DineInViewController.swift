@@ -37,20 +37,21 @@ class DineInViewController: UITableViewController {
     
     let byAmountSeg = 0
     let byItemsSeg = 1
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         Dine.shared.poller.delegate = self
         
+        //setting default values
         restaurantIdField.text = UserDefaults.standard.string(forKey: "BID")
         
         amountStack.isHidden = false
-        //amountStack.heightAnchor.constraint(equalToConstant: 22.0).isActive = true
-        
         selectItemsStack.isHidden = true
-       // selectItemsStack.heightAnchor.constraint(equalToConstant: 0.0).isActive = true
         
         amountField.addDoneButtonToKeyboard(target:self, action: #selector(self.doneOnKeyboardPressed))
-          tipField.addDoneButtonToKeyboard(target:self, action: #selector(self.doneOnKeyboardPressed))
+        tipField.addDoneButtonToKeyboard(target:self, action: #selector(self.doneOnKeyboardPressed))
     }
     
     
@@ -62,17 +63,8 @@ class DineInViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
+
     
     @IBAction func generateCodePressed(_ sender: Any) {
         if let ID = restaurantIdField.text{
@@ -134,7 +126,7 @@ class DineInViewController: UITableViewController {
     @IBAction func payPressed(_ sender: Any) {
         //getting payment method
         Wallet.shared.getDefaultPaymentMehthod(success: {method in
-           
+            
             guard let order = self.lastOrder else{
                 self.showErrorMessage(message: "No order")
                 return
@@ -147,7 +139,7 @@ class DineInViewController: UITableViewController {
             
             if self.payTypeSeg.selectedSegmentIndex == self.byAmountSeg {
                 
-              self.payByAmount(order: order, paymentMethod: method )
+                self.payByAmount(order: order, paymentMethod: method )
                 
             }else{//by items
                 
@@ -164,7 +156,7 @@ class DineInViewController: UITableViewController {
     
     
     private func payByAmount(order: Order , paymentMethod: PaymentMethodInterface){
-    
+        
         guard  (self.amountField.text?.characters.count)! > 0 else{
             self.showErrorMessage(message: "please enter amount")
             return
@@ -182,12 +174,12 @@ class DineInViewController: UITableViewController {
             self.showErrorMessage(message: "Invalid payment request (invalid amount or closed order)")
             
         }
-
+        
     }
     
     @objc private func doneOnKeyboardPressed()
     {
-    self.tipField.resignFirstResponder()
+        self.tipField.resignFirstResponder()
         self.amountField.resignFirstResponder()
     }
     private func payByItem(order: Order , paymentMethod: PaymentMethodInterface){
@@ -219,25 +211,18 @@ class DineInViewController: UITableViewController {
             })
         }else{
             self.showErrorMessage(message: "Invalid payment request (invalid amount or closed order)")
-
+            
         }
-
+        
     }
     @IBAction func payBySelected(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case byAmountSeg:
             
-            
-            //           amountStackheight.constant = 25
-            //            selectItemStackHeight.constant = 0
-            //
             amountStack.isHidden = false
             selectItemsStack.isHidden = true
         case byItemsSeg:
             
-            //            amountStackheight.constant = 0
-            //            selectItemStackHeight.constant = 35
-            //
             amountStack.isHidden = true
             selectItemsStack.isHidden = false
             

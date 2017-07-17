@@ -98,6 +98,21 @@ open class Item: Decodable {
 
       ])
   }
+    
+    internal func createPaymentJSON() -> JSON? {
+        //creating modifiers json
+        var modifierJSONs :[JSON] = []
+        for modifier in modifiers{
+            if let json = modifier.createReorderJSON(amount:1){
+                modifierJSONs.append(json)
+            }
+        }
+        return jsonify([
+            "id" ~~> self.Id,
+            "amount" ~~> 1.0
+            ])
+    }
+
   
 }
 

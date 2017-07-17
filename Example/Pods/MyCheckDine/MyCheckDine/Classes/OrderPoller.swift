@@ -29,7 +29,7 @@ public class OrderPoller {
   private var polling = false
   private var failCount = 0
   
-    fileprivate var delayer: DelayInterface = Delay()
+    internal var delayer: DelayInterface = Delay()
   
   ///This variable holds the date of the last time the order was updated.
   public var lastUpdate :Date?
@@ -83,7 +83,7 @@ public class OrderPoller {
         }
       }
       
-      Delay.delay(self.pollingInterval, closure: {//calling poll again.
+      self.delayer.delay(self.pollingInterval, closure: {//calling poll again.
         self.poll()
       })
       
@@ -107,7 +107,7 @@ public class OrderPoller {
         }
         
       }
-      delay(self.pollingInterval, closure: {//calling poll again.
+      self.delayer.delay(self.pollingInterval, closure: {//calling poll again.
         self.poll()
       })
       
@@ -117,11 +117,3 @@ public class OrderPoller {
   }
 }
 
-//added init for testing
-extension OrderPoller{
-    convenience init(delayer: DelayInterface) {
-        self.init()
-        self.delayer = delayer
-
-    }
-}

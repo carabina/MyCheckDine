@@ -271,9 +271,7 @@ doNotStoreCheckbox.isSelected = false
         walletsSuperview.layoutIfNeeded()
 
         walletsSeporator.isHidden = Wallet.shared.factories.count == 0
-        for factory in Wallet.shared.factories{
-        
-        }
+       
     }
     
 }
@@ -285,7 +283,7 @@ extension MCPaymentMethodsViewController : MCAddCreditCardViewControllerDelegate
         outputForTesting.text = error.localizedDescription
     }
     func addedNewPaymentMethod(_ controller: MCAddCreditCardViewController ,token:String){
-        Wallet.shared.getPaymentMethods({ (methods) in
+        Wallet.shared.getPaymentMethods(success: { (methods) in
             self.paymentMethods = methods
             self.creditCardListVC!.paymentMethods = methods
             self.creditCardListVC!.setCreditCardsUI(true)
@@ -326,6 +324,7 @@ extension MCPaymentMethodsViewController : PaymentMethodFactoryDelegate{
     }
     
     func addedPaymentMethod(_ controller: PaymentMethodFactory ,method:PaymentMethodInterface){
+        
         if let creditCardListVC = creditCardListVC{
             creditCardListVC.reloadMethods()
             self.showEnterCreditCard(false , animated: true)
