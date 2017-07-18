@@ -138,7 +138,7 @@ open class Wallet{
             }
             
             Networking.shared.request(textsURL, method: .get, success: { strings in
-                LocalData.manager.addStrings(nil , dictionary: walletUIJSON as NSDictionary)
+                LocalData.manager.addStrings(nil , dictionary: strings as NSDictionary)
                 self.loadedLanguages = true
                 
                 if let success = success{
@@ -169,7 +169,7 @@ open class Wallet{
     ///
     ///   - parameter success: A block that is called if the user is logged in succesfully
     ///   - parameter fail: Called when the function fails for any reason
-    internal func getPaymentMethods( success success: @escaping (( [PaymentMethodInterface] ) -> Void) , fail: ((NSError) -> Void)? ) {
+    internal func getPaymentMethods( success: @escaping (( [PaymentMethodInterface] ) -> Void) , fail: ((NSError) -> Void)? ) {
         self.callPaymentMethods( success: {
             methods in
             var mutableMethods = methods

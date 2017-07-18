@@ -4,6 +4,7 @@ PODS:
   - Kingfisher (3.10.3)
   - MyCheckCore (0.0.9):
     - Alamofire (~> 4.0)
+<<<<<<< HEAD
   - MyCheckDine (0.0.2):
     - Gloss (~> 1.1)
     - MyCheckCore
@@ -19,6 +20,23 @@ PODS:
     - Kingfisher (~> 3.0)
     - MyCheckCore
   - MyCheckWalletUI/VisaCheckout (0.0.16):
+=======
+  - MyCheckDine (1.0.0):
+    - Gloss (~> 1.1)
+    - MyCheckCore
+  - MyCheckWalletUI (1.0.0):
+    - Kingfisher (~> 3.0)
+    - MyCheckCore
+    - MyCheckWalletUI/Core (= 1.0.0)
+  - MyCheckWalletUI/ApplePay (1.0.0):
+    - Kingfisher (~> 3.0)
+    - MyCheckCore
+    - MyCheckWalletUI/Core
+  - MyCheckWalletUI/Core (1.0.0):
+    - Kingfisher (~> 3.0)
+    - MyCheckCore
+  - MyCheckWalletUI/VisaCheckout (1.0.0):
+>>>>>>> master
     - Kingfisher (~> 3.0)
     - MyCheckCore
     - MyCheckWalletUI/Core
@@ -26,14 +44,15 @@ PODS:
   - Quick (1.0.0)
 
 DEPENDENCIES:
-  - MyCheckCore (from `../../MyCheck-Core`)
-  - MyCheckDine (from `../`)
-  - MyCheckWalletUI (from `../../MyCheckWalletUI`)
-  - MyCheckWalletUI/ApplePay (from `../../MyCheckWalletUI`)
-  - MyCheckWalletUI/VisaCheckout (from `../../MyCheckWalletUI`)
+  - MyCheckCore
+  - MyCheckDine
+  - MyCheckWalletUI
+  - MyCheckWalletUI/ApplePay
+  - MyCheckWalletUI/VisaCheckout
   - Nimble (~> 5.1.1)
   - Quick (~> 1.0.0)
 
+<<<<<<< HEAD
 EXTERNAL SOURCES:
   MyCheckCore:
     :path: ../../MyCheck-Core
@@ -42,10 +61,13 @@ EXTERNAL SOURCES:
   MyCheckWalletUI:
     :path: ../../MyCheckWalletUI
 
+=======
+>>>>>>> master
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
   Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
+<<<<<<< HEAD
   MyCheckCore: b1da71dcd0f46304ad0a6c49565c1b92a1dd9f5c
   MyCheckDine: 20ed289c365c98c40de76cb21bd9850a63243b51
   MyCheckWalletUI: ce09c9ab80194bb4413242bc959b489e4b8a2f72
@@ -53,5 +75,14 @@ SPEC CHECKSUMS:
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
 
 PODFILE CHECKSUM: 27a087ef754f0b20454a19aa5718ad3c18af509e
+=======
+  MyCheckCore: c2a91308ee1d4d2eff8da316d52491ade6556ebd
+  MyCheckDine: 79b2a77140e6b393d04e7e24c66999f334b834f0
+  MyCheckWalletUI: dde02b02960098f71f33f46fa617f24160bf1ef2
+  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
+  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
+
+PODFILE CHECKSUM: 8faa88a27c943e308b37778b33e1391da4ac921f
+>>>>>>> master
 
 COCOAPODS: 1.2.0.beta.3
