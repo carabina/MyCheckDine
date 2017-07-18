@@ -1,6 +1,6 @@
-#use_frameworks!
-#source 'https://bitbucket.org/erez_spatz/pod-spec-repo.git'
-#source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+source 'https://bitbucket.org/erez_spatz/pod-spec-repo.git'
+source 'https://github.com/CocoaPods/Specs.git'
 ##work with remote pods
 #target 'MyCheckDine_Example' do
 #    pod 'MyCheckDine'
@@ -64,15 +64,15 @@ target 'MyCheckDine_Example' do
     pod 'MyCheckDine', :path => '../'
     pod 'MyCheckCore', :path => '../../MyCheck-Core'
     pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
-    pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
+   # pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
     pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
     pod 'MyCheckWalletUI/VisaCheckout', :path => '../../MyCheckWalletUI'
     
     target 'MyCheckDine_Tests' do
-        inherit! :search_paths, :path => '../'
+        inherit! :search_paths
         pod 'MyCheckCore', :path => '../../MyCheck-Core'
         pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
-        pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
+       # pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/VisaCheckout', :path => '../../MyCheckWalletUI'
         
@@ -80,10 +80,10 @@ target 'MyCheckDine_Example' do
         pod 'Quick', '~> 1.0.0'
         pod 'Nimble', '~> 5.1.1'
     end
-    target 'emptyTargetForTesting' do, :path => '../'
+    target 'emptyTargetForTesting' do
         pod 'MyCheckCore', :path => '../../MyCheck-Core'
         pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
-        pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
+        #pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/VisaCheckout', :path => '../../MyCheckWalletUI'
     end

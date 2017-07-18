@@ -94,7 +94,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Kingfisher/Kingfisher.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MyCheckCore/MyCheckCore.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MyCheckDine/MyCheckDine.framework"
-  install_framework "${PODS_ROOT}/MyCheckWalletUI/MyCheckWalletUI/Classes/VisaCheckout/frameworks/VisaCheckoutSDK.framework"
+  install_framework "${PODS_ROOT}/../../../MyCheckWalletUI/MyCheckWalletUI/Classes/VisaCheckout/frameworks/VisaCheckoutSDK.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MyCheckWalletUI/MyCheckWalletUI.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -103,7 +103,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Kingfisher/Kingfisher.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MyCheckCore/MyCheckCore.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MyCheckDine/MyCheckDine.framework"
-  install_framework "${PODS_ROOT}/MyCheckWalletUI/MyCheckWalletUI/Classes/VisaCheckout/frameworks/VisaCheckoutSDK.framework"
+  install_framework "${PODS_ROOT}/../../../MyCheckWalletUI/MyCheckWalletUI/Classes/VisaCheckout/frameworks/VisaCheckoutSDK.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MyCheckWalletUI/MyCheckWalletUI.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
