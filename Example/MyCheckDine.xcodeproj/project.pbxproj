@@ -13,9 +13,14 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* PollerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* PollerTest.swift */; };
 		AACC0EF745003DAD1E7F02B1 /* Pods_MyCheckDine_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C8777827ECE40BDD56E8B54 /* Pods_MyCheckDine_Example.framework */; };
 		B20307A01F0E2BFE00DA8584 /* DelayMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B203079F1F0E2BFE00DA8584 /* DelayMock.swift */; };
+		B20607AD1F1DF95F0029F056 /* ConfigureTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20607A51F1DF95F0029F056 /* ConfigureTest.swift */; };
+		B20607AE1F1DF95F0029F056 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20607A61F1DF95F0029F056 /* LoginTest.swift */; };
+		B20607AF1F1DF95F0029F056 /* GenerateCodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20607A81F1DF95F0029F056 /* GenerateCodeTest.swift */; };
+		B20607B01F1DF95F0029F056 /* OrderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20607A91F1DF95F0029F056 /* OrderTest.swift */; };
+		B20607B11F1DF95F0029F056 /* PollerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20607AA1F1DF95F0029F056 /* PollerTest.swift */; };
+		B20607B21F1DF95F0029F056 /* TestCreditCardValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20607AC1F1DF95F0029F056 /* TestCreditCardValidation.swift */; };
 		B226C0B51E1CEB3D0045D73A /* SuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226C0B41E1CEB3D0045D73A /* SuperViewController.swift */; };
 		B226C0B71E1D423C0045D73A /* DineInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226C0B61E1D423C0045D73A /* DineInViewController.swift */; };
 		B22F35641F1674D700D85946 /* UITextField+doneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22F35631F1674D700D85946 /* UITextField+doneButton.swift */; };
@@ -37,10 +42,6 @@
 		B2C7A42C1F13836900A96A24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2C7A42A1F13836900A96A24 /* Main.storyboard */; };
 		B2C7A42E1F13836900A96A24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2C7A42D1F13836900A96A24 /* Assets.xcassets */; };
 		B2C7A4311F13836900A96A24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2C7A42F1F13836900A96A24 /* LaunchScreen.storyboard */; };
-		B2C7A43A1F15131100A96A24 /* ConfigureTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C7A4381F15131100A96A24 /* ConfigureTest.swift */; };
-		B2C7A43B1F15131100A96A24 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C7A4391F15131100A96A24 /* LoginTest.swift */; };
-		B2C7A43D1F15148100A96A24 /* OrderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C7A43C1F15148100A96A24 /* OrderTest.swift */; };
-		B2CDBDCA1F1B5FD400E0117D /* GenerateCodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CDBDC91F1B5FD400E0117D /* GenerateCodeTest.swift */; };
 		B2F31E1D1EF9500200071869 /* WalletUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F31E1C1EF9500200071869 /* WalletUIViewController.swift */; };
 		B2F31E201EF96D4800071869 /* LocalDataa.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F31E1F1EF96D4800071869 /* LocalDataa.swift */; };
 		D1A397DB56551F362C76CA3E /* Pods_MyCheckDine_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A88F68AB93E936A417661F7 /* Pods_MyCheckDine_Tests.framework */; };
@@ -95,12 +96,17 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* MyCheckDine_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCheckDine_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* PollerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollerTest.swift; sourceTree = "<group>"; };
 		7A85665E6E960E5D7B4AB81E /* Pods_MyCheckDine_Example_emptyTargetForTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCheckDine_Example_emptyTargetForTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		919B2B1C4D9D481EF48AB9DC /* Pods_MyCheckRestaurantSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCheckRestaurantSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9787D4C46B71BCD711F3E761 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9C75D87B997A0518F223A428 /* Pods-MyCheckDine_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCheckDine_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCheckDine_Tests/Pods-MyCheckDine_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B203079F1F0E2BFE00DA8584 /* DelayMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayMock.swift; sourceTree = "<group>"; };
+		B20607A51F1DF95F0029F056 /* ConfigureTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureTest.swift; sourceTree = "<group>"; };
+		B20607A61F1DF95F0029F056 /* LoginTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
+		B20607A81F1DF95F0029F056 /* GenerateCodeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateCodeTest.swift; sourceTree = "<group>"; };
+		B20607A91F1DF95F0029F056 /* OrderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTest.swift; sourceTree = "<group>"; };
+		B20607AA1F1DF95F0029F056 /* PollerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollerTest.swift; sourceTree = "<group>"; };
+		B20607AC1F1DF95F0029F056 /* TestCreditCardValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCreditCardValidation.swift; sourceTree = "<group>"; };
 		B226C0B41E1CEB3D0045D73A /* SuperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperViewController.swift; sourceTree = "<group>"; };
 		B226C0B61E1D423C0045D73A /* DineInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DineInViewController.swift; sourceTree = "<group>"; };
 		B22F35631F1674D700D85946 /* UITextField+doneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+doneButton.swift"; sourceTree = "<group>"; };
@@ -126,11 +132,7 @@
 		B2C7A42D1F13836900A96A24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2C7A4301F13836900A96A24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2C7A4321F13836900A96A24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B2C7A4381F15131100A96A24 /* ConfigureTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureTest.swift; sourceTree = "<group>"; };
-		B2C7A4391F15131100A96A24 /* LoginTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
-		B2C7A43C1F15148100A96A24 /* OrderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTest.swift; sourceTree = "<group>"; };
 		B2CBB8E01E193197001F9827 /* MyCheckDine_Example copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyCheckDine_Example copy-Info.plist"; sourceTree = "<group>"; };
-		B2CDBDC91F1B5FD400E0117D /* GenerateCodeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateCodeTest.swift; sourceTree = "<group>"; };
 		B2F31E1C1EF9500200071869 /* WalletUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletUIViewController.swift; sourceTree = "<group>"; };
 		B2F31E1F1EF96D4800071869 /* LocalDataa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDataa.swift; sourceTree = "<group>"; };
 		BB649913DED3B30609D47FF3 /* Pods-MyCheckRestaurantSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCheckRestaurantSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCheckRestaurantSDK_Tests/Pods-MyCheckRestaurantSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -220,14 +222,12 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B20607A41F1DF95F0029F056 /* Core */,
+				B20607A71F1DF95F0029F056 /* Dine */,
+				B20607AB1F1DF95F0029F056 /* Wallet */,
 				B260FB191F0CC6C8002605EE /* helpTools */,
 				B260FB1C1F0CC6C8002605EE /* mockObjects */,
 				B2AD9B6C1F0BE94000059FAA /* JSON */,
-				607FACEB1AFB9204008FA782 /* PollerTest.swift */,
-				B2C7A4381F15131100A96A24 /* ConfigureTest.swift */,
-				B2C7A4391F15131100A96A24 /* LoginTest.swift */,
-				B2C7A43C1F15148100A96A24 /* OrderTest.swift */,
-				B2CDBDC91F1B5FD400E0117D /* GenerateCodeTest.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -280,6 +280,33 @@
 				7A85665E6E960E5D7B4AB81E /* Pods_MyCheckDine_Example_emptyTargetForTesting.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B20607A41F1DF95F0029F056 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B20607A51F1DF95F0029F056 /* ConfigureTest.swift */,
+				B20607A61F1DF95F0029F056 /* LoginTest.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B20607A71F1DF95F0029F056 /* Dine */ = {
+			isa = PBXGroup;
+			children = (
+				B20607A81F1DF95F0029F056 /* GenerateCodeTest.swift */,
+				B20607A91F1DF95F0029F056 /* OrderTest.swift */,
+				B20607AA1F1DF95F0029F056 /* PollerTest.swift */,
+			);
+			path = Dine;
+			sourceTree = "<group>";
+		};
+		B20607AB1F1DF95F0029F056 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				B20607AC1F1DF95F0029F056 /* TestCreditCardValidation.swift */,
+			);
+			path = Wallet;
 			sourceTree = "<group>";
 		};
 		B260FB191F0CC6C8002605EE /* helpTools */ = {
@@ -672,15 +699,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2C7A43B1F15131100A96A24 /* LoginTest.swift in Sources */,
-				B2C7A43A1F15131100A96A24 /* ConfigureTest.swift in Sources */,
 				B20307A01F0E2BFE00DA8584 /* DelayMock.swift in Sources */,
-				B2C7A43D1F15148100A96A24 /* OrderTest.swift in Sources */,
+				B20607AD1F1DF95F0029F056 /* ConfigureTest.swift in Sources */,
 				B260FB1E1F0CC6C8002605EE /* XCTestCase+JSON.swift in Sources */,
+				B20607B11F1DF95F0029F056 /* PollerTest.swift in Sources */,
+				B20607AE1F1DF95F0029F056 /* LoginTest.swift in Sources */,
 				B260FB201F0CC6C8002605EE /* RequestProtocolMock.swift in Sources */,
-				B2CDBDCA1F1B5FD400E0117D /* GenerateCodeTest.swift in Sources */,
-				607FACEC1AFB9204008FA782 /* PollerTest.swift in Sources */,
 				B260FB1F1F0CC6C8002605EE /* XCTestCase+Mock.swift in Sources */,
+				B20607B21F1DF95F0029F056 /* TestCreditCardValidation.swift in Sources */,
+				B20607B01F1DF95F0029F056 /* OrderTest.swift in Sources */,
+				B20607AF1F1DF95F0029F056 /* GenerateCodeTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -894,6 +922,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -914,6 +943,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -933,7 +963,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 2NY9PDA74K;
 				INFOPLIST_FILE = emptyTargetForTesting/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycheck.emptyTargetForTesting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -952,7 +982,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = 2NY9PDA74K;
 				INFOPLIST_FILE = emptyTargetForTesting/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mycheck.emptyTargetForTesting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
