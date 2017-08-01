@@ -13,6 +13,25 @@ enum RequestProtocolResponse{
     case success([String: Any])
     case fail(NSError)
 }
+
+
+struct RequestParameters {
+    url: String
+    method: HTTPMethod
+    parameters: Parameters?
+    encoding: ParameterEncoding
+    addedHeaders: HTTPHeaders?
+    
+    init( url: String,
+        method: HTTPMethod,
+        parameters: Parameters?,
+        encoding: ParameterEncoding,
+        addedHeaders: HTTPHeaders?) {
+        self.url = url
+        self.method = method
+        self.parameters = parameters
+    }
+}
 class RequestProtocolMock : RequestProtocol{
     let response: RequestProtocolResponse
 
@@ -28,7 +47,7 @@ class RequestProtocolMock : RequestProtocol{
     /// - Parameters:
     ///   - response: The response the mock will return.
     ///   - respondImmediately: If true the response will be called as the request is made. Otherwise it will be called when someone calls the response() function
-    init(response: RequestProtocolResponse , respondImmediately: Bool = true) {
+    init(response: RequestProtocolResponse , respondImmediately: Bool = true , ) {
         self.response = response
         self.respondImmediately = respondImmediately
     }
