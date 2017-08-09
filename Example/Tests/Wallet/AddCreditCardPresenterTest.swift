@@ -65,6 +65,46 @@ class AddCreditCardPresenterTest: XCTestCase {
 
     }
     
+    
+    
+    func testPresentNumberFieldWithSpaces() {//e.g 4111 1111 1111 1111
+        
+        let presenter = AddCreditCardPresenter()
+        let spy = AddCreditCardDisplayLogicSpy()
+        presenter.viewController = spy
+        //Given
+        //testing for all lengths
+        var rawNumber = "4"
+        var parsedNumber = "4"
+        repeat {
+        rawNumber = rawNumber + "1"
+            if parsedNumber.replacingOccurrences(of: " ", with: "").characters.count % 4 == 0{
+            parsedNumber = parsedNumber + " 1"
+            }else{
+                parsedNumber = parsedNumber + "1"
+
+            }
+            
+            //When
+            let response = AddCreditCard.TextChanged.Response(type: .number, text: rawNumber, prefixOfValidValue: true, cardType: .Unknown)
+            presenter.presentTextChangeResponse(response: response)
+            //Then
+            XCTAssert(spy.stateChangedVM == nil , "should not have been called")
+            XCTAssert(spy.submitVM == nil, "should not have been called")
+            guard let viewModel = spy.textChangeVM else {
+                XCTFail("text change view model should not be nil")
+                return
+            }
+            XCTAssert(viewModel.type == .number, "should be the same field of the response")
+            XCTAssert(viewModel.textColor == UIColor.fieldTextValid(), "should be valid color")
+            XCTAssert(viewModel.underlineColor == UIColor.fieldUnderline(), "should be valid color")
+            XCTAssert(viewModel.text == parsedNumber, "should be valid text")
+            XCTAssert(viewModel.cardTypeIconUpdate == AddCreditCard.TextChanged.ViewModel.CardTypeUpdate.showPlaceholder, "should be valid color")
+            
+
+        }while rawNumber.characters.count < 16
+            }
+    
     func testPresentWithImageChange() {
         
         let presenter = AddCreditCardPresenter()

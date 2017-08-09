@@ -431,7 +431,7 @@ class AddCreditCardInteractorTest: XCTestCase {
         
     }
     
-    func testSubmitFormWithInValidDataWithDiffrantCompination(){
+    func testSubmitFormWithInValidDataWithDiffrantCombinations(){
         let interactor = AddCreditCardInteractor()
         let spy = AddCreditCardOutputSpy()
         interactor.presenter = spy
@@ -496,11 +496,58 @@ class AddCreditCardInteractorTest: XCTestCase {
     }
 
     func testSubmitFormWithValidInput(){
+        //setup
+        self.createNewLoggedInSession()
+        guard let validJSON = getJSONFromFile( named: "addCreditCard") else{
+        XCTFail("addCreditCard.json file failed parse ")
+            return
+        }
+
+        Wallet.shared.network = RequestProtocolMock(response: .success(validJSON))
+        
         let interactor = AddCreditCardInteractor()
         let spy = AddCreditCardOutputSpy()
         interactor.presenter = spy
         //Given
         interactor.model = AddCreditCard.FormData(number: "", date: "", cvv: "", zip: "", singleUse:false)
+        //Whenop
+          let req = AddCreditCard.SubmitForm.Request(number: "4111111111111111", date: "12/19", cvv: "123", zip: "12345", singleUse: false)
+        interactor.submitForm(request: req)
+        
+        //Then
+        guard let response = spy.submitFormResponse else{
+            XCTFail("no response receieved")
+            return
+        }
+        
+        XCTAssert(spy.stateChanges == [AddCreditCard.State.callingServer,AddCreditCard.State.inputingDetails]) // invalid input should  change state twice
+        
+        switch response {
+        case .addedCreditCard:
+            break;
+        case .failedToAddCard:
+            XCTFail("should not of failed")
+            
+            
+            
+        }
+        
+        
+    }
+    
+    func testSubmitFormWithValidInputWithServerFailer(){
+        //setup
+        self.createNewLoggedInSession()
+        
+        Wallet.shared.network = RequestProtocolMock(response: .fail(ErrorCodes.badRequest.getError()))
+        
+        let interactor = AddCreditCardInteractor()
+        let spy = AddCreditCardOutputSpy()
+        interactor.presenter = spy
+        
+        //Given
+        interactor.model = AddCreditCard.FormData(number: "", date: "", cvv: "", zip: "", singleUse:false)
+        
         //When
         let req = AddCreditCard.SubmitForm.Request(number: "4111111111111111", date: "12/19", cvv: "123", zip: "12345", singleUse: false)
         interactor.submitForm(request: req)
@@ -510,16 +557,54 @@ class AddCreditCardInteractorTest: XCTestCase {
             XCTFail("no response receieved")
             return
         }
-        XCTAssert(spy.stateChanges == []) // invalid input should not change state
+        
+        XCTAssert(spy.stateChanges == [AddCreditCard.State.callingServer,AddCreditCard.State.inputingDetails]) // invalid input should  change state twice
         
         switch response {
         case .addedCreditCard:
-            XCTFail("should of failed")
-        case .failedToAddCard(let failedResponse):
-            XCTAssert(failedResponse.inputValid == true , "the input should be valid")
-            XCTAssert(failedResponse.serverErrorMessage == nil , "no server call")
-            XCTAssert(failedResponse.fieldValidity.count == 4 , "all fields should be sent")
-            XCTAssert(failedResponse.fieldValidity.reduce(true, { $0 && $1.1 }) == true , "all fields should be true")
+            XCTFail("should not of succeed")
+        case .failedToAddCard:
+            break;
+            
+            
+        }
+        
+        
+    }
+    
+    func testSubmitFormWithValidInputWithSpacesInNumber(){
+        //setup
+        self.createNewLoggedInSession()
+        guard let validJSON = getJSONFromFile( named: "addCreditCard") else{
+            XCTFail("addCreditCard.json file failed parse ")
+            return
+        }
+        
+        Wallet.shared.network = RequestProtocolMock(response: .success(validJSON))
+        
+        let interactor = AddCreditCardInteractor()
+        let spy = AddCreditCardOutputSpy()
+        interactor.presenter = spy
+        //Given
+        interactor.model = AddCreditCard.FormData(number: "", date: "", cvv: "", zip: "", singleUse:false)
+        //Whenop
+        let req = AddCreditCard.SubmitForm.Request(number: "4111 1111 1111 1111", date: "12/19", cvv: "123", zip: "12345", singleUse: false)
+        interactor.submitForm(request: req)
+        
+        //Then
+        guard let response = spy.submitFormResponse else{
+            XCTFail("no response receieved")
+            return
+        }
+        
+        XCTAssert(spy.stateChanges == [AddCreditCard.State.callingServer,AddCreditCard.State.inputingDetails]) // invalid input should  change state twice
+        
+        switch response {
+        case .addedCreditCard:
+            break;
+        case .failedToAddCard:
+            XCTFail("should not of failed")
+            
             
             
         }
