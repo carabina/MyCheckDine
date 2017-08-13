@@ -25,6 +25,7 @@
 		B226C0B71E1D423C0045D73A /* DineInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226C0B61E1D423C0045D73A /* DineInViewController.swift */; };
 		B22F35641F1674D700D85946 /* UITextField+doneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22F35631F1674D700D85946 /* UITextField+doneButton.swift */; };
 		B23C605D1E18F8B0000A53FB /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = B23C605C1E18F8B0000A53FB /* .swift-version */; };
+		B24A86DE1F3C8BA500688433 /* DineInWebInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24A86DD1F3C8BA500688433 /* DineInWebInteractorTest.swift */; };
 		B260FB1E1F0CC6C8002605EE /* XCTestCase+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B260FB1A1F0CC6C8002605EE /* XCTestCase+JSON.swift */; };
 		B260FB1F1F0CC6C8002605EE /* XCTestCase+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B260FB1B1F0CC6C8002605EE /* XCTestCase+Mock.swift */; };
 		B260FB201F0CC6C8002605EE /* RequestProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B260FB1D1F0CC6C8002605EE /* RequestProtocolMock.swift */; };
@@ -115,6 +116,7 @@
 		B226C0B61E1D423C0045D73A /* DineInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DineInViewController.swift; sourceTree = "<group>"; };
 		B22F35631F1674D700D85946 /* UITextField+doneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+doneButton.swift"; sourceTree = "<group>"; };
 		B23C605C1E18F8B0000A53FB /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
+		B24A86DD1F3C8BA500688433 /* DineInWebInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DineInWebInteractorTest.swift; sourceTree = "<group>"; };
 		B260FB1A1F0CC6C8002605EE /* XCTestCase+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+JSON.swift"; sourceTree = "<group>"; };
 		B260FB1B1F0CC6C8002605EE /* XCTestCase+Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Mock.swift"; sourceTree = "<group>"; };
 		B260FB1D1F0CC6C8002605EE /* RequestProtocolMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestProtocolMock.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B24A86DC1F3C8B8E00688433 /* WebInterface */,
 				B20607A41F1DF95F0029F056 /* Core */,
 				B20607A71F1DF95F0029F056 /* Dine */,
 				B20607AB1F1DF95F0029F056 /* Wallet */,
@@ -317,6 +320,14 @@
 				B20607AC1F1DF95F0029F056 /* TestCreditCardValidation.swift */,
 			);
 			path = Wallet;
+			sourceTree = "<group>";
+		};
+		B24A86DC1F3C8B8E00688433 /* WebInterface */ = {
+			isa = PBXGroup;
+			children = (
+				B24A86DD1F3C8BA500688433 /* DineInWebInteractorTest.swift */,
+			);
+			path = WebInterface;
 			sourceTree = "<group>";
 		};
 		B260FB191F0CC6C8002605EE /* helpTools */ = {
@@ -565,7 +576,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		651146D2AC1B0435DFB9B48C /* [CP] Check Pods Manifest.lock */ = {
@@ -580,7 +591,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6B7EB39AE3F47ECB93C664FB /* [CP] Copy Pods Resources */ = {
@@ -610,7 +621,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		95D327EF0C0F2EE33E388B60 /* [CP] Embed Pods Frameworks */ = {
@@ -721,6 +732,7 @@
 				B289F9A51F3091D400CEC772 /* AddCreditCardInteractorTest.swift in Sources */,
 				B20607AE1F1DF95F0029F056 /* LoginTest.swift in Sources */,
 				B260FB201F0CC6C8002605EE /* RequestProtocolMock.swift in Sources */,
+				B24A86DE1F3C8BA500688433 /* DineInWebInteractorTest.swift in Sources */,
 				B260FB1F1F0CC6C8002605EE /* XCTestCase+Mock.swift in Sources */,
 				B20607B21F1DF95F0029F056 /* TestCreditCardValidation.swift in Sources */,
 				B20607B01F1DF95F0029F056 /* OrderTest.swift in Sources */,

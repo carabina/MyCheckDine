@@ -16,22 +16,35 @@ enum RequestProtocolResponse{
 
 
 struct RequestParameters {
-    url: String
-    method: HTTPMethod
-    parameters: Parameters?
-    encoding: ParameterEncoding
-    addedHeaders: HTTPHeaders?
+   let url: String
+   let method: HTTPMethod
+   let parameters: Parameters?
+   let encoding: ParameterEncoding
+   let addedHeaders: HTTPHeaders?
     
     init( url: String,
         method: HTTPMethod,
         parameters: Parameters?,
-        encoding: ParameterEncoding,
-        addedHeaders: HTTPHeaders?) {
+        encoding: ParameterEncoding = URLEncoding.default,
+        addedHeaders: HTTPHeaders? = nil) {
+      
         self.url = url
         self.method = method
         self.parameters = parameters
+      self.encoding = encoding
+      self.addedHeaders = addedHeaders
     }
-}
+  
+  public static func ==(lhs: RequestParameters, rhs: RequestParameters) -> Bool{
+    if let lhsParams = lhs.parameters , rhsParams = rhs.parameters{
+      return lhs.url == rhs.url &&
+        lhs.method == rhs.method &&
+      lhsParams == rhsParams
+
+    }
+   
+  }
+  }
 class RequestProtocolMock : RequestProtocol{
     let response: RequestProtocolResponse
 
@@ -47,7 +60,7 @@ class RequestProtocolMock : RequestProtocol{
     /// - Parameters:
     ///   - response: The response the mock will return.
     ///   - respondImmediately: If true the response will be called as the request is made. Otherwise it will be called when someone calls the response() function
-    init(response: RequestProtocolResponse , respondImmediately: Bool = true , ) {
+    init(response: RequestProtocolResponse , respondImmediately: Bool = true , requestCheckCallback: ((RequestParameters) -> Void)? = nil ) {
         self.response = response
         self.respondImmediately = respondImmediately
     }

@@ -63,6 +63,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'MyCheckDine_Example' do
     pod 'MyCheckDine', :path => '../'
     pod 'MyCheckCore', :path => '../../MyCheck-Core'
+    pod 'WebInterface', :path => '../../WebInterfaceSDK'
+
     pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
    # pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
     pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
@@ -75,8 +77,9 @@ target 'MyCheckDine_Example' do
        # pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/VisaCheckout', :path => '../../MyCheckWalletUI'
-        
-        
+        pod 'WebInterface', :path => '../../WebInterfaceSDK'
+
+
         pod 'Quick', '~> 1.0.0'
         pod 'Nimble', '~> 5.1.1'
     end
@@ -86,6 +89,8 @@ target 'MyCheckDine_Example' do
         #pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/VisaCheckout', :path => '../../MyCheckWalletUI'
+        pod 'WebInterface', :path => '../../WebInterfaceSDK'
+
     end
     
     post_install do |installer|

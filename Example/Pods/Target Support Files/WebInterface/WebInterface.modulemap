@@ -1,0 +1,6 @@
+framework module WebInterface {
+  umbrella header "WebInterface-umbrella.h"
+
+  export *
+  module * { export * }
+}

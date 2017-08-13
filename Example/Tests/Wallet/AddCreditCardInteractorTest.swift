@@ -496,11 +496,13 @@ class AddCreditCardInteractorTest: XCTestCase {
     }
 
     func testSubmitFormWithValidInput(){
+      self.createNewLoggedInSession()
         let interactor = AddCreditCardInteractor()
         let spy = AddCreditCardOutputSpy()
         interactor.presenter = spy
         //Given
         interactor.model = AddCreditCard.FormData(number: "", date: "", cvv: "", zip: "", singleUse:false)
+      Wallet.shared.network = RequestProtocolMock(response: <#T##RequestProtocolResponse#>)
         //When
         let req = AddCreditCard.SubmitForm.Request(number: "4111111111111111", date: "12/19", cvv: "123", zip: "12345", singleUse: false)
         interactor.submitForm(request: req)
