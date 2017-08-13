@@ -25,26 +25,15 @@ struct RequestParameters {
     init( url: String,
         method: HTTPMethod,
         parameters: Parameters?,
-        encoding: ParameterEncoding = URLEncoding.default,
-        addedHeaders: HTTPHeaders? = nil) {
-      
+        encoding: ParameterEncoding,
+        addedHeaders: HTTPHeaders?) {
         self.url = url
         self.method = method
         self.parameters = parameters
-      self.encoding = encoding
-      self.addedHeaders = addedHeaders
+        self.encoding = encoding
+        self.addedHeaders = addedHeaders
     }
-  
-  public static func ==(lhs: RequestParameters, rhs: RequestParameters) -> Bool{
-    if let lhsParams = lhs.parameters , rhsParams = rhs.parameters{
-      return lhs.url == rhs.url &&
-        lhs.method == rhs.method &&
-      lhsParams == rhsParams
-
-    }
-   
-  }
-  }
+}
 class RequestProtocolMock : RequestProtocol{
     let response: RequestProtocolResponse
 
@@ -55,19 +44,28 @@ class RequestProtocolMock : RequestProtocol{
     
     let respondImmediately: Bool
     
+    //the callback is called when request is called and passes the parameters to the callback
+    let callback: ((RequestParameters) -> Void )?
     /// Creates a mock object
     ///
     /// - Parameters:
     ///   - response: The response the mock will return.
     ///   - respondImmediately: If true the response will be called as the request is made. Otherwise it will be called when someone calls the response() function
-    init(response: RequestProtocolResponse , respondImmediately: Bool = true , requestCheckCallback: ((RequestParameters) -> Void)? = nil ) {
+    init(response: RequestProtocolResponse , respondImmediately: Bool = true , callback: ((RequestParameters) -> Void )? = nil) {
         self.response = response
         self.respondImmediately = respondImmediately
+        self.callback = callback
     }
     
     
     func request(_ url: String , method: HTTPMethod , parameters: Parameters? , encoding: ParameterEncoding ,addedHeaders: HTTPHeaders? , success: (( _ object: [String: Any]  ) -> Void)? , fail: ((NSError) -> Void)? )  {
-
+        
+        //let the callback know what was sent
+        if let callback = callback{
+            let request = RequestParameters(url: url, method: method, parameters: parameters, encoding: encoding, addedHeaders: addedHeaders)
+            callback(request)
+        }
+        
         self.success = success
         self.fail = fail
         if respondImmediately{
@@ -79,7 +77,7 @@ class RequestProtocolMock : RequestProtocol{
     
     /// Calls the apropriat callback
     func respond(){
-      
+       
         switch response {
         case .success(let JSON):
             if let success = success {

@@ -40,6 +40,7 @@
 		B289F9A51F3091D400CEC772 /* AddCreditCardInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289F9A31F3091D400CEC772 /* AddCreditCardInteractorTest.swift */; };
 		B289F9A61F3091D400CEC772 /* AddCreditCardPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289F9A41F3091D400CEC772 /* AddCreditCardPresenterTest.swift */; };
 		B289F9A81F3091EF00CEC772 /* KeyValueStorageProtocolMockAndSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289F9A71F3091EF00CEC772 /* KeyValueStorageProtocolMockAndSpy.swift */; };
+		B296BE151F33343000E5657C /* addCreditCard.json in Resources */ = {isa = PBXBuildFile; fileRef = B296BE141F33343000E5657C /* addCreditCard.json */; };
 		B2AD9B6E1F0BE95900059FAA /* generateCode.json in Resources */ = {isa = PBXBuildFile; fileRef = B2AD9B6D1F0BE95900059FAA /* generateCode.json */; };
 		B2AD9B701F0BE99F00059FAA /* orderDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = B2AD9B6F1F0BE99F00059FAA /* orderDetails.json */; };
 		B2C7A4271F13836900A96A24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C7A4261F13836900A96A24 /* AppDelegate.swift */; };
@@ -132,6 +133,7 @@
 		B289F9A31F3091D400CEC772 /* AddCreditCardInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCreditCardInteractorTest.swift; sourceTree = "<group>"; };
 		B289F9A41F3091D400CEC772 /* AddCreditCardPresenterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCreditCardPresenterTest.swift; sourceTree = "<group>"; };
 		B289F9A71F3091EF00CEC772 /* KeyValueStorageProtocolMockAndSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueStorageProtocolMockAndSpy.swift; sourceTree = "<group>"; };
+		B296BE141F33343000E5657C /* addCreditCard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addCreditCard.json; sourceTree = "<group>"; };
 		B2AD9B6D1F0BE95900059FAA /* generateCode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = generateCode.json; sourceTree = "<group>"; };
 		B2AD9B6F1F0BE99F00059FAA /* orderDetails.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orderDetails.json; sourceTree = "<group>"; };
 		B2C0DB3B1F0A5C21001E4BAA /* MyCheckDine_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyCheckDine_Example.entitlements; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 		B2AD9B6C1F0BE94000059FAA /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				B296BE141F33343000E5657C /* addCreditCard.json */,
 				B289F9A01F3091A800CEC772 /* PaymentMethods.json */,
 				B260FB211F0CC839002605EE /* configure.json */,
 				B260FB221F0CC839002605EE /* login.json */,
@@ -545,6 +548,7 @@
 				B270CC7B1F0E57100064983D /* orderDetailsNoItems.json in Resources */,
 				B2AD9B6E1F0BE95900059FAA /* generateCode.json in Resources */,
 				B2AD9B701F0BE99F00059FAA /* orderDetails.json in Resources */,
+				B296BE151F33343000E5657C /* addCreditCard.json in Resources */,
 				B289F9A21F3091AD00CEC772 /* PaymentMethods.json in Resources */,
 				B260FB231F0CC839002605EE /* configure.json in Resources */,
 				B260FB241F0CC839002605EE /* login.json in Resources */,

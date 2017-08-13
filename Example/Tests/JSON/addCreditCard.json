@@ -1,0 +1,17 @@
+{
+  "pm": {
+    "id": 10602,
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJteWNoZWNrYXBwLmNvbSIsImF1ZCI6IlRFU1QiLCJzdWIiOnsiaWQiOjEwNjAyLCJ0b2tlbiI6IjYyM2RmZDRjMzdiZDE1MDU1MzcyZGI0Y2I1MDViNTQ4ZjkyMDUyNGM1NDVmNzQ2NWQyYWJkYmZmYmVjNWZkY2UifSwiaWF0IjoxNTAxMTUyNTg1LCJleHAiOjE1MDExNjMzODUsImtleSI6IkxkY0R2cWNBZXJhZll1UFcifQ.m2QGXVK442oDVV_40Y2Kg63V_zk63W5mPybaZ6341GE",
+    "source": "MCPCI",
+    "issuer_short": "VI",
+    "issuer_full": "visa",
+    "exp_month": 12,
+    "exp_year2": 18,
+    "exp_year4": 2018,
+    "last_4_digits": "1127",
+    "first_6_digits": "426428",
+    "is_single_use": 0,
+    "is_default": 1
+  },
+  "status": "OK"
+}
