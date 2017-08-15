@@ -245,7 +245,7 @@ extension DineInViewController : OrderPollerDelegate{
         pollCount.text = "\(Int(pollCount.text!)! + 1)"
         lastOrder = order
     }
-    func failingToReceiveUpdates(lastReceivedError: Error , failCount:Int){
+    func failingToReceiveUpdates(lastReceivedError: NSError , failCount:Int){
         terminal(string: "OrderPollerDelegate fail called", success: false)
     }
     

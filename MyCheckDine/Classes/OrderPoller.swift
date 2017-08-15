@@ -20,7 +20,7 @@ public protocol OrderPollerDelegate {
   ///
   /// - parameter lastReceivedError:     The error that caused the last server call to fail.
   /// - parameter failCount:     The amount of consecutive calls to the server that failed.
-  func failingToReceiveUpdates(lastReceivedError: Error , failCount:Int)
+  func failingToReceiveUpdates(lastReceivedError: NSError , failCount:Int)
 }
 
 ///When activated this object polls the MyCheck server in order to fetch order updates. Call The startPolling function and set the delegate in order to receive updates. You should generaly use the poller from when a 4 digit code is created untill the order is closed or canceled.
@@ -103,7 +103,7 @@ public class OrderPoller {
       if self.failCount > 2{//in this case we will update the delegate
         
         if let delegate = self.delegate{
-          delegate.failingToReceiveUpdates(lastReceivedError: error, failCount: self.failCount)
+          delegate.failingToReceiveUpdates(lastReceivedError: §§§§§§§§§§§§, failCount: self.failCount)
         }
         
       }

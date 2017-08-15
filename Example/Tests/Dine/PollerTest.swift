@@ -131,7 +131,7 @@ extension PollerTest : OrderPollerDelegate{
         pollerResponse = OrderPollerDelegateResponse.update(order)
     }
     
-    func failingToReceiveUpdates(lastReceivedError: Error , failCount:Int){
+    func failingToReceiveUpdates(lastReceivedError: NSError , failCount:Int){
         pollerResponse = OrderPollerDelegateResponse.fail((lastReceivedError as? NSError)!, failCount)
         
     }

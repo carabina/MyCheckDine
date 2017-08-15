@@ -95,7 +95,7 @@ func orderUpdated(order:Order){
 }
 
 
-func failingToReceiveUpdates(lastReceivedError: Error , failCount:Int){
+func failingToReceiveUpdates(lastReceivedError: NSError , failCount:Int){
 //this callback will be called if the poller failed the last few calls to the MyCheck server. This means your app may not be in sync with the POS.
 }
 }
