@@ -240,6 +240,7 @@
 				B20607AB1F1DF95F0029F056 /* Wallet */,
 				B260FB191F0CC6C8002605EE /* helpTools */,
 				B260FB1C1F0CC6C8002605EE /* mock and spy Objects */,
+				B223A4261F4321F100A9AC09 /* stubs */,
 				B2AD9B6C1F0BE94000059FAA /* JSON */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -322,6 +323,13 @@
 				B20607AC1F1DF95F0029F056 /* TestCreditCardValidation.swift */,
 			);
 			path = Wallet;
+			sourceTree = "<group>";
+		};
+		B223A4261F4321F100A9AC09 /* stubs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = stubs;
 			sourceTree = "<group>";
 		};
 		B24A86DC1F3C8B8E00688433 /* WebInterface */ = {

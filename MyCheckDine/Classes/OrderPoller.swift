@@ -103,7 +103,7 @@ public class OrderPoller {
       if self.failCount > 2{//in this case we will update the delegate
         
         if let delegate = self.delegate{
-          delegate.failingToReceiveUpdates(lastReceivedError: §§§§§§§§§§§§, failCount: self.failCount)
+          delegate.failingToReceiveUpdates(lastReceivedError: error, failCount: self.failCount)
         }
         
       }
