@@ -8,6 +8,12 @@ internal struct URIs{
     static let generateCode = "/restaurants/api/v1/generateCode"
     static let orderDetails = "/restaurants/api/v1/order"
     static let payment = "/restaurants/api/v1/payment"
+    static let friendList = "/restairants/api/v1/friendsList"
+    static let addFriend = "/restaurants/api/v1/addFriend"
+    static let stats = "/restairants/api/v1/usageStats"
+    static let orderList = "/restairants/api/v1/orderList"
+    
+    
 }
 
 ///Dine is a singleton That encapsulates the MyCheck dine in proccess: from opening a table , through getting the order details and reordering items to paying for the order.
@@ -189,8 +195,8 @@ public class Dine{
                 let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
                 params["items"] =  jsonString
                 
-
-            
+                
+                
             }
             guard let domain = Networking.shared.domain else{
                 fail(ErrorCodes.notConifgured.getError())
@@ -213,7 +219,7 @@ public class Dine{
     ///    - parameter fail: Called when the function fails for any reason
     
     public func reorderItems(items: [(amount: Int , item: Item)] , success: (() -> Void)? , fail: ((NSError) -> Void)? ){
-
+        
         let itemJSONs = items.map({ $0.item.createReorderJSON(amount: $0.amount).flatMap({$0})})
         
         let jsonData = try! JSONSerialization.data(withJSONObject: itemJSONs, options: JSONSerialization.WritingOptions())
@@ -239,7 +245,71 @@ public class Dine{
         }
         
     }
+    
+    
+    
+    //MARK: - adding friednds to table related functions
+    
+    /// Get the list of friends that have joint the table. Friends can join by showing a generated 4 digit code to the waiter or to a friend that has already joined the table (using the add friend functions).
+    ///
+    /// - Parameters:
+    ///   - success: Returns the list of friends that are in the table
+    ///   - fail: Called when the function fails for any reason
+    public func getListOfFriendsAtOpenTable( success: @escaping (([DiningFriend]) -> Void) , fail: ((NSError) -> Void)? ){
+        if let domain = Networking.shared.domain {
+            let urlStr = domain + URIs.friendList
+            
+            return  network.request(urlStr, method: .get, parameters: nil , success: { JSON in
+                
+                guard let friendsJSON = JSON["users"] as? [[String:Any]] else{
+                    if let fail = fail{
+                        fail(ErrorCodes.badJSON.getError())
+                    }
+                    return
+                }
+                
+                let friends = friendsJSON.map { DiningFriend(json: $0) } as! [DiningFriend]
+                
+                success( friends )
+                
+            }, fail: fail)
+        }else{
+            if let fail = fail{
+                fail(ErrorCodes.notConifgured.getError())
+            }
+        }
+        
+    }
+    
+    
+    /// Adds a friend to your users currantly open table
+    ///
+    /// - Parameters:
+    ///   - friendCode: The 4 digit code the friend recieved from the generate code function
+    ///   - success: The friend was added to the table
+    ///   - fail: Called when the function fails for any reason
+    public func addFriendToTable(friendCode:NSString, success: (() -> Void)? , fail: ((NSError) -> Void)? ){
+        if let domain = Networking.shared.domain {
+            let urlStr = domain + URIs.addFriend
+            
+            let params : [String: Any] = [  "code" :  friendCode]
+            
+            return  network.request(urlStr, method: .post, parameters: params , success: { JSON in
+                
+                if let success = success{
+                    success()
+                }
+                
+            }, fail: fail)
+        }else{
+            if let fail = fail{
+                fail(ErrorCodes.notConifgured.getError())
+            }
+        }
+    }
 }
+
+
 
 //MARK: - general scope functions
 

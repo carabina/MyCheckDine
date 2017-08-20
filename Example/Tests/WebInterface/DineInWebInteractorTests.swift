@@ -45,21 +45,11 @@ class DineInWebInteractorTest : XCTestCase {
   }
   
   let callbackName = "callback"
-  var successGetCodeResponse: RequestProtocolMock? = nil
-  var failGetCodeResponse: RequestProtocolMock? = nil
+
   
   override func setUp() {
     super.setUp()
-    guard let validJSON = getJSONFromFile( named: "generateCode") else{
-      XCTFail("cannot create success request")
-      
-      return;
     }
-    
-    successGetCodeResponse = RequestProtocolMock(response: .success(validJSON))
-    
-    failGetCodeResponse = RequestProtocolMock(response: .fail(ErrorCodes.badRequest.getError()))
-  }
   
   
   override func tearDown() {
@@ -67,41 +57,6 @@ class DineInWebInteractorTest : XCTestCase {
     super.tearDown()
   }
   
-  
-  func testCreatingADineInWebView() {
-    var response: DineInWebViewController? = nil
-    //Arrange
-    self.createNewLoggedInSession()
-    Dine.shared.network = successGetCodeResponse!
-    let interactor = DineInWebInteractor()
-    let request = DineInWeb.CreateDineIn.Request(BID: "2", displayDelegate: nil, applePayController: nil, success: {controller in
-      response = controller
-    }, fail: {error in
-      XCTFail("should not fail here")
-    })
-    //Act
-    interactor.createDineInWebViewController(request: request)
-    //Assert
-    XCTAssert(response !=  nil , "should have received a response")
-  }
-  
-  func testFailingToCreatADineInWebView() {
-    var response: NSError? = nil
-    //Arrange
-    self.createNewLoggedInSession()
-    Dine.shared.network = failGetCodeResponse!
-    let interactor = DineInWebInteractor()
-    let request = DineInWeb.CreateDineIn.Request(BID: "2", displayDelegate: nil, applePayController: nil, success: {controller in
-      XCTFail("should not succeed")
-      
-    }, fail: {error in
-      response = error
-    })
-    //Act
-    interactor.createDineInWebViewController(request: request)
-    //Assert
-    XCTAssert(response ==  ErrorCodes.badRequest.getError() , "should have received this error")
-  }
   
   func testGetCodeSuccess() {
     

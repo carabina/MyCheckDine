@@ -154,7 +154,7 @@ open class Order: Decodable , Equatable {
   ///The date time the order was opened.
    open let openTime : Date
   ///The 4 digit code used by the client to connect to the POS.
-   open let clientCode: String?
+   open let clientCode: String
  
   
   ///The items ordered
@@ -199,7 +199,10 @@ open class Order: Decodable , Equatable {
     }
     self.openTime = openTime
    
-    clientCode = "client_code" <~~ json
+    guard let clientCode:String = "client_code" <~~ json else{
+        return nil
+    }
+self.clientCode = clientCode
     
     
        guard let summary: Bill = Bill(json: json) else{
