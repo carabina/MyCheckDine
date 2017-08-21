@@ -1,0 +1,14 @@
+{
+    "stats": {
+        "orders": 12,
+        "avgPay":10.1,
+        "avgTip": 5.8,
+        "avgTime": 5.1,
+        "rewards": 5,
+        "favPlace": "Albany",
+        "favPlaceVisits": 5,
+        "favItem": "Ice-Tea",
+        "favItemBought": 100
+    },
+    "status": "OK"
+}

@@ -169,22 +169,49 @@ class NativeCallHandlerTests: XCTestCase {
         
         
     }
-//    
-//    func testMakePaymentByAmount() {
-//        //Arrange
-//        let spy = setAndReturnSpy()
-//        
-//        //Act
-//        runJSSynchronously(JSExpresion:"makePaymentByAmount();")
-//        
-//        //Assert
-//        XCTAssert(spy.payRequest?.callback == "madePayment")
-////        XCTAssert(spy.getCodeRequest?.paymentDetails. == "madePayment")
-//        //to-do get payment details
-//        
-//    }
+    
+    func testMakePaymentByAmount() {
+        //Arrange
+        let spy = setAndReturnSpy()
+        
+        //Act
+        runJSSynchronously(JSExpresion:"makePaymentByAmount();")
+        
+        //Assert
+        XCTAssert(spy.payRequest?.callback == "madePayment")
+        XCTAssert(spy.payRequest?.amount == 1.1)
+        XCTAssert(spy.payRequest?.tip == 0.5)
+
+        XCTAssert(spy.payRequest?.paymentMethodId == "10405")
+
+        XCTAssert(spy.payRequest?.paymentMethodType == .creditCard)
+
+        XCTAssert(spy.payRequest?.paymentMethodToken == "I am a token")
+
+        
+    }
     
     
+    func testMakePaymentByItems() {
+        //Arrange
+        let spy = setAndReturnSpy()
+        
+        //Act
+        runJSSynchronously(JSExpresion:"makePaymentByItem();")
+        
+        //Assert
+        XCTAssert(spy.payRequest?.callback == "madePayment")
+        XCTAssert(spy.payRequest?.amount == 11.05)
+        XCTAssert(spy.payRequest?.tip == 0.5)
+        
+        XCTAssert(spy.payRequest?.paymentMethodId == "10405")
+        
+        XCTAssert(spy.payRequest?.paymentMethodType == .creditCard)
+        
+        XCTAssert(spy.payRequest?.paymentMethodToken == "I am a token")
+        
+        
+    }
     
 }
 

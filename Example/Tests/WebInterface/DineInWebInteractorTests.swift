@@ -266,26 +266,28 @@ class DineInWebInteractorTest : XCTestCase {
     Dine.shared.network = RequestProtocolMock(response: .success(["status":"OK"]))
     
     let (interactor , spy) = getInteractorWithPresenterSpy()
-
+    interactor.model.order = getOrderDetails()
+    let paymentMethod = getPaymentMethod()
+    interactor.model.paymentMethods = [paymentMethod]
     //Act
-    guard   let paymentDetails = getPaymentDetails() else{
-      XCTFail("should not fail")
-      return;
-    }
     
     
-    interactor.makePayment(request: DineInWeb.Pay.Request(callback: callbackName, paymentDetails: paymentDetails))
     
+    interactor.makePayment(request: DineInWeb.Pay.Request(callback: callbackName, amount: 1.1, tip: 0.5, paymentMethodId:paymentMethod.ID, paymentMethodToken: "abc"    , paymentMethodType: paymentMethod.type))
+    
+    var response : String? =  nil
     //Assert
     switch  spy.payResponse!{
     case .success(let callback):
       
-      XCTAssert(callback == callbackName, "callback was not passed properly")
-      
+response = callback
     case .fail(_ , _):
       XCTFail("should not of fail")
     }
+
     
+    XCTAssert(response == callbackName, "callback was not passed properly")
+
   }
   
   
@@ -298,15 +300,14 @@ class DineInWebInteractorTest : XCTestCase {
     Dine.shared.network = RequestProtocolMock(response: .fail(ErrorCodes.badRequest.getError()))
     
     let (interactor , spy) = getInteractorWithPresenterSpy()
-
+    interactor.model.order = getOrderDetails()
+    let paymentMethod = getPaymentMethod()
+    interactor.model.paymentMethods = [paymentMethod]
     //Act
-    guard   let paymentDetails = getPaymentDetails() else{
-      XCTFail("should not fail")
-      return;
-    }
+   
     
     
-    interactor.makePayment(request: DineInWeb.Pay.Request(callback: callbackName, paymentDetails: paymentDetails))
+    interactor.makePayment(request: DineInWeb.Pay.Request(callback: callbackName, amount: 1.1, tip: 0.5, paymentMethodId:paymentMethod.ID, paymentMethodToken: "abc"    , paymentMethodType: paymentMethod.type))
     
     //Assert
     switch  spy.payResponse!{

@@ -29,6 +29,7 @@ class DineInViewController: UITableViewController {
     @IBOutlet weak var payTypeSeg: UISegmentedControl!
     @IBOutlet weak var selectItemSeg: UISegmentedControl!
     
+    @IBOutlet weak var friendCodeField: UITextField!
     var lastOrder : Order? = nil
     let firstSeg = 0
     let lastSeg = 1
@@ -231,6 +232,28 @@ class DineInViewController: UITableViewController {
             break
         }
     }
+    @IBAction func addFriendToTable(_ sender: Any) {
+        Dine.shared.addFriendToOpenTable(friendCode: friendCodeField.text!, success: {
+        
+        }, fail: {_ in })
+    }
+    
+    @IBAction func getFriendsAtTable(_ sender: Any) {
+        
+        Dine.shared.getFriendsListAtOpenTable(success: {friends in
+        }, fail: {error in
+        })
+    }
+    
+    
+    @IBAction func getPastOrders(_ sender: Any) {
+        Dine.shared.getOrderHistoryList(success: {orders in
+        
+        }, fail: {error in })
+        
+        
+    }
+    
     
     private func showErrorMessage(message: String){
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
@@ -238,6 +261,12 @@ class DineInViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func getUserStats(_ sender: Any) {
+        
+        Dine.shared.getUserStatistics(success: {stats in
+        
+        }, fail: {_ in })
+    }
 }
 
 extension DineInViewController : OrderPollerDelegate{

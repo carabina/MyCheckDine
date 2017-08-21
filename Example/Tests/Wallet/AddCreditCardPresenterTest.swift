@@ -129,6 +129,26 @@ class AddCreditCardPresenterTest: XCTestCase {
 
     }
 
+    func testSubmitFormSuccess(){
+        //Arrange
+        let presenter = AddCreditCardPresenter()
+        let spy = AddCreditCardDisplayLogicSpy()
+        presenter.viewController = spy
+        
+        let response = AddCreditCard.SubmitForm.Response.addedCreditCard
+        //Act
+        presenter.presentSubmitFormResponse(response: response)
+        
+        //Assert
+        switch spy.submitVM! {
+        case .success:
+        break //this should happen
+        default:
+            XCTFail("should of succeedded")
+        }
+        
+    }
+    
 
     
 }

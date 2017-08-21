@@ -47,6 +47,8 @@
 		B2A31D4A1F4430DC0090D0EF /* NativeCallHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A31D491F4430DC0090D0EF /* NativeCallHandlerTests.swift */; };
 		B2A8A1111F4975F500A25D05 /* DineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A8A1101F4975F500A25D05 /* DineTests.swift */; };
 		B2A8A1131F49768900A25D05 /* friendList.json in Resources */ = {isa = PBXBuildFile; fileRef = B2A8A1121F49768900A25D05 /* friendList.json */; };
+		B2AA60241F49A1A000826612 /* usageStats.json in Resources */ = {isa = PBXBuildFile; fileRef = B2368C401F499B4B00192DDF /* usageStats.json */; };
+		B2AA60281F49B1C300826612 /* orderList.json in Resources */ = {isa = PBXBuildFile; fileRef = B2AA60271F49B1C300826612 /* orderList.json */; };
 		B2AD9B6E1F0BE95900059FAA /* generateCode.json in Resources */ = {isa = PBXBuildFile; fileRef = B2AD9B6D1F0BE95900059FAA /* generateCode.json */; };
 		B2AD9B701F0BE99F00059FAA /* orderDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = B2AD9B6F1F0BE99F00059FAA /* orderDetails.json */; };
 		B2C7A4271F13836900A96A24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C7A4261F13836900A96A24 /* AppDelegate.swift */; };
@@ -122,6 +124,7 @@
 		B226C0B41E1CEB3D0045D73A /* SuperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperViewController.swift; sourceTree = "<group>"; };
 		B226C0B61E1D423C0045D73A /* DineInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DineInViewController.swift; sourceTree = "<group>"; };
 		B22F35631F1674D700D85946 /* UITextField+doneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+doneButton.swift"; sourceTree = "<group>"; };
+		B2368C401F499B4B00192DDF /* usageStats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = usageStats.json; sourceTree = "<group>"; };
 		B23C605C1E18F8B0000A53FB /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		B24A86DD1F3C8BA500688433 /* DineInWebInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DineInWebInteractorTests.swift; sourceTree = "<group>"; };
 		B260FB1A1F0CC6C8002605EE /* XCTestCase+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+JSON.swift"; sourceTree = "<group>"; };
@@ -146,6 +149,7 @@
 		B2A31D491F4430DC0090D0EF /* NativeCallHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeCallHandlerTests.swift; sourceTree = "<group>"; };
 		B2A8A1101F4975F500A25D05 /* DineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DineTests.swift; sourceTree = "<group>"; };
 		B2A8A1121F49768900A25D05 /* friendList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friendList.json; sourceTree = "<group>"; };
+		B2AA60271F49B1C300826612 /* orderList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orderList.json; sourceTree = "<group>"; };
 		B2AD9B6D1F0BE95900059FAA /* generateCode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = generateCode.json; sourceTree = "<group>"; };
 		B2AD9B6F1F0BE99F00059FAA /* orderDetails.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orderDetails.json; sourceTree = "<group>"; };
 		B2C0DB3B1F0A5C21001E4BAA /* MyCheckDine_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyCheckDine_Example.entitlements; sourceTree = "<group>"; };
@@ -409,6 +413,8 @@
 				B2AD9B6F1F0BE99F00059FAA /* orderDetails.json */,
 				B270CC7A1F0E57100064983D /* orderDetailsNoItems.json */,
 				B2A8A1121F49768900A25D05 /* friendList.json */,
+				B2368C401F499B4B00192DDF /* usageStats.json */,
+				B2AA60271F49B1C300826612 /* orderList.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -571,6 +577,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2AA60241F49A1A000826612 /* usageStats.json in Resources */,
 				B270CC7B1F0E57100064983D /* orderDetailsNoItems.json in Resources */,
 				B2AD9B6E1F0BE95900059FAA /* generateCode.json in Resources */,
 				B2AD9B701F0BE99F00059FAA /* orderDetails.json in Resources */,
@@ -579,6 +586,7 @@
 				B260FB231F0CC839002605EE /* configure.json in Resources */,
 				B2A8A1131F49768900A25D05 /* friendList.json in Resources */,
 				B260FB241F0CC839002605EE /* login.json in Resources */,
+				B2AA60281F49B1C300826612 /* orderList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
