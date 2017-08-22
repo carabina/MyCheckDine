@@ -12,18 +12,26 @@
 
 @testable import MyCheckDine
 import XCTest
+@testable import WebInterface
+import MyCheckCore
 
-struct DineInWebViewControllerSpy: DineInWebDisplayLogic{
-  let JSString: String?
-  func injectJSToWebView(viewModel: DineInWeb.ViewModel) {
-  JSString = viewModel.JS
+class DineInWebViewControllerSpy: DineInWebDisplayLogic{
+  var JSString: String? = nil
+  
+  func runJSOnWebview(viewModel: DineInWeb.ViewModel) {
+    JSString = viewModel.JSToBeInjected
   }
+  
 }
 class DineInWebPresenterTests: XCTestCase
 {
   // MARK: Subject under test
   
   var presenter: DineInWebPresenter!
+  var spy: DineInWebViewControllerSpy!
+  
+  //constants
+  let callback = "callback"
   
   // MARK: Test lifecycle
   
@@ -43,18 +51,121 @@ class DineInWebPresenterTests: XCTestCase
   func setupDineInWebPresenter()
   {
     presenter = DineInWebPresenter()
+    spy = DineInWebViewControllerSpy()
+    presenter.viewController = spy
   }
   
   // MARK: Test doubles
   
   // MARK: Tests
   
-  func testSomething()
+  func testGetCode()
   {
-    // Given
+    // Arrange
     
-    // When
+    let response = DineInWeb.GetCode.Response(code: "1234", callback: callback)
+    // Act
+    presenter.presentTableCode(response: response)
     
-    // Then
+    // Assert
+    guard let JS = spy.JSString else{
+    XCTFail("should of recieved a call to viewcontroller")
+      return
+    }
+    let successJSON = createSuccessJSON(with: ["code": "1234"])
+    XCTAssert(JSISValid(JS: JS, callback: callback, validJSON:successJSON ))
+    
+  }
+  
+  func testFailResponse()
+  {
+    // Arrange
+    let error = ErrorCodes.badRequest.getError()
+    let response = DineInWeb.FailResponse.init(error: error, callback: callback)
+    // Act
+    presenter.presentFailError(response: response)
+    
+    // Assert
+    guard let JS = spy.JSString else{
+      XCTFail("should of recieved a call to viewcontroller")
+      return
+    }
+    let failJSON = createFailJSON(with: error)
+    XCTAssert(JSISValid(JS: JS, callback: callback, validJSON:failJSON ))
+    
+  }
+  
+  func testGetOrderDetails()
+  {
+    // Arrange
+    
+    let response = DineInWeb.GetOrderDetails.Response(order: Order.getStub(), callback: callback)
+    // Act
+    presenter.gotOrder(response: response)
+    
+    
+    guard let validOrderJSON = getJSONFromFile( named: "orderDetails")  else{
+      
+      return
+    }
+    
+    // Assert
+    guard let JS = spy.JSString else{
+      XCTFail("should of recieved a call to viewcontroller")
+      return
+    }
+    let successJSON = createSuccessJSON(with: validOrderJSON)
+    XCTAssert(JSISValid(JS: JS, callback: callback, validJSON:successJSON ))
+    
+
+  }
+
+  
+}
+
+
+fileprivate extension DineInWebPresenterTests{
+  func JSISValid(JS: String, callback:String, validJSON:[String:Any]?) -> Bool{
+    
+    let split1 =  JS.components(separatedBy: "(")
+    
+    
+    if split1.count != 2{
+      return false
+    }
+    let callback1 = split1[0]
+    if callback1 != callback{
+      return false
+    }
+    let split2 = split1[1].components(separatedBy: ")")
+    
+    if split2.count != 2 {
+    return false
+    }
+    
+    let JSONStr = split2[0]
+    
+    guard let JSON = JSONStr.JSONStringToDictionary() else{
+    return validJSON == nil
+    }
+    guard let validJSON = validJSON else{
+    return false
+    }
+    return  NSDictionary(dictionary: JSON).isEqual(to: validJSON)
+    
+    
+    
+  }
+  
+  func createSuccessJSON(with body: [String:Any]) -> [String: Any] {
+    let toReturn: [String: Any] = ["errorCode":0,
+                                   "body": body]
+    return toReturn
+  }
+  
+  func createFailJSON(with error: NSError) -> [String: Any] {
+    let toReturn: [String: Any] = ["errorCode":error.code,
+                                   "errorMessage": error.localizedDescription]
+    return toReturn
   }
 }

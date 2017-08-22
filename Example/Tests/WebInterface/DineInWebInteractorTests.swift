@@ -18,6 +18,7 @@ class DineInWebInteractorTest : XCTestCase {
     var reorderResponse: DineInWeb.Reorder.Response?
     var payResponse:  DineInWeb.Pay.Response?
     var paymentMethodsResponse: DineInWeb.PaymentMethods.Response?
+    var failedResponse: DineInWeb.FailResponse?
     
     func presentTableCode(response: DineInWeb.GetCode.Response){
       tableCodeResponse = response
@@ -41,6 +42,10 @@ class DineInWebInteractorTest : XCTestCase {
     
     func gotPaymentMethods(response: DineInWeb.PaymentMethods.Response) {
       paymentMethodsResponse = response
+    }
+    
+    func presentFailError(response: DineInWeb.FailResponse) {
+      failedResponse = response
     }
   }
   
@@ -135,15 +140,11 @@ class DineInWebInteractorTest : XCTestCase {
     interactor.getOrderDetails(request: DineInWeb.GetOrderDetails.Request(callback: callbackName))
     
     //Assert
-    switch  spy.getOrderResponse!{
-    case .success(let order, let callback):
-      XCTAssert(order?.stamp == "6ab19bb726a256246d41ee3566b88a21" , "the correct order was not passed")
-      XCTAssert(  callback == callbackName, "callback should be passed on")
-      
-    case .fail( _, _):
-      XCTFail("should not of failed")
-      
-    }
+    
+    XCTAssert(spy.getOrderResponse!.order?.stamp == "6ab19bb726a256246d41ee3566b88a21" , "the correct order was not passed")
+    XCTAssert(  spy.getOrderResponse!.callback == callbackName, "callback should be passed on")
+    
+    
     
   }
   
@@ -161,15 +162,9 @@ class DineInWebInteractorTest : XCTestCase {
     interactor.getOrderDetails(request: DineInWeb.GetOrderDetails.Request(callback: callbackName))
     
     //Assert
-    switch  spy.getOrderResponse!{
-    case .success( _, _):
-      XCTFail("should not of succeed")
-      
-    case .fail(let error, let callback):
-      assertFailedRequests(error: error, callback: callback)
-      
-      
-    }
+    assertFailedResponse(response: spy.failedResponse)
+    
+    
     
   }
   
@@ -203,15 +198,8 @@ class DineInWebInteractorTest : XCTestCase {
     interactor.reorderItems(request: DineInWeb.Reorder.Request(callback: callbackName, items: [(2,item)]))
     
     //Assert
-    switch  spy.reorderResponse!{
-    case .success(_):
-      XCTFail("should not of succeed")
-      
-    case .fail(let error, let callback):
-      assertFailedRequests(error: error, callback: callback)
-      
-      
-    }
+    XCTAssert( spy.reorderResponse == nil)
+    assertFailedResponse(response: spy.failedResponse)
     
   }
   
@@ -246,14 +234,11 @@ class DineInWebInteractorTest : XCTestCase {
     interactor.reorderItems(request: DineInWeb.Reorder.Request(callback: callbackName, items: [(2,item)]))
     
     //Assert
-    switch  spy.reorderResponse!{
-    case .success(let callback):
+   
+      XCTAssert(spy.reorderResponse?.callback == callbackName, "callback was not passed properly")
       
-      XCTAssert(callback == callbackName, "callback was not passed properly")
-      
-    case .fail(_ , _):
-      XCTFail("should not of fail")
-    }
+   
+    XCTAssert(spy.failedResponse == nil)
     
   }
   
@@ -263,12 +248,12 @@ class DineInWebInteractorTest : XCTestCase {
     //Arange
     self.createNewLoggedInSession()
     var sentRequest: RequestParameters? = nil
-
+    
     Dine.shared.network = RequestProtocolMock(response: .success(["status":"OK"]),
                                               callback:{ params in
                                                 sentRequest = params
     }
-)
+    )
     
     let (interactor , spy) = getInteractorWithPresenterSpy()
     interactor.model.order = getOrderDetails()
@@ -280,24 +265,18 @@ class DineInWebInteractorTest : XCTestCase {
     
     interactor.makePayment(request: DineInWeb.Pay.Request(callback: callbackName, payFor:.amount(1.1), tip: 0.5, paymentMethodId:paymentMethod.ID, paymentMethodToken: "abc"    , paymentMethodType: paymentMethod.type))
     
-    var response : String? =  nil
+    let response : String? = spy.payResponse?.callback
+   
     //Assert
-    switch  spy.payResponse!{
-    case .success(let callback):
-      
-      response = callback
-    case .fail(_ , _):
-      XCTFail("should not of fail")
-    }
-    
-    
+    XCTAssert(spy.failedResponse == nil)
+
     XCTAssert(response == callbackName, "callback was not passed properly")
     XCTAssert((sentRequest?.url.hasSuffix(URIs.payment))!)
     XCTAssert(sentRequest?.method == .post)
     XCTAssert(sentRequest?.parameters!["amount"] as! Double == 1.1)
     XCTAssert(sentRequest?.parameters!["tip"] as! Double == 0.5)
     XCTAssert(sentRequest?.parameters!["ccToken"] as! String == "abc")
-
+    
   }
   
   func testPayByItemsSuccess() {
@@ -307,9 +286,9 @@ class DineInWebInteractorTest : XCTestCase {
     var sentRequest: RequestParameters? = nil
     Dine.shared.network = RequestProtocolMock(response: .success(["status":"OK"]) ,
                                               callback:{ params in
-    sentRequest = params
+                                                sentRequest = params
     }
-  )
+    )
     
     let (interactor , spy) = getInteractorWithPresenterSpy()
     interactor.model.order = getOrderDetails()
@@ -328,36 +307,32 @@ class DineInWebInteractorTest : XCTestCase {
       "modifiers":[]
     ]
     let item = Item(json: itemJSON)
-  let items = [item] as! [Item]
+    let items = [item] as! [Item]
     let payFor = DineInWeb.Pay.Request.PayFor.items(items)
     let request =  DineInWeb.Pay.Request(callback: callbackName, payFor:payFor, tip: 0.5, paymentMethodId:paymentMethod.ID, paymentMethodToken: "abc"    , paymentMethodType: paymentMethod.type)
-
+    
     //Act
-  
-  
+    
+    
     interactor.makePayment(request:request)
     
-    var response : String? =  nil
+    let response: String? =  spy.payResponse?.callback
     //Assert
-    switch  spy.payResponse!{
-    case .success(let callback):
-      
-      response = callback
-    case .fail(_ , _):
-      XCTFail("should not of fail")
-    }
     
     
+    
+    XCTAssert(spy.failedResponse == nil)
+
     XCTAssert(response == callbackName, "callback was not passed properly")
     XCTAssert((sentRequest?.url.hasSuffix(URIs.payment))!)
     XCTAssert(sentRequest?.method == .post)
     XCTAssert(sentRequest?.parameters!["amount"] as! Double == 10.2)
     XCTAssert(sentRequest?.parameters!["tip"] as! Double == 0.5)
     XCTAssert(sentRequest?.parameters!["ccToken"] as! String == "abc")
-
-
+    
+    
   }
-
+  
   
   func testPayFail() {
     
@@ -377,16 +352,14 @@ class DineInWebInteractorTest : XCTestCase {
     interactor.makePayment(request: DineInWeb.Pay.Request(callback: callbackName, payFor:.amount(1.1), tip: 0.5, paymentMethodId:paymentMethod.ID, paymentMethodToken: "abc"    , paymentMethodType: paymentMethod.type))
     
     //Assert
-    switch  spy.payResponse!{
-    case .success(_):
-      
-      XCTFail("should not succeed")
-      
-    case .fail(let error , let callback):
-      assertFailedRequests(error: error, callback: callback)
+    XCTAssert(spy.payResponse == nil)
+
+    
+    assertFailedResponse(response: spy.failedResponse)
       
       
-    }
+    
+    
     
   }
   
@@ -410,16 +383,15 @@ class DineInWebInteractorTest : XCTestCase {
     interactor.getPaymentMethods(request: DineInWeb.PaymentMethods.Request(callback:callbackName))
     
     //Assert
-    switch  spy.paymentMethodsResponse!{
-    case .success(let methods , let callback):
-      XCTAssert(methods.count == 1, "callback was not passed properly")
+    let methods = spy.paymentMethodsResponse?.methods
+    let callback = spy.paymentMethodsResponse?.callback
+      XCTAssert(methods?.count == 1, "callback was not passed properly")
       
       XCTAssert(callback == callbackName, "callback was not passed properly")
       
-    case .fail(_ , _):
-      XCTFail("should not of fail")
-    }
-    
+ 
+    XCTAssert(spy.failedResponse == nil)
+
   }
   
   
@@ -437,16 +409,12 @@ class DineInWebInteractorTest : XCTestCase {
     interactor.getPaymentMethods(request: DineInWeb.PaymentMethods.Request(callback:callbackName))
     
     //Assert
-    switch  spy.paymentMethodsResponse!{
-    case .success(_,_):
-      
-      XCTFail("should not of succeed")
-      
-    case .fail(let error , let callback):
-      assertFailedRequests(error: error, callback: callback)
+    XCTAssert(spy.paymentMethodsResponse == nil)
+  
+      assertFailedResponse(response: spy.failedResponse)
       
       
-    }
+    
     
   }
   
@@ -455,10 +423,21 @@ class DineInWebInteractorTest : XCTestCase {
 
 extension DineInWebInteractorTest{
   
-  fileprivate func assertFailedRequests(error: NSError, callback: String) {
+  fileprivate func assertFailedResponse(response: DineInWeb.FailResponse?) {
+    guard let response = response else{
+      XCTFail("No fail response recieved")
+      return
+    }
+    self.assertFailedResponse(error: response.error, callback: response.callback)
+  }
+  
+  
+  fileprivate func assertFailedResponse(error: NSError, callback: String) {
     XCTAssert(callback == callbackName, "callback was not passed properly")
     XCTAssert(error == ErrorCodes.badRequest.getError(), "callback was not passed properly")
   }
+  
+  
   
   fileprivate func getInteractorWithPresenterSpy() -> (DineInWebInteractor , presenterSpy){
     let interactor = DineInWebInteractor()
