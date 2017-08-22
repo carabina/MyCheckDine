@@ -156,7 +156,28 @@ class NativeCallHandlerTests: XCTestCase {
         
         
     }
+  
+  func testReorderSuccess() {
+    //Arrange
+    let spy = setAndReturnSpy()
     
+    //Act
+    runJSSynchronously(JSExpresion:"reorderItems();")
+    
+    //Assert
+    XCTAssert(spy.reorderRequest?.callback == "itemsReordered")
+    XCTAssert(spy.reorderRequest?.items.count == 1)
+    XCTAssert(spy.reorderRequest?.items[0].item.quantity == 7)
+    XCTAssert(spy.reorderRequest?.items[0].item.Id == 920836)
+    XCTAssert(spy.reorderRequest?.items[0].item.name == "VEGETARIAN PIZZA")
+    XCTAssert(spy.reorderRequest?.items[0].item.paid == false)
+    XCTAssert(spy.reorderRequest?.items[0].item.price == 8.95)
+    XCTAssert(spy.reorderRequest?.items[0].item.serialId == "994")
+    XCTAssert(spy.reorderRequest?.items[0].amount == 7)
+
+    
+  }
+  
     func testGetPaymentMethods() {
         //Arrange
         let spy = setAndReturnSpy()
@@ -179,15 +200,26 @@ class NativeCallHandlerTests: XCTestCase {
         
         //Assert
         XCTAssert(spy.payRequest?.callback == "madePayment")
-        XCTAssert(spy.payRequest?.amount == 1.1)
-        XCTAssert(spy.payRequest?.tip == 0.5)
+      
+      XCTAssert(spy.payRequest?.tip == 0.5)
 
         XCTAssert(spy.payRequest?.paymentMethodId == "10405")
 
         XCTAssert(spy.payRequest?.paymentMethodType == .creditCard)
 
         XCTAssert(spy.payRequest?.paymentMethodToken == "I am a token")
-
+      
+      let payfor:DineInWeb.Pay.Request.PayFor = (spy.payRequest?.payFor)!
+      
+      switch payfor{
+      
+      case .amount(let amount):
+        XCTAssert(amount == 1.1)
+      
+      case .items( _):
+        XCTFail("should not have items")
+        
+      }
         
     }
     
@@ -201,7 +233,6 @@ class NativeCallHandlerTests: XCTestCase {
         
         //Assert
         XCTAssert(spy.payRequest?.callback == "madePayment")
-        XCTAssert(spy.payRequest?.amount == 11.05)
         XCTAssert(spy.payRequest?.tip == 0.5)
         
         XCTAssert(spy.payRequest?.paymentMethodId == "10405")
@@ -210,7 +241,29 @@ class NativeCallHandlerTests: XCTestCase {
         
         XCTAssert(spy.payRequest?.paymentMethodToken == "I am a token")
         
+      let payfor:DineInWeb.Pay.Request.PayFor = (spy.payRequest?.payFor)!
+      
+      switch payfor{
         
+      case .amount(_):
+        XCTFail("should not have amount")
+
+      case .items( let items):
+        XCTAssert(items.count == 2)
+        XCTAssert(items[0].name == "VEGETARIAN PIZZA")
+        XCTAssert(items[0].Id == 920836)
+        XCTAssert(items[0].paid == false)
+        XCTAssert(items[0].modifiers.count == 0)
+        XCTAssert(items[0].quantity == 1)
+        XCTAssert(items[0].price == 8.95)
+        XCTAssert(items[0].serialId == "994")
+        XCTAssert(items[0].showInReorder == true)
+        XCTAssert(items[0].validForReorder == true)
+
+
+
+      }
+
     }
     
 }
