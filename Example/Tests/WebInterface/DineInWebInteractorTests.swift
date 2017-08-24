@@ -2,7 +2,7 @@ import UIKit
 import XCTest
 import MyCheckCore
 @testable import MyCheckDine
-@testable import WebInterface
+@testable import MyCheckDineUIWeb
 @testable import MyCheckWalletUI
 
 
@@ -19,6 +19,7 @@ class DineInWebInteractorTest : XCTestCase {
     var payResponse:  DineInWeb.Pay.Response?
     var paymentMethodsResponse: DineInWeb.PaymentMethods.Response?
     var failedResponse: DineInWeb.FailResponse?
+    var completeResponse: DineInWeb.Complete.Response?
     
     func presentTableCode(response: DineInWeb.GetCode.Response){
       tableCodeResponse = response
@@ -46,6 +47,10 @@ class DineInWebInteractorTest : XCTestCase {
     
     func presentFailError(response: DineInWeb.FailResponse) {
       failedResponse = response
+    }
+    
+    func complete(response: DineInWeb.Complete.Response) {
+        completeResponse = response
     }
   }
   
@@ -417,6 +422,23 @@ class DineInWebInteractorTest : XCTestCase {
     
     
   }
+    
+    func testComplete() {
+        //to-do
+//        //Arange
+//        let (interactor , spy) = getInteractorWithPresenterSpy()
+//        interactor.model.tableCode = "1234"
+//        
+//        //Act
+//        interactor.getCodeRequested(request: DineInWeb.GetCode.Request(callback:callbackName))
+//        
+//        //Assert
+//        XCTAssert(  spy.tableCodeResponse?.code == "1234", "the code should be passed to the presenter")
+//        XCTAssert(  spy.tableCodeResponse?.callback == callbackName, "callback should be passed on")
+        
+    }
+    
+
   
 }
 //helper methods that create stubs objects

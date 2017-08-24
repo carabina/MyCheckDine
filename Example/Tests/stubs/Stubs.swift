@@ -54,7 +54,7 @@ extension PaymentDetails{
 
 
 fileprivate func getJSONFromFile(named name: String) -> [String:Any]? {
-  let bundle = Bundle(for: Bundle(for: type(of: self)))
+  let bundle = Bundle(for: DineInWebInteractorTest.self)
   guard let pathString = bundle.path(forResource: name, ofType: "json") else {
     fatalError("\(name) not found")
   }

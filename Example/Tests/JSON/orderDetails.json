@@ -72,20 +72,13 @@
            }
            ],
   "tax_settings":{
-    "percentage":"15",
-    "items":[
-    
-    ]
+    "percentage":"15"
   },
   "settings":{
     "split_is_enabled":true,
     "is_quick_service":false
   },
   "bill":{
-    "reorder_status":{
-      "status":0,
-      "message":""
-    },
     "global_summary":{
       "paid_amount":0,
       "total_amount":39.9,

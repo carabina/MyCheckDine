@@ -42,6 +42,7 @@
 		B289F9A51F3091D400CEC772 /* AddCreditCardInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289F9A31F3091D400CEC772 /* AddCreditCardInteractorTest.swift */; };
 		B289F9A61F3091D400CEC772 /* AddCreditCardPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289F9A41F3091D400CEC772 /* AddCreditCardPresenterTest.swift */; };
 		B289F9A81F3091EF00CEC772 /* KeyValueStorageProtocolMockAndSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289F9A71F3091EF00CEC772 /* KeyValueStorageProtocolMockAndSpy.swift */; };
+		B28F794C1F4EC9BD00502BAC /* ShowDineInWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F794B1F4EC9BD00502BAC /* ShowDineInWebViewController.swift */; };
 		B296BE151F33343000E5657C /* addCreditCard.json in Resources */ = {isa = PBXBuildFile; fileRef = B296BE141F33343000E5657C /* addCreditCard.json */; };
 		B2A31D461F442C140090D0EF /* DineInWebPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A31D421F442C140090D0EF /* DineInWebPresenterTests.swift */; };
 		B2A31D471F442C140090D0EF /* DineInWebViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A31D431F442C140090D0EF /* DineInWebViewControllerTests.swift */; };
@@ -145,6 +146,7 @@
 		B289F9A31F3091D400CEC772 /* AddCreditCardInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCreditCardInteractorTest.swift; sourceTree = "<group>"; };
 		B289F9A41F3091D400CEC772 /* AddCreditCardPresenterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCreditCardPresenterTest.swift; sourceTree = "<group>"; };
 		B289F9A71F3091EF00CEC772 /* KeyValueStorageProtocolMockAndSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueStorageProtocolMockAndSpy.swift; sourceTree = "<group>"; };
+		B28F794B1F4EC9BD00502BAC /* ShowDineInWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDineInWebViewController.swift; sourceTree = "<group>"; };
 		B296BE141F33343000E5657C /* addCreditCard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addCreditCard.json; sourceTree = "<group>"; };
 		B2A31D421F442C140090D0EF /* DineInWebPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DineInWebPresenterTests.swift; sourceTree = "<group>"; };
 		B2A31D431F442C140090D0EF /* DineInWebViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DineInWebViewControllerTests.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				B226C0B41E1CEB3D0045D73A /* SuperViewController.swift */,
 				B226C0B61E1D423C0045D73A /* DineInViewController.swift */,
 				B2F31E1C1EF9500200071869 /* WalletUIViewController.swift */,
+				B28F794B1F4EC9BD00502BAC /* ShowDineInWebViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -687,9 +690,9 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MyCheckCore/MyCheckCore.framework",
 				"${BUILT_PRODUCTS_DIR}/MyCheckDine/MyCheckDine.framework",
+				"${BUILT_PRODUCTS_DIR}/MyCheckDineUIWeb/MyCheckDineUIWeb.framework",
 				"${PODS_ROOT}/../../../MyCheckWalletUI/MyCheckWalletUI/Classes/VisaCheckout/frameworks/VisaCheckoutSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/MyCheckWalletUI/MyCheckWalletUI.framework",
-				"${BUILT_PRODUCTS_DIR}/WebInterface/WebInterface.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -698,9 +701,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MyCheckCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MyCheckDine.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MyCheckDineUIWeb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VisaCheckoutSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MyCheckWalletUI.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebInterface.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -749,9 +752,9 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MyCheckCore/MyCheckCore.framework",
 				"${BUILT_PRODUCTS_DIR}/MyCheckDine/MyCheckDine.framework",
+				"${BUILT_PRODUCTS_DIR}/MyCheckDineUIWeb/MyCheckDineUIWeb.framework",
 				"${PODS_ROOT}/../../../MyCheckWalletUI/MyCheckWalletUI/Classes/VisaCheckout/frameworks/VisaCheckoutSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/MyCheckWalletUI/MyCheckWalletUI.framework",
-				"${BUILT_PRODUCTS_DIR}/WebInterface/WebInterface.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
@@ -762,9 +765,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MyCheckCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MyCheckDine.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MyCheckDineUIWeb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VisaCheckoutSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MyCheckWalletUI.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebInterface.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
@@ -785,9 +788,9 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MyCheckCore/MyCheckCore.framework",
 				"${BUILT_PRODUCTS_DIR}/MyCheckDine/MyCheckDine.framework",
+				"${BUILT_PRODUCTS_DIR}/MyCheckDineUIWeb/MyCheckDineUIWeb.framework",
 				"${PODS_ROOT}/../../../MyCheckWalletUI/MyCheckWalletUI/Classes/VisaCheckout/frameworks/VisaCheckoutSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/MyCheckWalletUI/MyCheckWalletUI.framework",
-				"${BUILT_PRODUCTS_DIR}/WebInterface/WebInterface.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -796,9 +799,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MyCheckCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MyCheckDine.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MyCheckDineUIWeb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VisaCheckoutSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MyCheckWalletUI.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebInterface.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -815,6 +818,7 @@
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				B2F31E201EF96D4800071869 /* LocalDataa.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				B28F794C1F4EC9BD00502BAC /* ShowDineInWebViewController.swift in Sources */,
 				B2F31E1D1EF9500200071869 /* WalletUIViewController.swift in Sources */,
 				B27D02DC1E1CDE310099E514 /* TerminalModel.swift in Sources */,
 				B226C0B71E1D423C0045D73A /* DineInViewController.swift in Sources */,

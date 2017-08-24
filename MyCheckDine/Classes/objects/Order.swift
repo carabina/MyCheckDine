@@ -166,7 +166,7 @@ open class Order: Decodable , Equatable {
     ///General settings related to the order's venue.
     public let settings : Settings
     
-  internal var stamp: String
+  public var stamp: String
   public required init?(json: JSON) {
     
     guard let stamp: String = "stamp" <~~ json else{

@@ -1,0 +1,6 @@
+framework module MyCheckDineUIWeb {
+  umbrella header "MyCheckDineUIWeb-umbrella.h"
+
+  export *
+  module * { export * }
+}

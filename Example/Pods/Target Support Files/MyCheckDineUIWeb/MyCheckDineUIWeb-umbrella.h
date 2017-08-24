@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double WebInterfaceVersionNumber;
-FOUNDATION_EXPORT const unsigned char WebInterfaceVersionString[];
+FOUNDATION_EXPORT double MyCheckDineUIWebVersionNumber;
+FOUNDATION_EXPORT const unsigned char MyCheckDineUIWebVersionString[];
 

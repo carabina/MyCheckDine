@@ -107,9 +107,9 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MyCheckCore/MyCheckCore.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MyCheckDine/MyCheckDine.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MyCheckDineUIWeb/MyCheckDineUIWeb.framework"
   install_framework "${PODS_ROOT}/../../../MyCheckWalletUI/MyCheckWalletUI/Classes/VisaCheckout/frameworks/VisaCheckoutSDK.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MyCheckWalletUI/MyCheckWalletUI.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/WebInterface/WebInterface.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Quick/Quick.framework"
 fi
@@ -119,9 +119,9 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MyCheckCore/MyCheckCore.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MyCheckDine/MyCheckDine.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MyCheckDineUIWeb/MyCheckDineUIWeb.framework"
   install_framework "${PODS_ROOT}/../../../MyCheckWalletUI/MyCheckWalletUI/Classes/VisaCheckout/frameworks/VisaCheckoutSDK.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MyCheckWalletUI/MyCheckWalletUI.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/WebInterface/WebInterface.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Quick/Quick.framework"
 fi

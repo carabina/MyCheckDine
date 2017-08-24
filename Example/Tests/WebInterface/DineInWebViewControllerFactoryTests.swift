@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import WebInterface
+@testable import MyCheckDineUIWeb
 @testable import MyCheckDine
 @testable import MyCheckWalletUI
 import MyCheckCore

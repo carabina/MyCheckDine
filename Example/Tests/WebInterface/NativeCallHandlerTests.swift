@@ -11,7 +11,7 @@ import WebKit
 @testable import MyCheckDine
 
 
-@testable import WebInterface
+@testable import MyCheckDineUIWeb
 
 class NativeCallHandlerTests: XCTestCase {
     
@@ -25,9 +25,9 @@ class NativeCallHandlerTests: XCTestCase {
         var reorderRequest: DineInWeb.Reorder.Request?
         var paymentMethodsRequest: DineInWeb.PaymentMethods.Request?
         var payRequest: DineInWeb.Pay.Request?
-        
+        var completeRequest: DineInWeb.Complete.Request?
         func setupInteractor(request: DineInWeb.SetupDinein.Request){
-            
+            setupRequest = request
         }
         
         
@@ -57,6 +57,9 @@ class NativeCallHandlerTests: XCTestCase {
             payRequest = request
         }
         
+        func complete(request: DineInWeb.Complete.Request) {
+         completeRequest = request
+        }
     }
     
     var controller: DineInWebViewController?
@@ -266,6 +269,75 @@ class NativeCallHandlerTests: XCTestCase {
 
     }
     
+    func testCompleteBecauseOfCompleteOrder() {
+        //Arrange
+        let spy = setAndReturnSpy()
+        
+        //Act
+        runJSSynchronously(JSExpresion:"completeDineInOrderCompleted();")
+        
+        //Assert
+        XCTAssert(spy.completeRequest?.callback == "completeFailed")
+        guard let reason = spy.completeRequest?.reason else{
+        XCTFail("missing reason or completion request")
+            return
+        }
+        switch reason{
+        case .completedOrder:
+            break
+        default: XCTFail("wrong reason type")
+        }
+        
+        
+    }
+    
+    func testCompleteBecauseOfCancel() {
+        //Arrange
+        let spy = setAndReturnSpy()
+        
+        //Act
+        runJSSynchronously(JSExpresion:"completeDineInCanceled();")
+        
+        //Assert
+        XCTAssert(spy.completeRequest?.callback == "completeFailed")
+        guard let reason = spy.completeRequest?.reason else{
+            XCTFail("missing reason or completion request")
+            return
+        }
+        switch reason{
+        case .canceled:
+            break
+        default: XCTFail("wrong reason type")
+        }
+        
+        
+    }
+    
+    func completeDineInOrderError() {
+        //Arrange
+        let spy = setAndReturnSpy()
+        
+        //Act
+        runJSSynchronously(JSExpresion:"completeDineInCanceled();")
+        
+        //Assert
+        XCTAssert(spy.completeRequest?.callback == "completeFailed")
+        guard let reason = spy.completeRequest?.reason else{
+            XCTFail("missing reason or completion request")
+            return
+        }
+        switch reason{
+        case .error(let error):
+            XCTAssert(error.code == 21)
+            XCTAssert(error.localizedDescription == "failed")
+
+            break
+        default: XCTFail("wrong reason type")
+        }
+        
+        
+    }
+
 }
 
 //private methods

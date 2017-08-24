@@ -12,9 +12,9 @@
 
 @testable import MyCheckDine
 import XCTest
-@testable import WebInterface
+@testable import MyCheckDineUIWeb
 import MyCheckCore
-
+@testable import MyCheckWalletUI
 class DineInWebViewControllerSpy: DineInWebDisplayLogic{
   var JSString: String? = nil
   
@@ -98,64 +98,193 @@ class DineInWebPresenterTests: XCTestCase
   func testGetOrderDetails()
   {
     // Arrange
-    
+    guard var validOrderJSON = getJSONFromFile( named: "orderDetails")  else{
+        
+        return
+    }
+  validOrderJSON.removeValue(forKey: "status")
     let response = DineInWeb.GetOrderDetails.Response(order: Order.getStub(), callback: callback)
+    
+    
+  
+    
     // Act
     presenter.gotOrder(response: response)
-    
-    
-    guard let validOrderJSON = getJSONFromFile( named: "orderDetails")  else{
-      
-      return
-    }
-    
+
     // Assert
     guard let JS = spy.JSString else{
       XCTFail("should of recieved a call to viewcontroller")
       return
     }
-    let successJSON = createSuccessJSON(with: validOrderJSON)
-    XCTAssert(JSISValid(JS: JS, callback: callback, validJSON:successJSON ))
+    guard let extractJSON = extractJSON(from: JS) else{
+    XCTFail("could not get order JSON")
+        return
+    }
     
+    XCTAssert(Order(json: extractJSON["body"] as! [String: Any]) != nil)
 
   }
 
-  
+    func testPollerSuccess()
+    {
+        // Arrange
+        
+               
+        
+        // Act
+        presenter.orderUpdated(response: DineInWeb.Poll.Response.success(order: Order.getStub()!, callback: callback))
+        
+        // Assert
+        guard let JS = spy.JSString else{
+            XCTFail("should of recieved a call to viewcontroller")
+            return
+        }
+        guard let extractJSON = extractJSON(from: JS) else{
+            XCTFail("could not get order JSON")
+            return
+        }
+        XCTAssert(Order(json: extractJSON["body"] as! [String: Any]) != nil)
+        
+        
+    }
+    
+    func testPollerFail()
+    {
+        // Arrange
+        
+        
+        
+        // Act
+        presenter.orderUpdated(response: DineInWeb.Poll.Response.fail(error: ErrorCodes.badRequest.getError(), callback: callback))
+        
+        // Assert
+        guard let JS = spy.JSString else{
+            XCTFail("should of recieved a call to viewcontroller")
+            return
+        }
+              let failJSON = createFailJSON(with: ErrorCodes.badRequest.getError())
+        XCTAssert(JSISValid(JS: JS, callback: callback, validJSON:failJSON ))
+
+        
+    }
+    
+    
+    func testGotPaymentMethod()
+    {
+        // Arrange
+        let paymetnMethod = CreditCardPaymentMethod(for: .creditCard, name: "Elad", Id: "123", token: "abc", checkoutName: "checkout name")
+        let response = DineInWeb.PaymentMethods.Response(methods: [paymetnMethod], callback: callback)
+
+
+        // Act
+                presenter.gotPaymentMethods(response: response)
+        // Assert
+        guard let JS = spy.JSString else{
+            XCTFail("should of recieved a call to viewcontroller")
+            return
+        }
+        XCTAssert(JSISValid(JS: JS, callback: callback,
+                            validJSON:createSuccessJSON(with: ["items":[paymetnMethod.generateJSON()]] )))
+        
+        
+    }
+
+   
+    func testReorder()
+    {
+        // Arrange
+      
+        let response = DineInWeb.Reorder.Response(callback: callback)
+        
+        
+        
+        
+        // Act
+        presenter.reorderedItems(response: response)
+        
+        // Assert
+        guard let JS = spy.JSString else{
+            XCTFail("should of recieved a call to viewcontroller")
+            return
+        }
+      
+        let emptyBody:[String:Any] = [:]
+        XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: emptyBody)))
+        
+    }
+    
+    func testPay()
+    {
+        // Arrange
+        
+        let response = DineInWeb.Pay.Response(callback: callback)
+        
+        
+        
+        
+        // Act
+        presenter.madePayment(response:  response)
+        
+        // Assert
+        guard let JS = spy.JSString else{
+            XCTFail("should of recieved a call to viewcontroller")
+            return
+        }
+        
+        let emptyBody:[String:Any] = [:]
+        XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: emptyBody)))
+        
+    }
 }
+
+
+
 
 
 fileprivate extension DineInWebPresenterTests{
   func JSISValid(JS: String, callback:String, validJSON:[String:Any]?) -> Bool{
     
-    let split1 =  JS.components(separatedBy: "(")
-    
-    
-    if split1.count != 2{
-      return false
-    }
-    let callback1 = split1[0]
-    if callback1 != callback{
-      return false
-    }
-    let split2 = split1[1].components(separatedBy: ")")
-    
-    if split2.count != 2 {
+    guard let JSON = extractJSON(from: JS) else{
     return false
     }
     
-    let JSONStr = split2[0]
-    
-    guard let JSON = JSONStr.JSONStringToDictionary() else{
-    return validJSON == nil
-    }
     guard let validJSON = validJSON else{
     return false
     }
+    let VALIDSTRINGIFY = validJSON.stringify()
+    print(VALIDSTRINGIFY!)
+    print("\n\n\n\n\n")
+    print(JS)
     return  NSDictionary(dictionary: JSON).isEqual(to: validJSON)
     
     
     
   }
+    
+    func extractJSON(from JS:String) ->[String:Any]?{
+        let split1 =  JS.components(separatedBy: "(")
+        
+        
+        if split1.count != 2{
+            return nil
+        }
+        let callback1 = split1[0]
+        if callback1 != callback{
+            return nil
+        }
+        let split2 = split1[1].components(separatedBy: ")")
+        
+        if split2.count != 2 {
+            return nil
+        }
+        
+        let JSONStr = split2[0]
+        
+        guard let JSON = JSONStr.JSONStringToDictionary() else{
+            return nil
+        }
+return JSON
+    }
   
   func createSuccessJSON(with body: [String:Any]) -> [String: Any] {
     let toReturn: [String: Any] = ["errorCode":0,
