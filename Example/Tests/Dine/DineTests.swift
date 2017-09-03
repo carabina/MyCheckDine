@@ -297,5 +297,75 @@ class DineTests: XCTestCase {
         
     }
     
+    func testFeedbackFail() {
+        //Arrange
+        
+        Dine.shared.network = RequestProtocolMock(response: .fail(ErrorCodes.badRequest.getError()))
+        var response:NSError? = nil
+        //Act
+        Dine.shared.sendFeedback(for: getOrderDetails()!.orderId, stars: 2, comment: "haha", success: {
+            XCTFail("should not succeed")
 
+        }, fail: {
+        error in
+            response = error
+
+        })
+        
+        //Assert
+        
+        XCTAssert(response == ErrorCodes.badRequest.getError())
+        
+        
+    }
+
+    func testFeedbackSuccess() {
+        //Arrange
+        guard let validJSON = getJSONFromFile( named: "orderList") else{
+            XCTFail("test failed because JSON not working")
+            return;
+        }
+        
+        
+        var succeeded = false
+        var paramsSent: RequestParameters? = nil
+        Dine.shared.network = RequestProtocolMock(response: .success(validJSON)){ sent in
+            paramsSent = sent
+        }
+        let order = getOrderDetails()!
+        let comment = "haha"
+        let stars = 2
+        //Act
+        Dine.shared.sendFeedback(for: order.orderId, stars: stars, comment: comment, success: {
+            succeeded = true
+        
+        }, fail: {error in
+            XCTFail("should not fail")
+            
+        })
+        //Assert
+        
+        XCTAssert(succeeded)
+        XCTAssert(paramsSent?.parameters?["stars"] as? Int == stars)
+        XCTAssert(paramsSent?.parameters?["comment"] as? String == comment)
+      
+        XCTAssert( (paramsSent?.url.hasSuffix(URIs.sendFeedback))!)
+        XCTAssert( paramsSent?.method == .post)
+        
+        
+        
+    }
+}
+
+fileprivate extension DineTests{
+
+    fileprivate func getOrderDetails() -> Order?{
+        guard let validOrderJSON = getJSONFromFile( named: "orderDetails") , let order = Order(json: validOrderJSON) else{
+            
+            return nil;
+        }
+        return order
+    }
+  
+    
 }

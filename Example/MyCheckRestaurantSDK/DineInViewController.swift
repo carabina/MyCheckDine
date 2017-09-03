@@ -30,6 +30,13 @@ class DineInViewController: UITableViewController {
     @IBOutlet weak var selectItemSeg: UISegmentedControl!
     
     @IBOutlet weak var friendCodeField: UITextField!
+    
+    //feedback related
+    @IBOutlet weak var feedbackStepper: UIStepper!
+    @IBOutlet weak var feedbackField: UITextField!
+    @IBOutlet weak var feedbackStarsLabel: UILabel!
+    
+    
     var lastOrder : Order? = nil
     let firstSeg = 0
     let lastSeg = 1
@@ -259,7 +266,22 @@ class DineInViewController: UITableViewController {
         Dine.shared.callWaiter(success: nil, fail: {error in })
     }
     
+    @IBAction func feedbackStepperPressed(_ sender: Any) {
+        feedbackStarsLabel.text = "\(feedbackStepper.value)"
+    }
+
     
+    @IBAction func sendFeedback(_ sender: Any) {
+        if let orderId = self.lastOrder?.orderId{
+        Dine.shared.sendFeedback(for: orderId, stars: Int( feedbackStepper.value), comment: feedbackField.text, success: {
+        
+        }, fail: {error in
+        
+        })
+        }else{
+    showErrorMessage(message: "No open Order")
+        }
+    }
     private func showErrorMessage(message: String){
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
