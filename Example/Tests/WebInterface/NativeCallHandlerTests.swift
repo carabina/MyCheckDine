@@ -89,7 +89,7 @@ class NativeCallHandlerTests: XCTestCase {
         
         
         
-        DineInWebViewControllerFactory.dineIn(at: "2", delegate: self)
+        DineInWebViewControllerFactory.dineIn(at: "2", locale: NSLocale(localeIdentifier: "en_US"), delegate: self)
         
         waitForExpectations(timeout: 2.2, handler: nil)
         

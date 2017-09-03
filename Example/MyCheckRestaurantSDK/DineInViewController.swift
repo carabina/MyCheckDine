@@ -255,6 +255,11 @@ class DineInViewController: UITableViewController {
     }
     
     
+    @IBAction func callWaiter(_ sender: Any) {
+        Dine.shared.callWaiter(success: nil, fail: {error in })
+    }
+    
+    
     private func showErrorMessage(message: String){
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))

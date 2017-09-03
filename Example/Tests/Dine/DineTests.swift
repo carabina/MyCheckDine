@@ -258,4 +258,44 @@ class DineTests: XCTestCase {
         
         
     }
+    
+    func testCallWaiterFail() {
+        //Arrange
+        
+        Dine.shared.network = RequestProtocolMock(response: .fail(ErrorCodes.badRequest.getError()))
+        var response:NSError? = nil
+        //Act
+        Dine.shared.callWaiter(success: {
+            XCTFail("should not succeed")
+            
+        }, fail: {error in
+            response = error
+        })
+        
+        //Assert
+        
+        XCTAssert(response == ErrorCodes.badRequest.getError())
+        
+        
+    }
+    
+    func testCallWaiterSuccess() {
+        //Arrange
+        Dine.shared.network = RequestProtocolMock(response: .success(["status":"OK"]))
+        var responded:Bool = false
+        //Act
+        Dine.shared.callWaiter(success: {
+            responded = true
+        }, fail: {error in
+            XCTFail("should not fail")
+        })
+        
+        //Assert
+        
+        XCTAssert(responded == true)
+        
+        
+    }
+    
+
 }

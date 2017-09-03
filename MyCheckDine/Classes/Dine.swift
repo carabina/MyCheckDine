@@ -12,7 +12,8 @@ internal struct URIs{
     static let addFriend = "/restaurants/api/v1/addFriend"
     static let stats = "/restaurants/api/v1/usageStats"
     static let orderList = "/restaurants/api/v1/orderList"
-    
+    static let callWaiter = "/restaurants/api/v1/callWaiter"
+
     
 }
 
@@ -365,6 +366,30 @@ public class Dine{
                 if let success = success{
                     success(orders)
                 }
+            }, fail: fail)
+        }else{
+            if let fail = fail{
+                fail(ErrorCodes.notConifgured.getError())
+            }
+        }
+    }
+    
+    
+    /// Use this function to call a waiter to the table. A 4  digit code must be generated and a table opened in order for this to work. This function is not supported in all venues and must have a POS that supports this functionality.
+    ///
+    ///    - parameter success: A callback with indicating the request has been dispatched to the POS
+    ///    - parameter fail: Called when the function fails for any reason
+    public func callWaiter( success: (() -> Void)? , fail: ((NSError) -> Void)? ){
+        if let domain = Networking.shared.domain {
+            let urlStr = domain + URIs.callWaiter
+            
+            
+            return  network.request(urlStr, method: .post, parameters: nil , success: { JSON in
+                
+                if let success = success{
+                    success()
+                }
+                
             }, fail: fail)
         }else{
             if let fail = fail{

@@ -49,7 +49,7 @@ class DineInWebViewControllerFactoryTests: XCTestCase {
         Dine.shared.network = successGetCodeResponse!
         
         
-        DineInWebViewControllerFactory.dineIn(at:"2", delegate: self)
+        DineInWebViewControllerFactory.dineIn(at:"2", locale: NSLocale(localeIdentifier: "en_US"), delegate: self)
         //Assert
         XCTAssert(controllerRecieved !=  nil , "should have received a response")
         XCTAssert(errorReturned == nil , "should not have failed")
@@ -61,7 +61,7 @@ class DineInWebViewControllerFactoryTests: XCTestCase {
         Dine.shared.network = failGetCodeResponse!
         
         
-        DineInWebViewControllerFactory.dineIn(at:"2", delegate: self )
+        DineInWebViewControllerFactory.dineIn(at:"2", locale: NSLocale(localeIdentifier: "en_US"), delegate: self )
         //Assert
         
         XCTAssert(controllerRecieved ==  nil , "should have not received a response")
