@@ -1,68 +1,82 @@
 {
   "warnings": [
     {
-      "file": "/Users/eladschiller/Documents/Development/MyCheck/iOS/Restaurant SDK/MyCheckDine/Classes/PaymentDetails.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/PaymentDetails.swift",
       "line": 81,
       "symbol": "PaymentDetails.subtotalEntry",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/Development/MyCheck/iOS/Restaurant SDK/MyCheckDine/Classes/PaymentDetails.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/PaymentDetails.swift",
       "line": 83,
       "symbol": "PaymentDetails.taxEntry",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/Development/MyCheck/iOS/Restaurant SDK/MyCheckDine/Classes/PaymentDetails.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/PaymentDetails.swift",
       "line": 85,
       "symbol": "PaymentDetails.tipEntry",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/Development/MyCheck/iOS/Restaurant SDK/MyCheckDine/Classes/PaymentDetails.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/PaymentDetails.swift",
       "line": 87,
       "symbol": "PaymentDetails.totalEntry",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/Development/MyCheck/iOS/Restaurant SDK/MyCheckDine/Classes/objects/Order.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/DiningFriend.swift",
+      "line": 13,
+      "symbol": "DiningFriend",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
       "line": 32,
       "symbol": "Bill.balance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/Development/MyCheck/iOS/Restaurant SDK/MyCheckDine/Classes/objects/Order.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
       "line": 40,
       "symbol": "Bill.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/Development/MyCheck/iOS/Restaurant SDK/MyCheckDine/Classes/objects/Order.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
       "line": 85,
       "symbol": "UserSummary.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/Development/MyCheck/iOS/Restaurant SDK/MyCheckDine/Classes/objects/Order.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
       "line": 103,
       "symbol": "TaxSettings.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/Development/MyCheck/iOS/Restaurant SDK/MyCheckDine/Classes/objects/Order.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
       "line": 126,
       "symbol": "Settings.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
+      "line": 169,
+      "symbol": "Order.stamp",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/eladschiller/Documents/Development/MyCheck/iOS/Restaurant SDK"
+  "source_directory": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK"
 }

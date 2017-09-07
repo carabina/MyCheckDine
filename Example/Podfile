@@ -69,13 +69,16 @@ target 'MyCheckDine_Example' do
    # pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
     pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
     pod 'MyCheckWalletUI/VisaCheckout', :path => '../../MyCheckWalletUI'
-    
+    pod 'MyCheckWalletUI/MasterPass', :path =>  '../../MyCheckWalletUI'
+
     target 'MyCheckDine_Tests' do
         inherit! :search_paths
         pod 'MyCheckCore', :path => '../../MyCheck-Core'
         pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
        # pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
+        pod 'MyCheckWalletUI/MasterPass', :path =>  '../../MyCheckWalletUI'
+
         pod 'MyCheckWalletUI/VisaCheckout', :path => '../../MyCheckWalletUI'
         pod 'MyCheckDineUIWeb', :path => '../../WebInterfaceSDK'
 
@@ -89,6 +92,8 @@ target 'MyCheckDine_Example' do
         #pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/VisaCheckout', :path => '../../MyCheckWalletUI'
+        pod 'MyCheckWalletUI/MasterPass', :path =>  '../../MyCheckWalletUI'
+
         pod 'MyCheckDineUIWeb', :path => '../../WebInterfaceSDK'
 
     end

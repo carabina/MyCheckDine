@@ -1,16 +1,25 @@
 {
-    "core":{
+    "core": {
         "Domain": "https://the-test.mycheckapp.com"
     },
-    "wallet":{
-        "PCI": "https://devpm.mycheckapp.com",
+    "wallet": {
+        "PCI": "https://testpm.mycheckapp.com",
         "currencyCode": "USD",
-        "applePay":{
-            "supportedApplePayCardTypes":["Visa","Amex","MasterCard"],
+        "applePay": {
+            "supportedApplePayCardTypes": [
+                                           "Visa",
+                                           "Amex",
+                                           "MasterCard"
+                                           ],
             "countryCode": "US"
-            
         },
-        "walletUI":{
+        "walletUI": {
+            "masterpass": {
+                "url": "https://mywalletcdn-test.mycheckapp.com/external/masterpass.html"
+            },
+            "visaCheckout": {
+                "url": "https://mywalletcdn-test.mycheckapp.com/external/visacheckout.html"
+            },
             "addCreditImages": {
                 "dinersclub": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credits_logos/dinersclub.png",
                 "maestro": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credits_logos/maestro.png",
@@ -27,13 +36,13 @@
                                 "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/dinersclub.png",
                                 "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/discover.png"
                                 ],
-            "acceptedCardsCheckout":[
-                                     "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/visa.png",
-                                     "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/mastercard.png",
-                                     "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/amex.png",
-                                     "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/dinersclub.png",
-                                     "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/discover.png"
-                                     ],
+            "acceptedCardsCheckout": [
+                                      "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/visa.png",
+                                      "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/mastercard.png",
+                                      "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/amex.png",
+                                      "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/dinersclub.png",
+                                      "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/discover.png"
+                                      ],
             "cardsDropDown": {
                 "visa": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/visa.png",
                 "mastercard": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/mastercard.png",
@@ -47,8 +56,8 @@
                 "MasterpassCheckout": "https://www.mastercard.com/mc_us/wallet/img/en/US/mcpp_wllt_btn_chk_317x074px.png",
                 "PaypalCheckout": "https://s3-eu-west-1.amazonaws.com/cdn-storage/images/Cheesecake/paypal_logo.png",
                 "Masterpass": "https://s3-eu-west-1.amazonaws.com/cdn-storage/images/Cheesecake/mp%402x.png",
-                "Paypal": "https://s3-eu-west-1.amazonaws.com/cdn-storage/images/Cheesecake/pp%402x.png",
-                "ViseCheckout": "https://assets.secure.checkout.visa.com/VCO/images/acc_99x34_wht01.png"
+                "Paypal": "https://s3-eu-west-1.amazonaws.com/cdn-storage/whitelabel_tpl/cheesecake/paypalWallet.png",
+                "ViseCheckout": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credits_logos/vco_button.png"
             },
             "checkoutPageColors": {
                 "headerTextColor": "7ea6ab",
@@ -99,9 +108,8 @@
                 "en": "https://mywalletcdn-sandbox.mycheckapp.com/lang/v1/en/general.json"
             }
         }
-        
     },
-    "dine":{
-        "pollingInterval":5.0
+    "dine": {
+        "pollingInterval": 5.0
     }
 }

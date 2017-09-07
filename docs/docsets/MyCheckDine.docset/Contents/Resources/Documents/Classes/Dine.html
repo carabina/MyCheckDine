@@ -14,7 +14,7 @@
     <a title="Dine Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">MyCheckDine Docs</a> (87% documented)</p>
+        <p><a href="../index.html">MyCheckDine Docs</a> (86% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -67,6 +67,9 @@
                 <a href="../Structs/Bill.html">Bill</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs.html#/s:V11MyCheckDine16OrderHistoryItem">OrderHistoryItem</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/PaymentDetails.html">PaymentDetails</a>
               </li>
               <li class="nav-group-task">
@@ -74,6 +77,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/TaxSettings.html">TaxSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:V11MyCheckDine14UserStatistics">UserStatistics</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/UserSummary.html">UserSummary</a>
@@ -152,6 +158,17 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Basic%20Dine-In%20flow"></a>
+                <a name="//apple_ref/swift/Section/Basic Dine-In flow" class="dashAnchor"></a>
+                <a href="#/Basic%20Dine-In%20flow">
+                  <h3 class="section-name">Basic Dine-In flow</h3>
+                </a>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -498,10 +515,459 @@
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Adding%20friends%20to%20table%20related%20functions"></a>
+                <a name="//apple_ref/swift/Section/Adding friends to table related functions" class="dashAnchor"></a>
+                <a href="#/Adding%20friends%20to%20table%20related%20functions">
+                  <h3 class="section-name">Adding friends to table related functions</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11MyCheckDine4Dine25getFriendsListAtOpenTableFT7successFGSaVS_12DiningFriend_T_4failGSqFCSo7NSErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/getFriendsListAtOpenTable(success:fail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11MyCheckDine4Dine25getFriendsListAtOpenTableFT7successFGSaVS_12DiningFriend_T_4failGSqFCSo7NSErrorT___T_">getFriendsListAtOpenTable(success:fail:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the list of friends that have joint the table. Friends can join by showing a generated 4 digit code to the waiter or to a friend that has already joined the table (using the add friend functions).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getFriendsListAtOpenTable</span><span class="p">(</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(([</span><span class="kt">DiningFriend</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">,</span> <span class="nv">fail</span><span class="p">:</span> <span class="p">((</span><span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Returns the list of friends that are in the table</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called when the function fails for any reason</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11MyCheckDine4Dine20addFriendToOpenTableFT10friendCodeSS7successGSqFT_T__4failGSqFCSo7NSErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/addFriendToOpenTable(friendCode:success:fail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11MyCheckDine4Dine20addFriendToOpenTableFT10friendCodeSS7successGSqFT_T__4failGSqFCSo7NSErrorT___T_">addFriendToOpenTable(friendCode:success:fail:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a friend to your users currantly open table</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addFriendToOpenTable</span><span class="p">(</span><span class="nv">friendCode</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">,</span> <span class="nv">fail</span><span class="p">:</span> <span class="p">((</span><span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>friendCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The 4 digit code the friend recieved from the generate code function</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The friend was added to the table</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called when the function fails for any reason</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/User%20past%20usage%20information"></a>
+                <a name="//apple_ref/swift/Section/User past usage information" class="dashAnchor"></a>
+                <a href="#/User%20past%20usage%20information">
+                  <h3 class="section-name">User past usage information</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11MyCheckDine4Dine17getUserStatisticsFT7successGSqFVS_14UserStatisticsT__4failGSqFCSo7NSErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/getUserStatistics(success:fail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11MyCheckDine4Dine17getUserStatisticsFT7successGSqFVS_14UserStatisticsT__4failGSqFCSo7NSErrorT___T_">getUserStatistics(success:fail:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Responds with various statistics about the currant users buying habits using MyCheck.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUserStatistics</span><span class="p">(</span> <span class="nv">success</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Structs.html#/s:V11MyCheckDine14UserStatistics">UserStatistics</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">,</span> <span class="nv">fail</span><span class="p">:</span> <span class="p">((</span><span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>returns statistsics about the currant users buying habits.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called when the function fails for any reason</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11MyCheckDine4Dine19getOrderHistoryListFT7successGSqFGSaVS_16OrderHistoryItem_T__4failGSqFCSo7NSErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/getOrderHistoryList(success:fail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11MyCheckDine4Dine19getOrderHistoryListFT7successGSqFGSaVS_16OrderHistoryItem_T__4failGSqFCSo7NSErrorT___T_">getOrderHistoryList(success:fail:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Responds with a list of all the past payments of the user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getOrderHistoryList</span><span class="p">(</span> <span class="nv">success</span><span class="p">:</span> <span class="p">(([</span><span class="kt"><a href="../Structs.html#/s:V11MyCheckDine16OrderHistoryItem">OrderHistoryItem</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">,</span> <span class="nv">fail</span><span class="p">:</span> <span class="p">((</span><span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A callback with a list of past orders</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called when the function fails for any reason</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Miscellaneous%20actions"></a>
+                <a name="//apple_ref/swift/Section/Miscellaneous actions" class="dashAnchor"></a>
+                <a href="#/Miscellaneous%20actions">
+                  <h3 class="section-name">Miscellaneous actions</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11MyCheckDine4Dine10callWaiterFT7successGSqFT_T__4failGSqFCSo7NSErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/callWaiter(success:fail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11MyCheckDine4Dine10callWaiterFT7successGSqFT_T__4failGSqFCSo7NSErrorT___T_">callWaiter(success:fail:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Use this function to call a waiter to the table. A 4  digit code must be generated and a table opened in order for this to work. This function is not supported in all venues and must have a POS that supports this functionality.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">callWaiter</span><span class="p">(</span> <span class="nv">success</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">,</span> <span class="nv">fail</span><span class="p">:</span> <span class="p">((</span><span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A callback with indicating the request has been dispatched to the POS</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called when the function fails for any reason</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11MyCheckDine4Dine12sendFeedbackFT3forSS5starsSi7commentGSqSS_7successGSqFT_T__4failGSqFCSo7NSErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/sendFeedback(for:stars:comment:success:fail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11MyCheckDine4Dine12sendFeedbackFT3forSS5starsSi7commentGSqSS_7successGSqFT_T__4failGSqFCSo7NSErrorT___T_">sendFeedback(for:stars:comment:success:fail:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sends feedback regarding the last order. The feedback is always for 2 questions, one on a scale of 0-5 and one is free text.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">sendFeedback</span><span class="p">(</span><span class="k">for</span> <span class="nv">orderId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                             <span class="nv">stars</span><span class="p">:</span><span class="kt">Int</span><span class="p">,</span>
+                             <span class="nv">comment</span><span class="p">:</span><span class="kt">String</span><span class="p">?,</span>
+                             <span class="nv">success</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?,</span>
+                             <span class="nv">fail</span><span class="p">:</span> <span class="p">((</span><span class="kt">NSError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>orderId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The order Id the feedback is regarding</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>stars</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of starts the user gave on a scale of 0-5</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>comment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The text response the user entered.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The call succeeded</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The call failed</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="http://www.mycheck.io/" target="_blank" rel="external">elad schiller</a>. All rights reserved. (Last updated: 2017-07-13)</p>
+          <p>&copy; 2017 <a class="link" href="http://www.mycheck.io/" target="_blank" rel="external">elad schiller</a>. All rights reserved. (Last updated: 2017-09-03)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

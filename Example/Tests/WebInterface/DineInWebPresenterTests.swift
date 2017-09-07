@@ -184,7 +184,7 @@ class DineInWebPresenterTests: XCTestCase
             return
         }
         XCTAssert(JSISValid(JS: JS, callback: callback,
-                            validJSON:createSuccessJSON(with: ["items":[paymetnMethod.generateJSON()]] )))
+                            validJSON:createSuccessJSON(with: ["PaymentMethods":[paymetnMethod.generateJSON()]] )))
         
         
     }

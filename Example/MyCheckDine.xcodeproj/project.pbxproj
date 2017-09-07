@@ -27,6 +27,9 @@
 		B23C605D1E18F8B0000A53FB /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = B23C605C1E18F8B0000A53FB /* .swift-version */; };
 		B24A86DE1F3C8BA500688433 /* DineInWebInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24A86DD1F3C8BA500688433 /* DineInWebInteractorTests.swift */; };
 		B24BA4CD1F4C82B6001317CC /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24BA4CC1F4C82B6001317CC /* Stubs.swift */; };
+		B24CE7901F60047500DEF760 /* MasterPassCallNative.js in Resources */ = {isa = PBXBuildFile; fileRef = B24CE78D1F60047500DEF760 /* MasterPassCallNative.js */; };
+		B24CE7911F60047500DEF760 /* MasterPassNativeResponse.js in Resources */ = {isa = PBXBuildFile; fileRef = B24CE78E1F60047500DEF760 /* MasterPassNativeResponse.js */; };
+		B24CE7921F60047500DEF760 /* testMasterPass.html in Resources */ = {isa = PBXBuildFile; fileRef = B24CE78F1F60047500DEF760 /* testMasterPass.html */; };
 		B260FB1E1F0CC6C8002605EE /* XCTestCase+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B260FB1A1F0CC6C8002605EE /* XCTestCase+JSON.swift */; };
 		B260FB1F1F0CC6C8002605EE /* XCTestCase+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B260FB1B1F0CC6C8002605EE /* XCTestCase+Mock.swift */; };
 		B260FB201F0CC6C8002605EE /* RequestProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B260FB1D1F0CC6C8002605EE /* RequestProtocolMock.swift */; };
@@ -38,6 +41,9 @@
 		B270D7FA1E1BFB46009BA1E2 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B270D7F91E1BFB46009BA1E2 /* TerminalViewController.swift */; };
 		B27D02DC1E1CDE310099E514 /* TerminalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D02DB1E1CDE310099E514 /* TerminalModel.swift */; };
 		B27D02DE1E1CE2900099E514 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D02DD1E1CE2900099E514 /* SessionViewController.swift */; };
+		B2818B471F5FDCE700DC7F77 /* AddMasterPassPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2818B431F5FDCE700DC7F77 /* AddMasterPassPresenterTests.swift */; };
+		B2818B481F5FDCE700DC7F77 /* AddMasterPassViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2818B441F5FDCE700DC7F77 /* AddMasterPassViewControllerTests.swift */; };
+		B2818B491F5FDCE700DC7F77 /* AddMasterPassCallHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2818B451F5FDCE700DC7F77 /* AddMasterPassCallHandlerTests.swift */; };
 		B289F9A21F3091AD00CEC772 /* PaymentMethods.json in Resources */ = {isa = PBXBuildFile; fileRef = B289F9A01F3091A800CEC772 /* PaymentMethods.json */; };
 		B289F9A51F3091D400CEC772 /* AddCreditCardInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289F9A31F3091D400CEC772 /* AddCreditCardInteractorTest.swift */; };
 		B289F9A61F3091D400CEC772 /* AddCreditCardPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B289F9A41F3091D400CEC772 /* AddCreditCardPresenterTest.swift */; };
@@ -130,6 +136,9 @@
 		B23C605C1E18F8B0000A53FB /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		B24A86DD1F3C8BA500688433 /* DineInWebInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DineInWebInteractorTests.swift; sourceTree = "<group>"; };
 		B24BA4CC1F4C82B6001317CC /* Stubs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
+		B24CE78D1F60047500DEF760 /* MasterPassCallNative.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = MasterPassCallNative.js; sourceTree = "<group>"; };
+		B24CE78E1F60047500DEF760 /* MasterPassNativeResponse.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = MasterPassNativeResponse.js; sourceTree = "<group>"; };
+		B24CE78F1F60047500DEF760 /* testMasterPass.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = testMasterPass.html; sourceTree = "<group>"; };
 		B260FB1A1F0CC6C8002605EE /* XCTestCase+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+JSON.swift"; sourceTree = "<group>"; };
 		B260FB1B1F0CC6C8002605EE /* XCTestCase+Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Mock.swift"; sourceTree = "<group>"; };
 		B260FB1D1F0CC6C8002605EE /* RequestProtocolMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestProtocolMock.swift; sourceTree = "<group>"; };
@@ -142,6 +151,9 @@
 		B270D7F91E1BFB46009BA1E2 /* TerminalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
 		B27D02DB1E1CDE310099E514 /* TerminalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalModel.swift; sourceTree = "<group>"; };
 		B27D02DD1E1CE2900099E514 /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
+		B2818B431F5FDCE700DC7F77 /* AddMasterPassPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMasterPassPresenterTests.swift; sourceTree = "<group>"; };
+		B2818B441F5FDCE700DC7F77 /* AddMasterPassViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMasterPassViewControllerTests.swift; sourceTree = "<group>"; };
+		B2818B451F5FDCE700DC7F77 /* AddMasterPassCallHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMasterPassCallHandlerTests.swift; sourceTree = "<group>"; };
 		B289F9A01F3091A800CEC772 /* PaymentMethods.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PaymentMethods.json; sourceTree = "<group>"; };
 		B289F9A31F3091D400CEC772 /* AddCreditCardInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCreditCardInteractorTest.swift; sourceTree = "<group>"; };
 		B289F9A41F3091D400CEC772 /* AddCreditCardPresenterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCreditCardPresenterTest.swift; sourceTree = "<group>"; };
@@ -339,6 +351,7 @@
 		B20607AB1F1DF95F0029F056 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				B2818B411F5FDCC200DC7F77 /* masterpass */,
 				B289F9A31F3091D400CEC772 /* AddCreditCardInteractorTest.swift */,
 				B289F9A41F3091D400CEC772 /* AddCreditCardPresenterTest.swift */,
 				B20607AC1F1DF95F0029F056 /* TestCreditCardValidation.swift */,
@@ -364,6 +377,16 @@
 				B26154E71F4456C80047EB0F /* DineInWebViewControllerFactoryTests.swift */,
 			);
 			path = WebInterface;
+			sourceTree = "<group>";
+		};
+		B24CE78C1F60046A00DEF760 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				B24CE78D1F60047500DEF760 /* MasterPassCallNative.js */,
+				B24CE78E1F60047500DEF760 /* MasterPassNativeResponse.js */,
+				B24CE78F1F60047500DEF760 /* testMasterPass.html */,
+			);
+			path = html;
 			sourceTree = "<group>";
 		};
 		B260FB191F0CC6C8002605EE /* helpTools */ = {
@@ -406,6 +429,17 @@
 				B27D02DB1E1CDE310099E514 /* TerminalModel.swift */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		B2818B411F5FDCC200DC7F77 /* masterpass */ = {
+			isa = PBXGroup;
+			children = (
+				B24CE78C1F60046A00DEF760 /* html */,
+				B2818B431F5FDCE700DC7F77 /* AddMasterPassPresenterTests.swift */,
+				B2818B441F5FDCE700DC7F77 /* AddMasterPassViewControllerTests.swift */,
+				B2818B451F5FDCE700DC7F77 /* AddMasterPassCallHandlerTests.swift */,
+			);
+			path = masterpass;
 			sourceTree = "<group>";
 		};
 		B2AD9B6C1F0BE94000059FAA /* JSON */ = {
@@ -585,6 +619,7 @@
 			files = (
 				B2AA60241F49A1A000826612 /* usageStats.json in Resources */,
 				B270CC7B1F0E57100064983D /* orderDetailsNoItems.json in Resources */,
+				B24CE7911F60047500DEF760 /* MasterPassNativeResponse.js in Resources */,
 				B2AD9B6E1F0BE95900059FAA /* generateCode.json in Resources */,
 				B2AD9B701F0BE99F00059FAA /* orderDetails.json in Resources */,
 				B296BE151F33343000E5657C /* addCreditCard.json in Resources */,
@@ -592,6 +627,8 @@
 				B260FB231F0CC839002605EE /* configure.json in Resources */,
 				B2A8A1131F49768900A25D05 /* friendList.json in Resources */,
 				B260FB241F0CC839002605EE /* login.json in Resources */,
+				B24CE7901F60047500DEF760 /* MasterPassCallNative.js in Resources */,
+				B24CE7921F60047500DEF760 /* testMasterPass.html in Resources */,
 				B2AA60281F49B1C300826612 /* orderList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -837,9 +874,11 @@
 				B20307A01F0E2BFE00DA8584 /* DelayMock.swift in Sources */,
 				B20607AD1F1DF95F0029F056 /* ConfigureTest.swift in Sources */,
 				B289F9A81F3091EF00CEC772 /* KeyValueStorageProtocolMockAndSpy.swift in Sources */,
+				B2818B491F5FDCE700DC7F77 /* AddMasterPassCallHandlerTests.swift in Sources */,
 				B260FB1E1F0CC6C8002605EE /* XCTestCase+JSON.swift in Sources */,
 				B2A31D4A1F4430DC0090D0EF /* NativeCallHandlerTests.swift in Sources */,
 				B20607B11F1DF95F0029F056 /* PollerTest.swift in Sources */,
+				B2818B471F5FDCE700DC7F77 /* AddMasterPassPresenterTests.swift in Sources */,
 				B289F9A51F3091D400CEC772 /* AddCreditCardInteractorTest.swift in Sources */,
 				B20607AE1F1DF95F0029F056 /* LoginTest.swift in Sources */,
 				B260FB201F0CC6C8002605EE /* RequestProtocolMock.swift in Sources */,
@@ -847,6 +886,7 @@
 				B24A86DE1F3C8BA500688433 /* DineInWebInteractorTests.swift in Sources */,
 				B26154E81F4456C80047EB0F /* DineInWebViewControllerFactoryTests.swift in Sources */,
 				B260FB1F1F0CC6C8002605EE /* XCTestCase+Mock.swift in Sources */,
+				B2818B481F5FDCE700DC7F77 /* AddMasterPassViewControllerTests.swift in Sources */,
 				B20607B21F1DF95F0029F056 /* TestCreditCardValidation.swift in Sources */,
 				B20607B01F1DF95F0029F056 /* OrderTest.swift in Sources */,
 				B289F9A61F3091D400CEC772 /* AddCreditCardPresenterTest.swift in Sources */,

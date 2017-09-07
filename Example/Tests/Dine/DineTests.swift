@@ -319,6 +319,31 @@ class DineTests: XCTestCase {
         
     }
 
+    
+    func testgetPastOrderSuccess() {
+        //Arrange
+        let order = getOrderDetails()
+        
+        guard let validOrderJSON = getJSONFromFile( named: "orderDetails")  else{
+            
+            return ;
+        }
+
+        Dine.shared.network = RequestProtocolMock(response: .success(validOrderJSON))
+        var response:Order? = nil
+        //Act
+        Dine.shared.getPastOrder(orderId: (order?.orderId)!, success: {order in
+            response = order
+        }, fail: {error in
+        XCTFail("should not fail")
+        })
+        //Assert
+        
+        XCTAssert(response == order)
+        
+        
+    }
+    
     func testFeedbackSuccess() {
         //Arrange
         guard let validJSON = getJSONFromFile( named: "orderList") else{
@@ -347,7 +372,7 @@ class DineTests: XCTestCase {
         
         XCTAssert(succeeded)
         XCTAssert(paramsSent?.parameters?["stars"] as? Int == stars)
-        XCTAssert(paramsSent?.parameters?["comment"] as? String == comment)
+        XCTAssert(paramsSent?.parameters?["comments"] as? String == comment)
       
         XCTAssert( (paramsSent?.url.hasSuffix(URIs.sendFeedback))!)
         XCTAssert( paramsSent?.method == .post)

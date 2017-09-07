@@ -165,11 +165,32 @@ public class Dine{
                     NotificationCenter.default.post(name:  Notification.Name("MyCheck comunication ouput") , object: "Success callback called")
                 }
                 if let success = success  {
-                    success(order)
+                    success(self.lastOrder)
                     
                 }
                 return
             }
+            if let fail = fail {
+                fail( error)
+            }
+        })
+    }
+    
+    
+    /// Returns the order details of a specific order. . This call is mainly meant for getting past orders.
+    ///
+    ///    - parameter orderId: The  order Id.
+    ///    - parameter success: A block that is called if the call complete successfully. If the order returne is nil it means their is no open order.
+    ///    - parameter fail: Called when the function fails for any reason
+    
+    internal func getPastOrder( orderId: String, success: ((Order?) -> Void)? , fail: ((NSError) -> Void)? ){
+     
+        self.callGetOrder(orderId: orderId, stamp: nil, success: { order in
+            if let success = success {
+                success(order)
+            }
+        }, fail: { error in
+           
             if let fail = fail {
                 fail( error)
             }
@@ -375,7 +396,8 @@ public class Dine{
         }
     }
     
-    
+    //MARK: - Miscellaneous actions
+
     /// Use this function to call a waiter to the table. A 4  digit code must be generated and a table opened in order for this to work. This function is not supported in all venues and must have a POS that supports this functionality.
     ///
     ///    - parameter success: A callback with indicating the request has been dispatched to the POS

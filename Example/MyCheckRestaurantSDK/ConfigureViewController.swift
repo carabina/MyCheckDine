@@ -64,16 +64,24 @@ class ConfigureViewController: UIViewController {
             //This code should normaly be after launch in the application delegate.
             Session.shared.configure(key , environment: environment)
             //setting up wallet according to what the user selected.
+           
             if LocalDataa.enabledState(for: .payPal){
                 //   PaypalFactory.initiate("com.mycheck.MyCheckDine-Example")
                 
             }
+            
             if LocalDataa.enabledState(for: .applePay){
                 ApplePayFactory.initiate(merchantIdentifier: "merchant.com.mycheck.sandbox")
             }
+            
             if LocalDataa.enabledState(for: .visaCheckout){
                 VisaCheckoutFactory.initiate(apiKey: "S8TQIO2ERW9RIHPE82DC13TA9Uv8FdB9Uu7EBRyZHDCNsp7JU")
             }
+           
+            if LocalDataa.enabledState(for: .masterPass){
+                MasterPassFactory.initiate()
+            }
+            
             performSegue(withIdentifier: "pushMainApp", sender: nil)
             
         }else{
