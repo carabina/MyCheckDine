@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         if !UserDefaults.standard.bool(forKey: "notFirstLaunch"){
             UserDefaults.standard.set("pk_osz6r1mWpO7e5FqOHbeIP7CIYg0Gs", forKey: "publishableKey")
-            UserDefaults.standard.set("merchant.com.mycheck.sandbox", forKey: "ApplePayMerchantId")
             UserDefaults.standard.set("2", forKey: "BID")
 
             UserDefaults.standard.set("eyJpdiI6Ilo3aDN6M0VGZmMrYlE1ZEFHenE2amc9PSIsInZhbHVlIjoiRjMzdGJrYUlpdWZpcTZsZzdxb0JFUk8wck9iSURVeHlpXC9RU0FITzFGTlg3OTNwYVZJS050RlF1anZTY09tK0QiLCJtYWMiOiJlN2MxYmU2NGY4ZmM5NWM4ODJlM2EwMDMyZjU1MjEyM2NjOTg0YTFjOWM3OGQwYzdlYjFhOGUxYjNlNjVlNTkzIn0=", forKey: "refreshToken")

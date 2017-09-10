@@ -14,6 +14,7 @@ class ConfigureViewController: UIViewController {
     
     let savedDatapublishableKeyKey = "publishableKey"
     let savedDataMerchantIdKey = "ApplePayMerchantId"
+    let applePayMerchantIdPrefix = "merchant.com.mycheck"
     
     @IBOutlet weak var publishableKeyField: UITextField!
     
@@ -27,20 +28,15 @@ class ConfigureViewController: UIViewController {
     
     @IBOutlet weak var visaCheckoutSwitch: UISwitch!
     
-    @IBOutlet weak var applePayMerchantIdStackView: UIStackView!
-    
-    @IBOutlet weak var merchantIdField: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setSavedDataTextOnFields()
+        publishableKeyField.text = UserDefaults.standard.string(forKey: savedDatapublishableKeyKey)
         // Setting up switchs to the last setup
         applePaySwitch.setOn(LocalDataa.enabledState(for: .applePay), animated: false)
         masterPassSwitch.setOn(LocalDataa.enabledState(for: .masterPass), animated: false)
         payPalSwitch.setOn(LocalDataa.enabledState(for: .payPal), animated: false)
         visaCheckoutSwitch.setOn(LocalDataa.enabledState(for: .visaCheckout), animated: false)
-        animateApplePayMerchantIdStackView(shouldShow: applePaySwitch.isOn)
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,7 +46,8 @@ class ConfigureViewController: UIViewController {
     
     
     @IBAction func configurePressed(_ sender: Any) {
-        getFieldsSavedDataText()
+        UserDefaults.standard.set(publishableKeyField.text, forKey: savedDatapublishableKeyKey)
+
         UserDefaults.standard.synchronize()
         var environment : Environment = Environment.test
         
@@ -77,13 +74,12 @@ class ConfigureViewController: UIViewController {
             
         }
         if LocalDataa.enabledState(for: .applePay){
-            guard let merchantId = merchantIdField.text, merchantId != "" else {
-                let alert = UIAlertController(title: "Error", message: "Please enter merchant ID to continue", preferredStyle: .alert)
+            guard let merchantId = getSavedDataApplePayMerchandId() else {
+                let alert = UIAlertController(title: "Error", message: "Please choose an apple pay merchand id to continue", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
                 present(alert, animated: true, completion: nil)
                 return
             }
-        
            ApplePayFactory.initiate(merchantIdentifier: merchantId)
         }
         if LocalDataa.enabledState(for: .visaCheckout){
@@ -98,25 +94,32 @@ class ConfigureViewController: UIViewController {
         
     }
     
-    func animateApplePayMerchantIdStackView(shouldShow : Bool) {
-        UIView.animate(withDuration: 0.3, delay: 0.2, options: UIViewAnimationOptions.transitionCurlDown, animations: {
-            if shouldShow {
-                self.applePayMerchantIdStackView.isHidden = false
-            } else {
-                self.applePayMerchantIdStackView.isHidden = true
-            }
-        }, completion: nil)
+    func showMerchantPikerAlert(){
+        
+        let alert = UIAlertController(title: "Choose an ApplePay Environment", message: "", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Sandbox", style: .default, handler: {_ in
+            self.saveApplePayMerchantId(environment: ".sandbox")
+
+        }))
+        alert.addAction(UIAlertAction(title: "Production", style: .default, handler:{_ in
+            self.saveApplePayMerchantId(environment: ".production")
+        }))
+
+        present(alert, animated: true, completion: nil)
     }
     
-    func setSavedDataTextOnFields() {
-        publishableKeyField.text = UserDefaults.standard.string(forKey: savedDatapublishableKeyKey)
-        merchantIdField.text = UserDefaults.standard.string(forKey: savedDataMerchantIdKey)
+    func clearApplePayMerchantId() {
+        UserDefaults.standard.set("", forKey: self.savedDataMerchantIdKey)
     }
     
-    func getFieldsSavedDataText() {
-        UserDefaults.standard.set(publishableKeyField.text, forKey: savedDatapublishableKeyKey)
-        UserDefaults.standard.set(merchantIdField.text, forKey: savedDataMerchantIdKey)
+    func saveApplePayMerchantId (environment : String) {
+        UserDefaults.standard.set(self.applePayMerchantIdPrefix + environment, forKey: self.savedDataMerchantIdKey)
     }
+    
+    func getSavedDataApplePayMerchandId() -> String? {
+        return UserDefaults.standard.string(forKey: savedDatapublishableKeyKey)!
+    }
+    
 }
 
 //private helper methods
@@ -128,7 +131,11 @@ extension ConfigureViewController {
         case masterPassSwitch:
             return .masterPass
         case applePaySwitch:
-            animateApplePayMerchantIdStackView(shouldShow: uiSwitch.isOn)
+            if uiSwitch.isOn {
+                showMerchantPikerAlert()
+            } else{
+                clearApplePayMerchantId()
+            }
             return .applePay
         case visaCheckoutSwitch:
             return .visaCheckout
