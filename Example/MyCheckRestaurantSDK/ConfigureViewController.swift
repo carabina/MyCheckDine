@@ -12,10 +12,12 @@ import MyCheckDine
 import MyCheckWalletUI
 class ConfigureViewController: UIViewController {
     
+    let savedDatapublishableKeyKey = "publishableKey"
+    let savedDataMerchantIdKey = "ApplePayMerchantId"
+    
     @IBOutlet weak var publishableKeyField: UITextField!
     
     @IBOutlet weak var environmentSegControl: UISegmentedControl!
-    
     
     @IBOutlet weak var applePaySwitch: UISwitch!
     
@@ -25,18 +27,20 @@ class ConfigureViewController: UIViewController {
     
     @IBOutlet weak var visaCheckoutSwitch: UISwitch!
     
+    @IBOutlet weak var applePayMerchantIdStackView: UIStackView!
+    
+    @IBOutlet weak var merchantIdField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        publishableKeyField.text = UserDefaults.standard.string(forKey: "publishableKey")
-        
+        setSavedDataTextOnFields()
         // Setting up switchs to the last setup
         applePaySwitch.setOn(LocalDataa.enabledState(for: .applePay), animated: false)
         masterPassSwitch.setOn(LocalDataa.enabledState(for: .masterPass), animated: false)
         payPalSwitch.setOn(LocalDataa.enabledState(for: .payPal), animated: false)
         visaCheckoutSwitch.setOn(LocalDataa.enabledState(for: .visaCheckout), animated: false)
-        
+        animateApplePayMerchantIdStackView(shouldShow: applePaySwitch.isOn)
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,10 +50,9 @@ class ConfigureViewController: UIViewController {
     
     
     @IBAction func configurePressed(_ sender: Any) {
-        UserDefaults.standard.set(publishableKeyField.text, forKey: "publishableKey")
+        getFieldsSavedDataText()
         UserDefaults.standard.synchronize()
         var environment : Environment = Environment.test
-        
         
         switch environmentSegControl.selectedSegmentIndex {
         case 0:
@@ -69,7 +72,13 @@ class ConfigureViewController: UIViewController {
                 
             }
             if LocalDataa.enabledState(for: .applePay){
-                ApplePayFactory.initiate(merchantIdentifier: "merchant.com.mycheck.sandbox")
+                if let merchantId = merchantIdField.text, merchantIdField.text != "" {
+                    ApplePayFactory.initiate(merchantIdentifier: merchantId)
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Please enter merchant ID to continue", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+                    present(alert, animated: true, completion: nil)
+                }
             }
             if LocalDataa.enabledState(for: .visaCheckout){
                 VisaCheckoutFactory.initiate(apiKey: "S8TQIO2ERW9RIHPE82DC13TA9Uv8FdB9Uu7EBRyZHDCNsp7JU")
@@ -85,6 +94,27 @@ class ConfigureViewController: UIViewController {
     
     @IBAction func walletTypeSwitchValueChanged(_ sender: UISwitch) {
         LocalDataa.saveEnableState(for: methodType(for: sender), isEnabled: sender.isOn)
+        
+    }
+    
+    func animateApplePayMerchantIdStackView(shouldShow : Bool) {
+        UIView.animate(withDuration: 0.3, delay: 0.2, options: UIViewAnimationOptions.transitionCurlDown, animations: {
+            if shouldShow {
+                self.applePayMerchantIdStackView.isHidden = false
+            } else {
+                self.applePayMerchantIdStackView.isHidden = true
+            }
+        }, completion: nil)
+    }
+    
+    func setSavedDataTextOnFields() {
+        publishableKeyField.text = UserDefaults.standard.string(forKey: savedDatapublishableKeyKey)
+        merchantIdField.text = UserDefaults.standard.string(forKey: savedDataMerchantIdKey)
+    }
+    
+    func getFieldsSavedDataText() {
+        UserDefaults.standard.set(publishableKeyField.text, forKey: savedDatapublishableKeyKey)
+        UserDefaults.standard.set(merchantIdField.text, forKey: savedDataMerchantIdKey)
     }
 }
 
@@ -97,10 +127,10 @@ extension ConfigureViewController {
         case masterPassSwitch:
             return .masterPass
         case applePaySwitch:
+            animateApplePayMerchantIdStackView(shouldShow: uiSwitch.isOn)
             return .applePay
         case visaCheckoutSwitch:
             return .visaCheckout
-            
         default:
             return .non
         }
