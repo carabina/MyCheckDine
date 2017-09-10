@@ -62,34 +62,35 @@ class ConfigureViewController: UIViewController {
         default:
             environment = Environment.production
         }
-        if let key = publishableKeyField.text{
-            
-            //This code should normaly be after launch in the application delegate.
-            Session.shared.configure(key , environment: environment)
-            //setting up wallet according to what the user selected.
-            if LocalDataa.enabledState(for: .payPal){
-                //   PaypalFactory.initiate("com.mycheck.MyCheckDine-Example")
-                
-            }
-            if LocalDataa.enabledState(for: .applePay){
-                if let merchantId = merchantIdField.text, merchantIdField.text != "" {
-                    ApplePayFactory.initiate(merchantIdentifier: merchantId)
-                } else {
-                    let alert = UIAlertController(title: "Error", message: "Please enter merchant ID to continue", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
-                    present(alert, animated: true, completion: nil)
-                }
-            }
-            if LocalDataa.enabledState(for: .visaCheckout){
-                VisaCheckoutFactory.initiate(apiKey: "S8TQIO2ERW9RIHPE82DC13TA9Uv8FdB9Uu7EBRyZHDCNsp7JU")
-            }
-            performSegue(withIdentifier: "pushMainApp", sender: nil)
-            
-        }else{
-            let alert = UIAlertController(title: "Error", message: "Please enter publishable key to continue", preferredStyle: .alert)
+        
+        guard let key = publishableKeyField.text, key != "" else {
+        let alert = UIAlertController(title: "Error", message: "Please enter publishable key to continue", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
             present(alert, animated: true, completion: nil)
+            return
         }
+        //This code should normaly be after launch in the application delegate.
+        Session.shared.configure(key , environment: environment)
+        //setting up wallet according to what the user selected.
+        if LocalDataa.enabledState(for: .payPal){
+            //   PaypalFactory.initiate("com.mycheck.MyCheckDine-Example")
+            
+        }
+        if LocalDataa.enabledState(for: .applePay){
+            guard let merchantId = merchantIdField.text, merchantId != "" else {
+                let alert = UIAlertController(title: "Error", message: "Please enter merchant ID to continue", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+                present(alert, animated: true, completion: nil)
+                return
+            }
+        
+           ApplePayFactory.initiate(merchantIdentifier: merchantId)
+        }
+        if LocalDataa.enabledState(for: .visaCheckout){
+            VisaCheckoutFactory.initiate(apiKey: "S8TQIO2ERW9RIHPE82DC13TA9Uv8FdB9Uu7EBRyZHDCNsp7JU")
+        }
+        performSegue(withIdentifier: "pushMainApp", sender: nil)
+        
     }
     
     @IBAction func walletTypeSwitchValueChanged(_ sender: UISwitch) {
