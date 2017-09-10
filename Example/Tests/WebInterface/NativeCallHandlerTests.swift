@@ -26,6 +26,7 @@ class NativeCallHandlerTests: XCTestCase {
         var paymentMethodsRequest: DineInWeb.PaymentMethods.Request?
         var payRequest: DineInWeb.Pay.Request?
         var completeRequest: DineInWeb.Complete.Request?
+      var getFriendList: DineInWeb.GetFriendsList.Request?
         func setupInteractor(request: DineInWeb.SetupDinein.Request){
             setupRequest = request
         }
@@ -60,6 +61,10 @@ class NativeCallHandlerTests: XCTestCase {
         func complete(request: DineInWeb.Complete.Request) {
          completeRequest = request
         }
+      
+      func getFriendList(request: DineInWeb.getFriendsList.Request) {
+        getFriendList = request
+      }
     }
     
     var controller: DineInWebViewController?
@@ -160,6 +165,18 @@ class NativeCallHandlerTests: XCTestCase {
         
     }
   
+  func testGetFriendList() {
+    //Arrange
+    let spy = setAndReturnSpy()
+    
+    //Act
+    runJSSynchronously(JSExpresion:"getFriendsList();")
+    
+    //Assert
+    XCTAssert(spy.orderDetailsRequest?.callback == "listOfFriends")
+    
+    
+  }
   func testReorderSuccess() {
     //Arrange
     let spy = setAndReturnSpy()
