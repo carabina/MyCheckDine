@@ -178,6 +178,21 @@ class NativeCallHandlerTests: XCTestCase {
     
     //Assert
     XCTAssert(spy.orderDetailsRequest?.callback == "receivedOrder")
+    XCTAssert(spy.orderDetailsRequest?.cache == false)
+
+    
+  }
+  
+  func testGetOrderDetailsCache() {
+    //Arrange
+    let spy = setAndReturnSpy()
+    
+    //Act
+    runJSSynchronously(JSExpresion:"getOrderDetailsCache();")
+    
+    //Assert
+    XCTAssert(spy.orderDetailsRequest?.callback == "receivedOrder")
+    XCTAssert(spy.orderDetailsRequest?.cache == true)
     
     
   }

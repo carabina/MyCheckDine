@@ -24,7 +24,7 @@ class DineInWebInteractorTest : XCTestCase {
     var addFriendResponse: DineInWeb.AddAFriend.Response?
     var feedbackResponse: DineInWeb.SendFeedback.Response?
     var callWaiterResponse: DineInWeb.CallWaiter.Response?
-
+    
     func presentTableCode(response: DineInWeb.GetCode.Response){
       tableCodeResponse = response
     }
@@ -54,19 +54,19 @@ class DineInWebInteractorTest : XCTestCase {
     }
     
     func complete(response: DineInWeb.Complete.Response) {
-        completeResponse = response
+      completeResponse = response
     }
     
     func gotFriendList(response: DineInWeb.GetFriendsList.Response){
-friendListResponse = response
+      friendListResponse = response
     }
     
     func addedFriend(response: DineInWeb.AddAFriend.Response){
-addFriendResponse = response
+      addFriendResponse = response
     }
     
     func sentFeedback(response: DineInWeb.SendFeedback.Response){
-    feedbackResponse = response
+      feedbackResponse = response
     }
     
     func calledWaiter(response: DineInWeb.CallWaiter.Response){
@@ -162,7 +162,7 @@ addFriendResponse = response
     let (interactor , spy) = getInteractorWithPresenterSpy()
     
     //Act
-    interactor.getOrderDetails(request: DineInWeb.GetOrderDetails.Request(callback: callbackName))
+    interactor.getOrderDetails(request: DineInWeb.GetOrderDetails.Request(callback: callbackName , cache: false))
     
     //Assert
     
@@ -173,6 +173,51 @@ addFriendResponse = response
     
   }
   
+  func testGetOrderDetailsCacheSuccess() {
+    
+    //Arange
+    self.createNewLoggedInSession()
+    guard let validOrderJSON = getJSONFromFile( named: "orderDetails") , let _ = getJSONFromFile( named: "orderDetailsNoItems") else{
+      XCTFail("should not fail")
+      
+      return;
+    }
+    
+    //makes sure the network is not called
+    Dine.shared.network = RequestProtocolMock(response: .fail(ErrorCodes.badRequest.getError()))
+    
+    let (interactor , spy) = getInteractorWithPresenterSpy()
+    interactor.model.order = Order(json: validOrderJSON)
+    //Act
+    interactor.getOrderDetails(request: DineInWeb.GetOrderDetails.Request(callback: callbackName , cache: true))
+    
+    //Assert
+    
+    XCTAssert(spy.getOrderResponse!.order?.stamp == "6ab19bb726a256246d41ee3566b88a21" , "the correct order was not passed")
+    XCTAssert(  spy.getOrderResponse!.callback == callbackName, "callback should be passed on")
+    
+    
+    
+  }
+  
+  func testGetOrderDetailsCacheFail() {
+    
+    //Arange
+    self.createNewLoggedInSession()
+    
+    Dine.shared.network = RequestProtocolMock(response: .fail(ErrorCodes.badRequest.getError()))
+    
+    let (interactor , spy) = getInteractorWithPresenterSpy()
+    
+    //Act
+    interactor.getOrderDetails(request: DineInWeb.GetOrderDetails.Request(callback: callbackName , cache: true))
+    
+    //Assert
+//    assertFailedResponse(response: spy.failedResponse)
+    //to-do
+    
+    
+  }
   
   func testGetOrderDetailsFail() {
     
@@ -184,7 +229,7 @@ addFriendResponse = response
     let (interactor , spy) = getInteractorWithPresenterSpy()
     
     //Act
-    interactor.getOrderDetails(request: DineInWeb.GetOrderDetails.Request(callback: callbackName))
+    interactor.getOrderDetails(request: DineInWeb.GetOrderDetails.Request(callback: callbackName , cache: false))
     
     //Assert
     assertFailedResponse(response: spy.failedResponse)
@@ -259,10 +304,10 @@ addFriendResponse = response
     interactor.reorderItems(request: DineInWeb.Reorder.Request(callback: callbackName, items: [(2,item)]))
     
     //Assert
-   
-      XCTAssert(spy.reorderResponse?.callback == callbackName, "callback was not passed properly")
-      
-   
+    
+    XCTAssert(spy.reorderResponse?.callback == callbackName, "callback was not passed properly")
+    
+    
     XCTAssert(spy.failedResponse == nil)
     
   }
@@ -291,10 +336,10 @@ addFriendResponse = response
     interactor.makePayment(request: DineInWeb.Pay.Request(callback: callbackName, payFor:.amount(1.1), tip: 0.5, paymentMethodId:paymentMethod.ID, paymentMethodToken: "abc"    , paymentMethodType: paymentMethod.type))
     
     let response : String? = spy.payResponse?.callback
-   
+    
     //Assert
     XCTAssert(spy.failedResponse == nil)
-
+    
     XCTAssert(response == callbackName, "callback was not passed properly")
     XCTAssert((sentRequest?.url.hasSuffix(URIs.payment))!)
     XCTAssert(sentRequest?.method == .post)
@@ -347,7 +392,7 @@ addFriendResponse = response
     
     
     XCTAssert(spy.failedResponse == nil)
-
+    
     XCTAssert(response == callbackName, "callback was not passed properly")
     XCTAssert((sentRequest?.url.hasSuffix(URIs.payment))!)
     XCTAssert(sentRequest?.method == .post)
@@ -382,12 +427,170 @@ addFriendResponse = response
     XCTAssert(paramsSent?.parameters?["comments"] as? String == comment)
     XCTAssert( (paramsSent?.url.hasSuffix(URIs.sendFeedback))!)
     XCTAssert( paramsSent?.method == .post)
-
+    
   }
   
- 
+  
+  func testFeedbackFail() {
+    
+    //Arange
+    
+    
+    self.createNewLoggedInSession()
+    
+    Dine.shared.network = RequestProtocolMock(response: .fail(ErrorCodes.badRequest.getError()))
+    
+    let (interactor , spy) = getInteractorWithPresenterSpy()
+    let starsGiven = 1
+    let comment = "whats up doc?"
+    //Act
+    interactor.sendFeedback(request: DineInWeb.SendFeedback.Request(callback: callbackName, orderId: "1234", stars: starsGiven, comment: comment))
+    
+    //Assert
+    XCTAssert(  spy.feedbackResponse == nil, "callback should be passed on")
+    
+    assertFailedResponse(response: spy.failedResponse)
+  }
+  
+  func testFriendListSuccess() {
+    
+    //Arange
+    guard let validJSON = getJSONFromFile( named: "friendList") else{
+      XCTFail("test failed because JSON not working")
+      return;
+    }
+    
+    var paramsSent: RequestParameters? = nil
+    Dine.shared.network = RequestProtocolMock(response: .success(validJSON)){ sent in
+      paramsSent = sent
+    }
+    
+    
+    let (interactor , spy) = getInteractorWithPresenterSpy()
+    
+    //Act
+    interactor.getFriendList(request: DineInWeb.GetFriendsList.Request(callback: callbackName))
+    
+    //Assert
+    guard let friend = spy.friendListResponse?.friends[0] else{
+    XCTFail("should have a friend")
+      return
+    }
+    XCTAssert(  spy.friendListResponse?.callback == callbackName, "callback should be passed on")
+    XCTAssert(  spy.friendListResponse?.friends.count == 2)
+    XCTAssert( friend.ID == "273085")
+    XCTAssert( friend.email == "liorus@mycheckapp.com")
+    XCTAssert( friend.firstName == "lior")
+    XCTAssert( friend.lastName == "us")
+
+    XCTAssert( (paramsSent?.url.hasSuffix(URIs.friendList))!)
+    XCTAssert( paramsSent?.method == .get)
+    
+  }
+  
+  func testFriendListFail() {
+    
+    //Arange
+    
+    
+    self.createNewLoggedInSession()
+    
+    Dine.shared.network = RequestProtocolMock(response: .fail(ErrorCodes.badRequest.getError()))
+    
+    let (interactor , spy) = getInteractorWithPresenterSpy()
+   
+    //Act
+    interactor.getFriendList(request: DineInWeb.GetFriendsList.Request(callback: callbackName))
+    
+    //Assert
+    XCTAssert(  spy.addFriendResponse == nil, "callback should be passed on")
+    
+    assertFailedResponse(response: spy.failedResponse)
+  }
+  
+  func testAddAFriendSuccess() {
+    
+    //Arange
+    let code = "1234"
+    var paramsSent: RequestParameters? = nil
+    Dine.shared.network = RequestProtocolMock(response:  .success(["status":"OK"])){ sent in
+      paramsSent = sent
+    }
+    
+    let (interactor , spy) = getInteractorWithPresenterSpy()
+
+    //Act
+    interactor.AddAFriend(request: DineInWeb.AddAFriend.Request(callback: callbackName, code: code))
+    
+    //Assert
+    XCTAssert(  spy.addFriendResponse?.callback == callbackName, "callback should be passed on")
+    XCTAssert(paramsSent?.parameters?["code"] as? String == code)
+    XCTAssert( (paramsSent?.url.hasSuffix(URIs.addFriend))!)
+    XCTAssert( paramsSent?.method == .post)
+    
+  }
   
   
+  func testAddAFriendFail() {
+    
+    //Arange
+    
+    
+    self.createNewLoggedInSession()
+    
+    Dine.shared.network = RequestProtocolMock(response: .fail(ErrorCodes.badRequest.getError()))
+    
+    let (interactor , spy) = getInteractorWithPresenterSpy()
+    let code = "1234"
+    //Act
+    interactor.AddAFriend(request: DineInWeb.AddAFriend.Request(callback: callbackName, code: code))
+    
+    //Assert
+    XCTAssert(  spy.addFriendResponse == nil, "callback should be passed on")
+    
+    assertFailedResponse(response: spy.failedResponse)
+  }
+  
+  
+  func testCallWaiterSuccess() {
+    
+    //Arange
+    var paramsSent: RequestParameters? = nil
+    Dine.shared.network = RequestProtocolMock(response:  .success(["status":"OK"])){ sent in
+      paramsSent = sent
+    }
+    
+    let (interactor , spy) = getInteractorWithPresenterSpy()
+    
+    //Act
+    interactor.callWaiter(request: DineInWeb.CallWaiter.Request(callback: callbackName))
+    
+    //Assert
+    XCTAssert(  spy.callWaiterResponse?.callback == callbackName, "callback should be passed on")
+    XCTAssert( (paramsSent?.url.hasSuffix(URIs.callWaiter))!)
+    XCTAssert( paramsSent?.method == .post)
+    
+  }
+
+  
+  func testCallWaiterFail() {
+    
+    //Arange
+    
+    
+    self.createNewLoggedInSession()
+    
+    Dine.shared.network = RequestProtocolMock(response: .fail(ErrorCodes.badRequest.getError()))
+    
+    let (interactor , spy) = getInteractorWithPresenterSpy()
+    //Act
+    interactor.callWaiter(request: DineInWeb.CallWaiter.Request(callback: callbackName))
+    
+    //Assert
+    XCTAssert(  spy.feedbackResponse == nil, "callback should be passed on")
+    
+    assertFailedResponse(response: spy.failedResponse)
+  }
   
   func testPayFail() {
     
@@ -408,11 +611,11 @@ addFriendResponse = response
     
     //Assert
     XCTAssert(spy.payResponse == nil)
-
+    
     
     assertFailedResponse(response: spy.failedResponse)
-      
-      
+    
+    
     
     
     
@@ -440,13 +643,13 @@ addFriendResponse = response
     //Assert
     let methods = spy.paymentMethodsResponse?.methods
     let callback = spy.paymentMethodsResponse?.callback
-      XCTAssert(methods?.count == 1, "callback was not passed properly")
-      
-      XCTAssert(callback == callbackName, "callback was not passed properly")
-      
- 
+    XCTAssert(methods?.count == 1, "callback was not passed properly")
+    
+    XCTAssert(callback == callbackName, "callback was not passed properly")
+    
+    
     XCTAssert(spy.failedResponse == nil)
-
+    
   }
   
   
@@ -465,30 +668,30 @@ addFriendResponse = response
     
     //Assert
     XCTAssert(spy.paymentMethodsResponse == nil)
-  
-      assertFailedResponse(response: spy.failedResponse)
-      
-      
+    
+    assertFailedResponse(response: spy.failedResponse)
+    
+    
     
     
   }
+  
+  func testComplete() {
+    //to-do
+    //        //Arange
+    //        let (interactor , spy) = getInteractorWithPresenterSpy()
+    //        interactor.model.tableCode = "1234"
+    //
+    //        //Act
+    //        interactor.getCodeRequested(request: DineInWeb.GetCode.Request(callback:callbackName))
+    //
+    //        //Assert
+    //        XCTAssert(  spy.tableCodeResponse?.code == "1234", "the code should be passed to the presenter")
+    //        XCTAssert(  spy.tableCodeResponse?.callback == callbackName, "callback should be passed on")
     
-    func testComplete() {
-        //to-do
-//        //Arange
-//        let (interactor , spy) = getInteractorWithPresenterSpy()
-//        interactor.model.tableCode = "1234"
-//        
-//        //Act
-//        interactor.getCodeRequested(request: DineInWeb.GetCode.Request(callback:callbackName))
-//        
-//        //Assert
-//        XCTAssert(  spy.tableCodeResponse?.code == "1234", "the code should be passed to the presenter")
-//        XCTAssert(  spy.tableCodeResponse?.callback == callbackName, "callback should be passed on")
-        
-    }
-    
-
+  }
+  
+  
   
 }
 //helper methods that create stubs objects
