@@ -15,6 +15,8 @@ import XCTest
 @testable import MyCheckDineUIWeb
 import MyCheckCore
 @testable import MyCheckWalletUI
+
+
 class DineInWebViewControllerSpy: DineInWebDisplayLogic{
   var JSString: String? = nil
   

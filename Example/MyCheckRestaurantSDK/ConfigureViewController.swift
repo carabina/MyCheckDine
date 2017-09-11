@@ -14,8 +14,13 @@ class ConfigureViewController: UIViewController {
     
     let savedDatapublishableKeyKey = "publishableKey"
     let savedDataMerchantIdKey = "ApplePayMerchantId"
-    let applePayMerchantIdPrefix = "merchant.com.mycheck"
-    
+  
+  enum ApplePayMerchants: String{
+ case production = "merchant.com.mycheck"
+    case sandbox = "merchant.com.mycheck.sandbox"
+  }
+ 
+
     @IBOutlet weak var publishableKeyField: UITextField!
     
     @IBOutlet weak var environmentSegControl: UISegmentedControl!
@@ -98,11 +103,11 @@ class ConfigureViewController: UIViewController {
         
         let alert = UIAlertController(title: "Choose an ApplePay Environment", message: "", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Sandbox", style: .default, handler: {_ in
-            self.saveApplePayMerchantId(environment: ".sandbox")
+            self.saveApplePayMerchantId(environment: .sandbox)
 
         }))
         alert.addAction(UIAlertAction(title: "Production", style: .default, handler:{_ in
-            self.saveApplePayMerchantId(environment: ".production")
+            self.saveApplePayMerchantId(environment: .production)
         }))
 
         present(alert, animated: true, completion: nil)
@@ -112,12 +117,12 @@ class ConfigureViewController: UIViewController {
         UserDefaults.standard.set("", forKey: self.savedDataMerchantIdKey)
     }
     
-    func saveApplePayMerchantId (environment : String) {
-        UserDefaults.standard.set(self.applePayMerchantIdPrefix + environment, forKey: self.savedDataMerchantIdKey)
+    func saveApplePayMerchantId (environment : ApplePayMerchants) {
+        UserDefaults.standard.set(environment.rawValue, forKey: self.savedDataMerchantIdKey)
     }
     
     func getSavedDataApplePayMerchandId() -> String? {
-        return UserDefaults.standard.string(forKey: savedDatapublishableKeyKey)!
+        return UserDefaults.standard.string(forKey: savedDataMerchantIdKey)!
     }
     
 }

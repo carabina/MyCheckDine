@@ -20,7 +20,11 @@ class DineInWebInteractorTest : XCTestCase {
     var paymentMethodsResponse: DineInWeb.PaymentMethods.Response?
     var failedResponse: DineInWeb.FailResponse?
     var completeResponse: DineInWeb.Complete.Response?
-    
+    var friendListResponse: DineInWeb.GetFriendsList.Response?
+    var addFriendResponse: DineInWeb.AddAFriend.Response?
+    var feedbackResponse: DineInWeb.SendFeedback.Response?
+    var callWaiterResponse: DineInWeb.CallWaiter.Response?
+
     func presentTableCode(response: DineInWeb.GetCode.Response){
       tableCodeResponse = response
     }
@@ -51,6 +55,22 @@ class DineInWebInteractorTest : XCTestCase {
     
     func complete(response: DineInWeb.Complete.Response) {
         completeResponse = response
+    }
+    
+    func gotFriendList(response: DineInWeb.GetFriendsList.Response){
+friendListResponse = response
+    }
+    
+    func addedFriend(response: DineInWeb.AddAFriend.Response){
+addFriendResponse = response
+    }
+    
+    func sentFeedback(response: DineInWeb.SendFeedback.Response){
+    feedbackResponse = response
+    }
+    
+    func calledWaiter(response: DineInWeb.CallWaiter.Response){
+      callWaiterResponse = response
     }
   }
   
@@ -337,6 +357,36 @@ class DineInWebInteractorTest : XCTestCase {
     
     
   }
+  
+  
+  func testFeedbackSuccess() {
+    
+    //Arange
+    
+    var paramsSent: RequestParameters? = nil
+    Dine.shared.network = RequestProtocolMock(response:  .success(["status":"OK"])){ sent in
+      paramsSent = sent
+    }
+    
+    
+    let (interactor , spy) = getInteractorWithPresenterSpy()
+    let starsGiven = 1
+    let comment = "whats up doc?"
+    //Act
+    interactor.sendFeedback(request: DineInWeb.SendFeedback.Request(callback: callbackName, orderId: "1234", stars: starsGiven, comment: comment))
+    
+    //Assert
+    XCTAssert(  spy.feedbackResponse?.callback == callbackName, "callback should be passed on")
+    
+    XCTAssert(paramsSent?.parameters?["stars"] as? Int == starsGiven)
+    XCTAssert(paramsSent?.parameters?["comments"] as? String == comment)
+    XCTAssert( (paramsSent?.url.hasSuffix(URIs.sendFeedback))!)
+    XCTAssert( paramsSent?.method == .post)
+
+  }
+  
+ 
+  
   
   
   func testPayFail() {

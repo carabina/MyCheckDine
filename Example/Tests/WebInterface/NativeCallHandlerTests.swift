@@ -29,6 +29,8 @@ class NativeCallHandlerTests: XCTestCase {
     var getFriendListRequest: DineInWeb.GetFriendsList.Request?
     var addFriendRequest: DineInWeb.AddAFriend.Request?
     var sendFeedbackRequest: DineInWeb.SendFeedback.Request?
+    var callWaiterRequest: DineInWeb.CallWaiter.Request?
+    
     
     func setupInteractor(request: DineInWeb.SetupDinein.Request){
       setupRequest = request
@@ -75,6 +77,10 @@ class NativeCallHandlerTests: XCTestCase {
     
     func sendFeedback(request: DineInWeb.SendFeedback.Request){
     sendFeedbackRequest = request
+    }
+    
+    func callWaiter(request: DineInWeb.CallWaiter.Request){
+    callWaiterRequest = request
     }
   }
   
@@ -218,6 +224,20 @@ class NativeCallHandlerTests: XCTestCase {
 
     
   }
+  
+  func testCallWaiter() {
+    //Arrange
+    let spy = setAndReturnSpy()
+    
+    //Act
+    runJSSynchronously(JSExpresion:"callWaiter();")
+    
+    //Assert
+    XCTAssert(spy.callWaiterRequest?.callback == "calledWaiter")
+    
+    
+  }
+  
   
   func testReorderSuccess() {
     //Arrange
