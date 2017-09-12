@@ -43,4 +43,5 @@ public struct DiningFriend{
         }
         self.email = email
     }
+    
 }
