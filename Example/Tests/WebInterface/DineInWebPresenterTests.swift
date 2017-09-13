@@ -250,7 +250,7 @@ class DineInWebPresenterTests: XCTestCase
         
         
         let friendsList = usersArray.map{DiningFriend(json: $0)}.flatMap{$0}
-        let response = DineInWeb.GetFriendsList.Response(methods: [friendsList].flatMap{$0}, callback: callback)
+        let response = DineInWeb.GetFriendsList.Response( callback: callback, friends: [friendsList].flatMap{$0})
         
         
         // Act

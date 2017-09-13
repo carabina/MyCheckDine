@@ -162,7 +162,7 @@ addFriendResponse = response
     let (interactor , spy) = getInteractorWithPresenterSpy()
     
     //Act
-    interactor.getOrderDetails(request: DineInWeb.GetOrderDetails.Request(callback: callbackName))
+    interactor.getOrderDetails(request: DineInWeb.GetOrderDetails.Request(callback: callbackName, cache: false))
     
     //Assert
     
@@ -184,7 +184,7 @@ addFriendResponse = response
     let (interactor , spy) = getInteractorWithPresenterSpy()
     
     //Act
-    interactor.getOrderDetails(request: DineInWeb.GetOrderDetails.Request(callback: callbackName))
+    interactor.getOrderDetails(request: DineInWeb.GetOrderDetails.Request(callback: callbackName , cache: false))
     
     //Assert
     assertFailedResponse(response: spy.failedResponse)
