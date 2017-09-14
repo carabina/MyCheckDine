@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.5.1)
   - Gloss (1.2.4)
-  - Kingfisher (3.12.2)
+  - Kingfisher (3.13.0)
   - MyCheckCore (1.0.0):
     - Alamofire (~> 4.0)
   - MyCheckDine (1.1.2):
@@ -56,7 +56,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
-  Kingfisher: 320626678acadfcf47008b3c6841cd882050737b
+  Kingfisher: 7eebf6000ac64401839f10da37f21eefa7d88970
   MyCheckCore: d6c41605b13357154ec3d09d5de682791916cae3
   MyCheckDine: 3df9738a43473cb8a7be1a31ade9c9e1b3fae9d0
   MyCheckDineUIWeb: a6f3132629f51a3781e348b7eb97fe3b4da103de

@@ -21,6 +21,8 @@ public struct DiningFriend{
    public let lastName: String
    /// Friends email
    public let email: String
+    /// The 4 digit code the user recieved in order to open/join the table
+    public let clientCode: String
     
     internal  init?(json: JSON){
         guard let ID: String = "id" <~~ json else{
@@ -41,7 +43,14 @@ public struct DiningFriend{
         guard let email: String = "email" <~~ json else{
             return nil
         }
+      
         self.email = email
+        
+        guard let clientCode: String = "clientCode" <~~ json else{
+            return nil
+        }
+        self.clientCode = clientCode
+
     }
     
 }
