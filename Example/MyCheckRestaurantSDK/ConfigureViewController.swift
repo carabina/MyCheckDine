@@ -78,6 +78,9 @@ class ConfigureViewController: UIViewController {
             //   PaypalFactory.initiate("com.mycheck.MyCheckDine-Example")
             
         }
+        if LocalDataa.enabledState(for: .masterPass){
+MasterPassFactory.initiate()
+        }
         if LocalDataa.enabledState(for: .applePay){
             guard let merchantId = getSavedDataApplePayMerchandId() else {
                 let alert = UIAlertController(title: "Error", message: "Please choose an apple pay merchand id to continue", preferredStyle: .alert)
