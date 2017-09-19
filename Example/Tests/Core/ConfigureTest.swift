@@ -44,11 +44,11 @@ class ConfigureTest: QuickSpec {
                 
             }
             
-            it("will know that configureCalled is true and that configuredComplete is false when the call fails due to lack of 'core' object") {
+            it("will know that configureCalled is true and that configuredComplete is false when the call fails due to lack of 'config' object") {
                 //Arrange
                 Session.shared.dispose()
                 var inValidJSON = validJSON
-                inValidJSON.removeValue(forKey: "core")
+                inValidJSON.removeValue(forKey: "config")
                 Networking.shared.network = RequestProtocolMock(response: .success(inValidJSON))
                 //Act
                 Session.shared.configure("a key", environment: Environment.test)
@@ -61,27 +61,7 @@ class ConfigureTest: QuickSpec {
                 
             }
             
-            it("will know that configureCalled is true and that configuredComplete is false when the call fails due to lack of 'domain' strin in 'core' object") {
-                //Arrange
-                Session.shared.dispose()
-                var inValidJSON = validJSON
-                var coreJSON = inValidJSON["core"] as! [String:Any]
-                coreJSON.removeValue(forKey: "Domain")
-                inValidJSON["core"] = coreJSON
-                
-                Networking.shared.network = RequestProtocolMock(response: .success(inValidJSON))
-                //Act
-                Session.shared.configure("a key", environment: Environment.test)
-                
-                
-                //Assert
-                expect(Networking.shared.configureCalled).to(beTrue())
-                expect(Networking.shared.configuredComplete).to(beFalse())
-                
-                
-            }
-            
-            
+                      
             it("will respond to all the listenres when 1 call succeeds and not call the server again") {
                 //Arrange
                 Networking.shared.dispose()

@@ -1,115 +1,120 @@
 {
-    "core": {
-        "Domain": "https://the-test.mycheckapp.com"
-    },
-    "wallet": {
-        "PCI": "https://testpm.mycheckapp.com",
-        "currencyCode": "USD",
-        "applePay": {
-            "supportedApplePayCardTypes": [
-                                           "Visa",
-                                           "Amex",
-                                           "MasterCard"
-                                           ],
-            "countryCode": "US"
-        },
-        "walletUI": {
-            "masterpass": {
-                "url": "https://mywalletcdn-test.mycheckapp.com/external/masterpass.html"
+    "config": {
+        "Config": {
+            "core": {
+                "Domain": "https:\/\/the-test.mycheckapp.com"
             },
-            "visaCheckout": {
-                "url": "https://mywalletcdn-test.mycheckapp.com/external/visacheckout.html"
+            "wallet": {
+                "PCI": "https:\/\/testpm.mycheckapp.com",
+                "currencyCode": "USD",
+                "applePay": {
+                    "supportedApplePayCardTypes": [
+                                                   "Visa",
+                                                   "Amex",
+                                                   "MasterCard"
+                                                   ],
+                    "countryCode": "US"
+                },
+                "walletUI": {
+                    "masterpass": {
+                        "url": "https:\/\/mywalletcdn-test.mycheckapp.com\/external\/masterpass.html"
+                    },
+                    "visaCheckout": {
+                        "url": "https:\/\/mywalletcdn-test.mycheckapp.com\/external\/visacheckout.html"
+                    },
+                    "addCreditImages": {
+                        "dinersclub": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credits_logos\/dinersclub.png",
+                        "maestro": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credits_logos\/maestro.png",
+                        "visa": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credits_logos\/visa.png",
+                        "mastercard": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credits_logos\/mastercard.png",
+                        "discover": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credits_logos\/discover.png",
+                        "JCB": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credits_logos\/jcb.png",
+                        "amex": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credits_logos\/amex.png"
+                    },
+                    "acceptedCardsPM": [
+                                        "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/visa.png",
+                                        "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/mastercard.png",
+                                        "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/amex.png",
+                                        "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/dinersclub.png",
+                                        "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/discover.png"
+                                        ],
+                    "acceptedCardsCheckout": [
+                                              "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/visa.png",
+                                              "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/mastercard.png",
+                                              "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/amex.png",
+                                              "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/dinersclub.png",
+                                              "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/discover.png"
+                                              ],
+                    "cardsDropDown": {
+                        "visa": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/visa.png",
+                        "mastercard": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/mastercard.png",
+                        "amex": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/amex.png",
+                        "dinersclub": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/dinersclub.png",
+                        "discover": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/discover.png",
+                        "applePay": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/applepay.png",
+                        "paypal": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/paypal.png"
+                    },
+                    "walletImg": {
+                        "MasterpassCheckout": "https:\/\/www.mastercard.com\/mc_us\/wallet\/img\/en\/US\/mcpp_wllt_btn_chk_317x074px.png",
+                        "PaypalCheckout": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/images\/Cheesecake\/paypal_logo.png",
+                        "Masterpass": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/images\/Cheesecake\/mp%402x.png",
+                        "Paypal": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/whitelabel_tpl\/cheesecake\/paypalWallet.png",
+                        "ViseCheckout": "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credits_logos\/vco_button.png"
+                    },
+                    "checkoutPageColors": {
+                        "headerTextColor": "7ea6ab",
+                        "applyButtonText": "ffffff",
+                        "cancelButtonText": "ffffff",
+                        "hintTextColor": "acacac",
+                        "seporator": "7ea6ab",
+                        "applyBut": "7ea6ab",
+                        "applyButBorder": "7ea6ab",
+                        "cancelBut": 524947,
+                        "cancelButBorder": "7ea6ab",
+                        "pciNotice": "b5b5b5",
+                        "pickerArrowColor": "7ea6ab",
+                        "headerBackground": "4B4442",
+                        "cardAccepted": "7ea6ab",
+                        "background": 524947,
+                        "fieldBorder": 918684,
+                        "notStoreCard": "ffffff",
+                        "managePMButton": "7ea6ab",
+                        "checkoutSubHeader": "ffffff",
+                        "cardDropDownHeader": "ffffff",
+                        "textField": "ffffff",
+                        "errorInput": "cb1621",
+                        "orAddCardWith": "ffffff"
+                    },
+                    "managePaymentMethodsColors": {
+                        "headerBackground": "3b3534",
+                        "background": "ffffff",
+                        "paymentMethodText": "ffffff",
+                        "seporator": "7ea6ab",
+                        "seporatorText": "3b3534",
+                        "pciNotice": "b5b5b5",
+                        "editButtonText": "7ea6ab",
+                        "backButton": "7ea6ab",
+                        "headerText": "ffffff"
+                    },
+                    "addCreditColors": {
+                        "inputError": "cb1621",
+                        "hintTextColor": "acacac",
+                        "applyBackgroundColor": "7ea6eb",
+                        "cancelColor": "3b3534",
+                        "fieldText": "9cadb5",
+                        "undeline": "7ea6ab",
+                        "applyButtonText": "ffffff",
+                        "cancelButtonText": "ffffff"
+                    },
+                    "lang": {
+                        "en": "https:\/\/mywalletcdn-sandbox.mycheckapp.com\/lang\/v1\/en\/general.json"
+                    }
+                }
             },
-            "addCreditImages": {
-                "dinersclub": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credits_logos/dinersclub.png",
-                "maestro": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credits_logos/maestro.png",
-                "visa": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credits_logos/visa.png",
-                "mastercard": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credits_logos/mastercard.png",
-                "discover": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credits_logos/discover.png",
-                "JCB": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credits_logos/jcb.png",
-                "amex": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credits_logos/amex.png"
-            },
-            "acceptedCardsPM": [
-                                "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/visa.png",
-                                "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/mastercard.png",
-                                "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/amex.png",
-                                "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/dinersclub.png",
-                                "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/discover.png"
-                                ],
-            "acceptedCardsCheckout": [
-                                      "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/visa.png",
-                                      "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/mastercard.png",
-                                      "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/amex.png",
-                                      "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/dinersclub.png",
-                                      "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/discover.png"
-                                      ],
-            "cardsDropDown": {
-                "visa": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/visa.png",
-                "mastercard": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/mastercard.png",
-                "amex": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/amex.png",
-                "dinersclub": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/dinersclub.png",
-                "discover": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/discover.png",
-                "applePay": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/applepay.png",
-                "paypal": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credit_logos_colored/paypal.png"
-            },
-            "walletImg": {
-                "MasterpassCheckout": "https://www.mastercard.com/mc_us/wallet/img/en/US/mcpp_wllt_btn_chk_317x074px.png",
-                "PaypalCheckout": "https://s3-eu-west-1.amazonaws.com/cdn-storage/images/Cheesecake/paypal_logo.png",
-                "Masterpass": "https://s3-eu-west-1.amazonaws.com/cdn-storage/images/Cheesecake/mp%402x.png",
-                "Paypal": "https://s3-eu-west-1.amazonaws.com/cdn-storage/whitelabel_tpl/cheesecake/paypalWallet.png",
-                "ViseCheckout": "https://s3-eu-west-1.amazonaws.com/cdn-storage/credits_logos/vco_button.png"
-            },
-            "checkoutPageColors": {
-                "headerTextColor": "7ea6ab",
-                "applyButtonText": "ffffff",
-                "cancelButtonText": "ffffff",
-                "hintTextColor": "acacac",
-                "seporator": "7ea6ab",
-                "applyBut": "7ea6ab",
-                "applyButBorder": "7ea6ab",
-                "cancelBut": "524947",
-                "cancelButBorder": "7ea6ab",
-                "pciNotice": "b5b5b5",
-                "pickerArrowColor": "7ea6ab",
-                "headerBackground": "4B4442",
-                "cardAccepted": "7ea6ab",
-                "background": "524947",
-                "fieldBorder": "918684",
-                "notStoreCard": "ffffff",
-                "managePMButton": "7ea6ab",
-                "checkoutSubHeader": "ffffff",
-                "cardDropDownHeader": "ffffff",
-                "textField": "ffffff",
-                "errorInput": "cb1621",
-                "orAddCardWith": "ffffff"
-            },
-            "managePaymentMethodsColors": {
-                "headerBackground": "3b3534",
-                "background": "ffffff",
-                "paymentMethodText": "ffffff",
-                "seporator": "7ea6ab",
-                "seporatorText": "3b3534",
-                "pciNotice": "b5b5b5",
-                "editButtonText": "7ea6ab",
-                "backButton": "7ea6ab",
-                "headerText": "ffffff"
-            },
-            "addCreditColors": {
-                "inputError": "cb1621",
-                "hintTextColor": "acacac",
-                "applyBackgroundColor": "7ea6eb",
-                "cancelColor": "3b3534",
-                "fieldText": "9cadb5",
-                "undeline": "7ea6ab",
-                "applyButtonText": "ffffff",
-                "cancelButtonText": "ffffff"
-            },
-            "lang": {
-                "en": "https://mywalletcdn-sandbox.mycheckapp.com/lang/v1/en/general.json"
+            "dine": {
+                "pollingInterval": 5
             }
         }
     },
-    "dine": {
-        "pollingInterval": 5.0
-    }
+    "status": "OK"
 }
