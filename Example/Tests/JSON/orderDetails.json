@@ -72,7 +72,7 @@
            }
            ],
   "tax_settings":{
-    "percentage":"15"
+    "percentage":15
   },
   "settings":{
     "split_is_enabled":true,

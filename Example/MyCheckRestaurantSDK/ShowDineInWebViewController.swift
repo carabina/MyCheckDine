@@ -37,9 +37,18 @@ class ShowDineInWebViewController: ViewController {
     */
     @IBAction func dinePressed(_ sender: Any) {
         
-        DineInWebViewControllerFactory.dineIn(at: BIDField.text! , locale:NSLocale(localeIdentifier: "en_US"), displayDelegate: self, applePayController: Wallet.shared.applePayController, delegate: self)
+        DineInWebViewControllerFactory.dineIn(at: BIDField.text!, locale: NSLocale(localeIdentifier:"en_US") , displayDelegate: self, applePayController: Wallet.shared.applePayController, delegate: self)
     }
 
+    @IBAction func openTablePressed(_ sender: Any) {
+        
+        Dine.shared.getOrder(success: {order in
+            guard let order = order else{
+            return
+            }
+            DineInWebViewControllerFactory.dineInWithOpenOrder(order: order, locale:  NSLocale(localeIdentifier:"en_US"), delegate: self)
+        }, fail: nil)
+    }
 }
 
 extension ShowDineInWebViewController: DineInWebViewControllerDelegate{

@@ -143,12 +143,15 @@ public class Dine{
     ///    - parameter fail: Called when the function fails for any reason
     
     internal func getOrder( order: Order?, success: ((Order?) -> Void)? , fail: ((NSError) -> Void)? ){
+       
         var orderId : String? = nil
         var stamp : String? = nil
+       
         if let order = order {
             orderId = order.orderId
             stamp = order.stamp
         }
+        
         if let lastOrder = lastOrder{//if not first call
             stamp = lastOrder.stamp
             orderId = lastOrder.orderId

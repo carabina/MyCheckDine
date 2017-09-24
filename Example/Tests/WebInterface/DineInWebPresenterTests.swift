@@ -326,6 +326,26 @@ class DineInWebPresenterTests: XCTestCase
         XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: emptyBody)))
         
     }
+    
+    func testGetLocale()
+    {
+        // Arrange
+        let response = DineInWeb.getLocale.Response(callback: callback, locale: NSLocale(localeIdentifier: "en_US"))
+        
+        
+        // Act
+        presenter.gotLocale(response: response)
+        
+        // Assert
+        guard let JS = spy.JSString else{
+            XCTFail("should of recieved a call to viewcontroller")
+            return
+        }
+        
+        let emptyBody:[String:Any] = ["locale":response.locale.localeIdentifier]
+        XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: emptyBody)))
+        
+    }
 }
 
 

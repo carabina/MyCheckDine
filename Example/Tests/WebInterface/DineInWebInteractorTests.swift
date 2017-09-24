@@ -24,6 +24,7 @@ class DineInWebInteractorTest : XCTestCase {
     var addFriendResponse: DineInWeb.AddAFriend.Response?
     var feedbackResponse: DineInWeb.SendFeedback.Response?
     var callWaiterResponse: DineInWeb.CallWaiter.Response?
+    var getLocaleResponse: DineInWeb.getLocale.Response?
 
     func presentTableCode(response: DineInWeb.GetCode.Response){
       tableCodeResponse = response
@@ -71,6 +72,11 @@ addFriendResponse = response
     
     func calledWaiter(response: DineInWeb.CallWaiter.Response){
       callWaiterResponse = response
+    }
+    
+    func gotLocale(response: DineInWeb.getLocale.Response){
+getLocaleResponse = response
+    
     }
   }
   
@@ -489,7 +495,18 @@ addFriendResponse = response
     }
     
 
-  
+    func testGetLocale(){
+    
+        
+        
+        let (interactor , spy) = getInteractorWithPresenterSpy()
+        //Act
+        interactor.getLocale(request: DineInWeb.getLocale.Request(callback: callbackName))
+        
+        //Assert
+        XCTAssert(  spy.getLocaleResponse?.callback == callbackName, "callback should be passed on")
+        
+    }
 }
 //helper methods that create stubs objects
 
@@ -513,6 +530,7 @@ extension DineInWebInteractorTest{
   
   fileprivate func getInteractorWithPresenterSpy() -> (DineInWebInteractor , presenterSpy){
     let interactor = DineInWebInteractor()
+    interactor.model.locale = NSLocale(localeIdentifier: "en_US")
     let spy = presenterSpy()
     interactor.presenter = spy
     return (interactor , spy)

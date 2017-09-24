@@ -103,13 +103,11 @@ public enum Status: String {
   public  init?(json: JSON){
  
     
-    guard let percentageStr: String = "tax_settings.percentage" <~~ json else{
+    guard let percentage: Double = "tax_settings.percentage" <~~ json else{
       return nil
     }
     
-    guard let percentage = Double( percentageStr) else{
-      return nil
-    }
+   
     self.percentage = percentage
     
   }
