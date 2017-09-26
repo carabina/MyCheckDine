@@ -93,6 +93,15 @@ MasterPassFactory.initiate()
         if LocalDataa.enabledState(for: .visaCheckout){
             VisaCheckoutFactory.initiate(apiKey: "S8TQIO2ERW9RIHPE82DC13TA9Uv8FdB9Uu7EBRyZHDCNsp7JU")
         }
+        
+        
+//        Wallet.shared.ui.regularFont = UIFont(name: "Zapfino", size: 1)!
+//        Wallet.shared.ui.headersFont = UIFont(name: "Zapfino", size: 1)!
+//        Wallet.shared.ui.buttonsFont = UIFont(name: "Zapfino", size: 1)!
+//Wallet.shared.ui.headerFontSizeDelta = -5
+//        Wallet.shared.ui.ragularFontSizeDelta = -5
+//        Wallet.shared.ui.buttonFontSizeDelta = -5
+
         performSegue(withIdentifier: "pushMainApp", sender: nil)
         
     }

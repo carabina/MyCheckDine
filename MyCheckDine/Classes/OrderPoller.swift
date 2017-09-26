@@ -9,7 +9,7 @@
 import UIKit
 import MyCheckCore
 ///This delegate will be updated on changes to the users order.
-public protocol OrderPollerDelegate {
+@objc public protocol OrderPollerDelegate {
   
   ///Called when the order was updated.
   ///
@@ -24,7 +24,7 @@ public protocol OrderPollerDelegate {
 }
 
 ///When activated this object polls the MyCheck server in order to fetch order updates. Call The startPolling function and set the delegate in order to receive updates. You should generaly use the poller from when a 4 digit code is created untill the order is closed or canceled.
-public class OrderPoller {
+public class OrderPoller : NSObject{
   internal var pollingInterval = 5.0
   private var polling = false
   private var failCount = 0

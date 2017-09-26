@@ -62,16 +62,11 @@ open class Item: Decodable {
     serialId = "serial_id" <~~ json
 
     
-    guard let validForReorder: Bool = "valid_for_reorder" <~~ json else{
-      return nil
-    }
-    self.validForReorder = validForReorder
+    self.validForReorder =  "valid_for_reorder" <~~ json ?? true
     
     
-    guard let showInReorder: Bool = "show_in_reorder" <~~ json else{
-      return nil
-    }
-    self.showInReorder = showInReorder
+   
+    self.showInReorder = "show_in_reorder" <~~ json ?? true
     
     guard let modifiers: [Item] = "modifiers" <~~ json else{
       return nil

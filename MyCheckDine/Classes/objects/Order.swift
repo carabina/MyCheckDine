@@ -140,7 +140,7 @@ public struct Settings {
 }
 
 ///Represents an order in a venue. The order includes the orders status , bill information and some general information.
-open class Order: Decodable , Equatable {
+open class Order: NSObject, Decodable  {
   ///The Id of the order
    open let orderId : String
   /// The status of the order.

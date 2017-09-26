@@ -19,7 +19,7 @@ internal struct URIs{
 }
 
 ///Dine is a singleton That encapsulates the MyCheck dine in proccess: from opening a table , through getting the order details and reordering items to paying for the order.
-public class Dine{
+public class Dine: NSObject{
     internal static let refreshPaymentMethodsNotification = "com.mycheck.refreshPaymentMethodsNotification"
     internal static let loggedInNotification = "com.mycheck.loggedInNotification"
     
@@ -43,7 +43,8 @@ public class Dine{
     internal var network: RequestProtocol = Networking.shared;
     
     
-    internal init() {
+    internal override init() {
+        super.init()
         Networking.shared.configure(success: { JSON in
             if let dineConfig = JSON["dine"] as? [String:Any], let intervalNum = dineConfig["pollingInterval"] as? NSNumber{
                 let interval = intervalNum.doubleValue

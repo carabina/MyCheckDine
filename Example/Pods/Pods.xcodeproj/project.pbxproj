@@ -219,6 +219,7 @@
 		AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F92363B1B4EBB5257E8DD7B4EC181D9 /* SessionManager.swift */; };
 		B0033530A0EAABBB31CD46CA2899F3BD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A62188115AB1E84142523C877D197B /* Box.swift */; };
 		B093484B1637B3D3AF65DF2232FDBADC /* mach_excServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 28B79D09D2B5E5C37EC454A55575DFA6 /* mach_excServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B24C28101F77FF270089919F /* UIFont+customFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24C280F1F77FF270089919F /* UIFont+customFonts.swift */; };
 		B2504901F77DE1E65DDAF12B82BF3F9F /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = AB75B325289354EE36B39B517AF7E7ED /* QCKDSL.m */; };
 		B3261EBD0BCAAD774070DA0DF4D1A4C9 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF389FDF3BF11FC43FE758A156630365 /* Delay.swift */; };
 		B38C14F035ED4BDD7B3870A43A81CC88 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8FE17F9C8F892901801F460A57267D8 /* Media.xcassets */; };
@@ -848,6 +849,7 @@
 		B0511D2E10F0D4D1DCCAFEA50A4846ED /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		B0E847EEEE0CA8623469AD6DD9E6382A /* Pods-MyCheckDine_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MyCheckDine_Example.modulemap"; sourceTree = "<group>"; };
 		B23EC9BAA15A59202F24C23037A77778 /* Pods-MyCheckDine_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MyCheckDine_Tests.modulemap"; sourceTree = "<group>"; };
+		B24C280F1F77FF270089919F /* UIFont+customFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+customFonts.swift"; sourceTree = "<group>"; };
 		B27D501D69A24BB1CE67FF50316F82FD /* Pods-MyCheckDine_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyCheckDine_Example-frameworks.sh"; sourceTree = "<group>"; };
 		B2D988F09D594A98781EFBBCDF5E2708 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B30CDA7D5D4207C928F318F786CDCB83 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1176,6 +1178,7 @@
 				0422D799B16AC07A9B363559D9F61EDB /* UIColor+Hex.swift */,
 				E684946EA0CE364F0376C596B0AD27E8 /* UITextField+Placeholder.swift */,
 				6ED532BFF964F83AA1DA74C9CDC759A5 /* UIViewController+Toast.swift */,
+				B24C280F1F77FF270089919F /* UIFont+customFonts.swift */,
 			);
 			name = extensionTools;
 			path = MyCheckWalletUI/Classes/extensionTools;
@@ -2556,6 +2559,7 @@
 				B9BFABC8ADFB0C4FBA358A0960C91E95 /* NoApplePayState.swift in Sources */,
 				D86262F494B6D0023349694C6EC98C01 /* PaymentMethodButton.swift in Sources */,
 				55EBB168E1CEB4360AC752FB60210622 /* PaymentMethodFactory.swift in Sources */,
+				B24C28101F77FF270089919F /* UIFont+customFonts.swift in Sources */,
 				1872DBF032200E807321ACB2C0C0F783 /* PaymentMethodInterface+getBackgroundImage.swift in Sources */,
 				6E5334D0C0A6F048E0F9F0CAEC77610C /* PaymentMethodType+imageURLForFropDown.swift in Sources */,
 				0D6D734641C30A38CE4E9E72D2FDD7CB /* String+Capital.swift in Sources */,
