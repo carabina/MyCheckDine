@@ -10,7 +10,7 @@ import UIKit
 import Gloss
 
 ///Represents A single item in an order , or a modifier of an item.
-open class Item: Decodable {
+open class Item: NSObject , Decodable {
   ///The Id of the item.
   open let Id : Int
   ///The name of the item as it was received from the POS.
