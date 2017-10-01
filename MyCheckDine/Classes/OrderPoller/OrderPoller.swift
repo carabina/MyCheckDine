@@ -24,6 +24,8 @@ import Foundation
   
 }
 
+///When activated this object polls the MyCheck server in order to fetch order updates. Call The startPolling function and set the delegate in order to receive updates. You should generaly use the poller from when a 4 digit code is created untill the order is closed or canceled.
+
 public class OrderPoller{
   
   // does the poller want to get updates at the moment

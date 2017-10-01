@@ -14,7 +14,6 @@ internal protocol OrderPollerManagerDelegate: OrderPollerDelegate{
   func isPolling() -> Bool
 }
 
-///When activated this object polls the MyCheck server in order to fetch order updates. Call The startPolling function and set the delegate in order to receive updates. You should generaly use the poller from when a 4 digit code is created untill the order is closed or canceled.
 internal class OrderPollerManager : NSObject{
   internal var pollingInterval = 5.0
   private var polling = false
@@ -23,15 +22,15 @@ internal class OrderPollerManager : NSObject{
   internal var delayer: DelayInterface = Delay()
   
   ///This variable holds the date of the last time the order was updated.
-  public var lastUpdate :Date?
+   var lastUpdate :Date?
   
   ///Last order received from the server.
-  public var order: Order?
+   var order: Order?
   ///This delegate will be called when the order is updated.
-  public var delegates  = MulticastDelegate<OrderPollerManagerDelegate>(strongReferences:false)
+   var delegates  = MulticastDelegate<OrderPollerManagerDelegate>(strongReferences:false)
   
   ///Should be called in order to start polling. Make sure to set a delegate in order to receive order updates.
-  public func startPolling(poller: OrderPoller){
+   func startPolling(poller: OrderPoller){
     if polling{
       return
     }
