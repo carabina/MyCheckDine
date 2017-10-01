@@ -78,6 +78,9 @@ class ConfigureViewController: UIViewController {
             //   PaypalFactory.initiate("com.mycheck.MyCheckDine-Example")
             
         }
+        if LocalDataa.enabledState(for: .masterPass){
+MasterPassFactory.initiate()
+        }
         if LocalDataa.enabledState(for: .applePay){
             guard let merchantId = getSavedDataApplePayMerchandId() else {
                 let alert = UIAlertController(title: "Error", message: "Please choose an apple pay merchand id to continue", preferredStyle: .alert)
@@ -90,6 +93,15 @@ class ConfigureViewController: UIViewController {
         if LocalDataa.enabledState(for: .visaCheckout){
             VisaCheckoutFactory.initiate(apiKey: "S8TQIO2ERW9RIHPE82DC13TA9Uv8FdB9Uu7EBRyZHDCNsp7JU")
         }
+        
+        
+//        Wallet.shared.ui.regularFont = UIFont(name: "Zapfino", size: 1)!
+//        Wallet.shared.ui.headersFont = UIFont(name: "Zapfino", size: 1)!
+//        Wallet.shared.ui.buttonsFont = UIFont(name: "Zapfino", size: 1)!
+//Wallet.shared.ui.headerFontSizeDelta = -5
+//        Wallet.shared.ui.ragularFontSizeDelta = -5
+//        Wallet.shared.ui.buttonFontSizeDelta = -5
+
         performSegue(withIdentifier: "pushMainApp", sender: nil)
         
     }

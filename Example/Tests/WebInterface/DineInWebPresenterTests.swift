@@ -101,7 +101,7 @@ class DineInWebPresenterTests: XCTestCase
   {
     // Arrange
     guard var validOrderJSON = getJSONFromFile( named: "orderDetails")  else{
-        
+        XCTFail("failed to create test JSON")
         return
     }
   validOrderJSON.removeValue(forKey: "status")
@@ -218,11 +218,7 @@ class DineInWebPresenterTests: XCTestCase
     func testPay()
     {
         // Arrange
-        
         let response = DineInWeb.Pay.Response(callback: callback)
-        
-        
-        
         
         // Act
         presenter.madePayment(response:  response)
@@ -234,6 +230,119 @@ class DineInWebPresenterTests: XCTestCase
         }
         
         let emptyBody:[String:Any] = [:]
+        XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: emptyBody)))
+        
+    }
+    
+    
+    func testGetFriendsListTable()
+    {
+        // Arrange
+        guard var validJSON = getJSONFromFile( named: "friendList") else {
+            XCTFail("failed to create test JSON")
+            return
+        }
+  
+        guard let usersArray = validJSON["users"] as? [[String: Any]] else {
+            XCTFail("failed to create test JSON")
+            return
+        }
+        
+        
+        let friendsList = usersArray.map{DiningFriend(json: $0)}.flatMap{$0}
+        let response = DineInWeb.GetFriendsList.Response( callback: callback, friends: [friendsList].flatMap{$0})
+        
+        
+        // Act
+        presenter.gotFriendList(response: response)
+        
+        // Assert
+        guard let JS = spy.JSString else{
+            XCTFail("should of recieved a call to viewcontroller")
+            return
+        }
+        
+        XCTAssert(JSISValid(JS: JS, callback: callback,
+                            validJSON:createSuccessJSON(with: ["users": usersArray] )))
+    }
+
+    
+    func testAddFriendToOpenTable()
+    {
+        // Arrange
+        let response = DineInWeb.AddAFriend.Response(callback: callback)
+        
+        
+        // Act
+        presenter.addedFriend(response: response)
+        
+        // Assert
+        guard let JS = spy.JSString else{
+            XCTFail("should of recieved a call to viewcontroller")
+            return
+        }
+        
+        let emptyBody:[String:Any] = [:]
+        XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: emptyBody)))
+        
+    }
+    
+    func testCallWaiter()
+    {
+        // Arrange
+        let response = DineInWeb.CallWaiter.Response(callback: callback)
+        
+        
+        // Act
+        presenter.calledWaiter(response: response)
+        
+        // Assert
+        guard let JS = spy.JSString else{
+            XCTFail("should of recieved a call to viewcontroller")
+            return
+        }
+        
+        let emptyBody:[String:Any] = [:]
+        XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: emptyBody)))
+        
+    }
+
+    func testSendFeedback()
+    {
+        // Arrange
+        let response = DineInWeb.SendFeedback.Response(callback: callback)
+        
+        
+        // Act
+        presenter.sentFeedback(response: response)
+        
+        // Assert
+        guard let JS = spy.JSString else{
+            XCTFail("should of recieved a call to viewcontroller")
+            return
+        }
+        
+        let emptyBody:[String:Any] = [:]
+        XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: emptyBody)))
+        
+    }
+    
+    func testGetLocale()
+    {
+        // Arrange
+        let response = DineInWeb.getLocale.Response(callback: callback, locale: NSLocale(localeIdentifier: "en_US"))
+        
+        
+        // Act
+        presenter.gotLocale(response: response)
+        
+        // Assert
+        guard let JS = spy.JSString else{
+            XCTFail("should of recieved a call to viewcontroller")
+            return
+        }
+        
+        let emptyBody:[String:Any] = ["locale":response.locale.localeIdentifier]
         XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: emptyBody)))
         
     }

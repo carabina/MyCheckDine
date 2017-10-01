@@ -9,6 +9,11 @@
 import Foundation
 @testable import MyCheckWalletUI
 class KeyValueStorageProtocolMockAndSpy: KeyValueStorageProtocol{
+    func getBool(_ key: String, fallback: Bool) -> Bool {
+        self.key = key
+        return returnValue as! Bool
+    }
+
     
     
     let returnValue: Any

@@ -570,9 +570,12 @@
                                             <action selector="dinePressed:" destination="d0R-zc-eYY" eventType="touchUpInside" id="vEH-cA-ODy"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NE8-tu-ya6">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NE8-tu-ya6">
                                         <rect key="frame" x="0.0" y="100" width="375" height="30"/>
                                         <state key="normal" title="Check If Open Order And Display"/>
+                                        <connections>
+                                            <action selector="openTablePressed:" destination="d0R-zc-eYY" eventType="touchUpInside" id="Os8-o0-n3p"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -987,7 +990,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="282"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-gN-GNC">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="517"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="556"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Urx-Mg-Vwg">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
@@ -999,7 +1002,7 @@
                                                 </connections>
                                             </containerView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="oCd-ao-X27">
-                                                <rect key="frame" x="0.0" y="423" width="375" height="94"/>
+                                                <rect key="frame" x="0.0" y="423" width="375" height="133"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qT4-NK-3Oj">
                                                         <rect key="frame" x="20" y="0.0" width="335" height="30"/>
@@ -1015,6 +1018,33 @@
                                                             <action selector="payPressed:" destination="esY-ET-0Jo" eventType="touchUpInside" id="6bd-wM-KlG"/>
                                                         </connections>
                                                     </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="56Q-cx-Ksh">
+                                                        <rect key="frame" x="20" y="78" width="335" height="30"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkT-qF-e6x">
+                                                                <rect key="frame" x="0.0" y="0.0" width="39.5" height="30"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="locale" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HHq-zg-kXR">
+                                                                <rect key="frame" x="45.5" y="0.0" width="235.5" height="30"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="esY-ET-0Jo" id="fqT-5G-avL"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iA-Rf-OId">
+                                                                <rect key="frame" x="287" y="0.0" width="48" height="30"/>
+                                                                <state key="normal" title="update"/>
+                                                                <connections>
+                                                                    <action selector="updateLocalePressed:" destination="esY-ET-0Jo" eventType="touchUpInside" id="2m0-Hk-s0n"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="25" right="20"/>
                                             </stackView>
@@ -1042,6 +1072,7 @@
                     <connections>
                         <outlet property="containerView" destination="Urx-Mg-Vwg" id="2nt-q2-HWI"/>
                         <outlet property="heightConstraint" destination="1Qw-Ue-GKh" id="2M4-gX-IYY"/>
+                        <outlet property="localeField" destination="HHq-zg-kXR" id="0O0-Sb-7AR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FfH-65-60H" sceneMemberID="firstResponder"/>

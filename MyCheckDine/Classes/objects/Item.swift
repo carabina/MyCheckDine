@@ -10,7 +10,7 @@ import UIKit
 import Gloss
 
 ///Represents A single item in an order , or a modifier of an item.
-open class Item: Decodable {
+open class Item: NSObject , Decodable {
   ///The Id of the item.
   open let Id : Int
   ///The name of the item as it was received from the POS.
@@ -62,16 +62,11 @@ open class Item: Decodable {
     serialId = "serial_id" <~~ json
 
     
-    guard let validForReorder: Bool = "valid_for_reorder" <~~ json else{
-      return nil
-    }
-    self.validForReorder = validForReorder
+    self.validForReorder =  "valid_for_reorder" <~~ json ?? true
     
     
-    guard let showInReorder: Bool = "show_in_reorder" <~~ json else{
-      return nil
-    }
-    self.showInReorder = showInReorder
+   
+    self.showInReorder = "show_in_reorder" <~~ json ?? true
     
     guard let modifiers: [Item] = "modifiers" <~~ json else{
       return nil

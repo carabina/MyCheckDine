@@ -103,13 +103,11 @@ public enum Status: String {
   public  init?(json: JSON){
  
     
-    guard let percentageStr: String = "tax_settings.percentage" <~~ json else{
+    guard let percentage: Double = "tax_settings.percentage" <~~ json else{
       return nil
     }
     
-    guard let percentage = Double( percentageStr) else{
-      return nil
-    }
+   
     self.percentage = percentage
     
   }
@@ -142,7 +140,7 @@ public struct Settings {
 }
 
 ///Represents an order in a venue. The order includes the orders status , bill information and some general information.
-open class Order: Decodable , Equatable {
+open class Order: NSObject, Decodable  {
   ///The Id of the order
    open let orderId : String
   /// The status of the order.

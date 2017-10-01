@@ -11,20 +11,24 @@ import MyCheckWalletUI
 import MyCheckCore
 class WalletUIViewController: UIViewController {
     var checkoutViewController : MCCheckoutViewController?
-
+    
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var localeField: UITextField!
     @IBOutlet weak var containerView: UIView!
     
-       override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
-
-           }
-
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool){
-    super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
         containerView.isHidden = !Session.shared.isLoggedIn()
-
+        
+        if let locale = Wallet.shared.locale{
+            self.localeField.text = locale.localeIdentifier
+        }
     }
     
     internal override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,12 +40,12 @@ class WalletUIViewController: UIViewController {
     
     //MARK: - actions
     @IBAction func paymentMethodsPressed(_ sender: AnyObject) {
-      guard let controller = MCPaymentMethodsViewController.createPaymentMethodsViewController(self) else{
-        let alert = UIAlertController(title: "Error", message: "You must login in order to display the MCPaymentMethodsViewControllera", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
-        present(alert, animated: true, completion: nil)
-        return
-      }
+        guard let controller = MCPaymentMethodsViewController.createPaymentMethodsViewController(self) else{
+            let alert = UIAlertController(title: "Error", message: "You must login in order to display the MCPaymentMethodsViewControllera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
         self.present(controller, animated: true, completion: nil)
     }
     
@@ -54,7 +58,7 @@ class WalletUIViewController: UIViewController {
             method.generatePaymentToken(for: nil, displayDelegate: self, success: {token in
                 message =  " " + " token: " + token
                 UIPasteboard.general.string = token
-               
+                
                 
                 let alert = UIAlertController(title: "paying with:", message: message, preferredStyle: .alert);
                 let defaultAction = UIAlertAction(title: NSLocalizedString("Ok", comment: "alert ok but"), style: .default, handler:
@@ -65,7 +69,7 @@ class WalletUIViewController: UIViewController {
                 alert.addAction(defaultAction)
                 self.present(alert, animated: true, completion: nil)
             }, fail: {error in
-            
+                
                 let alert = UIAlertController(title: "error", message: error.localizedDescription, preferredStyle: .alert);
                 let defaultAction = UIAlertAction(title: NSLocalizedString("Ok", comment: "alert ok but"), style: .default, handler:
                 {(alert: UIAlertAction!) in
@@ -83,11 +87,33 @@ class WalletUIViewController: UIViewController {
         
     }
     
-   
+    @IBAction func updateLocalePressed(_ sender: Any) {
+        
+        
+        guard let localeTxt = localeField.text
+            else{
+                
+                let alert = UIAlertController(title: "Error", message: "no locale set yet", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+                present(alert, animated: true, completion: nil)
+                return
+        }
+        let locale = NSLocale(localeIdentifier: localeTxt)
+        Wallet.shared.setLocale(locale:locale, completion: {resutl in })
+    }
     
     
     
     
+    
+}
+
+
+extension WalletUIViewController : UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
 extension WalletUIViewController : CheckoutDelegate {
@@ -119,6 +145,6 @@ extension WalletUIViewController: DisplayViewControllerDelegate{
     func dismiss(viewController: UIViewController) {
         viewController.dismiss(animated: true, completion: nil)
     }
-
-
+    
+    
 }

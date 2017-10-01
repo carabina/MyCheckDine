@@ -57,7 +57,8 @@ class DineTests: XCTestCase {
         XCTAssert(friend.firstName == "Fishbowlapp")
         XCTAssert(friend.lastName == "User")
         XCTAssert(friend.email == "1536@user.com")
-        
+        XCTAssert(friend.clientCode == "3215")
+
         //checking the server call has the correct values
         XCTAssert( (paramsSent?.url.hasSuffix(URIs.friendList))!)
         XCTAssert( paramsSent?.method == .get)

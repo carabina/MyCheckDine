@@ -1,17 +1,19 @@
 {
-"status": "OK",
-"users": [
-{
-"id": "273085",
-"firstName": "lior",
-"lastName": "us",
-"email": "liorus@mycheckapp.com"
-},
-{
-"id": "1808853",
-"firstName": "Fishbowlapp",
-"lastName": "User",
-"email": "1536@user.com"
-}
-]
+    "status": "OK",
+    "users": [
+              {
+              "id": "273085",
+              "firstName": "lior",
+              "lastName": "us",
+              "email": "liorus@mycheckapp.com",
+              "clientCode": "1234"
+              },
+              {
+              "id": "1808853",
+              "firstName": "Fishbowlapp",
+              "lastName": "User",
+              "email": "1536@user.com",
+              "clientCode": "3215"
+              }
+              ]
 }

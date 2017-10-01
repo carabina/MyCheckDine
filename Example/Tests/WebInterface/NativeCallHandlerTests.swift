@@ -30,7 +30,7 @@ class NativeCallHandlerTests: XCTestCase {
     var addFriendRequest: DineInWeb.AddAFriend.Request?
     var sendFeedbackRequest: DineInWeb.SendFeedback.Request?
     var callWaiterRequest: DineInWeb.CallWaiter.Request?
-    
+    var getLocaleRequest: DineInWeb.getLocale.Request?
     
     func setupInteractor(request: DineInWeb.SetupDinein.Request){
       setupRequest = request
@@ -82,6 +82,10 @@ class NativeCallHandlerTests: XCTestCase {
     func callWaiter(request: DineInWeb.CallWaiter.Request){
     callWaiterRequest = request
     }
+    
+    func getLocale(request: DineInWeb.getLocale.Request) {
+        getLocaleRequest = request
+    }
   }
   
   var controller: DineInWebViewController?
@@ -90,38 +94,37 @@ class NativeCallHandlerTests: XCTestCase {
   
   
   
-  override func setUp() {
-    super.setUp()
-    window = UIWindow()
-    
-    
-    webViewLoadExpectation = expectation(description: "A controller will be created and the web view will load")
-    
-    
-    self.createNewLoggedInSession()
-    
-    
-    guard let validGetCodeJSON = getJSONFromFile( named: "generateCode") , let _ = getJSONFromFile( named: "orderDetailsNoItems") else{
-      XCTFail("should not fail")
-      
-      return;
+    override func setUp() {
+        super.setUp()
+        window = UIWindow()
+        
+        
+        webViewLoadExpectation = expectation(description: "A controller will be created and the web view will load")
+        
+        
+        self.createNewLoggedInSession()
+        
+        
+        guard let validGetCodeJSON = getJSONFromFile( named: "generateCode") , let _ = getJSONFromFile( named: "orderDetailsNoItems") else{
+            XCTFail("should not fail")
+            
+            return;
+        }
+        
+        Dine.shared.network = RequestProtocolMock(response: .success(validGetCodeJSON))
+        
+        
+        
+        DineInWebViewControllerFactory.dineIn(at: "2", locale: NSLocale(localeIdentifier: "en_US"), delegate: self)
+        
+        waitForExpectations(timeout: 2.2, handler: nil)
+        
+        
+        // Issue an async request
+        
+        
     }
     
-    Dine.shared.network = RequestProtocolMock(response: .success(validGetCodeJSON))
-    
-    
-    
-    DineInWebViewControllerFactory.dineIn(at: "2", locale: NSLocale(localeIdentifier: "en_US"), delegate: self)
-    
-    waitForExpectations(timeout: 2.2, handler: nil)
-    
-    
-    // Issue an async request
-    
-    
-  }
-  
-  
   override func tearDown() {
     window = nil
     super.tearDown()
@@ -361,6 +364,32 @@ class NativeCallHandlerTests: XCTestCase {
       
     }
     
+    
+    func testGetPaymentMethods() {
+        //Arrange
+        let spy = setAndReturnSpy()
+        
+        //Act
+        runJSSynchronously(JSExpresion:"getPaymentMethods();")
+        
+        //Assert
+        XCTAssert(spy.paymentMethodsRequest?.callback == "receivedPaymentMethods")
+        
+        
+    }
+
+    func testGetLocale(){
+                //Arrange
+            let spy = setAndReturnSpy()
+            
+            //Act
+            runJSSynchronously(JSExpresion:"getLocale();")
+            
+            //Assert
+            XCTAssert(spy.getLocaleRequest?.callback == "gotLocale")
+            
+            
+}
   }
   //to-do
   //    func testCompleteBecauseOfCompleteOrder() {
