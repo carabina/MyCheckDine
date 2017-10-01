@@ -8,28 +8,19 @@
 
 import UIKit
 import MyCheckCore
-///This delegate will be updated on changes to the users order.
-@objc public protocol OrderPollerDelegate {
+
+internal protocol OrderPollerManagerDelegate: OrderPollerDelegate{
   
-  ///Called when the order was updated.
-  ///
-  /// - parameter order: The up to date order or nil if their is n order.
-  func orderUpdated(order:Order?)
-  
-  ///Called when the poller fails to receive updates. It is not called on every failed call but rather after a few consecutive fails
-  ///
-  /// - parameter lastReceivedError:     The error that caused the last server call to fail.
-  /// - parameter failCount:     The amount of consecutive calls to the server that failed.
-  func failingToReceiveUpdates(lastReceivedError: NSError , failCount:Int)
+  func isPolling() -> Bool
 }
 
 ///When activated this object polls the MyCheck server in order to fetch order updates. Call The startPolling function and set the delegate in order to receive updates. You should generaly use the poller from when a 4 digit code is created untill the order is closed or canceled.
-public class OrderPoller : NSObject{
+internal class OrderPollerManager : NSObject{
   internal var pollingInterval = 5.0
   private var polling = false
   private var failCount = 0
   
-    internal var delayer: DelayInterface = Delay()
+  internal var delayer: DelayInterface = Delay()
   
   ///This variable holds the date of the last time the order was updated.
   public var lastUpdate :Date?
@@ -37,10 +28,10 @@ public class OrderPoller : NSObject{
   ///Last order received from the server.
   public var order: Order?
   ///This delegate will be called when the order is updated.
-  public var delegate :OrderPollerDelegate?
+  public var delegates  = MulticastDelegate<OrderPollerManagerDelegate>(strongReferences:false)
   
   ///Should be called in order to start polling. Make sure to set a delegate in order to receive order updates.
-  public func startPolling(){
+  public func startPolling(poller: OrderPoller){
     if polling{
       return
     }
@@ -49,9 +40,18 @@ public class OrderPoller : NSObject{
   }
   
   ///Should be called in order to stop polling. You might still receive a response after it is called in the case that a call was already dispached to the server.
-  public func stopPolling(){
+  public func stopPolling(poller: OrderPoller){
     polling = false
+    var newPollingValue = false
+    
+    delegates |> { poller in
+      if poller.isPolling(){
+        newPollingValue = true
+      }
+      polling = newPollingValue
+    }
   }
+  
   
   ///Returns weather the poller is on or not.
   public  func isPolling() -> Bool{
@@ -73,14 +73,17 @@ public class OrderPoller : NSObject{
       self.order = order
       
       if let new = order ,  let old = oldOrder, new != old{
-        if let delegate = self.delegate{
-          delegate.orderUpdated(order: new)
-          
+        
+        self.delegates |> {
+          $0.orderUpdated(order: new)
         }
+        
+        
       }else if (order == nil && oldOrder != nil) || (order != nil && oldOrder == nil){
-        if let delegate = self.delegate{
-          delegate.orderUpdated(order: order)
+        self.delegates |> {
+          $0.orderUpdated(order: order)
         }
+        
       }
       
       self.delayer.delay(self.pollingInterval, closure: {//calling poll again.
@@ -90,21 +93,24 @@ public class OrderPoller : NSObject{
     }, fail: {error in
       
       if let code = ErrorCodes(rawValue: error.code), code == ErrorCodes.noOpenTable{
-         self.failCount = 0
+        self.failCount = 0
         if let _ = self.order{
           
-        self.order = nil
-          self.delegate?.orderUpdated(order: nil)
+          self.order = nil
+          self.delegates |> {
+            $0.orderUpdated(order: nil)
+          }
         }
         
       }else{
-      self.failCount += 1
+        self.failCount += 1
       }
       if self.failCount > 2{//in this case we will update the delegate
-        
-        if let delegate = self.delegate{
-          delegate.failingToReceiveUpdates(lastReceivedError: error, failCount: self.failCount)
+        self.delegates |> {
+          $0.failingToReceiveUpdates(lastReceivedError: error, failCount: self.failCount)
         }
+        
+        
         
       }
       self.delayer.delay(self.pollingInterval, closure: {//calling poll again.
@@ -114,6 +120,10 @@ public class OrderPoller : NSObject{
     }
       
     )
+  }
+  
+  internal func addNewPoller(poller: OrderPollerManagerDelegate){
+  delegates += poller
   }
 }
 

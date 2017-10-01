@@ -49,16 +49,18 @@ public class Dine: NSObject{
             if let dineConfig = JSON["dine"] as? [String:Any], let intervalNum = dineConfig["pollingInterval"] as? NSNumber{
                 let interval = intervalNum.doubleValue
                 if interval > 0 {
-                    self.poller.pollingInterval = interval
+                    self.pollerManager.pollingInterval = interval
                 }
             }
         }, fail: nil)
         
     }
     ///When activated this object polls the MyCheck server in order to fetch order updates. Call The startPolling function and set the delegate in order to receive updates. You should generally start useing the poller  when a 4 digit code is created until the order is closed or canceled.
-    open var poller = OrderPoller()
+    internal var pollerManager = OrderPollerManager()
     
-    
+  public func createNewPoller(delegate: OrderPollerDelegate) -> OrderPoller{
+  return OrderPoller(delegate: delegate)
+  }
     //order related variables
     internal var lastOrder : Order?
     

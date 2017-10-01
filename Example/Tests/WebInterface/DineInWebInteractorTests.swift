@@ -137,7 +137,7 @@ getLocaleResponse = response
     
     Dine.shared.network = RequestProtocolMock(response: .success(validOrderJSON))
     
-    Dine.shared.poller.delayer = DelayMock(callback: { _ in
+    Dine.shared.pollerManager .delayer = DelayMock(callback: { _ in
       interactor.toggleOrderDetailsPolling(request: DineInWeb.Poll.Request(pollingOn: false, callback: self.callbackName))
     })
     
