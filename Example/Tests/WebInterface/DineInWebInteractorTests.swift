@@ -126,12 +126,12 @@ getLocaleResponse = response
     
     //Arange
     self.createNewLoggedInSession()
-    guard let validOrderJSON = getJSONFromFile( named: "orderDetails") , let _ = getJSONFromFile( named: "orderDetailsNoItems") else{
+    guard var validOrderJSON = getJSONFromFile( named: "orderDetails") , let _ = getJSONFromFile( named: "orderDetailsNoItems") else{
       XCTFail("should not fail")
       
       return;
     }
-    
+    validOrderJSON["stamp"] = "9804w39874398743"
     
     let (interactor , spy) = getInteractorWithPresenterSpy()
     

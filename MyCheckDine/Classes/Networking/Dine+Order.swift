@@ -41,7 +41,11 @@ extension Dine{
 
         return
         }
+            
+            
         success(order)
+            self.poller.order = order // updating the poller with the latest order details
+
       }, fail: fail)
     }else{
       if let fail = fail{

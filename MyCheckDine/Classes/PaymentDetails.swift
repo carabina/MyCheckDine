@@ -14,7 +14,7 @@ public struct PaymentDetails {
     internal let amount: Money
     internal let tip: Money
     internal let paymentMethod: PaymentMethodInterface
-    internal let items: [Item]?
+    internal let items: [BasicItem]?
     
     
     /// Create a new payment request for the underlying order supplied. If the amount is bigger than the order balance or if the order is not open nil will be returned.
@@ -55,7 +55,7 @@ public struct PaymentDetails {
     ///   - parameter paymentMethodToken: The payment method token that should be used for chaging.
     
     
-    public init?(order: Order , items:[Item] , tip:Double? = nil ,paymentMethod: PaymentMethodInterface ) {
+    public init?(order: Order , items:[BasicItem] , tip:Double? = nil ,paymentMethod: PaymentMethodInterface ) {
         self.order = order
         self.paymentMethod = paymentMethod
         

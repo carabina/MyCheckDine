@@ -353,12 +353,9 @@ class NativeCallHandlerTests: XCTestCase {
       XCTAssert(items[0].name == "VEGETARIAN PIZZA")
       XCTAssert(items[0].Id == 920836)
       XCTAssert(items[0].paid == false)
-      XCTAssert(items[0].modifiers.count == 0)
       XCTAssert(items[0].quantity == 1)
       XCTAssert(items[0].price == 8.95)
-      XCTAssert(items[0].serialId == "994")
-      XCTAssert(items[0].showInReorder == true)
-      XCTAssert(items[0].validForReorder == true)
+ 
       
       
       

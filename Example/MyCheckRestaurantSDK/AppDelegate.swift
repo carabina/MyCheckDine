@@ -24,12 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Session.logDebugData = true
        
         if !UserDefaults.standard.bool(forKey: "notFirstLaunch"){
-            UserDefaults.standard.set("pk_4eUo454a5WvduVnLadAjFWxrRwHnR", forKey: "publishableKey")
+            UserDefaults.standard.set("pk_fXACc6bLgs3zECbwSZyaXl7NrIa9P", forKey: "publishableKey")
             UserDefaults.standard.set("2", forKey: "BID")
             UserDefaults.standard.set("merchant.com.mycheck", forKey: "ApplePayMerchantId")
 
 
-            UserDefaults.standard.set("eyJpdiI6IkhzMWJ4VFFndzI5MThmbzB2MkQwbkE9PSIsInZhbHVlIjoiMURPUGpzQldRNDBYdzhBbktnWm84UVdERHY2S09tS0F6aGYrZWl0TWhmcEc0bVNcL1VabkpxVEVVaEtqMllyTloiLCJtYWMiOiJmNjIxNWM2YmQ0YmViMGIyYWQxNzU0YWJmNjJhNGYyYTYxM2VkMTRmNTMzZGRjODNiNThkMTJhOTAyYTQxM2ZmIn0=", forKey: "refreshToken")
+            UserDefaults.standard.set("eyJpdiI6Ik5xM3ZsanAxdlFJUk1oQlpUN1NaZFE9PSIsInZhbHVlIjoiS2pXNHBxdlNodWNTcDJBbkV2VHlyVjZWbmFwMkxWOSs1QVwvZVVQR29VUzd4QVRCeEY3N00rclliUjVZVUVMRXpDTEp6MGZ4Y1V6cjJDVlwvZlFVWG1aUER5dStQVDV1amFOeGt5VGQyNDRoNnBjZ05ad3J4RW5WK1wvOXJBdllDRDNsT0ljcllIOTBBUnNHV01WaG5cL2pMU2hGcUVzbys0enYzbnBSa0RlaHZHOD0iLCJtYWMiOiI5NzZlZjhlN2ZlZTY5NWJiM2ZkYzI2ZjI4MmEyNzY2OTljNzVkMWU1YTlmMmU4MDljYzc2Y2I0ZDYwNGZhMmJiIn0=", forKey: "refreshToken")
             UserDefaults.standard.set(true, forKey: "notFirstLaunch")
              UserDefaults.standard.synchronize()
 
