@@ -17,7 +17,9 @@ class ShowDineInWebViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        
+        BIDField.addDoneButtonToKeyboard(target:self, action: #selector(self.doneOnKeyboardPressed))
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +51,8 @@ class ShowDineInWebViewController: ViewController {
             DineInWebViewControllerFactory.dineInWithOpenOrder(order: order, locale:  NSLocale(localeIdentifier:"en_US"), delegate: self)
         }, fail: nil)
     }
+    
+  
 }
 
 extension ShowDineInWebViewController: DineInWebViewControllerDelegate{
@@ -84,3 +88,13 @@ extension ShowDineInWebViewController: DisplayViewControllerDelegate{
 
     }
 }
+
+fileprivate extension ShowDineInWebViewController{
+   
+    @objc func doneOnKeyboardPressed()
+    {
+        self.BIDField.resignFirstResponder()
+    }
+    
+}
+
