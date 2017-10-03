@@ -86,7 +86,7 @@ class PollerTest: QuickSpec {
                     //Assert
                     let expected: OrderPollerDelegateResponse? = requestAndExpectedResult[i].1
                     if let expectedResult = expected, let pollerResponse = self.pollerResponse{
-                        expect(expectedResult) == pollerResponse
+                        expect(expectedResult == pollerResponse).to(beTrue())
                     }else if let _ = expected{
                         expect("poller response") == "not to be nil"
                     }else if let _ = self.pollerResponse{

@@ -22,11 +22,12 @@ class OrderTest: QuickSpec {
                 Dine.shared.network = RequestProtocolMock(response: .success(validJSON))
                 //Act
                 Dine.shared.getOrder(order: nil, success: { order in
-                    guard let order = order else{
+                    guard let order = order,
+                    let JSONOrder = Order(json: validJSON) else{
                         expect("not to fail") == "false"
                         return
                     }
-                    expect(order) == Order(json: validJSON)
+                    expect(order == JSONOrder).to(beTrue())
                     //Assert
                     expect(order.status.rawValue) == Status.open.rawValue
                     expect(order.restaurantId) == "2"
@@ -60,14 +61,14 @@ class OrderTest: QuickSpec {
                 Dine.shared.network = RequestProtocolMock(response: .fail(ErrorCodes.noOrderUpdate.getError()))
                 //Act
                 Dine.shared.getOrder(order: Order(json: validJSON), success: { order in
-                    guard let order = order else{
+                    guard let order = order,
+                    let JSONOrder = Order(json: validJSON) else{
                         expect("not to fail") == "false"
                         return
                     }
-                    //Assert
-                    expect(order) == Order(json: validJSON)
-                    
-                    
+                    //Assert                    
+                    expect(order == JSONOrder).to(beTrue())
+
                 }, fail: {error in
                     expect("not to fail") == "false"
                 })

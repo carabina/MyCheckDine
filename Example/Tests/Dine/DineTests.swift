@@ -340,7 +340,7 @@ class DineTests: XCTestCase {
         })
         //Assert
         
-        XCTAssert(response == order)
+        XCTAssert(response! == order!)
         
         
     }

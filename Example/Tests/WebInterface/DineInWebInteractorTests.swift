@@ -146,7 +146,7 @@ getLocaleResponse = response
     //Assert
     switch  spy.pollToggleResponse!{
     case .success(let order, let callback):
-      XCTAssert(order.stamp == "6ab19bb726a256246d41ee3566b88a21" , "the correct order was not passed")
+      XCTAssert(order.stamp == "9804w39874398743" , "the correct order was not passed")
       XCTAssert(callback == callbackName, "callback was not passed properly")
     case .fail(_,_):
       XCTFail("should not of failed")
