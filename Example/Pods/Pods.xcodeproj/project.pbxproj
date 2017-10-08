@@ -28,8 +28,8 @@
 		0AEC20AACF9B10846830274E3B2AA6FD /* BeLogical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A07C6BCF7208AF6642491FC3DDEB1A8 /* BeLogical.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		0CA6357476373C221D44C498AA1D65FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231AE12CC05A0D00F11EE398015C5485 /* Foundation.framework */; };
 		0D1B6FE2FF619FE841DF3A51A9F95994 /* QuickConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = AC56B25A9D49D9FB1A2C090FA9BDC6B7 /* QuickConfiguration.m */; };
+		0D56BBCF74B6C7A9EB4F24B950F8A88F /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B439B0013D3B1B13D7E760DFF92162 /* Gloss.framework */; };
 		0DF41985F736B0277430ED5D675D3082 /* nativeResponse.js in Resources */ = {isa = PBXBuildFile; fileRef = 85F22F375A502EB85D1CDBC20F40FED7 /* nativeResponse.js */; };
-		0E5EEC4177E2EB6913EA04CDFA17F1BE /* Dine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406B178A9CD556091813260C407337D3 /* Dine.swift */; };
 		0ECEEBC712D404AA6CF1E76A9284BFF9 /* DSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D6C2C7EECAA7F6FFD3D44A7DDDEEF56 /* DSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EE456EE5A331B4F1AC417531FCB81FD /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D8308AD55B562C1EFD58FF0DEB3116 /* MulticastDelegate.swift */; };
 		0FEA1DE2BEC5CCD1CE0828FF20925DCF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686A81FF3A09B48927CF202BCA983E63 /* WebKit.framework */; };
@@ -40,9 +40,11 @@
 		110A640A9BE45841BA938B4C29EF5446 /* ThrowAssertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD6033EE590D21C9C408C3C861A2ECC /* ThrowAssertion.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		127CD37052B8E0BC645D83D4664F59D4 /* NMBStringify.m in Sources */ = {isa = PBXBuildFile; fileRef = D846609FA9DDEE442D2F2E2747DCB4FA /* NMBStringify.m */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		13AA6EEE81DC3C12BE2CDD0B7DB80784 /* MCAddCreditCardViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28DE6314B54F3258212935F33844094 /* MCAddCreditCardViewControllerModel.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		13F6BA41E82539C4A2CDEDCFE12B3214 /* MyCheckDine-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CDF7096608CD32B0981371A4C15570 /* MyCheckDine-dummy.m */; };
 		140DA6410F9AE05CC8F4A5F4B1A12C88 /* MyCheckCore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FD503AC1BC575431982A81DEE837F43C /* MyCheckCore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		146C596514571CD97B6ADAE42C1E9C2A /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D597C78C6B96E498DBEA49AD86B03609 /* HooksPhase.swift */; };
 		15057070E32DF655E9A7B36997BC02CD /* QuickTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7705A4A9826994CB2B77247A55BFDA /* QuickTestSuite.swift */; };
+		15E7D2353FDD728E2B75D499621B7C43 /* DiningFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B622636702B3FB8E86CB6A11A9A0B5 /* DiningFriend.swift */; };
 		15EE9B5C99CEFB03AFF2FA60C1FA8B96 /* CheckoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FFBB48495B8FDAECA9C6E6BE4D2CB65 /* CheckoutViewController.xib */; };
 		1723D3E294F9B858596A2A09A46894F3 /* PaymentMethodFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54CFA42A609890A49DD81B006F018E1 /* PaymentMethodFactory.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		17261E344C2027602431A636759AC7F2 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C51363D397E1EF98880DCFD1C2B7F52 /* DSL.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -62,7 +64,6 @@
 		1FCC0970C8435F10768CA84C2025A177 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2767018B831E9148BB06FF225DE97EB /* Resource.swift */; };
 		2005B1C3D580FC244C3A4D5472C116CF /* MyCheckWalletUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E14B9F376F33B5F3C22D8D5603AE460 /* MyCheckWalletUI-dummy.m */; };
 		2082EB4AA16440FFD5479FAFC0181066 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484E1C34B72DAEE14C3B1DD9999409E8 /* Indicator.swift */; };
-		21118419706BEDA3D6A851E03BC1860B /* MyCheckCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E2BCDD172D667DD103B6A55845B98B /* MyCheckCore.framework */; };
 		21CD454EE5C17B5B5AA7ECABF49C54C0 /* CreditCardValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B18010CFE75EA5A231C8D036969BA33 /* CreditCardValidator.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		22C1DE74D494C10BBE727F239A68447D /* ThrowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A2238B1B2356764F25DC3C5D7158F /* ThrowError.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		234BFC45ACAC4A8FB945EA17B6A74B0B /* SourceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BABCA7EA50743585D8EC46588DA5F60 /* SourceLocation.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -73,7 +74,6 @@
 		27844BA013B117E051E630C4F74B7B00 /* MCAddCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC51658316F73DD891BC98D5BF499736 /* MCAddCreditCardViewController.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		27B262F95D3CF9E3C74541A41929691C /* NMBStringify.h in Headers */ = {isa = PBXBuildFile; fileRef = 2419F27BD9DCADEFF72FA9CACFC09F7A /* NMBStringify.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		282E6F0E67F3799B0ABCB9ED96B666A9 /* RequestModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1658FDBE77B17478AD5FE9FBE1F059C4 /* RequestModifier.swift */; };
-		2B198B8C9BACF732B550D64A847F4466 /* MyCheckDine-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C8FE27A6E4C7D2B3A7288436AB26C54B /* MyCheckDine-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2BA7E36C5963BD051BAAD9E8A75886A2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19FE7BEDF18027C6787C6B2631FE9421 /* Alamofire.framework */; };
 		2C2403A64343CA56C6E89715C1A98FB3 /* DineInWebPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317213F7F50B10F8287063BC44E4B17A /* DineInWebPresenter.swift */; };
 		2C47EA5234D322096422DC6BD3A495B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231AE12CC05A0D00F11EE398015C5485 /* Foundation.framework */; };
@@ -88,9 +88,11 @@
 		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F594D058728B0C4403456465CDBECC3 /* TaskDelegate.swift */; };
 		36370F1C933EF56B5C91BD16B87A18BF /* Pods-MyCheckDine_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EB73AE73E25F02440C1740033F5A377 /* Pods-MyCheckDine_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3753BE341BC4122F0DA4D47245229AD4 /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3610792EBAD3B2D19DF9A880CE7017 /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37E4DAC7EF11494EBCC9B4DC3D80FC56 /* BasicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9977E72E4EB574E117E3E2598271C68 /* BasicItem.swift */; };
 		383C9A8DB84B83233633C3A00A2C1608 /* KingfisherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E883E68E3A3F316477173DADAA214BFB /* KingfisherManager.swift */; };
 		3915DBB4731CB17B255A7FE86E240B6E /* CwlCatchBadInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = 999724F99A317C4C7328FEB35E53BDF6 /* CwlCatchBadInstruction.m */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		3E47727ABC296269264604FFC6CA8118 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CF3FEA91BA229A605FA51DA0F63AAB /* UITextField+Placeholder.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3F277E0E3D2B77039D8B0D6C541CDCE2 /* Dine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE8D6A7736C33BBF478F2221776D01 /* Dine.swift */; };
 		3FB8FD0F1B3E4CE1217338EB3AB0B0B0 /* MCCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D3B61D856C99D9A85D5B70D700A8AD /* MCCheckoutViewController.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		40765AAA791D6DFC0022639E348F0E6A /* FormatIndicatedCacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A8EEDF041005C2C820DB2EF6253E26 /* FormatIndicatedCacheSerializer.swift */; };
 		413C2A3759ABEC870AAE61F28C258C31 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F85503C06CDBF9141258957600CE29A /* ImageDownloader.swift */; };
@@ -102,7 +104,6 @@
 		469E9C3ED9FD6009F7C9AAF9E537E212 /* Nimble.h in Headers */ = {isa = PBXBuildFile; fileRef = E4B73628BF268A3CA882697BDC48AC39 /* Nimble.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46D0CA34C7D7EF8765AA73B1B01C2C79 /* Pods-MyCheckDine_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3920AFCDF0E977815B7036AE30BF26 /* Pods-MyCheckDine_Tests-dummy.m */; };
 		477BA25F6F3FBA7C33E18B1F810E1B98 /* ApplePayFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169EBD70B8E697075279BF795A5E4C9 /* ApplePayFactory.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		47CDC9A839BBB716DEE5EC933E68D9B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231AE12CC05A0D00F11EE398015C5485 /* Foundation.framework */; };
 		488FAD794A87ED46AD12FAD1C4AFE454 /* String+IsNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6552446D64FD33961B83028F6487DF /* String+IsNumber.swift */; };
 		48C0EA759496B154A8B2574B7A57CFD0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19FE7BEDF18027C6787C6B2631FE9421 /* Alamofire.framework */; };
 		48E4FD7229315F0FF78A354651A8542F /* MCCreditCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7267A50D19D1F98D109B2D2D8ACFD2 /* MCCreditCardsViewController.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -118,7 +119,6 @@
 		52416A6AC7387ECACCC45596498D96AD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B552D023F6457D4127CF83A4C80AECD5 /* CFNetwork.framework */; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B7FB501C7BF7B90731939C2B46C046 /* Request.swift */; };
 		53DD6D6CF8A6A42C1B35A7D5D2E27C93 /* String+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AE4843C1DF590FF2F498FDCE7D3F0 /* String+JSON.swift */; };
-		54517A6C9A819AC5417C25A3641F0C4D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19FE7BEDF18027C6787C6B2631FE9421 /* Alamofire.framework */; };
 		551440A0F92574039C1D2EB39227D6B8 /* AsyncMatcherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5722E8B9547B32AD9DFFFF041285CF2 /* AsyncMatcherWrapper.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		56EBAB8941DC7B543ED6BEF2649A7622 /* MCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B2E4103BC7B1BC854965275E9D81F3 /* MCViewController.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		599669823A2EED2928C77F301F6B0515 /* BeNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507136EC37580183584303762EFF319 /* BeNil.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -126,6 +126,7 @@
 		5B5D8AE167BD8E304CE474A9B8DBA2B4 /* Kingfisher.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E9493EF559513DA9CF3E1A1AE7B688 /* Kingfisher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D83206A9A4656F11D511158EC8E0784 /* CacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F314835FDC30016CF7F30588A0012D26 /* CacheSerializer.swift */; };
 		5F43214BA0EE56426645F50F6B3B6C21 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B016EC216C5CC3417D776FE2CB7E70E3 /* Kingfisher.framework */; };
+		5FAD2EEF69D83497FE5AA20E0F541791 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744F3E6CE8332E84F4FCC2CBF056146 /* Item.swift */; };
 		60EF2B4A841620E7F6E237712878CAE1 /* Gloss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1090C15D8F2B7692C542AD4340A0B /* Gloss.swift */; };
 		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81588DC1F0FECB9C5A325DC5D1A577CD /* DispatchQueue+Alamofire.swift */; };
 		62744EF299751FB49B5FCD81D8C8FFF7 /* SatisfyAnyOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC3E3B30262AACDD8755196153E3AAD /* SatisfyAnyOf.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -137,14 +138,18 @@
 		691CAE6CA49BCFB5F42940F625D4727C /* AddMasterPassCallHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE2CA109F80511FC4D4DB6B28F9D40 /* AddMasterPassCallHandler.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6A1B3AD83F9B6BD7AC426B3C75073CF5 /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A30C593A58122CD71132DA4DF1A209 /* Locales.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6AC6D9E055D61FEF4B24A5E72B6AE26F /* Quick-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 83ACE82BC4C561079DBC17A8EBE05541 /* Quick-dummy.m */; };
+		6AF75E79D4C2AB549B66595CA8874547 /* MyCheckDine-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F9A1449656F66E7E33865682A8EECE2E /* MyCheckDine-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5BB90F298143CAB74B1E8091D05A6B /* ApplePayCreditCardTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB23B0CB2E1643380319CE863C09EAFB /* ApplePayCreditCardTypes.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6CDBA48C3A8621E4EE1DAFFE240F0D82 /* CwlCatchBadInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247CE5E61C926997713B411B16FBBFF /* CwlCatchBadInstruction.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
+		6DAD3700B4E205B38D689C0FFE81F95C /* OrderPoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A58035D4DF0FE764A4706BE03393BC1 /* OrderPoller.swift */; };
 		6E397D9FB11A47E48D70287D734B12B2 /* BeLessThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D77F921F31536DF5A99B530C69735 /* BeLessThan.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
+		6E5A515DB8CCD32B502773120CD9CFCF /* Dictionary+Append.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D44875465A20C96243DEAE41B556302 /* Dictionary+Append.swift */; };
 		6E6E93BAEA6C3C92DEFC08C12AEE3F51 /* World+DSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 081C2E84A0AB2E843A9090057D288493 /* World+DSL.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		6FB7C00F4ADA8BD81F84E648C8462B88 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0452B5002F4C7F990F355CE9DEE3D02E /* Item.swift */; };
+		715B86D6BF3F6DBAC3F77C1E1FF42761 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A254E0C41B5C139E36086ECD4D008B1 /* Order.swift */; };
 		71A620E4CCE2D7CCF6A122DC1BAA6622 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231AE12CC05A0D00F11EE398015C5485 /* Foundation.framework */; };
 		737E19F3254F5929263982C29237C0BA /* CwlBadInstructionException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1075788325B266C4CD84E9045CDEC03E /* CwlBadInstructionException.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		73B9C996AED49ED7CF8EC2A6F1738059 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231AE12CC05A0D00F11EE398015C5485 /* Foundation.framework */; };
+		73CB330B34B1B342C5115161A5382947 /* MyCheckCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E2BCDD172D667DD103B6A55845B98B /* MyCheckCore.framework */; };
 		74B70B07ABA451089A2120180631B2C6 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65CF1AA4CF26E7CC6367AC841BE8AD /* Wallet.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		74FD712F3B503891B6BD9E5CD287E481 /* AssertionDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DED368D5D7A2F722EE9FC2D5A25677 /* AssertionDispatcher.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		759941BEF3A466CAC6BD3F6A362F4933 /* NativeCallHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B77733D211768F8A025FA53C7B32D /* NativeCallHandler.swift */; };
@@ -152,19 +157,17 @@
 		7669866E10A66C12FEEE274BFBE59FE6 /* MyCheckWallet+VisaCheckout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8B53AEF6378E467BD6701638BB2F05 /* MyCheckWallet+VisaCheckout.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7733528204B1DDEFC37C49CFBECE4280 /* MyCheckWalletUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D4BF5A8898F5DCC43C6501A0F9BA81 /* MyCheckWalletUI.storyboard */; };
 		78F3DE174B4F8D368EF8EEFD7EE62087 /* BeVoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BC26EB8F4EABF576ABCA89D3AA1B0 /* BeVoid.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
-		7A439EC0E69783351523934E1FF037DD /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B439B0013D3B1B13D7E760DFF92162 /* Gloss.framework */; };
 		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A91DEC08D3008FCDC98D3173C216F34 /* SessionDelegate.swift */; };
 		7D6269A3CFE53C28DAA6B92E8FC017A7 /* FailureMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BA803117E697306FDA3F4D6EE44CC4 /* FailureMessage.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7984CF9BEC1DFC3B64F32BB08B1E08 /* Result.swift */; };
-		7E7E5A8BF21450934028CD971FBEEDC4 /* MyCheckDine-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 366B1C901E732D11E6ABD1281CB163A0 /* MyCheckDine-dummy.m */; };
 		7F6750C7B1847733370B18C4CBFE32DF /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7156DA9B4179A3CE8938860A3C79D967 /* Errors.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
+		7F9ED6EDF7244A7FE6774EBC57FA6CF3 /* UserStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82E4063662EE34F6AAC41D2E88E648F /* UserStatistics.swift */; };
 		8015239010C1D642F14C105F8FF8E035 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975627B87076CB12D15E2163C0A7C47F /* Expression.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		82344BACF96967C7E762211F6D1FE7DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231AE12CC05A0D00F11EE398015C5485 /* Foundation.framework */; };
 		82D130D83FFAFFF764C3AE4378C7AFCB /* World+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A99D6862F2CD5A71FD1A2FAE65881B /* World+DSL.swift */; };
 		83A0441C4FC1A57FE9FBB88779E15D64 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B016EC216C5CC3417D776FE2CB7E70E3 /* Kingfisher.framework */; };
 		8507F4BF7437EB40A3626EDCC68BFF6D /* Contain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D919933AA8E106C485ED1B52254A8557 /* Contain.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		85A23D606941B4587E837C92ABFEB1E7 /* ProximaNovaSoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A0BB457A9B2A8C6A5165A2CFB2ABB6D /* ProximaNovaSoftRegular.otf */; };
-		8650F44095F77148444ECE5D0108E2AB /* DiningFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACDF9FC9ACF60B8067EB8C24626CFBF /* DiningFriend.swift */; };
 		8654571F855691C23B7B8E61B2141944 /* EndWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD8ACFE227A5FB396AFBEC62FC51F2B /* EndWith.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		86FFB76B2EDCF4AE79CC4C0BD8A0FE9A /* DSL+Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E6F9E796A322CA3877C2A11C3643A2 /* DSL+Wait.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		873BA68C2E24D634D38E4A8BCB74B08D /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CC1E6BF900879B243D686B602ED0E /* Kingfisher.swift */; };
@@ -175,10 +178,10 @@
 		8AB3CF5DF6B01364B77366A0BFBFA9D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231AE12CC05A0D00F11EE398015C5485 /* Foundation.framework */; };
 		8AD984527FE8056AD662910EE7EB04FB /* MCApplePay.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36500D638D7F887EAF1CFD179EA98C10 /* MCApplePay.xcassets */; };
 		8B3D56FA96C86812FC32695FDD035557 /* NSString+QCKSelectorName.m in Sources */ = {isa = PBXBuildFile; fileRef = 642C3D09FC75FD58F420B84C7C2A60A4 /* NSString+QCKSelectorName.m */; };
+		8C29864F178127CA4A6E05909931274D /* OrderHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9813FAD3E8689BB3F8E744412474EEC /* OrderHistoryItem.swift */; };
 		8C30EAD5FFD28B387099B41C74657A67 /* NMBExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6908D995BE675DE15D1826A840754818 /* NMBExpectation.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
+		8D3E4F69D74F85D78D1F36B37E2DF0CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231AE12CC05A0D00F11EE398015C5485 /* Foundation.framework */; };
 		8D7D42C25F9430F572E14200C399D57B /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6918A304EBDE7EFCE225E9C8188CED /* ImageCache.swift */; };
-		8DEAEEE46CBA78E10B7AB9789E20225E /* Dine+Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15F7F1C778E4038005D9E156A9BD3FA /* Dine+Order.swift */; };
-		8E211DE5CBB9634C264451B659357CD2 /* OrderPoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E1B9CD9C93279C7144954DA72352FD /* OrderPoller.swift */; };
 		9044F3ABD3679C67680A0F0CDB1C6B91 /* QuickSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5833FA4FA658CA15BE6E971281CB86 /* QuickSpec.m */; };
 		911F2468F8FE43C568FAE246F9F1BA22 /* SuiteHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F1762BE65899223E259C5182E1E90E /* SuiteHooks.swift */; };
 		917949F596E1188261FC59214782C3D9 /* NMBExceptionCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = A6D43545E92542504579B4317B23728E /* NMBExceptionCapture.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -222,18 +225,17 @@
 		B0033530A0EAABBB31CD46CA2899F3BD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A62188115AB1E84142523C877D197B /* Box.swift */; };
 		B093484B1637B3D3AF65DF2232FDBADC /* mach_excServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 28B79D09D2B5E5C37EC454A55575DFA6 /* mach_excServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2504901F77DE1E65DDAF12B82BF3F9F /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = AB75B325289354EE36B39B517AF7E7ED /* QCKDSL.m */; };
-		B254BE011F82489600D956F4 /* BasicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254BE001F82489500D956F4 /* BasicItem.swift */; };
 		B2668F52C90896EF61B3B1B16DECD7D9 /* UIFont+customFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180102CBE1EBBACDE361C7FC3C6C3DF6 /* UIFont+customFonts.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		B3261EBD0BCAAD774070DA0DF4D1A4C9 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF389FDF3BF11FC43FE758A156630365 /* Delay.swift */; };
 		B38C14F035ED4BDD7B3870A43A81CC88 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0541049D4986642F00C685D4B6338AAF /* Media.xcassets */; };
-		B61F129F116917A892CE3883CCE68B12 /* UserStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98304696ECC5FC516E0A221A5540D4A0 /* UserStatistics.swift */; };
 		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0511D2E10F0D4D1DCCAFEA50A4846ED /* MultipartFormData.swift */; };
 		B8FDA37F1E350B075DBF4641A5502986 /* Wallet+MasterPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F8CF405F29CE04B3B348A6662629BE /* Wallet+MasterPass.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B96915921FC4A0AA45AA89579DE4F077 /* MCAddCreditCardViewControllerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B044B46A72AAFC7D6044140D92925 /* MCAddCreditCardViewControllerState.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B9BD565DAB07F8E2288A960A1D3EFAC1 /* MatcherFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D57DBC5BCBB5A2FE895C962DF862D4 /* MatcherFunc.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		B9C0A42A50E4681DFADC23AB181E7439 /* AddMasterPassModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C01F3560B601C9DF6AE59568BB2E8C /* AddMasterPassModels.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BA3A791FEF1B25358DC016EC9B16FCA3 /* PaymentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D7975CF03463578499F56272115F5A /* PaymentDetails.swift */; };
 		BA4F0A5DA070F3ECB773AEBC98084B5C /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C68A5114161BA79DDE3F08AB16EABA /* RequestProtocol.swift */; };
 		BB10A2D0B1EE5B1BA811354116F83E3F /* CwlDarwinDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777A14AF13BEA84211CCA9F2DA3FE77A /* CwlDarwinDefinitions.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
+		BB56D80023E1B844EDC304FAA23D7D5D /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6758E1CDD929ADFFBB891E0A4765DFC /* Delay.swift */; };
 		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD97CCDA7FB17464CF395B38F9E34E /* Validation.swift */; };
 		BD4C2A2107D495BC3FA8561F49C75DC0 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F03D652C5F823BB67E70B44497C620C /* UIColor+Hex.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BE21EA793183885FC44F7CA09FC0C548 /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A85E2CE49B22DE70A2E68A86146F6A /* LocalData.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -241,7 +243,6 @@
 		BF3AF1D2B46E09E2B3DCC824E6C1F5AF /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5519D7518925B6E277520245BB3813FF /* Equal.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		C0D2B9DD73BAAB449419ED7CB53E0194 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B115512A63441FA23DB6E356AC814 /* Callsite.swift */; };
 		C2D0ACC043E2CF6020D3DB3E0DED8177 /* DineInWebWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F23DE5BA966D9888E3F050CEDA385E /* DineInWebWorker.swift */; };
-		C4CA29B67DF1050AB773D654DF336EE7 /* PaymentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193403086358459C3CAEDCFCFD6E13FD /* PaymentDetails.swift */; };
 		C6D0EDD468145B88709C0457CA4F9B9B /* PaymentMethodInterface+getBackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B185097351B24498AB141E731099B4 /* PaymentMethodInterface+getBackgroundImage.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C995734F13AF54760C3483F9B99DB965 /* MCMasterPass.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B083D2B7E17C54D48412030988BBFE8C /* MCMasterPass.xcassets */; };
 		C9FADA8973DF97C516DE547BF1CFD230 /* Dictionary+Append.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5469975D887C75A91ED0A1A93E846C /* Dictionary+Append.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -250,6 +251,7 @@
 		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BBE9B856DD40903752E8ED608CED10 /* Response.swift */; };
 		CB7558CCDD935C9E82BBF454022ED1D3 /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855F9279586C66555B362E6236F97C7 /* Expectation.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		CB8DF027448816C623E9B02A3685A59F /* ImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F4951D63BE2E9D7C6E070264C6B14A /* ImageView+Kingfisher.swift */; };
+		CCB91B979C8C874EC60E0B17187A5532 /* Dine+Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DD1F10ABD6CC43BD2118CAFFA94E34 /* Dine+Order.swift */; };
 		CE3FA6AE0944D4AE737F0E57CFF4A615 /* HaveCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F9CAAE5968C8B97968FB793C521293 /* HaveCount.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		CE4CEF6328E255B380E2B2692B351CF8 /* MatchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17704DD58806370763C001620C65C47 /* MatchError.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		D20DE4DB1CE9132026162AC5CF60AB7D /* VisaCheckoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A97AE9503EDB8D33F07DB0F5688C495 /* VisaCheckoutFactory.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -267,11 +269,11 @@
 		DD2F33C90CA7B78D16608CB195629779 /* MCPayPal.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 032A6E3C0FE938F80D4741033F6A997A /* MCPayPal.xcassets */; };
 		DD5E75E3FAF81FA89A821403A1FECFDC /* MCPaymentMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974FCF91AB77C371B154C924D07810B9 /* MCPaymentMethodsViewController.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DD6F5526F22A4089C6DBE0253A7E2AF1 /* AddMasterPassInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B97BABB0DCE80B56258903DE4396FA /* AddMasterPassInteractor.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DDE40EDB7FDF873C2664D34420950745 /* OrderPollerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B3E7693E9BBD44A3B950C9C979840 /* OrderPollerManager.swift */; };
 		DE176A677C74FECEBDCD3C0B0B59E0FD /* ApplePayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF295A2D39A6EDA6767623DE7D780961 /* ApplePayController.swift */; };
 		DEEFD8723E393C121BC8F921D5AA789F /* Wallet+PaymentMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1440A64D5018F203A00CAB3A1EEA44B /* Wallet+PaymentMethods.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E0294AE4CFE2FA5A17BF58BE4DFFA55A /* MyCheckWalletUI-MyCheckWalletUI-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = D163ABFCF64F3C6CE10350155F29F8D2 /* MyCheckWalletUI-MyCheckWalletUI-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E243A407B22D003B7E026DC715EC0C7E /* DineInWebRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1381B66AD7FB5201FB3EA73BCBEB2 /* DineInWebRouter.swift */; };
-		E2773F33EA119D0E9964016D9A97F734 /* OrderHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0228D4908FF95A6ECF342166B1FCA5 /* OrderHistoryItem.swift */; };
 		E2BF6D8F7A1CE98A9D67E0B27C677965 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = ECF44869223A685C7C801EDB00B42236 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E318E0A80DBB939FCC487999122F9257 /* MyCheckCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B31779C526946D0C11E7CFBB36D8BD64 /* MyCheckCore-dummy.m */; };
 		E34EA5200FEC83834897F3A217DBF241 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F85042E4878B06678132EE2ECFB1BCA /* Filter.swift */; };
@@ -281,7 +283,6 @@
 		E6C2C9F89F9A577D101ECCE0EEAB7657 /* ErrorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0115277806062C570670B01B195FFC /* ErrorUtility.swift */; };
 		E6E9095422AD19B4DE8E64720D3FE24D /* ApplePayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3165893DCE4AFC958F638B74B5AB3658 /* ApplePayView.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E710FF1F4EB4B125F9C5DBDFE3B9320F /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308C045711D32500330B1CE517A91E57 /* Placeholder.swift */; };
-		E8D5AD7CEF34011508066BF2FA9E56F6 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A01BEC25D53D5DEE404DE3F01927002 /* Order.swift */; };
 		E954CF8E9D38D3FFE96649FD9F1A7937 /* AddCreditCardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDFDD8F233E97D87D6CE8CE271C71D0 /* AddCreditCardModels.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EA7FB525825347236AABE65FA485B63B /* DisplayViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A40244F3D5565AB41D4B7B7DFDA311 /* DisplayViewControllerDelegate.swift */; };
 		EBA52C16F42E42A1824D87C284F4A60C /* PostNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD4F634FD9DD88F251C994B8AA5F782 /* PostNotification.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -290,11 +291,11 @@
 		EE33386073ACE146615C9C291C584D73 /* ExtensionDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816F5B787B3555FBF84648ED478EE27F /* ExtensionDictionary.swift */; };
 		EE920FA4D6FE988DF973CF0A2775A862 /* MyCheckWalletUI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CA2C05BCE3149D6E263035C0706759F /* MyCheckWalletUI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EEBC82BCF93616D79C67C4822ECCF0E5 /* ApplePayCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E4C2FD80796F7858928B3E5D3BAE59 /* ApplePayCredentials.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EECC6BC3B0193DF729DAA4682C0D46BD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19FE7BEDF18027C6787C6B2631FE9421 /* Alamofire.framework */; };
 		EEE7A00065C08B2ADB4C87D4FA61A7A7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834BEB814DD20720100DE90D9351B44A /* Networking.swift */; };
 		EF619833CCD20C101236D3B23FC151BD /* AddCreditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78782DC9D75BCE959E9FA7E7CFA9FA2 /* AddCreditCardView.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1365F9EE4758294A8A62D07C6B4134FB /* Notifications.swift */; };
 		EFDDA4205AAAA0F570360C70F81E2F83 /* Data+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F97080EA44B2BB0A379EC42D0C114 /* Data+JSON.swift */; };
-		F2BBEEC0D0880D023F5E21EAF3D5B1BB /* Dictionary+Append.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439C6795C237B05923C673180DE486C /* Dictionary+Append.swift */; };
 		F2C98757004853920416114472C4F3FA /* Pods-MyCheckDine_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 00445EC2A97003E4E304BEFB5E16E711 /* Pods-MyCheckDine_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F388CE9682B070802B7F6FB3FB32FDC1 /* QuickConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = DF9901BF1B7423563F079ED5BB7D16B6 /* QuickConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4A1B7A059AAA6727EB70E58E09332A4 /* CwlCatchException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBFE7CB1C80F22893166D86DD53DFD3 /* CwlCatchException.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -360,13 +361,6 @@
 			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
 			remoteInfo = Alamofire;
 		};
-		1B89E6EC605525ABF56F1A10C838B58E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CD76A57AA059433A689D7C8FAF507C36;
-			remoteInfo = MyCheckCore;
-		};
 		1C05662801230B36B6A494370E563887 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -420,22 +414,15 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 10E937FF3BC4C1C1D1F990CCCCFB8353;
+			remoteGlobalIDString = 7AA1F26D9E1C3EAC1E5ACE9BA0414990;
 			remoteInfo = MyCheckDine;
 		};
 		6514FDE974F9248132A07719DAF2D35E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 10E937FF3BC4C1C1D1F990CCCCFB8353;
+			remoteGlobalIDString = 7AA1F26D9E1C3EAC1E5ACE9BA0414990;
 			remoteInfo = MyCheckDine;
-		};
-		683BFA4B1B1AE2242820050AB10F4DE7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
-			remoteInfo = Alamofire;
 		};
 		68F340613C5940ACF38F3B1258F81197 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -458,12 +445,12 @@
 			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
 			remoteInfo = Alamofire;
 		};
-		7BB151C3F5DE4FEC932095056485B236 /* PBXContainerItemProxy */ = {
+		7B8E051DEEE0C4FC80974E6295DCB1EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 40E7477AD67135868F5FB08136602674;
-			remoteInfo = Gloss;
+			remoteGlobalIDString = CD76A57AA059433A689D7C8FAF507C36;
+			remoteInfo = MyCheckCore;
 		};
 		828156C3D9EC6C99590E6CBEACD3B49A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -480,6 +467,13 @@
 			remoteInfo = MyCheckCore;
 		};
 		984BD2E0F89479BD7F04D09B956CF8CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40E7477AD67135868F5FB08136602674;
+			remoteInfo = Gloss;
+		};
+		A0853D38B87E987A8A2A0F031AE74D9D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -514,6 +508,13 @@
 			remoteGlobalIDString = CD76A57AA059433A689D7C8FAF507C36;
 			remoteInfo = MyCheckCore;
 		};
+		BB3EE944F99F65DF0B5878297DAE28D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
+			remoteInfo = Alamofire;
+		};
 		BC64CC43227B1BAA33D8A3C3E4705746 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -525,7 +526,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 10E937FF3BC4C1C1D1F990CCCCFB8353;
+			remoteGlobalIDString = 7AA1F26D9E1C3EAC1E5ACE9BA0414990;
 			remoteInfo = MyCheckDine;
 		};
 		C6290CDF02601A812A0538F90CB58947 /* PBXContainerItemProxy */ = {
@@ -581,7 +582,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 10E937FF3BC4C1C1D1F990CCCCFB8353;
+			remoteGlobalIDString = 7AA1F26D9E1C3EAC1E5ACE9BA0414990;
 			remoteInfo = MyCheckDine;
 		};
 /* End PBXContainerItemProxy section */
@@ -592,16 +593,18 @@
 		02BFF0C3494650B12B322DDFFE75677D /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
 		032A6E3C0FE938F80D4741033F6A997A /* MCPayPal.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = MCPayPal.xcassets; path = MyCheckWalletUI/Assets/MCPayPal.xcassets; sourceTree = "<group>"; };
 		03B7FB501C7BF7B90731939C2B46C046 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
-		0452B5002F4C7F990F355CE9DEE3D02E /* Item.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		0541049D4986642F00C685D4B6338AAF /* Media.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = MyCheckWalletUI/Assets/Media.xcassets; sourceTree = "<group>"; };
 		05F23DE5BA966D9888E3F050CEDA385E /* DineInWebWorker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DineInWebWorker.swift; path = MyCheckDineUIWeb/Classes/DineInWebWorker.swift; sourceTree = "<group>"; };
 		0679FDC8CEF54D5DA7D640E6F9EAC2E3 /* ResourceBundle-MyCheckWalletUI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-MyCheckWalletUI-Info.plist"; sourceTree = "<group>"; };
 		076A9EE582AD1C8CC69026049134CB41 /* ImageProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProcessor.swift; path = Sources/ImageProcessor.swift; sourceTree = "<group>"; };
+		07A17E206076A4C9CAF320BD43971559 /* MyCheckDine.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MyCheckDine.xcconfig; sourceTree = "<group>"; };
 		081C2E84A0AB2E843A9090057D288493 /* World+DSL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "World+DSL.h"; path = "Sources/QuickObjectiveC/DSL/World+DSL.h"; sourceTree = "<group>"; };
-		08545F6EA89706946215CE6CF48265CE /* MyCheckWalletUI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MyCheckWalletUI.modulemap; sourceTree = "<group>"; };
+		08545F6EA89706946215CE6CF48265CE /* MyCheckWalletUI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MyCheckWalletUI.modulemap; sourceTree = "<group>"; };
+		0A58035D4DF0FE764A4706BE03393BC1 /* OrderPoller.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OrderPoller.swift; sourceTree = "<group>"; };
 		0A91DEC08D3008FCDC98D3173C216F34 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
 		0B285E6BD97140CE55D4D849E4F57EAA /* ExampleHooks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExampleHooks.swift; path = Sources/Quick/Hooks/ExampleHooks.swift; sourceTree = "<group>"; };
-		0BC7B80EB6C38DF323A4B6680AC15C59 /* MyCheckDineUIWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyCheckDineUIWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BC7B80EB6C38DF323A4B6680AC15C59 /* MyCheckDineUIWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MyCheckDineUIWeb.framework; path = MyCheckDineUIWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D44875465A20C96243DEAE41B556302 /* Dictionary+Append.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Dictionary+Append.swift"; sourceTree = "<group>"; };
 		0DCE434816FE6CC3F370A6588631E9E4 /* ExtensionArray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionArray.swift; path = Sources/ExtensionArray.swift; sourceTree = "<group>"; };
 		0F85042E4878B06678132EE2ECFB1BCA /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Quick/Filter.swift; sourceTree = "<group>"; };
 		0FE1381B66AD7FB5201FB3EA73BCBEB2 /* DineInWebRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DineInWebRouter.swift; path = MyCheckDineUIWeb/Classes/DineInWebRouter.swift; sourceTree = "<group>"; };
@@ -614,7 +617,6 @@
 		12BA803117E697306FDA3F4D6EE44CC4 /* FailureMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FailureMessage.swift; path = Sources/Nimble/FailureMessage.swift; sourceTree = "<group>"; };
 		1365F9EE4758294A8A62D07C6B4134FB /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		139EFD82A02D8C32503397AB556ECD71 /* RaisesException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RaisesException.swift; path = Sources/Nimble/Matchers/RaisesException.swift; sourceTree = "<group>"; };
-		1439C6795C237B05923C673180DE486C /* Dictionary+Append.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Dictionary+Append.swift"; sourceTree = "<group>"; };
 		1475F3C04B87487AB5715984E3803D20 /* MyCheckWalletUI.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MyCheckWalletUI.xcconfig; sourceTree = "<group>"; };
 		14EC1800D45CADC69FA17B87114D8ACA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15E2B34E2978F429FEE8EB6E3484D2E9 /* Gloss-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gloss-umbrella.h"; sourceTree = "<group>"; };
@@ -624,7 +626,6 @@
 		17B3F071AF2A4BB4CA421323DDE1D108 /* String+Capital.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Capital.swift"; sourceTree = "<group>"; };
 		17B439B0013D3B1B13D7E760DFF92162 /* Gloss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gloss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		180102CBE1EBBACDE361C7FC3C6C3DF6 /* UIFont+customFonts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIFont+customFonts.swift"; sourceTree = "<group>"; };
-		193403086358459C3CAEDCFCFD6E13FD /* PaymentDetails.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentDetails.swift; path = MyCheckDine/Classes/PaymentDetails.swift; sourceTree = "<group>"; };
 		19FE7BEDF18027C6787C6B2631FE9421 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A1ADF1D1351E0296D6DCE3C655C17B6 /* Gloss-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Gloss-dummy.m"; sourceTree = "<group>"; };
 		1B47EB4FCB802EE84B56A591605B86C6 /* ImagePrefetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePrefetcher.swift; path = Sources/ImagePrefetcher.swift; sourceTree = "<group>"; };
@@ -639,7 +640,8 @@
 		231AE12CC05A0D00F11EE398015C5485 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		231C0B08B1061ECF37005FC4896837B7 /* MyCheckDineUIWeb-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MyCheckDineUIWeb-dummy.m"; sourceTree = "<group>"; };
 		2419F27BD9DCADEFF72FA9CACFC09F7A /* NMBStringify.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMBStringify.h; path = Sources/NimbleObjectiveC/NMBStringify.h; sourceTree = "<group>"; };
-		27D7D5BD4D88793889D9A875707B8717 /* MyCheckDineUIWeb.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MyCheckDineUIWeb.modulemap; sourceTree = "<group>"; };
+		2744F3E6CE8332E84F4FCC2CBF056146 /* Item.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		27D7D5BD4D88793889D9A875707B8717 /* MyCheckDineUIWeb.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MyCheckDineUIWeb.modulemap; sourceTree = "<group>"; };
 		28B79D09D2B5E5C37EC454A55575DFA6 /* mach_excServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = mach_excServer.h; path = Sources/Lib/CwlPreconditionTesting/CwlPreconditionTesting/mach_excServer.h; sourceTree = "<group>"; };
 		2A6B848E6043022C7430F6069A3B0464 /* QuickSpec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QuickSpec.h; path = Sources/QuickObjectiveC/QuickSpec.h; sourceTree = "<group>"; };
 		2BD6033EE590D21C9C408C3C861A2ECC /* ThrowAssertion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThrowAssertion.swift; path = Sources/Nimble/Matchers/ThrowAssertion.swift; sourceTree = "<group>"; };
@@ -650,20 +652,19 @@
 		2DBD0FD47D58411FFFD86D5A704E6CEB /* ImageTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTransition.swift; path = Sources/ImageTransition.swift; sourceTree = "<group>"; };
 		2DDEF0428B8CD640AECE5AD7C197D907 /* Quick.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Quick.xcconfig; sourceTree = "<group>"; };
 		2E7B8D448AB90418F0272797FBE3BBB3 /* Wallet+ApplePay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Wallet+ApplePay.swift"; path = "MyCheckWalletUI/Classes/ApplePay/Wallet+ApplePay.swift"; sourceTree = "<group>"; };
-		2F5076201EFA50DF74393523EC0205DB /* MyCheckDine.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MyCheckDine.xcconfig; sourceTree = "<group>"; };
 		2FFBB48495B8FDAECA9C6E6BE4D2CB65 /* CheckoutViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = CheckoutViewController.xib; path = MyCheckWalletUI/Assets/CheckoutViewController.xib; sourceTree = "<group>"; };
-		302372433EB6625D473BEDEE34AE161E /* mach_excServer.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mach_excServer.c; path = Sources/Lib/CwlPreconditionTesting/CwlPreconditionTesting/mach_excServer.c; sourceTree = "<group>"; };
-		304322169252C4D88D6641F45D5D314B /* Pods-MyCheckDine_Example-emptyTargetForTesting.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MyCheckDine_Example-emptyTargetForTesting.modulemap"; sourceTree = "<group>"; };
+		302372433EB6625D473BEDEE34AE161E /* mach_excServer.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mach_excServer.c; path = Sources/Lib/CwlPreconditionTesting/CwlPreconditionTesting/mach_excServer.c; sourceTree = "<group>"; };
+		304322169252C4D88D6641F45D5D314B /* Pods-MyCheckDine_Example-emptyTargetForTesting.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MyCheckDine_Example-emptyTargetForTesting.modulemap"; sourceTree = "<group>"; };
 		308C045711D32500330B1CE517A91E57 /* Placeholder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Placeholder.swift; path = Sources/Placeholder.swift; sourceTree = "<group>"; };
-		30FFA9789995B1F6902F40919E11B4BB /* Gloss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gloss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30FFA9789995B1F6902F40919E11B4BB /* Gloss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Gloss.framework; path = Gloss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		313132112CA124C501FF163E5F89C828 /* MyCheckDine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyCheckDine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3165893DCE4AFC958F638B74B5AB3658 /* ApplePayView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ApplePayView.swift; path = MyCheckWalletUI/Classes/ApplePay/ApplePayView.swift; sourceTree = "<group>"; };
 		3169EBD70B8E697075279BF795A5E4C9 /* ApplePayFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ApplePayFactory.swift; path = MyCheckWalletUI/Classes/ApplePay/ApplePayFactory.swift; sourceTree = "<group>"; };
 		317213F7F50B10F8287063BC44E4B17A /* DineInWebPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DineInWebPresenter.swift; path = MyCheckDineUIWeb/Classes/DineInWebPresenter.swift; sourceTree = "<group>"; };
-		31F78358959C8066BE3D42555EAAB694 /* MyCheckDine.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MyCheckDine.modulemap; sourceTree = "<group>"; };
 		321F97080EA44B2BB0A379EC42D0C114 /* Data+JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Data+JSON.swift"; sourceTree = "<group>"; };
-		324F3A0871B2B290FD6B71DD71DF743F /* Pods_MyCheckDine_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCheckDine_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		324F3A0871B2B290FD6B71DD71DF743F /* Pods_MyCheckDine_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MyCheckDine_Tests.framework; path = "Pods-MyCheckDine_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B0AAD68E5F28FAA43E66BB04A3A242 /* NoApplePayState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NoApplePayState.swift; path = MyCheckWalletUI/Classes/NoApplePayState.swift; sourceTree = "<group>"; };
+		32B622636702B3FB8E86CB6A11A9A0B5 /* DiningFriend.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DiningFriend.swift; sourceTree = "<group>"; };
 		334B5072ACF08C60154FA8E4347FF131 /* Decoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Decoder.swift; path = Sources/Decoder.swift; sourceTree = "<group>"; };
 		338A562A33C91F4E8D116BB914C165A5 /* BeEmpty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeEmpty.swift; path = Sources/Nimble/Matchers/BeEmpty.swift; sourceTree = "<group>"; };
 		3390DA9C0177B7E4BEC0B7755ABCDAAB /* Quick-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Quick-umbrella.h"; sourceTree = "<group>"; };
@@ -671,14 +672,13 @@
 		33DED368D5D7A2F722EE9FC2D5A25677 /* AssertionDispatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssertionDispatcher.swift; path = Sources/Nimble/Adapters/AssertionDispatcher.swift; sourceTree = "<group>"; };
 		3507136EC37580183584303762EFF319 /* BeNil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeNil.swift; path = Sources/Nimble/Matchers/BeNil.swift; sourceTree = "<group>"; };
 		36500D638D7F887EAF1CFD179EA98C10 /* MCApplePay.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = MCApplePay.xcassets; path = MyCheckWalletUI/Assets/MCApplePay.xcassets; sourceTree = "<group>"; };
-		366B1C901E732D11E6ABD1281CB163A0 /* MyCheckDine-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MyCheckDine-dummy.m"; sourceTree = "<group>"; };
 		3673C841CFADE7180FCBC4BACC6E4617 /* NSBundle+CurrentTestBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSBundle+CurrentTestBundle.swift"; path = "Sources/Quick/NSBundle+CurrentTestBundle.swift"; sourceTree = "<group>"; };
 		36D3B61D856C99D9A85D5B70D700A8AD /* MCCheckoutViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MCCheckoutViewController.swift; sourceTree = "<group>"; };
 		37B8FA40D88F7988FC0650282836DB91 /* Gloss.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Gloss.xcconfig; sourceTree = "<group>"; };
 		38572CDDDD1E6CF1073E06B7B1CB7AD3 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
 		38B29B2CEAB6553103293459606F8FDF /* CreditCardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreditCardView.swift; path = MyCheckWalletUI/Classes/CreditCardView.swift; sourceTree = "<group>"; };
 		38E1090C15D8F2B7692C542AD4340A0B /* Gloss.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Gloss.swift; path = Sources/Gloss.swift; sourceTree = "<group>"; };
-		3987E34AAB7F9C871A17FAC006BC36FA /* paypal */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = paypal; path = MyCheckWalletUI/Assets/paypal; sourceTree = "<group>"; };
+		3987E34AAB7F9C871A17FAC006BC36FA /* paypal */ = {isa = PBXFileReference; includeInIndex = 1; name = paypal; path = MyCheckWalletUI/Assets/paypal; sourceTree = "<group>"; };
 		399C35C1258B216783BEFD1D0D2461DE /* Dictionary+Stringify.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Dictionary+Stringify.swift"; sourceTree = "<group>"; };
 		3BABCA7EA50743585D8EC46588DA5F60 /* SourceLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceLocation.swift; path = Sources/Nimble/Utils/SourceLocation.swift; sourceTree = "<group>"; };
 		3C9259AA5C3E18C5ECB77F8D1AB7B286 /* UIViewController+Toast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+Toast.swift"; sourceTree = "<group>"; };
@@ -689,21 +689,21 @@
 		3EDA9213275B0CE4F86723580022C887 /* BeCloseTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeCloseTo.swift; path = Sources/Nimble/Matchers/BeCloseTo.swift; sourceTree = "<group>"; };
 		3EFA60D8E52594D42DF18E4F04490A2E /* ThreadHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThreadHelper.swift; path = Sources/ThreadHelper.swift; sourceTree = "<group>"; };
 		3F03D652C5F823BB67E70B44497C620C /* UIColor+Hex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
-		3FFDBB2790526090E5BB5F757FFBAD8E /* Pods_MyCheckDine_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCheckDine_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FFDBB2790526090E5BB5F757FFBAD8E /* Pods_MyCheckDine_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MyCheckDine_Example.framework; path = "Pods-MyCheckDine_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		400B044B46A72AAFC7D6044140D92925 /* MCAddCreditCardViewControllerState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MCAddCreditCardViewControllerState.swift; sourceTree = "<group>"; };
-		406B178A9CD556091813260C407337D3 /* Dine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Dine.swift; path = MyCheckDine/Classes/Dine.swift; sourceTree = "<group>"; };
 		41B9EC05D9F8E9F55CCEA5D97EAE3734 /* MCScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MCScrollView.swift; path = MyCheckWalletUI/Classes/MCScrollView.swift; sourceTree = "<group>"; };
 		41F29FAE6F49D5A2065FD62453CFC35E /* Pods-MyCheckDine_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyCheckDine_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		42A42AB42B4FB0D50E60B1EE2B2861FE /* Kingfisher.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.xcconfig; sourceTree = "<group>"; };
-		45883BE9EA99C78F4E850F7DC0BC8102 /* MyCheckCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MyCheckCore.modulemap; sourceTree = "<group>"; };
+		45883BE9EA99C78F4E850F7DC0BC8102 /* MyCheckCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MyCheckCore.modulemap; sourceTree = "<group>"; };
 		458EA2D5E39E6E1500760E6C14817895 /* Functional.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Functional.swift; path = Sources/Nimble/Utils/Functional.swift; sourceTree = "<group>"; };
+		45D8F467A3798AB8F90BE92CF0179ACA /* MyCheckDine-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MyCheckDine-prefix.pch"; sourceTree = "<group>"; };
 		48147992A8ABAD93D8254073412D9D4D /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
 		484E1C34B72DAEE14C3B1DD9999409E8 /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Indicator.swift; sourceTree = "<group>"; };
 		48A99D6862F2CD5A71FD1A2FAE65881B /* World+DSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "World+DSL.swift"; path = "Sources/Quick/DSL/World+DSL.swift"; sourceTree = "<group>"; };
 		4953914539D37D66055258ECED4F2F36 /* CurrentTestCaseTracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CurrentTestCaseTracker.h; path = Sources/NimbleObjectiveC/CurrentTestCaseTracker.h; sourceTree = "<group>"; };
 		49A2231C2B7F4454E518CBC58770D8FD /* CompareOptionals.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompareOptionals.swift; sourceTree = "<group>"; };
 		49C01F3560B601C9DF6AE59568BB2E8C /* AddMasterPassModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddMasterPassModels.swift; path = MyCheckWalletUI/Classes/MasterPass/AddMasterPassModels.swift; sourceTree = "<group>"; };
-		4A0BB457A9B2A8C6A5165A2CFB2ABB6D /* ProximaNovaSoftRegular.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = ProximaNovaSoftRegular.otf; path = MyCheckWalletUI/Assets/ProximaNovaSoftRegular.otf; sourceTree = "<group>"; };
+		4A0BB457A9B2A8C6A5165A2CFB2ABB6D /* ProximaNovaSoftRegular.otf */ = {isa = PBXFileReference; includeInIndex = 1; name = ProximaNovaSoftRegular.otf; path = MyCheckWalletUI/Assets/ProximaNovaSoftRegular.otf; sourceTree = "<group>"; };
 		4C152561C0BF7F3A344993B742F991F8 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		4CA2F59A3FDD649CD827886DF06FF15B /* ApplePayState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ApplePayState.swift; path = MyCheckWalletUI/Classes/ApplePay/ApplePayState.swift; sourceTree = "<group>"; };
 		4D65CF1AA4CF26E7CC6367AC841BE8AD /* Wallet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Wallet.swift; path = MyCheckWalletUI/Classes/Wallet.swift; sourceTree = "<group>"; };
@@ -720,7 +720,7 @@
 		527FFBE3368B9E2445FFE273BA24AFE4 /* WalletRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WalletRequest.swift; path = MyCheckWalletUI/Classes/WalletRequest.swift; sourceTree = "<group>"; };
 		52BA201BF256F278EDAA83FAC02BABDD /* BeIdenticalTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeIdenticalTo.swift; path = Sources/Nimble/Matchers/BeIdenticalTo.swift; sourceTree = "<group>"; };
 		53B2E4103BC7B1BC854965275E9D81F3 /* MCViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MCViewController.swift; sourceTree = "<group>"; };
-		53EB426868B24319899B5BCF1C9CF775 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53EB426868B24319899B5BCF1C9CF775 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C3182D8078C1104E5287E7A918C41B /* URL+FileName.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URL+FileName.swift"; path = "Sources/Quick/URL+FileName.swift"; sourceTree = "<group>"; };
 		5519D7518925B6E277520245BB3813FF /* Equal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Equal.swift; path = Sources/Nimble/Matchers/Equal.swift; sourceTree = "<group>"; };
 		56FBB94B32F1D8671DFC0B17E8A775E6 /* BillEntryItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BillEntryItem.swift; sourceTree = "<group>"; };
@@ -731,10 +731,11 @@
 		5BF43C83EBBDDBAEE630B7CF6A3EFF2B /* String+MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Sources/String+MD5.swift"; sourceTree = "<group>"; };
 		5CDFDA1FE428B1DBCF3DF3C269E1F917 /* AssertionRecorder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssertionRecorder.swift; path = Sources/Nimble/Adapters/AssertionRecorder.swift; sourceTree = "<group>"; };
 		5F6A21B9EA8447011CB95B680AA0308E /* Pods-MyCheckDine_Example-emptyTargetForTesting-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyCheckDine_Example-emptyTargetForTesting-frameworks.sh"; sourceTree = "<group>"; };
+		60BF95CC337D90E0B5FE9C353269C589 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60D75B6DC7C5827F42B629C4B1708150 /* CwlCatchException.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CwlCatchException.h; path = Sources/Lib/CwlPreconditionTesting/CwlCatchException/CwlCatchException/CwlCatchException.h; sourceTree = "<group>"; };
 		6108A169F84A0A4F5EB3AA77A999C519 /* KingfisherOptionsInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherOptionsInfo.swift; path = Sources/KingfisherOptionsInfo.swift; sourceTree = "<group>"; };
 		616195CC2112062592BC1CB203E7D28E /* XCTestSuite+QuickTestSuiteBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XCTestSuite+QuickTestSuiteBuilder.m"; path = "Sources/QuickObjectiveC/XCTestSuite+QuickTestSuiteBuilder.m"; sourceTree = "<group>"; };
-		616EA9846620FAF97D441C53B1442241 /* Kingfisher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Kingfisher.modulemap; sourceTree = "<group>"; };
+		616EA9846620FAF97D441C53B1442241 /* Kingfisher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Kingfisher.modulemap; sourceTree = "<group>"; };
 		62039B71537EBB5A87C0307273BEBA4F /* Nimble-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Nimble-dummy.m"; sourceTree = "<group>"; };
 		634C1E1C5F67CA7015B848E621DD9CCF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		642C3D09FC75FD58F420B84C7C2A60A4 /* NSString+QCKSelectorName.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+QCKSelectorName.m"; path = "Sources/QuickObjectiveC/NSString+QCKSelectorName.m"; sourceTree = "<group>"; };
@@ -743,17 +744,18 @@
 		67467179B4F70F0D65D773E74476D0E9 /* Encoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Encoder.swift; path = Sources/Encoder.swift; sourceTree = "<group>"; };
 		686A81FF3A09B48927CF202BCA983E63 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
 		68DC39B0B179D944034588383F3CBBD2 /* VisaCheckoutSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VisaCheckoutSDK.framework; path = MyCheckWalletUI/Classes/VisaCheckout/frameworks/VisaCheckoutSDK.framework; sourceTree = "<group>"; };
-		68F5E3C53B0B715306CB2E41C33A1465 /* MyCheckDineUIWeb.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCheckDineUIWeb.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		68F5E3C53B0B715306CB2E41C33A1465 /* MyCheckDineUIWeb.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MyCheckDineUIWeb.bundle; path = MyCheckDineUIWeb.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		6908D995BE675DE15D1826A840754818 /* NMBExpectation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NMBExpectation.swift; path = Sources/Nimble/Adapters/NMBExpectation.swift; sourceTree = "<group>"; };
 		69C2A14893E8519274BC649E87F5FF9A /* Nimble.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Nimble.xcconfig; sourceTree = "<group>"; };
 		6A07C6BCF7208AF6642491FC3DDEB1A8 /* BeLogical.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLogical.swift; path = Sources/Nimble/Matchers/BeLogical.swift; sourceTree = "<group>"; };
+		6A254E0C41B5C139E36086ECD4D008B1 /* Order.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		6BC4A2F6E58BBC99F465A122FADBBCCD /* MyCheckCore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MyCheckCore.xcconfig; sourceTree = "<group>"; };
 		6BEAE0AE0271534B72E5B8CC3CC45CB5 /* Pods-MyCheckDine_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyCheckDine_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		6C1977C5E5AFD10EFC7F19EEFE5DE048 /* NMBExceptionCapture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NMBExceptionCapture.m; path = Sources/NimbleObjectiveC/NMBExceptionCapture.m; sourceTree = "<group>"; };
 		6D7DF7C65FF16C7307E776F349CCE77C /* CreditCardView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = CreditCardView.xib; path = MyCheckWalletUI/Assets/CreditCardView.xib; sourceTree = "<group>"; };
 		6E87E4E6BD6150AFEAE49FDC4E7BA9C9 /* ApplePayPaymentMethod.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ApplePayPaymentMethod.swift; path = MyCheckWalletUI/Classes/ApplePay/ApplePayPaymentMethod.swift; sourceTree = "<group>"; };
 		6EB73AE73E25F02440C1740033F5A377 /* Pods-MyCheckDine_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MyCheckDine_Example-umbrella.h"; sourceTree = "<group>"; };
-		6F17381439D4CD43E544284B9250DB08 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		6F17381439D4CD43E544284B9250DB08 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		6F92363B1B4EBB5257E8DD7B4EC181D9 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
 		7156DA9B4179A3CE8938860A3C79D967 /* Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Sources/Nimble/Utils/Errors.swift; sourceTree = "<group>"; };
 		71750C7453AADFF6B186D07F6E7C4404 /* DineInWebViewControllerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DineInWebViewControllerFactory.swift; path = MyCheckDineUIWeb/Classes/DineInWebViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -768,9 +770,10 @@
 		777A14AF13BEA84211CCA9F2DA3FE77A /* CwlDarwinDefinitions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlDarwinDefinitions.swift; path = Sources/Lib/CwlPreconditionTesting/CwlPreconditionTesting/CwlDarwinDefinitions.swift; sourceTree = "<group>"; };
 		77958E66164517497A81E19F246D3272 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		77D3847AC2B5926F4103996E004C8E40 /* CheckoutResult+JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CheckoutResult+JSON.swift"; path = "MyCheckWalletUI/Classes/VisaCheckout/CheckoutResult+JSON.swift"; sourceTree = "<group>"; };
+		77EE8D6A7736C33BBF478F2221776D01 /* Dine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Dine.swift; path = MyCheckDine/Classes/Dine.swift; sourceTree = "<group>"; };
 		79D57DBC5BCBB5A2FE895C962DF862D4 /* MatcherFunc.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatcherFunc.swift; path = Sources/Nimble/Matchers/MatcherFunc.swift; sourceTree = "<group>"; };
 		7A2EDA2262CCBBAE461DC07C67946D6F /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Sources/Operators.swift; sourceTree = "<group>"; };
-		7D0EBDD2DED0CB1F2300883C40CB7090 /* MyCheckDine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyCheckDine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D0EBDD2DED0CB1F2300883C40CB7090 /* MyCheckDine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MyCheckDine.framework; path = MyCheckDine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E6FB68054FA94B8DA848545CF90E36C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F3920AFCDF0E977815B7036AE30BF26 /* Pods-MyCheckDine_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyCheckDine_Tests-dummy.m"; sourceTree = "<group>"; };
 		7FD5DFBC737465B23012BC873D5BC2DD /* NSString+QCKSelectorName.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+QCKSelectorName.h"; path = "Sources/QuickObjectiveC/NSString+QCKSelectorName.h"; sourceTree = "<group>"; };
@@ -778,7 +781,7 @@
 		8015D2F6D2AB828FA48C0CC3C1290C3B /* NMBObjCMatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NMBObjCMatcher.swift; path = Sources/Nimble/Adapters/NMBObjCMatcher.swift; sourceTree = "<group>"; };
 		81588DC1F0FECB9C5A325DC5D1A577CD /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
 		816F5B787B3555FBF84648ED478EE27F /* ExtensionDictionary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionDictionary.swift; path = Sources/ExtensionDictionary.swift; sourceTree = "<group>"; };
-		81AC189A493AA75F335D5455F95CD1A2 /* Nimble.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Nimble.modulemap; sourceTree = "<group>"; };
+		81AC189A493AA75F335D5455F95CD1A2 /* Nimble.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Nimble.modulemap; sourceTree = "<group>"; };
 		8217DE35D74600D14C017D42DB9E0D2F /* Session.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Session.swift; path = MyCheckCore/Classes/Session.swift; sourceTree = "<group>"; };
 		826A89C1C15AF82E8FDAACBEA4DFB99F /* Money.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		834BEB814DD20720100DE90D9351B44A /* Networking.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Networking.swift; path = MyCheckCore/Classes/Networking.swift; sourceTree = "<group>"; };
@@ -787,36 +790,33 @@
 		83C33C222B7C27D93E645FD3E521140A /* Dictionary+Append.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Dictionary+Append.swift"; sourceTree = "<group>"; };
 		850DCEB4A882CD100E213A016DF1DEE0 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
 		857BFEC95E887F91E121F3AA3B8ADFB3 /* PaymentMethodType+imageURLForFropDown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "PaymentMethodType+imageURLForFropDown.swift"; sourceTree = "<group>"; };
-		85F22F375A502EB85D1CDBC20F40FED7 /* nativeResponse.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = nativeResponse.js; path = MyCheckDineUIWeb/Assets/nativeResponse.js; sourceTree = "<group>"; };
+		85F22F375A502EB85D1CDBC20F40FED7 /* nativeResponse.js */ = {isa = PBXFileReference; includeInIndex = 1; name = nativeResponse.js; path = MyCheckDineUIWeb/Assets/nativeResponse.js; sourceTree = "<group>"; };
 		8855F9279586C66555B362E6236F97C7 /* Expectation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expectation.swift; path = Sources/Nimble/Expectation.swift; sourceTree = "<group>"; };
 		88850D6C57D136628B5CB399E9DC3EF0 /* Networking+VisaCheckout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Networking+VisaCheckout.swift"; path = "MyCheckWalletUI/Classes/VisaCheckout/Networking+VisaCheckout.swift"; sourceTree = "<group>"; };
 		88B185097351B24498AB141E731099B4 /* PaymentMethodInterface+getBackgroundImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "PaymentMethodInterface+getBackgroundImage.swift"; sourceTree = "<group>"; };
 		88E9493EF559513DA9CF3E1A1AE7B688 /* Kingfisher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Kingfisher.h; path = Sources/Kingfisher.h; sourceTree = "<group>"; };
-		89702EC805EB1B9F98ED28E464AFEC12 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89A27ACDC73EECC774BFA69CDDD853C2 /* MatcherProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatcherProtocols.swift; path = Sources/Nimble/Matchers/MatcherProtocols.swift; sourceTree = "<group>"; };
-		8A64D219B1B3D36ADA370072BF540E4A /* MyCheckCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyCheckCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B0228D4908FF95A6ECF342166B1FCA5 /* OrderHistoryItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OrderHistoryItem.swift; sourceTree = "<group>"; };
+		8A64D219B1B3D36ADA370072BF540E4A /* MyCheckCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MyCheckCore.framework; path = MyCheckCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BE187B425860C38F88D272487A72FA9 /* TrustDefender.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TrustDefender.framework; path = MyCheckWalletUI/Classes/VisaCheckout/frameworks/TrustDefender.framework; sourceTree = "<group>"; };
 		8C51363D397E1EF98880DCFD1C2B7F52 /* DSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DSL.swift; path = Sources/Nimble/DSL.swift; sourceTree = "<group>"; };
 		8C9AE4843C1DF590FF2F498FDCE7D3F0 /* String+JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+JSON.swift"; path = "MyCheckDineUIWeb/Classes/String+JSON.swift"; sourceTree = "<group>"; };
 		8CD8ACFE227A5FB396AFBEC62FC51F2B /* EndWith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EndWith.swift; path = Sources/Nimble/Matchers/EndWith.swift; sourceTree = "<group>"; };
 		8D2CC1E6BF900879B243D686B602ED0E /* Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kingfisher.swift; path = Sources/Kingfisher.swift; sourceTree = "<group>"; };
-		8F1F7A10833E6DEB31BA5925EE99F8AD /* MyCheckWalletUI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCheckWalletUI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F1F7A10833E6DEB31BA5925EE99F8AD /* MyCheckWalletUI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MyCheckWalletUI.bundle; path = MyCheckWalletUI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F5469975D887C75A91ED0A1A93E846C /* Dictionary+Append.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Dictionary+Append.swift"; sourceTree = "<group>"; };
 		937D8E95407E1A9DDCC2BFE06D643B8F /* ExampleGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExampleGroup.swift; path = Sources/Quick/ExampleGroup.swift; sourceTree = "<group>"; };
 		9380E60732D4D339B1F9C27516F8AC0E /* PaymentMethodInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PaymentMethodInterface.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		974FCF91AB77C371B154C924D07810B9 /* MCPaymentMethodsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MCPaymentMethodsViewController.swift; sourceTree = "<group>"; };
 		975627B87076CB12D15E2163C0A7C47F /* Expression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expression.swift; path = Sources/Nimble/Expression.swift; sourceTree = "<group>"; };
 		979A92F1DBB45C9A06B900F5D8875588 /* Image.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Sources/Image.swift; sourceTree = "<group>"; };
-		98304696ECC5FC516E0A221A5540D4A0 /* UserStatistics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserStatistics.swift; sourceTree = "<group>"; };
 		999724F99A317C4C7328FEB35E53BDF6 /* CwlCatchBadInstruction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CwlCatchBadInstruction.m; path = Sources/Lib/CwlPreconditionTesting/CwlPreconditionTesting/CwlCatchBadInstruction.m; sourceTree = "<group>"; };
-		9A01BEC25D53D5DEE404DE3F01927002 /* Order.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		9A97AE9503EDB8D33F07DB0F5688C495 /* VisaCheckoutFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VisaCheckoutFactory.swift; path = MyCheckWalletUI/Classes/VisaCheckout/VisaCheckoutFactory.swift; sourceTree = "<group>"; };
 		9B18010CFE75EA5A231C8D036969BA33 /* CreditCardValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreditCardValidator.swift; path = MyCheckWalletUI/Classes/CreditCardValidator.swift; sourceTree = "<group>"; };
+		9B7066515772A2085690729744700B1E /* MyCheckDine.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MyCheckDine.modulemap; sourceTree = "<group>"; };
 		9E6B5DAB36AC46BB5F30D854CACC6E43 /* AddMasterPassPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddMasterPassPresenter.swift; path = MyCheckWalletUI/Classes/MasterPass/AddMasterPassPresenter.swift; sourceTree = "<group>"; };
 		9EFE405C1B05D23FD4D0CC9C1637182E /* Pods-MyCheckDine_Example-emptyTargetForTesting-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MyCheckDine_Example-emptyTargetForTesting-acknowledgements.plist"; sourceTree = "<group>"; };
-		9F17B098E27EC47FC0EDCC129A722C6B /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F17B098E27EC47FC0EDCC129A722C6B /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Quick.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A02634F161FCD1E9166F5556D582BEDB /* BeginWith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeginWith.swift; path = Sources/Nimble/Matchers/BeginWith.swift; sourceTree = "<group>"; };
 		A0A8EEDF041005C2C820DB2EF6253E26 /* FormatIndicatedCacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormatIndicatedCacheSerializer.swift; path = Sources/FormatIndicatedCacheSerializer.swift; sourceTree = "<group>"; };
 		A15E099E7ED9EBF0172DD76422386AF1 /* Gloss-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gloss-prefix.pch"; sourceTree = "<group>"; };
@@ -828,9 +828,10 @@
 		A36E333702572F2A16B7BFAD374B673E /* Closures.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Closures.swift; path = Sources/Quick/Hooks/Closures.swift; sourceTree = "<group>"; };
 		A4F9CAAE5968C8B97968FB793C521293 /* HaveCount.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HaveCount.swift; path = Sources/Nimble/Matchers/HaveCount.swift; sourceTree = "<group>"; };
 		A52B115512A63441FA23DB6E356AC814 /* Callsite.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Callsite.swift; path = Sources/Quick/Callsite.swift; sourceTree = "<group>"; };
-		A5B84DE3ADF6C7DDE8ACAEAC16376974 /* callNative.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = callNative.js; path = MyCheckDineUIWeb/Assets/callNative.js; sourceTree = "<group>"; };
+		A5B84DE3ADF6C7DDE8ACAEAC16376974 /* callNative.js */ = {isa = PBXFileReference; includeInIndex = 1; name = callNative.js; path = MyCheckDineUIWeb/Assets/callNative.js; sourceTree = "<group>"; };
 		A6D43545E92542504579B4317B23728E /* NMBExceptionCapture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMBExceptionCapture.h; path = Sources/NimbleObjectiveC/NMBExceptionCapture.h; sourceTree = "<group>"; };
-		A7B31B5B3B0D90E1F8A0F0064D4A0312 /* Pods_MyCheckDine_Example_emptyTargetForTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCheckDine_Example_emptyTargetForTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7B31B5B3B0D90E1F8A0F0064D4A0312 /* Pods_MyCheckDine_Example_emptyTargetForTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MyCheckDine_Example_emptyTargetForTesting.framework; path = "Pods-MyCheckDine_Example-emptyTargetForTesting.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A82E4063662EE34F6AAC41D2E88E648F /* UserStatistics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserStatistics.swift; sourceTree = "<group>"; };
 		A843BDF978A13E88ECCC81ED3D173B3A /* AddMasterPassViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddMasterPassViewController.swift; path = MyCheckWalletUI/Classes/MasterPass/AddMasterPassViewController.swift; sourceTree = "<group>"; };
 		A8AAC2AA8CB8A49544CF162709474BAB /* PaymentMethodButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentMethodButton.swift; path = MyCheckWalletUI/Classes/PaymentMethodButton.swift; sourceTree = "<group>"; };
 		A96F2523540DC209C9CA94A05C39E10D /* ExampleMetadata.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExampleMetadata.swift; path = Sources/Quick/ExampleMetadata.swift; sourceTree = "<group>"; };
@@ -840,7 +841,7 @@
 		AB878FED5B7FDD9A957EA724625FD8DD /* Pods-MyCheckDine_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MyCheckDine_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AC56B25A9D49D9FB1A2C090FA9BDC6B7 /* QuickConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickConfiguration.m; path = Sources/QuickObjectiveC/Configuration/QuickConfiguration.m; sourceTree = "<group>"; };
 		AC7E9DAA38FEBD4FEB5F29CCBA838F9B /* NimbleXCTestHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NimbleXCTestHandler.swift; path = Sources/Nimble/Adapters/NimbleXCTestHandler.swift; sourceTree = "<group>"; };
-		AD1F0502D3F14DAEA9E66E28E26E30F3 /* Quick.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Quick.modulemap; sourceTree = "<group>"; };
+		AD1F0502D3F14DAEA9E66E28E26E30F3 /* Quick.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Quick.modulemap; sourceTree = "<group>"; };
 		AE1C2E0D727F3255AF2E9ADFE89EB4BF /* Pods-MyCheckDine_Example-emptyTargetForTesting-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MyCheckDine_Example-emptyTargetForTesting-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AF85869879E476F5EE71161A5475EC90 /* AdapterProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AdapterProtocols.swift; path = Sources/Nimble/Adapters/AdapterProtocols.swift; sourceTree = "<group>"; };
 		B00AAA513CEB01515F8787672A5A3C56 /* MasterPassFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MasterPassFactory.swift; path = MyCheckWalletUI/Classes/MasterPass/MasterPassFactory.swift; sourceTree = "<group>"; };
@@ -848,9 +849,8 @@
 		B0511D2E10F0D4D1DCCAFEA50A4846ED /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		B083D2B7E17C54D48412030988BBFE8C /* MCMasterPass.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = MCMasterPass.xcassets; path = MyCheckWalletUI/Assets/MCMasterPass.xcassets; sourceTree = "<group>"; };
 		B0A85E2CE49B22DE70A2E68A86146F6A /* LocalData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalData.swift; path = MyCheckWalletUI/Classes/LocalData.swift; sourceTree = "<group>"; };
-		B0E847EEEE0CA8623469AD6DD9E6382A /* Pods-MyCheckDine_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MyCheckDine_Example.modulemap"; sourceTree = "<group>"; };
-		B23EC9BAA15A59202F24C23037A77778 /* Pods-MyCheckDine_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MyCheckDine_Tests.modulemap"; sourceTree = "<group>"; };
-		B254BE001F82489500D956F4 /* BasicItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicItem.swift; sourceTree = "<group>"; };
+		B0E847EEEE0CA8623469AD6DD9E6382A /* Pods-MyCheckDine_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MyCheckDine_Example.modulemap"; sourceTree = "<group>"; };
+		B23EC9BAA15A59202F24C23037A77778 /* Pods-MyCheckDine_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MyCheckDine_Tests.modulemap"; sourceTree = "<group>"; };
 		B27D501D69A24BB1CE67FF50316F82FD /* Pods-MyCheckDine_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyCheckDine_Example-frameworks.sh"; sourceTree = "<group>"; };
 		B28DE6314B54F3258212935F33844094 /* MCAddCreditCardViewControllerModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MCAddCreditCardViewControllerModel.swift; sourceTree = "<group>"; };
 		B2D988F09D594A98781EFBBCDF5E2708 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -864,14 +864,12 @@
 		B60950A2D5E56A5A133289D6BF1BFC79 /* Configuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = Sources/Quick/Configuration/Configuration.swift; sourceTree = "<group>"; };
 		B650BC1A4C5BBC9FAEBFF560E34CB15B /* Pods-MyCheckDine_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyCheckDine_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B6EBD48E2138B4B6C74DF086F0E7F44F /* BeGreaterThanOrEqualTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeGreaterThanOrEqualTo.swift; path = Sources/Nimble/Matchers/BeGreaterThanOrEqualTo.swift; sourceTree = "<group>"; };
-		B8D4A7911383D6874F77739F23AED0FC /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8D4A7911383D6874F77739F23AED0FC /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kingfisher.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA0B3E7693E9BBD44A3B950C9C979840 /* OrderPollerManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OrderPollerManager.swift; sourceTree = "<group>"; };
 		BC51658316F73DD891BC98D5BF499736 /* MCAddCreditCardViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MCAddCreditCardViewController.swift; sourceTree = "<group>"; };
 		BC8B6C7F3B17C0E8A555168ECAFC350E /* AddCreditCardRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddCreditCardRouter.swift; sourceTree = "<group>"; };
 		BE57DA692D50B0BFDB365E7E957AD0BF /* Pods-MyCheckDine_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyCheckDine_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		BF389FDF3BF11FC43FE758A156630365 /* Delay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		BF7A2238B1B2356764F25DC3C5D7158F /* ThrowError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThrowError.swift; path = Sources/Nimble/Matchers/ThrowError.swift; sourceTree = "<group>"; };
-		C0E1B9CD9C93279C7144954DA72352FD /* OrderPoller.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OrderPoller.swift; path = MyCheckDine/Classes/OrderPoller.swift; sourceTree = "<group>"; };
-		C15F7F1C778E4038005D9E156A9BD3FA /* Dine+Order.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Dine+Order.swift"; sourceTree = "<group>"; };
 		C1D07EFFAC86990AE2634BDA2C6A93F1 /* MyCheckCore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MyCheckCore-prefix.pch"; sourceTree = "<group>"; };
 		C22494F2900B9B16818C0F7E3DA85006 /* Pods-MyCheckDine_Example-emptyTargetForTesting-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MyCheckDine_Example-emptyTargetForTesting-dummy.m"; sourceTree = "<group>"; };
 		C3C4189BE67B582AD95C2BF84806C235 /* MyCheckWalletUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyCheckWalletUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -879,24 +877,23 @@
 		C4465AB846E85D73828A4CD4DF61CAE4 /* Pods-MyCheckDine_Example-emptyTargetForTesting-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyCheckDine_Example-emptyTargetForTesting-resources.sh"; sourceTree = "<group>"; };
 		C4513D8E3BF1A3C7FD2B9DE687156AAD /* MyCheckDineUIWeb.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MyCheckDineUIWeb.xcconfig; sourceTree = "<group>"; };
 		C537291B323695FE717B5B92EDB74C86 /* Kingfisher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-umbrella.h"; sourceTree = "<group>"; };
+		C6758E1CDD929ADFFBB891E0A4765DFC /* Delay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		C822EAA618943A8C3F7BB3605A870CAB /* MyCheckDineUIWeb-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MyCheckDineUIWeb-umbrella.h"; sourceTree = "<group>"; };
 		C8F4951D63BE2E9D7C6E070264C6B14A /* ImageView+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ImageView+Kingfisher.swift"; path = "Sources/ImageView+Kingfisher.swift"; sourceTree = "<group>"; };
-		C8FE27A6E4C7D2B3A7288436AB26C54B /* MyCheckDine-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MyCheckDine-umbrella.h"; sourceTree = "<group>"; };
 		CA2B77733D211768F8A025FA53C7B32D /* NativeCallHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NativeCallHandler.swift; path = MyCheckDineUIWeb/Classes/NativeCallHandler.swift; sourceTree = "<group>"; };
-		CACDF9FC9ACF60B8067EB8C24626CFBF /* DiningFriend.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DiningFriend.swift; sourceTree = "<group>"; };
 		CAD8F372FBA3F914C3CF51CD869A528A /* VisaCheckoutButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VisaCheckoutButton.swift; path = MyCheckWalletUI/Classes/VisaCheckout/VisaCheckoutButton.swift; sourceTree = "<group>"; };
 		CB23B0CB2E1643380319CE863C09EAFB /* ApplePayCreditCardTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ApplePayCreditCardTypes.swift; path = MyCheckWalletUI/Classes/ApplePay/ApplePayCreditCardTypes.swift; sourceTree = "<group>"; };
 		CB73D755C8D187D874AB52A1753924DE /* BeGreaterThan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeGreaterThan.swift; path = Sources/Nimble/Matchers/BeGreaterThan.swift; sourceTree = "<group>"; };
 		CB78975B2A6DFE91C28891E453646D51 /* LocalData+VisaCheckout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "LocalData+VisaCheckout.swift"; path = "MyCheckWalletUI/Classes/VisaCheckout/LocalData+VisaCheckout.swift"; sourceTree = "<group>"; };
 		CBDD7E8398291AF9A473005ACC6842DD /* AddCreditCardPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddCreditCardPresenter.swift; sourceTree = "<group>"; };
 		CD045C13CD4F42D80B1F43F41A770E66 /* DSL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DSL.m; path = Sources/NimbleObjectiveC/DSL.m; sourceTree = "<group>"; };
-		CD0D81407B5A3105AC4E65E9756D2131 /* Gloss.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Gloss.modulemap; sourceTree = "<group>"; };
+		CD0D81407B5A3105AC4E65E9756D2131 /* Gloss.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Gloss.modulemap; sourceTree = "<group>"; };
 		CD8B53AEF6378E467BD6701638BB2F05 /* MyCheckWallet+VisaCheckout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MyCheckWallet+VisaCheckout.swift"; path = "MyCheckWalletUI/Classes/VisaCheckout/MyCheckWallet+VisaCheckout.swift"; sourceTree = "<group>"; };
-		CE80F28AF2A7AAF530579B5E8FC33DFB /* ProximaNovaSoftBold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = ProximaNovaSoftBold.ttf; path = MyCheckWalletUI/Assets/ProximaNovaSoftBold.ttf; sourceTree = "<group>"; };
+		CE80F28AF2A7AAF530579B5E8FC33DFB /* ProximaNovaSoftBold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = ProximaNovaSoftBold.ttf; path = MyCheckWalletUI/Assets/ProximaNovaSoftBold.ttf; sourceTree = "<group>"; };
 		CF295A2D39A6EDA6767623DE7D780961 /* ApplePayController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplePayController.swift; sourceTree = "<group>"; };
 		CF98E6698A1A4D961F7C2928056E7917 /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
 		CFC7DE720D8921E62E852412A0412DE5 /* CwlCatchException.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CwlCatchException.m; path = Sources/Lib/CwlPreconditionTesting/CwlCatchException/CwlCatchException/CwlCatchException.m; sourceTree = "<group>"; };
-		CFECF2DBF4B07D22B63E5D79B400D110 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFECF2DBF4B07D22B63E5D79B400D110 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Nimble.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09E2DF3A83AAF0D1F45E6807A2F765C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0B97BABB0DCE80B56258903DE4396FA /* AddMasterPassInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddMasterPassInteractor.swift; path = MyCheckWalletUI/Classes/MasterPass/AddMasterPassInteractor.swift; sourceTree = "<group>"; };
 		D163ABFCF64F3C6CE10350155F29F8D2 /* MyCheckWalletUI-MyCheckWalletUI-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MyCheckWalletUI-MyCheckWalletUI-Bridging-Header.h"; path = "MyCheckWalletUI/Classes/MyCheckWalletUI-MyCheckWalletUI-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -906,6 +903,7 @@
 		D27896BD5A8DEB79DBE2971D07A93EE0 /* MCCheckoutViewControllerPresenterPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MCCheckoutViewControllerPresenterPresenter.swift; sourceTree = "<group>"; };
 		D34EA035BF57600F491295BE639C619A /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/PassKit.framework; sourceTree = DEVELOPER_DIR; };
 		D4D922ADA9EB2E43F3B55B346EDC243E /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		D4DD1F10ABD6CC43BD2118CAFFA94E34 /* Dine+Order.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Dine+Order.swift"; sourceTree = "<group>"; };
 		D54CFA42A609890A49DD81B006F018E1 /* PaymentMethodFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentMethodFactory.swift; path = MyCheckWalletUI/Classes/PaymentMethodFactory.swift; sourceTree = "<group>"; };
 		D597C78C6B96E498DBEA49AD86B03609 /* HooksPhase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HooksPhase.swift; path = Sources/Quick/Hooks/HooksPhase.swift; sourceTree = "<group>"; };
 		D5A62188115AB1E84142523C877D197B /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Box.swift; sourceTree = "<group>"; };
@@ -914,7 +912,9 @@
 		D919933AA8E106C485ED1B52254A8557 /* Contain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Contain.swift; path = Sources/Nimble/Matchers/Contain.swift; sourceTree = "<group>"; };
 		D95FF4DA488D0A5F8715107E98BA93EE /* Example.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Example.swift; path = Sources/Quick/Example.swift; sourceTree = "<group>"; };
 		D963459144227904678767C049C07143 /* DineInWebViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DineInWebViewController.swift; path = MyCheckDineUIWeb/Classes/DineInWebViewController.swift; sourceTree = "<group>"; };
-		DCDE02DC1DB7E5C8FAADCFA017EFED8C /* MyCheckDine-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MyCheckDine-prefix.pch"; sourceTree = "<group>"; };
+		D9813FAD3E8689BB3F8E744412474EEC /* OrderHistoryItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OrderHistoryItem.swift; sourceTree = "<group>"; };
+		D9977E72E4EB574E117E3E2598271C68 /* BasicItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BasicItem.swift; sourceTree = "<group>"; };
+		D9D7975CF03463578499F56272115F5A /* PaymentDetails.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentDetails.swift; path = MyCheckDine/Classes/PaymentDetails.swift; sourceTree = "<group>"; };
 		DD7267A50D19D1F98D109B2D2D8ACFD2 /* MCCreditCardsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MCCreditCardsViewController.swift; sourceTree = "<group>"; };
 		DE3610792EBAD3B2D19DF9A880CE7017 /* QCKDSL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QCKDSL.h; path = Sources/QuickObjectiveC/DSL/QCKDSL.h; sourceTree = "<group>"; };
 		DE547891F69F9002CE0E15C2558DA670 /* Pods-MyCheckDine_Example-emptyTargetForTesting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MyCheckDine_Example-emptyTargetForTesting.debug.xcconfig"; sourceTree = "<group>"; };
@@ -943,12 +943,14 @@
 		F2767018B831E9148BB06FF225DE97EB /* Resource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/Resource.swift; sourceTree = "<group>"; };
 		F2F1762BE65899223E259C5182E1E90E /* SuiteHooks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SuiteHooks.swift; path = Sources/Quick/Hooks/SuiteHooks.swift; sourceTree = "<group>"; };
 		F314835FDC30016CF7F30588A0012D26 /* CacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CacheSerializer.swift; path = Sources/CacheSerializer.swift; sourceTree = "<group>"; };
-		F405D801C7957B37564AEA9FA83E57EB /* MyCheckWalletUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MyCheckWalletUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F405D801C7957B37564AEA9FA83E57EB /* MyCheckWalletUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MyCheckWalletUI.framework; path = MyCheckWalletUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4422E9A8E3A98594853BA8ECB3D9A75 /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
+		F6CDF7096608CD32B0981371A4C15570 /* MyCheckDine-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MyCheckDine-dummy.m"; sourceTree = "<group>"; };
 		F7CFFEBDA228B78B8BFE0067904DA73B /* Kingfisher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kingfisher-dummy.m"; sourceTree = "<group>"; };
+		F9A1449656F66E7E33865682A8EECE2E /* MyCheckDine-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MyCheckDine-umbrella.h"; sourceTree = "<group>"; };
 		FB7129C72C877756C7636375DF89E795 /* PaymentDetailsProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PaymentDetailsProtocol.swift; sourceTree = "<group>"; };
 		FBB36243F64B66F5C8FEEFA1D96B0DB2 /* MyCheckDineUIWeb-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MyCheckDineUIWeb-prefix.pch"; sourceTree = "<group>"; };
-		FBBED204D873C9ADA48C840B606D1FE7 /* test.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = test.html; path = MyCheckDineUIWeb/Assets/test.html; sourceTree = "<group>"; };
+		FBBED204D873C9ADA48C840B606D1FE7 /* test.html */ = {isa = PBXFileReference; includeInIndex = 1; name = test.html; path = MyCheckDineUIWeb/Assets/test.html; sourceTree = "<group>"; };
 		FD1C43B8DAA5902399036F584895B5DA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD1D05635259E6A7DE46C78DEB0CA0FF /* Pods-MyCheckDine_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyCheckDine_Tests-resources.sh"; sourceTree = "<group>"; };
 		FD503AC1BC575431982A81DEE837F43C /* MyCheckCore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MyCheckCore-umbrella.h"; sourceTree = "<group>"; };
@@ -1016,17 +1018,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DF3CF35D3FE0A4F9B85CFB162604042 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				54517A6C9A819AC5417C25A3641F0C4D /* Alamofire.framework in Frameworks */,
-				47CDC9A839BBB716DEE5EC933E68D9B7 /* Foundation.framework in Frameworks */,
-				7A439EC0E69783351523934E1FF037DD /* Gloss.framework in Frameworks */,
-				21118419706BEDA3D6A851E03BC1860B /* MyCheckCore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		95F0848058539B81931A41C8CC91ADBD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1041,6 +1032,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				73B9C996AED49ED7CF8EC2A6F1738059 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF8BB9091BFB6BD4865AC77E64FA9B1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EECC6BC3B0193DF729DAA4682C0D46BD /* Alamofire.framework in Frameworks */,
+				8D3E4F69D74F85D78D1F36B37E2DF0CC /* Foundation.framework in Frameworks */,
+				0D56BBCF74B6C7A9EB4F24B950F8A88F /* Gloss.framework in Frameworks */,
+				73CB330B34B1B342C5115161A5382947 /* MyCheckCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1187,27 +1189,19 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		1A5A96B71281D527B394B4E941897EAB /* Networking */ = {
+		2255B6CF72699CB15C44965728DC8F6A /* MyCheckDine */ = {
 			isa = PBXGroup;
 			children = (
-				C15F7F1C778E4038005D9E156A9BD3FA /* Dine+Order.swift */,
+				77EE8D6A7736C33BBF478F2221776D01 /* Dine.swift */,
+				D9D7975CF03463578499F56272115F5A /* PaymentDetails.swift */,
+				E8D9B689F2A9DDB339B9318517085E83 /* extenshions tools */,
+				86D34CC682DF6BAE8BE1CA8BE787F155 /* Networking */,
+				9CB87CEA81CA0A35E820023F493ED46D /* objects */,
+				DFF708BB4BEFB3C1592D0D5612AC3E6F /* OrderPoller */,
+				D521093A9FCE50AE44AC71F7B48D0E81 /* Support Files */,
 			);
-			name = Networking;
-			path = MyCheckDine/Classes/Networking;
-			sourceTree = "<group>";
-		};
-		2AB50A8847A8F207AD016FC82D3464AF /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				89702EC805EB1B9F98ED28E464AFEC12 /* Info.plist */,
-				31F78358959C8066BE3D42555EAAB694 /* MyCheckDine.modulemap */,
-				2F5076201EFA50DF74393523EC0205DB /* MyCheckDine.xcconfig */,
-				366B1C901E732D11E6ABD1281CB163A0 /* MyCheckDine-dummy.m */,
-				DCDE02DC1DB7E5C8FAADCFA017EFED8C /* MyCheckDine-prefix.pch */,
-				C8FE27A6E4C7D2B3A7288436AB26C54B /* MyCheckDine-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/MyCheckDine";
+			name = MyCheckDine;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		2D84CA3664C023CA9F44DA954015A0F8 /* Core */ = {
@@ -1335,6 +1329,7 @@
 				7760BF10F293D29DFAACF13233F27FFC /* UIButton+Kingfisher.swift */,
 				11D0755BDDC7772DFA108CD9ABCAE743 /* Support Files */,
 			);
+			name = Kingfisher;
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
@@ -1364,6 +1359,7 @@
 				7A2EDA2262CCBBAE461DC07C67946D6F /* Operators.swift */,
 				387862CD4986CFF9BEF598C0AAB0F763 /* Support Files */,
 			);
+			name = Gloss;
 			path = Gloss;
 			sourceTree = "<group>";
 		};
@@ -1378,6 +1374,7 @@
 				400B044B46A72AAFC7D6044140D92925 /* MCAddCreditCardViewControllerState.swift */,
 				8CBAFBBDC3A52C23C271045E5398437C /* presenters */,
 			);
+			name = MCAddCreditCardViewController;
 			path = MCAddCreditCardViewController;
 			sourceTree = "<group>";
 		};
@@ -1396,7 +1393,7 @@
 			isa = PBXGroup;
 			children = (
 				51578F0DB3F7506AEC8184CC3692C120 /* MyCheckCore */,
-				FB57BCE00F09A3122F359CB960B713FA /* MyCheckDine */,
+				2255B6CF72699CB15C44965728DC8F6A /* MyCheckDine */,
 				0CF50313D87F8D80B18530EC591760F7 /* MyCheckDineUIWeb */,
 				75A1D9B24F0FA560021A51479605518F /* MyCheckWalletUI */,
 			);
@@ -1497,7 +1494,17 @@
 				E5086FB41FEB287F6E2A5B28FA3810A3 /* XCTestObservationCenter+Register.m */,
 				65B21B3795F6C074BB2AFDBF72199F41 /* Support Files */,
 			);
+			name = Nimble;
 			path = Nimble;
+			sourceTree = "<group>";
+		};
+		86D34CC682DF6BAE8BE1CA8BE787F155 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D4DD1F10ABD6CC43BD2118CAFFA94E34 /* Dine+Order.swift */,
+			);
+			name = Networking;
+			path = MyCheckDine/Classes/Networking;
 			sourceTree = "<group>";
 		};
 		8CBAFBBDC3A52C23C271045E5398437C /* presenters */ = {
@@ -1506,21 +1513,8 @@
 				CBDD7E8398291AF9A473005ACC6842DD /* AddCreditCardPresenter.swift */,
 				D27896BD5A8DEB79DBE2971D07A93EE0 /* MCCheckoutViewControllerPresenterPresenter.swift */,
 			);
+			name = presenters;
 			path = presenters;
-			sourceTree = "<group>";
-		};
-		8D479F4D1EDB671AC17AB95D465C6950 /* objects */ = {
-			isa = PBXGroup;
-			children = (
-				CACDF9FC9ACF60B8067EB8C24626CFBF /* DiningFriend.swift */,
-				0452B5002F4C7F990F355CE9DEE3D02E /* Item.swift */,
-				9A01BEC25D53D5DEE404DE3F01927002 /* Order.swift */,
-				8B0228D4908FF95A6ECF342166B1FCA5 /* OrderHistoryItem.swift */,
-				98304696ECC5FC516E0A221A5540D4A0 /* UserStatistics.swift */,
-				B254BE001F82489500D956F4 /* BasicItem.swift */,
-			);
-			name = objects;
-			path = MyCheckDine/Classes/objects;
 			sourceTree = "<group>";
 		};
 		99C93B9BF3D2C414621304D5D6E54234 /* Frameworks */ = {
@@ -1535,6 +1529,20 @@
 				CC1B7657E4A93A8F37CDE8590CBB444C /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9CB87CEA81CA0A35E820023F493ED46D /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				D9977E72E4EB574E117E3E2598271C68 /* BasicItem.swift */,
+				32B622636702B3FB8E86CB6A11A9A0B5 /* DiningFriend.swift */,
+				2744F3E6CE8332E84F4FCC2CBF056146 /* Item.swift */,
+				6A254E0C41B5C139E36086ECD4D008B1 /* Order.swift */,
+				D9813FAD3E8689BB3F8E744412474EEC /* OrderHistoryItem.swift */,
+				A82E4063662EE34F6AAC41D2E88E648F /* UserStatistics.swift */,
+			);
+			name = objects;
+			path = MyCheckDine/Classes/objects;
 			sourceTree = "<group>";
 		};
 		9F3E90CC9FDF37947D6D1496B95D2C72 /* MasterPass */ = {
@@ -1632,16 +1640,6 @@
 			path = MyCheckCore/Classes/models;
 			sourceTree = "<group>";
 		};
-		B8F46EC932C60938F9215C65C1384B88 /* extenshions tools */ = {
-			isa = PBXGroup;
-			children = (
-				BF389FDF3BF11FC43FE758A156630365 /* Delay.swift */,
-				1439C6795C237B05923C673180DE486C /* Dictionary+Append.swift */,
-			);
-			name = "extenshions tools";
-			path = "MyCheckDine/Classes/extenshions tools";
-			sourceTree = "<group>";
-		};
 		C0E161FC7AED4539D0893DDB7D7CC833 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1728,6 +1726,7 @@
 				EDCD97CCDA7FB17464CF395B38F9E34E /* Validation.swift */,
 				A4D9E7F1F4666E5BBD2EB75EE184FE65 /* Support Files */,
 			);
+			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1738,6 +1737,20 @@
 				68DC39B0B179D944034588383F3CBBD2 /* VisaCheckoutSDK.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D521093A9FCE50AE44AC71F7B48D0E81 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				60BF95CC337D90E0B5FE9C353269C589 /* Info.plist */,
+				9B7066515772A2085690729744700B1E /* MyCheckDine.modulemap */,
+				07A17E206076A4C9CAF320BD43971559 /* MyCheckDine.xcconfig */,
+				F6CDF7096608CD32B0981371A4C15570 /* MyCheckDine-dummy.m */,
+				45D8F467A3798AB8F90BE92CF0179ACA /* MyCheckDine-prefix.pch */,
+				F9A1449656F66E7E33865682A8EECE2E /* MyCheckDine-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/MyCheckDine";
 			sourceTree = "<group>";
 		};
 		DCEE69E01906B8649C822148657D9BA8 /* Pods-MyCheckDine_Tests */ = {
@@ -1803,7 +1816,28 @@
 				616195CC2112062592BC1CB203E7D28E /* XCTestSuite+QuickTestSuiteBuilder.m */,
 				030C72F7D61CD38E3EAA860FDF4C25EC /* Support Files */,
 			);
+			name = Quick;
 			path = Quick;
+			sourceTree = "<group>";
+		};
+		DFF708BB4BEFB3C1592D0D5612AC3E6F /* OrderPoller */ = {
+			isa = PBXGroup;
+			children = (
+				0A58035D4DF0FE764A4706BE03393BC1 /* OrderPoller.swift */,
+				BA0B3E7693E9BBD44A3B950C9C979840 /* OrderPollerManager.swift */,
+			);
+			name = OrderPoller;
+			path = MyCheckDine/Classes/OrderPoller;
+			sourceTree = "<group>";
+		};
+		E8D9B689F2A9DDB339B9318517085E83 /* extenshions tools */ = {
+			isa = PBXGroup;
+			children = (
+				C6758E1CDD929ADFFBB891E0A4765DFC /* Delay.swift */,
+				0D44875465A20C96243DEAE41B556302 /* Dictionary+Append.swift */,
+			);
+			name = "extenshions tools";
+			path = "MyCheckDine/Classes/extenshions tools";
 			sourceTree = "<group>";
 		};
 		FA9FB5666A5A920C1795EDD8DB332073 /* extensionTools */ = {
@@ -1830,21 +1864,6 @@
 			path = MyCheckDineUIWeb/Classes/JSONBuilders;
 			sourceTree = "<group>";
 		};
-		FB57BCE00F09A3122F359CB960B713FA /* MyCheckDine */ = {
-			isa = PBXGroup;
-			children = (
-				406B178A9CD556091813260C407337D3 /* Dine.swift */,
-				C0E1B9CD9C93279C7144954DA72352FD /* OrderPoller.swift */,
-				193403086358459C3CAEDCFCFD6E13FD /* PaymentDetails.swift */,
-				B8F46EC932C60938F9215C65C1384B88 /* extenshions tools */,
-				1A5A96B71281D527B394B4E941897EAB /* Networking */,
-				8D479F4D1EDB671AC17AB95D465C6950 /* objects */,
-				2AB50A8847A8F207AD016FC82D3464AF /* Support Files */,
-			);
-			name = MyCheckDine;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		FF26DFD96238A7007C2B3A79A9DB4C0D /* Pods-MyCheckDine_Example-emptyTargetForTesting */ = {
 			isa = PBXGroup;
 			children = (
@@ -1866,6 +1885,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		2763CED5802A2F86282A004C29A75437 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AF75E79D4C2AB549B66595CA8874547 /* MyCheckDine-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		29D68F507C2AFFFDC8E238A3B0852A36 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1939,14 +1966,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB0E99084D46D400F461568262FA6BC5 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2B198B8C9BACF732B550D64A847F4466 /* MyCheckDine-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B4002B6E97835FDCCAA5963EFE09A3E0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1982,26 +2001,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		10E937FF3BC4C1C1D1F990CCCCFB8353 /* MyCheckDine */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F3D1A8AB4F95346B97C2F531650A6E75 /* Build configuration list for PBXNativeTarget "MyCheckDine" */;
-			buildPhases = (
-				CF7AFF645DF47FB3E99C020B41D3AD5D /* Sources */,
-				6DF3CF35D3FE0A4F9B85CFB162604042 /* Frameworks */,
-				AB0E99084D46D400F461568262FA6BC5 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A5731C767AC184D69966710266FF1C55 /* PBXTargetDependency */,
-				4F2520A0E2A82CE65564702215A95314 /* PBXTargetDependency */,
-				3C3112F6DE7B5E38BCF7B162BA62FB9C /* PBXTargetDependency */,
-			);
-			name = MyCheckDine;
-			productName = MyCheckDine;
-			productReference = 7D0EBDD2DED0CB1F2300883C40CB7090 /* MyCheckDine.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		1321E318D10CFDC9F5B93A7952492CCD /* Nimble */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1DBAFB75A3AF98C8C6B0863BDC7A2E3 /* Build configuration list for PBXNativeTarget "Nimble" */;
@@ -2117,6 +2116,26 @@
 			name = Kingfisher;
 			productName = Kingfisher;
 			productReference = B8D4A7911383D6874F77739F23AED0FC /* Kingfisher.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7AA1F26D9E1C3EAC1E5ACE9BA0414990 /* MyCheckDine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB2E3A41C1F855C0B2BC828A9AA3F13A /* Build configuration list for PBXNativeTarget "MyCheckDine" */;
+			buildPhases = (
+				F9E57F4805EE0FB802D92CE7F989E6CC /* Sources */,
+				AF8BB9091BFB6BD4865AC77E64FA9B1F /* Frameworks */,
+				2763CED5802A2F86282A004C29A75437 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88AF7DCD02F51AD515C0363791567F71 /* PBXTargetDependency */,
+				7E25318AA6394B672479818A4A98DF47 /* PBXTargetDependency */,
+				6F8A3095A96F3D8CE903AD0A4000602F /* PBXTargetDependency */,
+			);
+			name = MyCheckDine;
+			productName = MyCheckDine;
+			productReference = 7D0EBDD2DED0CB1F2300883C40CB7090 /* MyCheckDine.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		80C7256A7C2CDD2044F526A7C63C7039 /* Pods-MyCheckDine_Example */ = {
@@ -2285,7 +2304,7 @@
 				40E7477AD67135868F5FB08136602674 /* Gloss */,
 				6F712943B3C5592E82604940D11CE08A /* Kingfisher */,
 				CD76A57AA059433A689D7C8FAF507C36 /* MyCheckCore */,
-				10E937FF3BC4C1C1D1F990CCCCFB8353 /* MyCheckDine */,
+				7AA1F26D9E1C3EAC1E5ACE9BA0414990 /* MyCheckDine */,
 				2565E47875828531CB3EE10DB8CB16A4 /* MyCheckDineUIWeb */,
 				242CDBC97DEEF3F7FF4C2911C7E24699 /* MyCheckDineUIWeb-MyCheckDineUIWeb */,
 				AB345C499607B9D62F35883CFAFCA8D4 /* MyCheckWalletUI */,
@@ -2580,26 +2599,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CF7AFF645DF47FB3E99C020B41D3AD5D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B3261EBD0BCAAD774070DA0DF4D1A4C9 /* Delay.swift in Sources */,
-				F2BBEEC0D0880D023F5E21EAF3D5B1BB /* Dictionary+Append.swift in Sources */,
-				8DEAEEE46CBA78E10B7AB9789E20225E /* Dine+Order.swift in Sources */,
-				B254BE011F82489600D956F4 /* BasicItem.swift in Sources */,
-				0E5EEC4177E2EB6913EA04CDFA17F1BE /* Dine.swift in Sources */,
-				8650F44095F77148444ECE5D0108E2AB /* DiningFriend.swift in Sources */,
-				6FB7C00F4ADA8BD81F84E648C8462B88 /* Item.swift in Sources */,
-				7E7E5A8BF21450934028CD971FBEEDC4 /* MyCheckDine-dummy.m in Sources */,
-				E8D5AD7CEF34011508066BF2FA9E56F6 /* Order.swift in Sources */,
-				E2773F33EA119D0E9964016D9A97F734 /* OrderHistoryItem.swift in Sources */,
-				8E211DE5CBB9634C264451B659357CD2 /* OrderPoller.swift in Sources */,
-				C4CA29B67DF1050AB773D654DF336EE7 /* PaymentDetails.swift in Sources */,
-				B61F129F116917A892CE3883CCE68B12 /* UserStatistics.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D1078190021CE4E03F9858C308367E08 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2638,6 +2637,27 @@
 				469DF9F6F4A606FEB6F740F450C7F264 /* Session.swift in Sources */,
 				89387A065C3DF09CAA1CAB49295CD1BD /* SessionProtocol.swift in Sources */,
 				488FAD794A87ED46AD12FAD1C4AFE454 /* String+IsNumber.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9E57F4805EE0FB802D92CE7F989E6CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37E4DAC7EF11494EBCC9B4DC3D80FC56 /* BasicItem.swift in Sources */,
+				BB56D80023E1B844EDC304FAA23D7D5D /* Delay.swift in Sources */,
+				6E5A515DB8CCD32B502773120CD9CFCF /* Dictionary+Append.swift in Sources */,
+				CCB91B979C8C874EC60E0B17187A5532 /* Dine+Order.swift in Sources */,
+				3F277E0E3D2B77039D8B0D6C541CDCE2 /* Dine.swift in Sources */,
+				15E7D2353FDD728E2B75D499621B7C43 /* DiningFriend.swift in Sources */,
+				5FAD2EEF69D83497FE5AA20E0F541791 /* Item.swift in Sources */,
+				13F6BA41E82539C4A2CDEDCFE12B3214 /* MyCheckDine-dummy.m in Sources */,
+				715B86D6BF3F6DBAC3F77C1E1FF42761 /* Order.swift in Sources */,
+				8C29864F178127CA4A6E05909931274D /* OrderHistoryItem.swift in Sources */,
+				6DAD3700B4E205B38D689C0FFE81F95C /* OrderPoller.swift in Sources */,
+				DDE40EDB7FDF873C2664D34420950745 /* OrderPollerManager.swift in Sources */,
+				BA3A791FEF1B25358DC016EC9B16FCA3 /* PaymentDetails.swift in Sources */,
+				7F9ED6EDF7244A7FE6774EBC57FA6CF3 /* UserStatistics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2712,12 +2732,6 @@
 			target = CD76A57AA059433A689D7C8FAF507C36 /* MyCheckCore */;
 			targetProxy = B727D40D38E6F3DAB6CF4B0E0F528874 /* PBXContainerItemProxy */;
 		};
-		3C3112F6DE7B5E38BCF7B162BA62FB9C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MyCheckCore;
-			target = CD76A57AA059433A689D7C8FAF507C36 /* MyCheckCore */;
-			targetProxy = 1B89E6EC605525ABF56F1A10C838B58E /* PBXContainerItemProxy */;
-		};
 		3CB199681B931840CDACD0DE6F83C022 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
@@ -2733,7 +2747,7 @@
 		41977302CBA67EFAAE3D722D077203D5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MyCheckDine;
-			target = 10E937FF3BC4C1C1D1F990CCCCFB8353 /* MyCheckDine */;
+			target = 7AA1F26D9E1C3EAC1E5ACE9BA0414990 /* MyCheckDine */;
 			targetProxy = C3A8B953E7AB17A5AE03E3CBC6B991A3 /* PBXContainerItemProxy */;
 		};
 		476A50EF0D5E74BE3092873244EA9C86 /* PBXTargetDependency */ = {
@@ -2753,12 +2767,6 @@
 			name = Kingfisher;
 			target = 6F712943B3C5592E82604940D11CE08A /* Kingfisher */;
 			targetProxy = EE97FC92C5F83AC42E67E1055A579440 /* PBXContainerItemProxy */;
-		};
-		4F2520A0E2A82CE65564702215A95314 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Gloss;
-			target = 40E7477AD67135868F5FB08136602674 /* Gloss */;
-			targetProxy = 7BB151C3F5DE4FEC932095056485B236 /* PBXContainerItemProxy */;
 		};
 		536D019AD5FA2A7EE9A7209268F48816 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2793,7 +2801,7 @@
 		69DDF56F48374097DCFEEB5B2067F565 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MyCheckDine;
-			target = 10E937FF3BC4C1C1D1F990CCCCFB8353 /* MyCheckDine */;
+			target = 7AA1F26D9E1C3EAC1E5ACE9BA0414990 /* MyCheckDine */;
 			targetProxy = FE703CEA65580355F7F76E3BB4A6A594 /* PBXContainerItemProxy */;
 		};
 		6C7B01878F15129F32F06F69A136D1BA /* PBXTargetDependency */ = {
@@ -2801,6 +2809,12 @@
 			name = Alamofire;
 			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
 			targetProxy = 15BB126477F7C337BA04912A3B029362 /* PBXContainerItemProxy */;
+		};
+		6F8A3095A96F3D8CE903AD0A4000602F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MyCheckCore;
+			target = CD76A57AA059433A689D7C8FAF507C36 /* MyCheckCore */;
+			targetProxy = 7B8E051DEEE0C4FC80974E6295DCB1EB /* PBXContainerItemProxy */;
 		};
 		74362F2E5842342DDCBF7002FA71D09B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2820,6 +2834,18 @@
 			target = 40E7477AD67135868F5FB08136602674 /* Gloss */;
 			targetProxy = 984BD2E0F89479BD7F04D09B956CF8CB /* PBXContainerItemProxy */;
 		};
+		7E25318AA6394B672479818A4A98DF47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Gloss;
+			target = 40E7477AD67135868F5FB08136602674 /* Gloss */;
+			targetProxy = A0853D38B87E987A8A2A0F031AE74D9D /* PBXContainerItemProxy */;
+		};
+		88AF7DCD02F51AD515C0363791567F71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
+			targetProxy = BB3EE944F99F65DF0B5878297DAE28D5 /* PBXContainerItemProxy */;
+		};
 		8A1FD317AF9B85B5EAAAD00CC44A7D6E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MyCheckDineUIWeb;
@@ -2837,12 +2863,6 @@
 			name = MyCheckWalletUI;
 			target = AB345C499607B9D62F35883CFAFCA8D4 /* MyCheckWalletUI */;
 			targetProxy = BC64CC43227B1BAA33D8A3C3E4705746 /* PBXContainerItemProxy */;
-		};
-		A5731C767AC184D69966710266FF1C55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Alamofire;
-			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
-			targetProxy = 683BFA4B1B1AE2242820050AB10F4DE7 /* PBXContainerItemProxy */;
 		};
 		A7A1803C9576C9645C0C4A832850F088 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2871,7 +2891,7 @@
 		BF573C7692EFC93FEBE717FEBE08CDCF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MyCheckDine;
-			target = 10E937FF3BC4C1C1D1F990CCCCFB8353 /* MyCheckDine */;
+			target = 7AA1F26D9E1C3EAC1E5ACE9BA0414990 /* MyCheckDine */;
 			targetProxy = 6514FDE974F9248132A07719DAF2D35E /* PBXContainerItemProxy */;
 		};
 		C0F1F4C37C4FF32BDF2790D552C78333 /* PBXTargetDependency */ = {
@@ -2907,7 +2927,7 @@
 		FBD9F69D62B6659BC8212ABC6E72B2AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MyCheckDine;
-			target = 10E937FF3BC4C1C1D1F990CCCCFB8353 /* MyCheckDine */;
+			target = 7AA1F26D9E1C3EAC1E5ACE9BA0414990 /* MyCheckDine */;
 			targetProxy = 61149D714F57A5A4CCE53CF39BA37A6C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -3060,6 +3080,41 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		13B5A3F5620D96762E6C20C2282624F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07A17E206076A4C9CAF320BD43971559 /* MyCheckDine.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MyCheckDine/MyCheckDine-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MyCheckDine/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MyCheckDine/MyCheckDine.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MyCheckDine;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		154B124413ABF61AEB1C53D3BF6E5DF4 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -3407,41 +3462,6 @@
 			};
 			name = Debug;
 		};
-		65A42A01A4D255ED559092485F10D0C6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F5076201EFA50DF74393523EC0205DB /* MyCheckDine.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MyCheckDine/MyCheckDine-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MyCheckDine/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MyCheckDine/MyCheckDine.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = MyCheckDine;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		74D6889F15D9BB8BDBD0482541FF4909 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1475F3C04B87487AB5715984E3803D20 /* MyCheckWalletUI.xcconfig */;
@@ -3597,6 +3617,41 @@
 			};
 			name = Debug;
 		};
+		9D5C2196C66AD30C2B0970CB596D51EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07A17E206076A4C9CAF320BD43971559 /* MyCheckDine.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MyCheckDine/MyCheckDine-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MyCheckDine/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MyCheckDine/MyCheckDine.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = MyCheckDine;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		ABF468BCC793628F7880AAC8EEBFCD2C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1475F3C04B87487AB5715984E3803D20 /* MyCheckWalletUI.xcconfig */;
@@ -3621,41 +3676,6 @@
 				MODULEMAP_FILE = "Target Support Files/MyCheckWalletUI/MyCheckWalletUI.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = MyCheckWalletUI;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B71D99DD3C5F1C7658F196824928B335 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F5076201EFA50DF74393523EC0205DB /* MyCheckDine.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MyCheckDine/MyCheckDine-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MyCheckDine/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MyCheckDine/MyCheckDine.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = MyCheckDine;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -4041,6 +4061,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		CB2E3A41C1F855C0B2BC828A9AA3F13A /* Build configuration list for PBXNativeTarget "MyCheckDine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D5C2196C66AD30C2B0970CB596D51EF /* Debug */,
+				13B5A3F5620D96762E6C20C2282624F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D36B352263F5F2D9FEEBF17445ED5623 /* Build configuration list for PBXNativeTarget "Pods-MyCheckDine_Example-emptyTargetForTesting" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -4064,15 +4093,6 @@
 			buildConfigurations = (
 				D41F18FC44CED5EBD67DDC882C25F028 /* Debug */,
 				825ACFF2086F704A86B8FEF66B48FEF8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F3D1A8AB4F95346B97C2F531650A6E75 /* Build configuration list for PBXNativeTarget "MyCheckDine" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				65A42A01A4D255ED559092485F10D0C6 /* Debug */,
-				B71D99DD3C5F1C7658F196824928B335 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

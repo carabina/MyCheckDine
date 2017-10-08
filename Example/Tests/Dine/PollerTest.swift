@@ -80,8 +80,8 @@ class PollerTest: QuickSpec {
                 let request = requestAndExpectedResult[i].0
                 Dine.shared.network = request
                 
-                let poller = OrderPoller()
-                poller.delayer = DelayMock(callback: { _ in
+                let poller = Dine.shared.createNewPoller(delegate: self)
+                Dine.shared.pollerManager.delayer = DelayMock(callback: { _ in
                     print("running test #\(i)")
                     //Assert
                     let expected: OrderPollerDelegateResponse? = requestAndExpectedResult[i].1
@@ -108,7 +108,6 @@ class PollerTest: QuickSpec {
                 })
 
                 //act
-                poller.delegate = self
                 
                 poller.startPolling()
                 

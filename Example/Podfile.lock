@@ -4,28 +4,32 @@ PODS:
   - Kingfisher (3.13.1)
   - MyCheckCore (1.0.1):
     - Alamofire (~> 4.0)
-  - MyCheckDine (1.2.2):
+  - MyCheckDine (1.2.4):
     - Gloss (~> 1.1)
     - MyCheckCore
-  - MyCheckDineUIWeb (0.0.1):
+  - MyCheckDineUIWeb (1.0.2):
+    - MyCheckCore
     - MyCheckDine
     - MyCheckWalletUI
-  - MyCheckWalletUI (1.0.4):
+    - MyCheckWalletUI/ApplePay
+    - MyCheckWalletUI/MasterPass
+    - MyCheckWalletUI/VisaCheckout
+  - MyCheckWalletUI (1.0.5):
     - Kingfisher (~> 3.0)
     - MyCheckCore (~> 1.0.1)
-    - MyCheckWalletUI/Core (= 1.0.4)
-  - MyCheckWalletUI/ApplePay (1.0.4):
-    - Kingfisher (~> 3.0)
-    - MyCheckCore (~> 1.0.1)
-    - MyCheckWalletUI/Core
-  - MyCheckWalletUI/Core (1.0.4):
-    - Kingfisher (~> 3.0)
-    - MyCheckCore (~> 1.0.1)
-  - MyCheckWalletUI/MasterPass (1.0.4):
+    - MyCheckWalletUI/Core (= 1.0.5)
+  - MyCheckWalletUI/ApplePay (1.0.5):
     - Kingfisher (~> 3.0)
     - MyCheckCore (~> 1.0.1)
     - MyCheckWalletUI/Core
-  - MyCheckWalletUI/VisaCheckout (1.0.4):
+  - MyCheckWalletUI/Core (1.0.5):
+    - Kingfisher (~> 3.0)
+    - MyCheckCore (~> 1.0.1)
+  - MyCheckWalletUI/MasterPass (1.0.5):
+    - Kingfisher (~> 3.0)
+    - MyCheckCore (~> 1.0.1)
+    - MyCheckWalletUI/Core
+  - MyCheckWalletUI/VisaCheckout (1.0.5):
     - Kingfisher (~> 3.0)
     - MyCheckCore (~> 1.0.1)
     - MyCheckWalletUI/Core
@@ -58,9 +62,9 @@ SPEC CHECKSUMS:
   Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
   Kingfisher: ed9707a409cc47fddafbcd12a43a9757e3600af5
   MyCheckCore: cd8e3ade37dd0591cef3572cfcfa662ec76724f9
-  MyCheckDine: 69d00f62e1f9d58abe92df1329cd8aab00e0b955
-  MyCheckDineUIWeb: a6f3132629f51a3781e348b7eb97fe3b4da103de
-  MyCheckWalletUI: 004221363c8ad44574b0fb74e42d3f50f4f88387
+  MyCheckDine: a4547c4193d84ce79b6fbf288993ba75e06e5f98
+  MyCheckDineUIWeb: 6ff65a3a15d07ef886f5bce2dcc8fb95e40c5b93
+  MyCheckWalletUI: 464754a8150784a9ae69465043559d0e48349cd3
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
 

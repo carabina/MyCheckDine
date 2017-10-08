@@ -45,13 +45,12 @@ class DineInViewController: UITableViewController {
     
     let byAmountSeg = 0
     let byItemsSeg = 1
-    
-    
+  var poller : OrderPoller?
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Dine.shared.poller.delegate = self
-        
+      poller = Dine.shared.createNewPoller(delegate: self)
+      
         //setting default values
         restaurantIdField.text = UserDefaults.standard.string(forKey: "BID")
         
@@ -65,7 +64,7 @@ class DineInViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        pollingSwitch.isOn = Dine.shared.poller.isPolling()
+        pollingSwitch.isOn = poller!.isPolling()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -129,7 +128,7 @@ class DineInViewController: UITableViewController {
     
     @IBAction func pollingSwitched(_ sender: UISwitch) {
         sender.isOn ?
-            Dine.shared.poller.startPolling() : Dine.shared.poller.stopPolling()
+           poller?.startPolling() : poller?.stopPolling()
     }
     @IBAction func payPressed(_ sender: Any) {
         //getting payment method
