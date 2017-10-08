@@ -44,7 +44,7 @@ extension Dine{
             
             
         success(order)
-            self.poller.order = order // updating the poller with the latest order details
+            self.pollerManager.order = order // updating the poller with the latest order details
 
       }, fail: fail)
     }else{
