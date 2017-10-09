@@ -1,90 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Structs  Reference</title>
-    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
-    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <title>BasicItem Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
-    <script src="js/jquery.min.js" defer></script>
-    <script src="js/jazzy.js" defer></script>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
     
   </head>
   <body>
-    <a title="Structs  Reference"></a>
+    <a name="//apple_ref/swift/Class/BasicItem" class="dashAnchor"></a>
+    <a title="BasicItem Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">MyCheckDine Docs</a> (83% documented)</p>
+        <p><a href="../index.html">MyCheckDine Docs</a> (83% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
-        <a href="index.html">MyCheckDine Reference</a>
-        <img id="carat" src="img/carat.png" />
-        Structs  Reference
+        <a href="../index.html">MyCheckDine Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        BasicItem Class Reference
       </p>
     </div>
     <div class="content-wrapper">
       <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a href="Classes.html">Classes</a>
+            <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/BasicItem.html">BasicItem</a>
+                <a href="../Classes/BasicItem.html">BasicItem</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Dine.html">Dine</a>
+                <a href="../Classes/Dine.html">Dine</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Item.html">Item</a>
+                <a href="../Classes/Item.html">Item</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Order.html">Order</a>
+                <a href="../Classes/Order.html">Order</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/OrderPoller.html">OrderPoller</a>
+                <a href="../Classes/OrderPoller.html">OrderPoller</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Enums.html">Enums</a>
+            <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/Status.html">Status</a>
+                <a href="../Enums/Status.html">Status</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Protocols.html">Protocols</a>
+            <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Protocols/OrderPollerDelegate.html">OrderPollerDelegate</a>
+                <a href="../Protocols/OrderPollerDelegate.html">OrderPollerDelegate</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Structs.html">Structs</a>
+            <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Structs/Bill.html">Bill</a>
+                <a href="../Structs/Bill.html">Bill</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs.html#/s:V11MyCheckDine16OrderHistoryItem">OrderHistoryItem</a>
+                <a href="../Structs.html#/s:V11MyCheckDine16OrderHistoryItem">OrderHistoryItem</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/PaymentDetails.html">PaymentDetails</a>
+                <a href="../Structs/PaymentDetails.html">PaymentDetails</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/Settings.html">Settings</a>
+                <a href="../Structs/Settings.html">Settings</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/TaxSettings.html">TaxSettings</a>
+                <a href="../Structs/TaxSettings.html">TaxSettings</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs.html#/s:V11MyCheckDine14UserStatistics">UserStatistics</a>
+                <a href="../Structs.html#/s:V11MyCheckDine14UserStatistics">UserStatistics</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/UserSummary.html">UserSummary</a>
+                <a href="../Structs/UserSummary.html">UserSummary</a>
               </li>
             </ul>
           </li>
@@ -93,8 +94,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Structs</h1>
-            <p>The following structs are available globally.</p>
+            <h1>BasicItem</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">BasicItem</span><span class="p">:</span> <span class="kt">NSObject</span> <span class="p">,</span> <span class="kt">Decodable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents A single item in an order , or a modifier of an item.</p>
 
           </section>
           <section class="section task-group-section">
@@ -103,9 +110,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V11MyCheckDine4Bill"></a>
-                    <a name="//apple_ref/swift/Struct/Bill" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V11MyCheckDine4Bill">Bill</a>
+                    <a name="/s:vC11MyCheckDine9BasicItem2IdSi"></a>
+                    <a name="//apple_ref/swift/Property/Id" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11MyCheckDine9BasicItem2IdSi">Id</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -113,15 +120,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Holds the information about the tax in the currant order.</p>
+                        <p>The Id of the item.</p>
 
-                        <a href="Structs/Bill.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Bill</span></code></pre>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">let</span> <span class="nv">Id</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -131,9 +137,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V11MyCheckDine11UserSummary"></a>
-                    <a name="//apple_ref/swift/Struct/UserSummary" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V11MyCheckDine11UserSummary">UserSummary</a>
+                    <a name="/s:vC11MyCheckDine9BasicItem4nameSS"></a>
+                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11MyCheckDine9BasicItem4nameSS">name</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -141,15 +147,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Holds information about the logged in users payments.</p>
+                        <p>The name of the item as it was received from the POS.</p>
 
-                        <a href="Structs/UserSummary.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">UserSummary</span></code></pre>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">let</span> <span class="nv">name</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -159,9 +164,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V11MyCheckDine11TaxSettings"></a>
-                    <a name="//apple_ref/swift/Struct/TaxSettings" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V11MyCheckDine11TaxSettings">TaxSettings</a>
+                    <a name="/s:vC11MyCheckDine9BasicItem5priceSd"></a>
+                    <a name="//apple_ref/swift/Property/price" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11MyCheckDine9BasicItem5priceSd">price</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -169,15 +174,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Holds the information about the tax in the currant order.</p>
+                        <p>The price of the item</p>
 
-                        <a href="Structs/TaxSettings.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TaxSettings</span></code></pre>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">let</span> <span class="nv">price</span> <span class="p">:</span> <span class="kt">Double</span></code></pre>
 
                         </div>
                       </div>
@@ -187,9 +191,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V11MyCheckDine8Settings"></a>
-                    <a name="//apple_ref/swift/Struct/Settings" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V11MyCheckDine8Settings">Settings</a>
+                    <a name="/s:vC11MyCheckDine9BasicItem8quantitySi"></a>
+                    <a name="//apple_ref/swift/Property/quantity" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11MyCheckDine9BasicItem8quantitySi">quantity</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -197,31 +201,26 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Holds general settings related to the venue.</p>
+                        <p>The amount of the item. At present this will always be 1. If more than 1 item is ordered , multiple Items of the same kind will appear in the bill.</p>
 
-                        <a href="Structs/Settings.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Settings</span></code></pre>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">let</span> <span class="nv">quantity</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V11MyCheckDine16OrderHistoryItem"></a>
-                    <a name="//apple_ref/swift/Struct/OrderHistoryItem" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V11MyCheckDine16OrderHistoryItem">OrderHistoryItem</a>
+                    <a name="/s:vC11MyCheckDine9BasicItem4paidSb"></a>
+                    <a name="//apple_ref/swift/Property/paid" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11MyCheckDine9BasicItem4paidSb">paid</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -229,30 +228,26 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A past order summery</p>
+                        <p>Was the item paid for.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">OrderHistoryItem</span></code></pre>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">paid</span> <span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V11MyCheckDine14PaymentDetails"></a>
-                    <a name="//apple_ref/swift/Struct/PaymentDetails" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V11MyCheckDine14PaymentDetails">PaymentDetails</a>
+                    <a name="/s:FP5Gloss9DecodablecFT4jsonGVs10DictionarySSP___GSqx_"></a>
+                    <a name="//apple_ref/swift/Method/init(json:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP5Gloss9DecodablecFT4jsonGVs10DictionarySSP___GSqx_">init(json:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -260,48 +255,40 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A request represents a payment on a specific order.</p>
-
-                        <a href="Structs/PaymentDetails.html" class="slightly-smaller">See more</a>
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PaymentDetails</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">json</span><span class="p">:</span> <span class="kt">JSON</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:V11MyCheckDine14UserStatistics"></a>
-                    <a name="//apple_ref/swift/Struct/UserStatistics" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V11MyCheckDine14UserStatistics">UserStatistics</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Various statistics about the users usage behaviour, that might interest him/her to see</p>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>json</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>JSON representation of object.</p>
 
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">UserStatistics</span></code></pre>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>New instance when JSON parsing successful, false otherwise.</p>
 
-                        </div>
                       </div>
                     </section>
                   </div>

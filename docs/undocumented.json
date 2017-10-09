@@ -1,6 +1,13 @@
 {
   "warnings": [
     {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/Dine.swift",
+      "line": 61,
+      "symbol": "Dine.createNewPoller(delegate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/PaymentDetails.swift",
       "line": 81,
       "symbol": "PaymentDetails.subtotalEntry",
@@ -36,6 +43,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Item.swift",
+      "line": 26,
+      "symbol": "Item.init(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
       "line": 32,
       "symbol": "Bill.balance",
@@ -65,16 +79,23 @@
     },
     {
       "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
-      "line": 126,
+      "line": 124,
       "symbol": "Settings.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
-      "line": 169,
+      "line": 167,
       "symbol": "Order.stamp",
       "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
+      "line": 237,
+      "symbol": "Order.isEqual(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }
   ],

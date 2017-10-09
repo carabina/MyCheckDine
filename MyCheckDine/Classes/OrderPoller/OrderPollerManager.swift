@@ -38,6 +38,9 @@ internal class OrderPollerManager : NSObject{
     poll()
   }
   
+    var firstPoll = true
+    
+    
   ///Should be called in order to stop polling. You might still receive a response after it is called in the case that a call was already dispached to the server.
   public func stopPolling(poller: OrderPoller){
     polling = false
@@ -71,20 +74,20 @@ internal class OrderPollerManager : NSObject{
       let  oldOrder = self.order // We want to set self.order before calling the delegate so they match.
       self.order = order
       
-      if let new = order ,  let old = oldOrder, new != old{
+      if let new = order ,  let old = oldOrder, new != old {
         
         self.delegates |> {
           $0.orderUpdated(order: new)
         }
         
         
-      }else if (order == nil && oldOrder != nil) || (order != nil && oldOrder == nil){
+      }else if (order == nil && oldOrder != nil) || (order != nil && oldOrder == nil && !self.firstPoll){
         self.delegates |> {
           $0.orderUpdated(order: order)
         }
         
       }
-      
+      self.firstPoll = false
       self.delayer.delay(self.pollingInterval, closure: {//calling poll again.
         self.poll()
       })
@@ -112,6 +115,8 @@ internal class OrderPollerManager : NSObject{
         
         
       }
+        self.firstPoll = false
+
       self.delayer.delay(self.pollingInterval, closure: {//calling poll again.
         self.poll()
       })

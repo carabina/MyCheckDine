@@ -51,7 +51,7 @@ class PollerTest: QuickSpec {
                 //an array with the mock response from the server and the expected result from the delegate
                 let requestAndExpectedResult : [(RequestProtocolMock , OrderPollerDelegateResponse?)] = [
                     //0 First time we get the
-                    (RequestProtocolMock(response: .success(validOrderJSON)) , OrderPollerDelegateResponse.update(Order(json: validOrderJSON))),
+                    (RequestProtocolMock(response: .success(validOrderJSON)) , nil),
                     //1 if we get no update nothing should happen
                     (RequestProtocolMock(response: .fail(ErrorCodes.noOrderUpdate.getError())),nil),
                     //2 if we get no update nothing should happen
@@ -86,6 +86,8 @@ class PollerTest: QuickSpec {
                     //Assert
                     let expected: OrderPollerDelegateResponse? = requestAndExpectedResult[i].1
                     if let expectedResult = expected, let pollerResponse = self.pollerResponse{
+                        
+                        print (expectedResult == pollerResponse)
                         expect(expectedResult == pollerResponse).to(beTrue())
                     }else if let _ = expected{
                         expect("poller response") == "not to be nil"

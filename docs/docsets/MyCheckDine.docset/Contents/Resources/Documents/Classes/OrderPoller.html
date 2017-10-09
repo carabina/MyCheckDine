@@ -14,7 +14,7 @@
     <a title="OrderPoller Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">MyCheckDine Docs</a> (86% documented)</p>
+        <p><a href="../index.html">MyCheckDine Docs</a> (83% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -30,6 +30,9 @@
           <li class="nav-group-name">
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/BasicItem.html">BasicItem</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Classes/Dine.html">Dine</a>
               </li>
@@ -107,87 +110,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC11MyCheckDine11OrderPoller10lastUpdateGSqV10Foundation4Date_"></a>
-                    <a name="//apple_ref/swift/Property/lastUpdate" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11MyCheckDine11OrderPoller10lastUpdateGSqV10Foundation4Date_">lastUpdate</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This variable holds the date of the last time the order was updated.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lastUpdate</span> <span class="p">:</span><span class="kt">Date</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC11MyCheckDine11OrderPoller5orderGSqCS_5Order_"></a>
-                    <a name="//apple_ref/swift/Property/order" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11MyCheckDine11OrderPoller5orderGSqCS_5Order_">order</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Last order received from the server.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">order</span><span class="p">:</span> <span class="kt"><a href="../Classes/Order.html">Order</a></span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC11MyCheckDine11OrderPoller8delegateGSqPS_19OrderPollerDelegate__"></a>
-                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11MyCheckDine11OrderPoller8delegateGSqPS_19OrderPollerDelegate__">delegate</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This delegate will be called when the order is updated.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">delegate</span> <span class="p">:</span><span class="kt"><a href="../Protocols/OrderPollerDelegate.html">OrderPollerDelegate</a></span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:FC11MyCheckDine11OrderPoller12startPollingFT_T_"></a>
                     <a name="//apple_ref/swift/Method/startPolling()" class="dashAnchor"></a>
                     <a class="token" href="#/s:FC11MyCheckDine11OrderPoller12startPollingFT_T_">startPolling()</a>
@@ -239,6 +161,117 @@
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP11MyCheckDine19OrderPollerDelegate12orderUpdatedFT5orderGSqCS_5Order__T_"></a>
+                    <a name="//apple_ref/swift/Method/orderUpdated(order:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP11MyCheckDine19OrderPollerDelegate12orderUpdatedFT5orderGSqCS_5Order__T_">orderUpdated(order:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Should be called in order to stop polling. You might still receive a response after it is called in the case that a call was already dispached to the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">orderUpdated</span><span class="p">(</span><span class="nv">order</span><span class="p">:</span><span class="kt"><a href="../Classes/Order.html">Order</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>order</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The up to date order or nil if their is n order.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP11MyCheckDine19OrderPollerDelegate23failingToReceiveUpdatesFT17lastReceivedErrorCSo7NSError9failCountSi_T_"></a>
+                    <a name="//apple_ref/swift/Method/failingToReceiveUpdates(lastReceivedError:failCount:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP11MyCheckDine19OrderPollerDelegate23failingToReceiveUpdatesFT17lastReceivedErrorCSo7NSError9failCountSi_T_">failingToReceiveUpdates(lastReceivedError:failCount:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Should be called in order to stop polling. You might still receive a response after it is called in the case that a call was already dispached to the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">failingToReceiveUpdates</span><span class="p">(</span><span class="nv">lastReceivedError</span><span class="p">:</span> <span class="kt">NSError</span> <span class="p">,</span> <span class="nv">failCount</span><span class="p">:</span><span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lastReceivedError</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The error that caused the last server call to fail.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failCount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The amount of consecutive calls to the server that failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -259,7 +292,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span>  <span class="kd">func</span> <span class="nf">isPolling</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isPolling</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -271,7 +304,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="http://www.mycheck.io/" target="_blank" rel="external">elad schiller</a>. All rights reserved. (Last updated: 2017-09-07)</p>
+          <p>MyCheck</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

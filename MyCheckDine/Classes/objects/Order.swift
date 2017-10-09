@@ -227,11 +227,16 @@ self.clientCode = clientCode
     
     self.settings = settings
   }
-  public static func ==(lhs: Order, rhs: Order) -> Bool {
-    return lhs.stamp == rhs.stamp
-  }
-  static func !=(lhs: Order, rhs: Order) -> Bool {
-    return !(lhs.stamp == rhs.stamp)
-  }
+//  public static func ==(lhs: Order, rhs: Order) -> Bool {
+//    return lhs.stamp == rhs.stamp
+//  }
+//  static func !=(lhs: Order, rhs: Order) -> Bool {
+//    return !(lhs.stamp == rhs.stamp)
+//  }
+    
+    open override func isEqual(_ object: Any?) -> Bool {
+        return stamp == (object as? Order)?.stamp
+
+    }
 
 }
