@@ -172,7 +172,7 @@ class DineInViewController: UITableViewController {
         
         if let details = PaymentDetails(order: order, amount: Double(self.amountField.text!), tip: Double(self.tipField.text!), paymentMethod: paymentMethod){
             
-            Dine.shared.makePayment(paymentDetails: details, displayDelegate: self, success: {
+            Dine.shared.makePayment(paymentDetails: details, displayDelegate: self, success: {_ in 
                 
             }, fail: {error in
                 
@@ -211,7 +211,7 @@ class DineInViewController: UITableViewController {
         }()
         if let details = PaymentDetails(order: order, items: items, tip: Double(self.tipField.text!), paymentMethod: paymentMethod){
             
-            Dine.shared.makePayment(paymentDetails: details, displayDelegate: self, success: {
+            Dine.shared.makePayment(paymentDetails: details, displayDelegate: self, success: {_ in 
                 
             }, fail: {error in
                 

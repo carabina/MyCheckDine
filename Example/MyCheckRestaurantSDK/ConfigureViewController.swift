@@ -91,7 +91,7 @@ MasterPassFactory.initiate()
            ApplePayFactory.initiate(merchantIdentifier: merchantId)
         }
         if LocalDataa.enabledState(for: .visaCheckout){
-            VisaCheckoutFactory.initiate(apiKey: "S8TQIO2ERW9RIHPE82DC13TA9Uv8FdB9Uu7EBRyZHDCNsp7JU")
+            VisaCheckoutFactory.initiate(apiKey: environment.getVisaCheckoutKey())
         }
         
         
@@ -167,5 +167,19 @@ extension ConfigureViewController : UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
+}
+
+extension Environment{
+
+    func getVisaCheckoutKey() -> String{
+    
+        switch self {
+        case .production:
+            return "YZBONW69QX3S690JWCOU14offIBAIhWRR4C4GBn0kidshe0GQ"
+        default:
+            return "S8TQIO2ERW9RIHPE82DC13TA9Uv8FdB9Uu7EBRyZHDCNsp7JU"
+        }
+    }
+    
 }
 

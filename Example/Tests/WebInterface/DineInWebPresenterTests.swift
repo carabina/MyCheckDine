@@ -218,7 +218,7 @@ class DineInWebPresenterTests: XCTestCase
     func testPay()
     {
         // Arrange
-        let response = DineInWeb.Pay.Response(callback: callback)
+        let response = DineInWeb.Pay.Response(callback: callback , response: Dine.PaymentResponse(newBalance: 1, fullyPaid: false))
         
         // Act
         presenter.madePayment(response:  response)
@@ -229,7 +229,8 @@ class DineInWebPresenterTests: XCTestCase
             return
         }
         
-        let emptyBody:[String:Any] = [:]
+        let emptyBody:[String:Any] = ["fullyPaid":response.response.fullyPaid,
+                                      "orderBalance": response.response.newBalance]
         XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: emptyBody)))
         
     }

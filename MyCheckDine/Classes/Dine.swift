@@ -58,9 +58,9 @@ public class Dine: NSObject{
     ///When activated this object polls the MyCheck server in order to fetch order updates. Call The startPolling function and set the delegate in order to receive updates. You should generally start useing the poller  when a 4 digit code is created until the order is closed or canceled.
     internal var pollerManager = OrderPollerManager()
     
-  public func createNewPoller(delegate: OrderPollerDelegate) -> OrderPoller{
-  return OrderPoller(delegate: delegate)
-  }
+    public func createNewPoller(delegate: OrderPollerDelegate) -> OrderPoller{
+        return OrderPoller(delegate: delegate)
+    }
     //order related variables
     internal var lastOrder : Order?
     
@@ -146,10 +146,10 @@ public class Dine: NSObject{
     ///    - parameter fail: Called when the function fails for any reason
     
     internal func getOrder( order: Order?, success: ((Order?) -> Void)? , fail: ((NSError) -> Void)? ){
-       
+        
         var orderId : String? = nil
         var stamp : String? = nil
-       
+        
         if let order = order {
             orderId = order.orderId
             stamp = order.stamp
@@ -182,7 +182,14 @@ public class Dine: NSObject{
         })
     }
     
-    
+    /// Returns information about the order after the payment
+    public struct PaymentResponse{
+        ///The new balance after the payment
+        public  let newBalance: Double
+        /// True iff the order was fully paid
+        public  let fullyPaid: Bool
+        
+    }
     
     /// Make a payment for an order
     ///
@@ -192,7 +199,7 @@ public class Dine: NSObject{
     ///    - parameter success: A block that is called if the call complete successfully
     ///    - parameter fail: Called when the function fails for any reason
     
-    public func makePayment(paymentDetails: PaymentDetails , displayDelegate: DisplayViewControllerDelegate? = nil,success: @escaping (() -> Void) , fail: @escaping ((NSError) -> Void)){
+    public func makePayment(paymentDetails: PaymentDetails , displayDelegate: DisplayViewControllerDelegate? = nil,success: @escaping ((PaymentResponse) -> Void) , fail: @escaping ((NSError) -> Void)){
         paymentDetails.paymentMethod.generatePaymentToken(for: paymentDetails, displayDelegate: displayDelegate, success: { token in
             
             var params : [String: Any] = [  "orderId" :  paymentDetails.order.orderId,
@@ -218,7 +225,15 @@ public class Dine: NSObject{
             let urlStr = domain + URIs.payment
             
             self.network.request(urlStr, method: .post, parameters: params, success: { JSON in
-                success()
+                
+                guard let balance = JSON["orderBalance"] as? Double,
+                    let fullyPaid = JSON["fullyPaid"] as? Bool else{
+                        fail(ErrorCodes.badJSON.getError())
+                        
+                        return
+                }
+                    success(PaymentResponse(newBalance: balance, fullyPaid: fullyPaid))
+                
             }, fail: fail)
             
         }, fail: fail)
@@ -403,9 +418,9 @@ public class Dine: NSObject{
             }
         })
     }
-
+    
     //MARK: - Miscellaneous actions
-
+    
     /// Use this function to call a waiter to the table. A 4  digit code must be generated and a table opened in order for this to work. This function is not supported in all venues and must have a POS that supports this functionality.
     ///
     ///    - parameter success: A callback with indicating the request has been dispatched to the POS

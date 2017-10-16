@@ -280,7 +280,7 @@ getLocaleResponse = response
     self.createNewLoggedInSession()
     var sentRequest: RequestParameters? = nil
     
-    Dine.shared.network = RequestProtocolMock(response: .success(["status":"OK"]),
+    Dine.shared.network = RequestProtocolMock(response: .success(["status":"OK" , "orderBalance":1.12 , "fullyPaid":false]),
                                               callback:{ params in
                                                 sentRequest = params
     }
@@ -296,17 +296,20 @@ getLocaleResponse = response
     
     interactor.makePayment(request: DineInWeb.Pay.Request(callback: callbackName, payFor:.amount(1.1), tip: 0.5, paymentMethodId:paymentMethod.ID, paymentMethodToken: "abc"    , paymentMethodType: paymentMethod.type))
     
-    let response : String? = spy.payResponse?.callback
+    let response  = spy.payResponse
    
     //Assert
     XCTAssert(spy.failedResponse == nil)
 
-    XCTAssert(response == callbackName, "callback was not passed properly")
+    XCTAssert(response?.callback == callbackName, "callback was not passed properly")
     XCTAssert((sentRequest?.url.hasSuffix(URIs.payment))!)
     XCTAssert(sentRequest?.method == .post)
     XCTAssert(sentRequest?.parameters!["amount"] as! Double == 1.1)
     XCTAssert(sentRequest?.parameters!["tip"] as! Double == 0.5)
     XCTAssert(sentRequest?.parameters!["ccToken"] as! String == "abc")
+    XCTAssert(response?.response.newBalance == 1.12)
+    XCTAssert(response?.response.fullyPaid == false)
+
     
   }
   
@@ -315,7 +318,7 @@ getLocaleResponse = response
     //Arange
     self.createNewLoggedInSession()
     var sentRequest: RequestParameters? = nil
-    Dine.shared.network = RequestProtocolMock(response: .success(["status":"OK"]) ,
+    Dine.shared.network = RequestProtocolMock(response: .success(["status":"OK", "orderBalance":1.12 , "fullyPaid":false]) ,
                                               callback:{ params in
                                                 sentRequest = params
     }
@@ -347,21 +350,22 @@ getLocaleResponse = response
     
     interactor.makePayment(request:request)
     
-    let response: String? =  spy.payResponse?.callback
+    let response =  spy.payResponse
     //Assert
     
     
     
     XCTAssert(spy.failedResponse == nil)
 
-    XCTAssert(response == callbackName, "callback was not passed properly")
+    XCTAssert(response?.callback == callbackName, "callback was not passed properly")
     XCTAssert((sentRequest?.url.hasSuffix(URIs.payment))!)
     XCTAssert(sentRequest?.method == .post)
     XCTAssert(sentRequest?.parameters!["amount"] as! Double == 10.2)
     XCTAssert(sentRequest?.parameters!["tip"] as! Double == 0.5)
     XCTAssert(sentRequest?.parameters!["ccToken"] as! String == "abc")
     
-    
+    XCTAssert(response?.response.newBalance == 1.12)
+    XCTAssert(response?.response.fullyPaid == false)
   }
   
   
