@@ -1008,22 +1008,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="oCd-ao-X27">
                                                 <rect key="frame" x="0.0" y="423" width="375" height="133"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qT4-NK-3Oj">
-                                                        <rect key="frame" x="20" y="0.0" width="335" height="30"/>
-                                                        <state key="normal" title="Payment methods manager"/>
-                                                        <connections>
-                                                            <action selector="paymentMethodsPressed:" destination="esY-ET-0Jo" eventType="touchUpInside" id="fKi-L8-ij4"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cB7-Mb-u5r">
-                                                        <rect key="frame" x="20" y="39" width="335" height="30"/>
-                                                        <state key="normal" title="Pay"/>
-                                                        <connections>
-                                                            <action selector="payPressed:" destination="esY-ET-0Jo" eventType="touchUpInside" id="6bd-wM-KlG"/>
-                                                        </connections>
-                                                    </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="56Q-cx-Ksh">
-                                                        <rect key="frame" x="20" y="78" width="335" height="30"/>
+                                                        <rect key="frame" x="20" y="0.0" width="335" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkT-qF-e6x">
                                                                 <rect key="frame" x="0.0" y="0.0" width="39.5" height="30"/>
@@ -1049,6 +1035,20 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qT4-NK-3Oj">
+                                                        <rect key="frame" x="20" y="39" width="335" height="30"/>
+                                                        <state key="normal" title="Payment methods manager"/>
+                                                        <connections>
+                                                            <action selector="paymentMethodsPressed:" destination="esY-ET-0Jo" eventType="touchUpInside" id="fKi-L8-ij4"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cB7-Mb-u5r">
+                                                        <rect key="frame" x="20" y="78" width="335" height="30"/>
+                                                        <state key="normal" title="Pay"/>
+                                                        <connections>
+                                                            <action selector="payPressed:" destination="esY-ET-0Jo" eventType="touchUpInside" id="6bd-wM-KlG"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="25" right="20"/>
                                             </stackView>
