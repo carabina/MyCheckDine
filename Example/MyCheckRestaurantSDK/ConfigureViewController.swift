@@ -37,6 +37,7 @@ class ConfigureViewController: UIViewController {
         super.viewDidLoad()
         
         publishableKeyField.text = UserDefaults.standard.string(forKey: savedDatapublishableKeyKey)
+
         // Setting up switchs to the last setup
         applePaySwitch.setOn(LocalDataa.enabledState(for: .applePay), animated: false)
         masterPassSwitch.setOn(LocalDataa.enabledState(for: .masterPass), animated: false)

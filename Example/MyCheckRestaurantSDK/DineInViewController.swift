@@ -56,7 +56,9 @@ class DineInViewController: UITableViewController {
         
         amountStack.isHidden = false
         selectItemsStack.isHidden = true
-        
+        restaurantIdField.addDoneButtonToKeyboard(target:self, action: #selector(self.doneOnKeyboardPressed))
+        friendCodeField.addDoneButtonToKeyboard(target:self, action: #selector(self.doneOnKeyboardPressed))
+
         amountField.addDoneButtonToKeyboard(target:self, action: #selector(self.doneOnKeyboardPressed))
         tipField.addDoneButtonToKeyboard(target:self, action: #selector(self.doneOnKeyboardPressed))
     }
@@ -188,6 +190,8 @@ class DineInViewController: UITableViewController {
     {
         self.tipField.resignFirstResponder()
         self.amountField.resignFirstResponder()
+        self.restaurantIdField.resignFirstResponder()
+        self.friendCodeField.resignFirstResponder()
     }
     private func payByItem(order: Order , paymentMethod: PaymentMethodInterface){
         guard order.items.count > 0 else{
