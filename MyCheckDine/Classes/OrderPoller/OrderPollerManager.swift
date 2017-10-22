@@ -16,7 +16,6 @@ internal protocol OrderPollerManagerDelegate: OrderPollerDelegate{
 
 internal class OrderPollerManager : NSObject{
   internal var pollingInterval = 5.0
-  private var polling = false
   private var failCount = 0
   
   internal var delayer: DelayInterface = Delay()
@@ -31,10 +30,9 @@ internal class OrderPollerManager : NSObject{
   
   ///Should be called in order to start polling. Make sure to set a delegate in order to receive order updates.
    func startPolling(poller: OrderPoller){
-    if polling{
+    if !isPolling(){
       return
     }
-    polling = true
     poll()
   }
   
@@ -43,27 +41,23 @@ internal class OrderPollerManager : NSObject{
     
   ///Should be called in order to stop polling. You might still receive a response after it is called in the case that a call was already dispached to the server.
   public func stopPolling(poller: OrderPoller){
-    polling = false
-    var newPollingValue = false
     
-    delegates |> { poller in
-      if poller.isPolling(){
-        newPollingValue = true
-      }
-      polling = newPollingValue
-    }
   }
   
   
   ///Returns weather the poller is on or not.
   public  func isPolling() -> Bool{
-    return polling
-  }
+    var toReturn = false
+    self.delegates |> {
+        toReturn = $0.isPolling() || toReturn
+    }
+    return toReturn
+    }
   
   
   //The function doing the actaul polling. calls itself again after receiving a response / failing with a 'pollingInterval' delay.
   private func poll(){
-    if !polling{
+    if !isPolling(){
       return
     }
     

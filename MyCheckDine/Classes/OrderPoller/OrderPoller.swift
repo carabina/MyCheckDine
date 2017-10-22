@@ -55,7 +55,9 @@ public class OrderPoller{
   }
   
    
-  
+    deinit {
+        print("deinit OrderPoller")
+    }
   
 }
 
