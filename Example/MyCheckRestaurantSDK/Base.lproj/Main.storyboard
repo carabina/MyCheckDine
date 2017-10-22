@@ -214,7 +214,7 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="amount to charge" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DAI-oA-jzd" userLabel="code">
+                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="friend's table code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DAI-oA-jzd" userLabel="code">
                                                                     <rect key="frame" x="102.5" y="0.0" width="148.5" height="22.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="22" id="cp3-gq-dho"/>
