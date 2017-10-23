@@ -24,7 +24,7 @@ class WalletUIViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
-        containerView.isHidden = !Session.shared.isLoggedIn()
+       // containerView.isHidden = !Session.shared.isLoggedIn()
         
         if let locale = Wallet.shared.locale{
             self.localeField.text = locale.localeIdentifier

@@ -21,7 +21,6 @@ internal struct URIs{
 ///Dine is a singleton That encapsulates the MyCheck dine in proccess: from opening a table , through getting the order details and reordering items to paying for the order.
 public class Dine: NSObject{
     internal static let refreshPaymentMethodsNotification = "com.mycheck.refreshPaymentMethodsNotification"
-    internal static let loggedInNotification = "com.mycheck.loggedInNotification"
     
     
     
