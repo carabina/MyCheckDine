@@ -32,8 +32,6 @@ private let passNumbers: [(String , CreditCardType)] = [
   ("378734493671000" , .Amex),
   ("30569309025904" , .Diners),
   ("38520000023237" , .Diners),
-  ("6011111111111117" , .Discover),
-  ("6011000990139424" , .Discover),
   ("3530111333300000" , .JCB),
   ("3566002020360505" , .JCB),
   ("5555555555554444" , .MasterCard),
@@ -42,7 +40,10 @@ private let passNumbers: [(String , CreditCardType)] = [
   ("4012888888881881" , .Visa),
   ("4222222222222" , .Visa),
   ("2223000048400011" , .MasterCard),// the new mastercard number format,
-    ("6499990000001237", .Discover)
+    ("6499990000001237", .Discover),
+    ("3095930902590411" , .Discover),
+    ("6011111111111117" , .Discover),
+    ("6011000990139424" , .Discover)
 ]
 
 private let failNumbers: [String] = [
