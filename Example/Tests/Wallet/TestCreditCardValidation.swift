@@ -41,7 +41,8 @@ private let passNumbers: [(String , CreditCardType)] = [
   ("4111111111111111" , .Visa),
   ("4012888888881881" , .Visa),
   ("4222222222222" , .Visa),
-  ("2223000048400011" , .MasterCard)// the new mastercard number format
+  ("2223000048400011" , .MasterCard),// the new mastercard number format,
+    ("6499990000001237", .Discover)
 ]
 
 private let failNumbers: [String] = [
