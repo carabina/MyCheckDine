@@ -132,7 +132,39 @@ class DineInViewController: UITableViewController {
         sender.isOn ?
            poller?.startPolling() : poller?.stopPolling()
     }
-    @IBAction func payPressed(_ sender: Any) {
+  
+  @IBAction func prePayPressed(_ sender: Any) {
+    //getting payment method
+    Wallet.shared.getDefaultPaymentMehthod(success: {method in
+      
+      guard let order = self.lastOrder else{
+        self.showErrorMessage(message: "No order")
+        return
+      }
+      
+      guard  (self.tipField.text?.characters.count)! > 0 else{
+        self.showErrorMessage(message: "please enter tip")
+        return
+      }
+      
+      if self.payTypeSeg.selectedSegmentIndex == self.byAmountSeg {
+        
+        self.prePayByAmount(order: order, paymentMethod: method )
+        
+      }else{//by items
+        
+        self.prePayByItem(order: order, paymentMethod: method)
+      }
+      
+    }, fail: {
+      error in
+      
+      self.showErrorMessage(message: error.localizedDescription)
+    })
+    
+  }
+  
+  @IBAction func payPressed(_ sender: Any) {
         //getting payment method
         Wallet.shared.getDefaultPaymentMehthod(success: {method in
             
@@ -164,7 +196,15 @@ class DineInViewController: UITableViewController {
     }
     
     
-    private func payByAmount(order: Order , paymentMethod: PaymentMethodInterface){
+  fileprivate func showPrePayAlert(_ summary: PrePaySummary) {
+    let message = "Tax:\(summary.taxAmount)\nSubtotal: \(summary.subtotal)\nTotal:\(summary.total)"
+    let alert = UIAlertController(title: "Prepay details", message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+    present(alert, animated: true, completion: nil)
+  
+  }
+  
+  private func prePayByAmount(order: Order , paymentMethod: PaymentMethodInterface){
         
         guard  (self.amountField.text?.characters.count)! > 0 else{
             self.showErrorMessage(message: "please enter amount")
@@ -174,17 +214,71 @@ class DineInViewController: UITableViewController {
         
         if let details = PaymentDetails(order: order, amount: Double(self.amountField.text!), tip: Double(self.tipField.text!), paymentMethod: paymentMethod){
             
-            Dine.shared.makePayment(paymentDetails: details, displayDelegate: self, success: {_ in 
-                
-            }, fail: {error in
-                
-            })
+            Dine.shared.getPrePaySummary(paymentDetails: details, success: {summary in
+              
+              self.showPrePayAlert(summary)
+            }, fail: {error in })
         }else{
             self.showErrorMessage(message: "Invalid payment request (invalid amount or closed order)")
             
         }
         
     }
+  
+  private func prePayByItem(order: Order , paymentMethod: PaymentMethodInterface){
+    guard order.items.count > 0 else{
+      self.showErrorMessage(message: "No items in order")
+      
+      return
+    }
+    let items: [Item] = {
+      
+      switch self.selectItemSeg.selectedSegmentIndex{
+      case self.firstSeg:
+        return [order.items.first!]
+      case self.lastSeg:
+        return [order.items.last!]
+        
+      case self.allSeg:
+        return order.items
+      default:
+        return []
+      }
+    }()
+    if let details = PaymentDetails(order: order, items: items, tip: Double(self.tipField.text!), paymentMethod: paymentMethod){
+      
+      Dine.shared.getPrePaySummary(paymentDetails: details, success: {summary in
+        self.showPrePayAlert(summary)
+      }, fail: {error in })
+    }else{
+      self.showErrorMessage(message: "Invalid payment request (invalid amount or closed order)")
+      
+    }
+    
+  }
+  
+  
+  private func payByAmount(order: Order , paymentMethod: PaymentMethodInterface){
+    
+    guard  (self.amountField.text?.characters.count)! > 0 else{
+      self.showErrorMessage(message: "please enter amount")
+      return
+    }
+    
+    
+    if let details = PaymentDetails(order: order, amount: Double(self.amountField.text!), tip: Double(self.tipField.text!), paymentMethod: paymentMethod){
+      
+      Dine.shared.makePayment(paymentDetails: details, displayDelegate: self, success: {_ in
+        
+      }, fail: {error in
+        
+      })
+    }else{
+      self.showErrorMessage(message: "Invalid payment request (invalid amount or closed order)")
+      
+    }
+    
+  }
     
     @objc private func doneOnKeyboardPressed()
     {
@@ -226,6 +320,8 @@ class DineInViewController: UITableViewController {
         }
         
     }
+  
+  
     @IBAction func payBySelected(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case byAmountSeg:
