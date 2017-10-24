@@ -21,6 +21,7 @@
 		B20607B01F1DF95F0029F056 /* OrderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20607A91F1DF95F0029F056 /* OrderTest.swift */; };
 		B20607B11F1DF95F0029F056 /* PollerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20607AA1F1DF95F0029F056 /* PollerTest.swift */; };
 		B20607B21F1DF95F0029F056 /* TestCreditCardValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20607AC1F1DF95F0029F056 /* TestCreditCardValidation.swift */; };
+		B20EE89E1F9F10CE0041E94B /* PrePaySummaryNoItems.json in Resources */ = {isa = PBXBuildFile; fileRef = B20EE89D1F9F10CE0041E94B /* PrePaySummaryNoItems.json */; };
 		B226C0B51E1CEB3D0045D73A /* SuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226C0B41E1CEB3D0045D73A /* SuperViewController.swift */; };
 		B226C0B71E1D423C0045D73A /* DineInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226C0B61E1D423C0045D73A /* DineInViewController.swift */; };
 		B22F35641F1674D700D85946 /* UITextField+doneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22F35631F1674D700D85946 /* UITextField+doneButton.swift */; };
@@ -129,6 +130,7 @@
 		B20607A91F1DF95F0029F056 /* OrderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTest.swift; sourceTree = "<group>"; };
 		B20607AA1F1DF95F0029F056 /* PollerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollerTest.swift; sourceTree = "<group>"; };
 		B20607AC1F1DF95F0029F056 /* TestCreditCardValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCreditCardValidation.swift; sourceTree = "<group>"; };
+		B20EE89D1F9F10CE0041E94B /* PrePaySummaryNoItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PrePaySummaryNoItems.json; sourceTree = "<group>"; };
 		B226C0B41E1CEB3D0045D73A /* SuperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperViewController.swift; sourceTree = "<group>"; };
 		B226C0B61E1D423C0045D73A /* DineInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DineInViewController.swift; sourceTree = "<group>"; };
 		B22F35631F1674D700D85946 /* UITextField+doneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+doneButton.swift"; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 				B2A8A1121F49768900A25D05 /* friendList.json */,
 				B2368C401F499B4B00192DDF /* usageStats.json */,
 				B2AA60271F49B1C300826612 /* orderList.json */,
+				B20EE89D1F9F10CE0041E94B /* PrePaySummaryNoItems.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				B24CE7911F60047500DEF760 /* MasterPassNativeResponse.js in Resources */,
 				B2AD9B6E1F0BE95900059FAA /* generateCode.json in Resources */,
 				B2AD9B701F0BE99F00059FAA /* orderDetails.json in Resources */,
+				B20EE89E1F9F10CE0041E94B /* PrePaySummaryNoItems.json in Resources */,
 				B296BE151F33343000E5657C /* addCreditCard.json in Resources */,
 				B289F9A21F3091AD00CEC772 /* PaymentMethods.json in Resources */,
 				B260FB231F0CC839002605EE /* configure.json in Resources */,
@@ -661,7 +665,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		651146D2AC1B0435DFB9B48C /* [CP] Check Pods Manifest.lock */ = {
@@ -679,7 +683,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6B7EB39AE3F47ECB93C664FB /* [CP] Copy Pods Resources */ = {
@@ -712,7 +716,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		95D327EF0C0F2EE33E388B60 /* [CP] Embed Pods Frameworks */ = {

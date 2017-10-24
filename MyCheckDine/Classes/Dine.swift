@@ -14,7 +14,8 @@ internal struct URIs{
     static let orderList = "/restaurants/api/v1/orderList"
     static let callWaiter = "/restaurants/api/v1/callWaiter"
     static let sendFeedback = "/restaurants/api/v1/feedback"
-    
+  static let prePaySummary = "/restaurants/api/v1/prePaySummary"
+
     
 }
 
@@ -189,7 +190,51 @@ public class Dine: NSObject{
         public  let fullyPaid: Bool
         
     }
+  
+  
+  /// Use this function to understand the payment details before making the payment. Specificly the Tax, subtotal and total amounts that will be paid
+  ///
+  ///   - parameter request: The details of the payment that should be charged
+  ///    - parameter success: A block that is called if the call complete successfully
+  ///    - parameter fail: Called when the function fails for any reason
+  
+  public func getPrePaySummary(paymentDetails: PaymentDetails,
+                                success: @escaping ((PrePaySummary) -> Void) ,
+                                fail: @escaping ((NSError) -> Void)){
+   
+      var params : [String: Any] = [  "orderId" :  paymentDetails.order.orderId,
+                                      "taxPercentage": paymentDetails.order.tax.percentage]
+    if let items = paymentDetails.items{
+      
+      let itemJSONs = items.map({ $0.createPaymentJSON().flatMap({$0})})
+      params["items"] = itemJSONs
+    }else{
+      
+    params["amount"] = paymentDetails.amount.rawValue
+    }
     
+    
+    
+    
+      guard let domain = Networking.shared.domain else{
+        fail(ErrorCodes.notConifgured.getError())
+        return
+      }
+      let urlStr = domain + URIs.prePaySummary
+      
+      self.network.request(urlStr, method: .get, parameters: params, success: { JSON in
+        
+        guard let summary = PrePaySummary(json: JSON) else{
+            fail(ErrorCodes.badJSON.getError())
+            
+            return
+        }
+        success(summary)
+  
+      
+    }, fail: fail)
+  }
+  
     /// Make a payment for an order
     ///
     ///   - parameter request: The details of the payment that should be charged
