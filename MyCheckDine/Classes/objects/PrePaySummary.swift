@@ -42,8 +42,11 @@ public struct PrePaySummary{
   internal init?(json: JSON) {
     
     guard let tax: Double = "totalTax" <~~ json,
-    let subtotal: Double = "totalBeforeTax" <~~ json ,
+    let subtotalStr: String = "totalBeforeTax" <~~ json ,
+      let subtotal: Double = Double(subtotalStr) ,
     let total: Double = "totalAfterTax" <~~ json else{
+      let subtotal2: String? = "totalBeforeTax" <~~ json
+print(subtotal2!)
       return nil
     }
     self.taxValue = Money(value: tax)

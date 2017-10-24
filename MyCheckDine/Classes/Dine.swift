@@ -14,7 +14,7 @@ internal struct URIs{
     static let orderList = "/restaurants/api/v1/orderList"
     static let callWaiter = "/restaurants/api/v1/callWaiter"
     static let sendFeedback = "/restaurants/api/v1/feedback"
-  static let prePaySummary = "/restaurants/api/v1/prePaySummary"
+  static let prePaySummary = "/restaurants/api/v1/prepaidCalculation"
 
     
 }
