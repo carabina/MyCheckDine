@@ -207,7 +207,13 @@ public class Dine: NSObject{
     if let items = paymentDetails.items{
       
       let itemJSONs = items.map({ $0.createPaymentJSON().flatMap({$0})})
-      params["items"] = itemJSONs
+        
+        let jsonData = try! JSONSerialization.data(withJSONObject: itemJSONs, options: JSONSerialization.WritingOptions())
+        
+        let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+        params["items"] =  jsonString
+        
+
     }else{
       
     params["amount"] = paymentDetails.amount.rawValue
