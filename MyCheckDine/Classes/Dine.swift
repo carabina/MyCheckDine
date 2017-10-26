@@ -55,9 +55,14 @@ public class Dine: NSObject{
         }, fail: nil)
         
     }
-    ///When activated this object polls the MyCheck server in order to fetch order updates. Call The startPolling function and set the delegate in order to receive updates. You should generally start useing the poller  when a 4 digit code is created until the order is closed or canceled.
+    //When activated this object polls the MyCheck server in order to fetch order updates. Call The startPolling function and set the delegate in order to receive updates. You should generally start useing the poller  when a 4 digit code is created until the order is closed or canceled.
     internal var pollerManager = OrderPollerManager()
+ 
     
+    /// Creates a new order poller. When activated this object polls the MyCheck server in order to fetch order updates. Make sure to hold a reference to the returned object for as long as you want it to send you order update events.
+    ///
+    /// - Parameter delegate: The delegate that will receive order updates.
+    /// - Returns: The OrderPoller
     public func createNewPoller(delegate: OrderPollerDelegate) -> OrderPoller{
         return OrderPoller(delegate: delegate)
     }
