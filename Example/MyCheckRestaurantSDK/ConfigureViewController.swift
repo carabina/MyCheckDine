@@ -82,15 +82,15 @@ class ConfigureViewController: UIViewController {
         if LocalDataa.enabledState(for: .masterPass){
 MasterPassFactory.initiate()
         }
-//        if LocalDataa.enabledState(for: .applePay){
-//            guard let merchantId = getSavedDataApplePayMerchandId() else {
-//                let alert = UIAlertController(title: "Error", message: "Please choose an apple pay merchand id to continue", preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
-//                present(alert, animated: true, completion: nil)
-//                return
-//            }
-//           ApplePayFactory.initiate(merchantIdentifier: merchantId)
-//        }
+        if LocalDataa.enabledState(for: .applePay){
+            guard let merchantId = getSavedDataApplePayMerchandId() else {
+                let alert = UIAlertController(title: "Error", message: "Please choose an apple pay merchand id to continue", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+                present(alert, animated: true, completion: nil)
+                return
+            }
+           ApplePayFactory.initiate(merchantIdentifier: merchantId)
+        }
         if LocalDataa.enabledState(for: .visaCheckout){
             VisaCheckoutFactory.initiate(apiKey: environment.getVisaCheckoutKey())
         }
