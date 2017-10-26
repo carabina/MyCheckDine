@@ -142,10 +142,7 @@ class DineInViewController: UITableViewController {
         return
       }
       
-      guard  (self.tipField.text?.characters.count)! > 0 else{
-        self.showErrorMessage(message: "please enter tip")
-        return
-      }
+     
       
       if self.payTypeSeg.selectedSegmentIndex == self.byAmountSeg {
         
