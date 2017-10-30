@@ -43,9 +43,8 @@ extension PaymentDetails{
       return nil
     }
     
-    let paymentMethod = CreditCardPaymentMethod.getStub()
     
-    let paymentDetails = PaymentDetails(order: order, amount: 1.0, tip: 0.5, paymentMethod: paymentMethod)
+    let paymentDetails = PaymentDetails(order: order, amount: 1.0, tip: 0.5)
     
     return paymentDetails;
   }

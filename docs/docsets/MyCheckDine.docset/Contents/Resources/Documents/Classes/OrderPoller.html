@@ -14,7 +14,7 @@
     <a title="OrderPoller Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">MyCheckDine Docs</a> (83% documented)</p>
+        <p><a href="../index.html">MyCheckDine Docs</a> (84% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -37,6 +37,9 @@
                 <a href="../Classes/Dine.html">Dine</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/Dine/PaymentResponse.html">– PaymentResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/Item.html">Item</a>
               </li>
               <li class="nav-group-task">
@@ -48,7 +51,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Enums.html">Enums</a>
+            <a href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/Status.html">Status</a>
@@ -64,7 +67,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Structs.html">Structs</a>
+            <a href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/Bill.html">Bill</a>
@@ -178,8 +181,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Should be called in order to stop polling. You might still receive a response after it is called in the case that a call was already dispached to the server.</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -188,26 +190,6 @@
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">orderUpdated</span><span class="p">(</span><span class="nv">order</span><span class="p">:</span><span class="kt"><a href="../Classes/Order.html">Order</a></span><span class="p">?)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>order</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The up to date order or nil if their is n order.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -225,8 +207,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Should be called in order to stop polling. You might still receive a response after it is called in the case that a call was already dispached to the server.</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -235,39 +216,6 @@
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">failingToReceiveUpdates</span><span class="p">(</span><span class="nv">lastReceivedError</span><span class="p">:</span> <span class="kt">NSError</span> <span class="p">,</span> <span class="nv">failCount</span><span class="p">:</span><span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>lastReceivedError</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The error that caused the last server call to fail.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>failCount</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The amount of consecutive calls to the server that failed.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -304,8 +252,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>MyCheck</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2017 <a class="link" href="http://www.mycheck.io/" target="_blank" rel="external">elad schiller</a>. All rights reserved. (Last updated: 2017-10-26)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

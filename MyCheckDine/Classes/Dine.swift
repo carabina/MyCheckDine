@@ -14,7 +14,7 @@ internal struct URIs{
     static let orderList = "/restaurants/api/v1/orderList"
     static let callWaiter = "/restaurants/api/v1/callWaiter"
     static let sendFeedback = "/restaurants/api/v1/feedback"
-  static let prePaySummary = "/restaurants/api/v1/prepaidCalculation"
+  static let generatePaymentRequest = "/restaurants/api/v1/prepaidCalculation"
 
     
 }
@@ -197,18 +197,17 @@ public class Dine: NSObject{
     }
   
   
-  /// Use this function to understand the payment details before making the payment. Specificly the Tax, subtotal and total amounts that will be paid
+  /// Use this function to understand the payment details before making the payment. Specificly the Tax, subtotal and total amounts that will be paid. This is a obligatory action before payment.
   ///
-  ///   - parameter request: The details of the payment that should be charged
+  ///   - parameter paymentDetails: The details of the payment that should be charged
   ///    - parameter success: A block that is called if the call complete successfully
   ///    - parameter fail: Called when the function fails for any reason
   
-  public func getPrePaySummary(paymentDetails: PaymentDetails,
-                                success: @escaping ((PrePaySummary) -> Void) ,
+  public func generatePaymentRequest(paymentDetails: PaymentDetails,
+                                success: @escaping ((PaymentRequest) -> Void) ,
                                 fail: @escaping ((NSError) -> Void)){
    
-      var params : [String: Any] = [  "orderId" :  paymentDetails.order.orderId,
-                                      "taxPercentage": paymentDetails.order.tax.percentage]
+      var params : [String: Any] = [  "orderId" :  paymentDetails.order.orderId]
     if let items = paymentDetails.items{
       
       let itemJSONs = items.map({ $0.createPaymentJSON().flatMap({$0})})
@@ -231,11 +230,11 @@ public class Dine: NSObject{
         fail(ErrorCodes.notConifgured.getError())
         return
       }
-      let urlStr = domain + URIs.prePaySummary
+      let urlStr = domain + URIs.generatePaymentRequest
       
       self.network.request(urlStr, method: .get, parameters: params, success: { JSON in
         
-        guard let summary = PrePaySummary(json: JSON) else{
+        guard let summary = PaymentRequest(paymentDetails: paymentDetails , json: JSON) else{
             fail(ErrorCodes.badJSON.getError())
             
             return
@@ -248,17 +247,22 @@ public class Dine: NSObject{
   
     /// Make a payment for an order
     ///
-    ///   - parameter request: The details of the payment that should be charged
-    ///   - parameter paymentToken: The payment method token that should be used in order to charge the user.
+    ///   - parameter paymentDetails: The details of the payment that should be charged
+    ///   - parameter paymentMethod: The payment method that should be used in order to charge the user.
     ///    - parameter displayDelegate: A delegate method that will show payment method token creation UI. This must be set only when using Apple Pay.
     ///    - parameter success: A block that is called if the call complete successfully
     ///    - parameter fail: Called when the function fails for any reason
     
-    public func makePayment(paymentDetails: PaymentDetails , displayDelegate: DisplayViewControllerDelegate? = nil,success: @escaping ((PaymentResponse) -> Void) , fail: @escaping ((NSError) -> Void)){
-        paymentDetails.paymentMethod.generatePaymentToken(for: paymentDetails, displayDelegate: displayDelegate, success: { token in
-            
-            var params : [String: Any] = [  "orderId" :  paymentDetails.order.orderId,
-                                            "amount": paymentDetails.amount.rawValue,
+    public func makePayment(paymentRequest: PaymentRequest ,paymentMethod: PaymentMethodInterface, displayDelegate: DisplayViewControllerDelegate? = nil,success: @escaping ((PaymentResponse) -> Void) , fail: @escaping ((NSError) -> Void)){
+        
+        if paymentRequest.isPaid{
+            fail(ErrorCodes.paymentRequestAlreadyUsed.getError())
+            return
+        }
+        paymentMethod.generatePaymentToken(for: paymentRequest, displayDelegate: displayDelegate, success: { token in
+            let paymentDetails = paymentRequest.paymentDetails
+            var params : [String: Any] = [  "orderId" :  paymentRequest.paymentDetails.order.orderId,
+                                            "amount": paymentRequest.total,
                                             "tip": paymentDetails.tip.rawValue,
                                             "ccToken": token]
             
