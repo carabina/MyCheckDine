@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yr5-gQ-1lk" id="bhI-UJ-fcH">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="1100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="1099.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CY8-1k-qQw">
@@ -368,9 +368,9 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="X0Z-Au-Fn1"/>
                                                             </constraints>
-                                                            <state key="normal" title="Get prepay summary"/>
+                                                            <state key="normal" title="Get Payment Request"/>
                                                             <connections>
-                                                                <action selector="prePayPressed:" destination="xRu-6I-JXG" eventType="touchUpInside" id="HA9-ua-0A5"/>
+                                                                <action selector="generatePaymentRequest:" destination="xRu-6I-JXG" eventType="touchUpInside" id="HA9-ua-0A5"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAf-e0-KYh">
