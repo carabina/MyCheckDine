@@ -38,8 +38,12 @@ open class BasicItem: NSObject , Gloss.Decodable {
         guard let quantity: Int = "quantity" <~~ json else{
             return nil
         }
-        self.quantity = quantity
         
+        self.quantity = quantity
+        if quantity > 1{
+            print (quantity)
+            
+        }
         if let paid: Bool = "paid" <~~ json {
             self.paid = paid
         }else{
@@ -53,7 +57,7 @@ open class BasicItem: NSObject , Gloss.Decodable {
     
         return jsonify([
             "id" ~~> self.Id,
-            "amount" ~~> 1.0
+            "amount" ~~> price
             ])
     }
     

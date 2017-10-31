@@ -16,6 +16,7 @@ public struct PaymentDetails {
     internal let paymentMethod: PaymentMethodInterface
     internal let items: [BasicItem]?
     
+    let EPSILON = Money(value:0.01)
     
     /// Create a new payment request for the underlying order supplied. If the amount is bigger than the order balance or if the order is not open nil will be returned.
     ///
@@ -69,7 +70,7 @@ public struct PaymentDetails {
         }
         
         //If the amount is not within the bounds we will return nil
-        if self.amount > Money(value: order.summary.balance) || order.status != .open{
+        if self.amount - EPSILON > Money(value: order.summary.balance)  || order.status != .open{
             return nil
         }
     }

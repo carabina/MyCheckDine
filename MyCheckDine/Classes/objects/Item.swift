@@ -54,7 +54,7 @@ open class Item: BasicItem {
     }
     return jsonify([
       "ID" ~~> self.Id,
-      "Quantity" ~~> amount,
+      "Quantity" ~~> quantity,
       "Modifiers" ~~> modifierJSONs,
       "Price" ~~> self.price,
       "Serial_id" ~~> self.serialId,
