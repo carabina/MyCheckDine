@@ -263,7 +263,7 @@ public class Dine: NSObject{
             let paymentDetails = paymentRequest.paymentDetails
             var params : [String: Any] = [  "orderId" :  paymentRequest.paymentDetails.order.orderId,
                                             "amount": paymentRequest.total,
-                                            "tip": paymentDetails.tip.rawValue,
+                                            "tip": paymentDetails.tip,
                                             "ccToken": token]
             
             if let items = paymentDetails.items{

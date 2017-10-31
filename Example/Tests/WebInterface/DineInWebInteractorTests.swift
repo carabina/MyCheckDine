@@ -287,7 +287,7 @@ class DineInWebInteractorTest : XCTestCase {
         //Arange
         self.createNewLoggedInSession()
         var sentRequest: RequestParameters? = nil
-        Dine.shared.network = RequestProtocolMock(response: .success(["status":"OK", "totalBeforeTax":1.12 , "totalTax":1.0 , "totalAfterTax":2.12]) ,
+      Dine.shared.network = RequestProtocolMock(response: .success(getPaymentRequestJSON(amount: 2.12)) ,
                                                   callback:{ params in
                                                     sentRequest = params
         }
@@ -330,9 +330,9 @@ class DineInWebInteractorTest : XCTestCase {
         XCTAssert((sentRequest?.url.hasSuffix(URIs.generatePaymentRequest))!)
         XCTAssert(sentRequest?.method == .get)
         
-        XCTAssert(response?.totalBeforeTax == 1.12)
+        XCTAssert(response?.totalBeforeTax == 1.02)
         XCTAssert(response?.totalAfterTax == 2.12)
-        XCTAssert(response?.totalTax == 1.0)
+        XCTAssert(response?.totalTax == 1.1)
 
     }
     
@@ -562,10 +562,43 @@ extension DineInWebInteractorTest{
         
         return CreditCardPaymentMethod(for: .creditCard, name: "Elad", Id: "123", token: "abc", checkoutName: "checkout name")
     }
+  fileprivate func getPaymentRequestJSON(amount: Double) -> [String:Any]{
+    let totalTax = 1.1
+    let subtotal = amount - totalTax
+    let taxList:[[String:Any]] =  [
+      [
+        "name": "Tax1",
+        "amount": 1.33,
+        "isInclusive": true
+      ],
+      [
+        "name": "Tax2",
+        "amount": 0.0,
+        "isInclusive": false
+      ],
+      [
+        "name": "Tax3",
+        "amount": 0.0,
+        "isInclusive": false
+      ],
+      [
+        "name": "Tax4",
+        "amount": 0.0,
+        "isInclusive": false
+      ]
+    ]
+   return ["totalTax": totalTax , "totalBeforeTax": subtotal , "totalAfterTax": amount,
+                                    "taxList": taxList]
     
+  }
     fileprivate func getPaymentRequest() -> PaymentRequest{
-        
-        return PaymentRequest(paymentDetails: getPaymentDetails()!, json: ["totalTax": 1.1, "totalBeforeTax":10.0,"totalAfterTax": 11.1])!
+      let amount = 11.1
+
+       let order = getOrderDetails()
+        let paymentDetails = PaymentDetails(order: order!, amount: amount, tip: 1)
+      
+    let validJSON = getPaymentRequestJSON(amount: amount)
+      return PaymentRequest(paymentDetails: paymentDetails!, json: validJSON)!
     }
     
     

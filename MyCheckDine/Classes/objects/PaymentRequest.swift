@@ -39,15 +39,19 @@ public struct PaymentRequest{
   fileprivate let totalValue: Money
     
     /// The payment details for the upcoming payment.
-    public let paymentDetails: PaymentDetails
+    public var paymentDetails: PaymentDetails
+  
   // Used in order to deturman if the object was already used to make a payment.
     internal var isPaid = false
-    
+
+  /// The list of tax items. Each tax item reprisents a diffrant type of tax that will be charged when the request is processed.
+  public let taxItems: [TaxItem]
+
     internal init?(paymentDetails: PaymentDetails , json: JSON) {
     self.paymentDetails = paymentDetails
     guard let tax: Double = "totalTax" <~~ json,
-    let subtotal: Double = "totalBeforeTax" <~~ json ,
-    let total: Double = "totalAfterTax" <~~ json else{
+    let subtotal: Double = "priceBeforeTax" <~~ json ,
+    let total: Double = "priceAfterTax" <~~ json else{
  
       return nil
     }
@@ -55,6 +59,12 @@ public struct PaymentRequest{
     self.subtotalValue = Money(value: subtotal)
     self.totalValue = Money(value: total)
 
+      guard let JSONArray = json["taxList"] as? [[String: Any]]
+         else{
+          return nil
+      }
+       taxItems = JSONArray.map({ TaxItem(JSON:$0) }).flatMap({$0})
+      
   }
 }
 
@@ -65,7 +75,7 @@ extension PaymentRequest: PaymentDetailsProtocol{
     
     public var taxEntry:  BillEntryItem?{ get{ return BillEntryItem(name: "Tax"  , amount: taxValue)}}
     
-    public var tipEntry:  BillEntryItem?{ get{ return BillEntryItem(name: "Tip"  , amount: paymentDetails.tip)}}
+    public var tipEntry:  BillEntryItem?{ get{ return BillEntryItem(name: "Tip"  , amount: paymentDetails.tipValue)}}
     
     public var totalEntry:  BillEntryItem{ get{ return BillEntryItem(name: "Total"  ,amount: totalValue)}}
 }

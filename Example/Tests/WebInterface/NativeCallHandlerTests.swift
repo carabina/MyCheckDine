@@ -379,7 +379,6 @@ class NativeCallHandlerTests: XCTestCase {
             case .amount(let amount):
                 XCTAssert(amount == 1.1)
                 
-                XCTFail("should not have amount")
                 
             case .items(_):
                 XCTFail("should not have amount")

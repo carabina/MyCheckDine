@@ -12,11 +12,21 @@ import MyCheckCore
 public struct PaymentDetails {
     internal let order : Order
     internal let amount: Money
-    internal let tip: Money
+    internal var tipValue: Money
     internal let items: [BasicItem]?
     
     let EPSILON = Money(value:0.01)
+  
+  /// The tip for the payment. The tip can be edited after creation
+  public var tip: Double {
+    get{
+      return tipValue.rawValue
+      
+    }
+    set{
+    tipValue = Money(value: newValue)
     
+    }}
     /// Create a new payment request for the underlying order supplied. If the amount is bigger than the order balance or if the order is not open nil will be returned.
     ///
     ///   - parameter order: The order that is going to be paid for. If only an order is supplied the payment amount will be the full balance of the order.
@@ -32,9 +42,9 @@ public struct PaymentDetails {
         }
         
         if let tip = tip {
-            self.tip = Money(value: tip)
+            self.tipValue = Money(value: tip)
         }else{
-            self.tip = Money(value:0)
+            self.tipValue = Money(value:0)
         }
         
         //If the amount is not within the bounds we will return nil
@@ -59,9 +69,9 @@ public struct PaymentDetails {
         self.amount = Money(value: items.reduce(0.0, {$1.paid ? $0 : $0 + $1.price * Double($1.quantity)}))
         self.items = items
         if let tip = tip {
-            self.tip = Money(value: tip)
+            self.tipValue = Money(value: tip)
         }else{
-            self.tip = Money(value:0)
+            self.tipValue = Money(value:0)
         }
         
         //If the amount is not within the bounds we will return nil

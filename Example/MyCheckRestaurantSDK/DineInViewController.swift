@@ -215,7 +215,9 @@ class DineInViewController: UITableViewController {
                 self.paymentRequest = summary
 
               self.showGeneratePaymentRequestAlert(summary)
-            }, fail: {error in })
+            }, fail: {error in
+         
+            })
         }else{
             self.showErrorMessage(message: "Invalid payment request (invalid amount or closed order)")
             
@@ -259,17 +261,16 @@ class DineInViewController: UITableViewController {
   
   private func payByAmount(order: Order , paymentMethod: PaymentMethodInterface){
     
-    guard  (self.amountField.text?.characters.count)! > 0 else{
-      self.showErrorMessage(message: "please enter amount")
-      return
-    }
-    guard let paymentRequest = paymentRequest else{
-        self.showErrorMessage(message: "please call pre pay first")
+    
+    guard var paymentRequest = paymentRequest else{
+        self.showErrorMessage(message: "please call payment request first")
         return
         
     }
-    
-    
+    if let tipText = self.tipField.text,
+      let tip =  Double(tipText){
+    paymentRequest.paymentDetails.tip = tip
+    }
         Dine.shared.makePayment(paymentRequest: paymentRequest,paymentMethod: paymentMethod , displayDelegate: self, success: {_ in
         
       }, fail: {error in
@@ -290,7 +291,7 @@ class DineInViewController: UITableViewController {
        
         
         guard let paymentRequest = paymentRequest else{
-            self.showErrorMessage(message: "please call pre pay first")
+            self.showErrorMessage(message: "please call payment request first")
             return
             
         }
