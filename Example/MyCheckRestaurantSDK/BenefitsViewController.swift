@@ -14,7 +14,7 @@ class BenefitsViewController: UIViewController{
     var benefit : Benefit? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        BIDField.addDoneButtonToKeyboard(target: self, action: #selector(BenefitsViewController.getBenefitsPressed(_:)))
+        BIDField.addDoneButtonToKeyboard(target: self, action: #selector(BenefitsViewController.keyboardDoneButtonPressed))
     }
     @IBOutlet weak var BIDField: UITextField!
     

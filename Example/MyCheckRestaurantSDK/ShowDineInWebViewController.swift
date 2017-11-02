@@ -49,7 +49,7 @@ class ShowDineInWebViewController: ViewController {
             guard let order = order else{
             return
             }
-            DineInWebViewControllerFactory.dineInWithOpenOrder(order: order, locale:  NSLocale(localeIdentifier:"en_US"), delegate: self)
+            DineInWebViewControllerFactory.dineInWithOpenOrder(order: order, locale:  NSLocale(localeIdentifier:self.localeField.text!), delegate: self)
         }, fail: nil)
     }
     
