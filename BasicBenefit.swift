@@ -8,6 +8,7 @@
 import Foundation
 
 
+/// The basic information about a benefit 
 public class BasicBenefit {
     
     /// The benefits id

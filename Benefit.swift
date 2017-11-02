@@ -16,7 +16,7 @@ public class Benefit: BasicBenefit{
     /// The method the benefit can be redeemed by.
     ///
     /// - manual: In order to redeem redeem benefit must be called with this benefit
-    /// - automatic: The benefit will be redeemed automaticly when the condition will be met
+    /// - automatic: The benefit will be redeemed automatically when the condition will be met
     public enum RedeemMethod: String{
         
         case manual = "MANUAL"
