@@ -347,6 +347,49 @@ class DineInWebPresenterTests: XCTestCase
         XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: emptyBody)))
         
     }
+    
+    
+    func testGetBenefits()
+    {
+        // Arrange
+  
+        let benefits = [Benefit.getBenefitStub()]
+        
+        let response = DineInWeb.getBenefits.Response(callback: callback, benefits: benefits)
+        
+        // Act
+        presenter.gotBenefits(response: response)
+        
+        // Assert
+        guard let JS = spy.JSString else{
+            XCTFail("should of recieved a call to viewcontroller")
+            return
+        }
+        
+        XCTAssert(JSISValid(JS: JS, callback: callback,
+                            validJSON:createSuccessJSON(with: ["benefits": benefits.map({$0.JSONify()})] )))
+    }
+    
+    
+    func testRedeemBenefit()
+    {
+        // Arrange
+        let response = DineInWeb.RedeemBenefit.Response(callback: callback)
+        
+        
+        // Act
+        presenter.redeemedBenefits(response: response)
+        
+        // Assert
+        guard let JS = spy.JSString else{
+            XCTFail("should of recieved a call to viewcontroller")
+            return
+        }
+        
+        let emptyBody:[String:Any] = [:]
+        XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: emptyBody)))
+        
+    }
 }
 
 

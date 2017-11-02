@@ -235,6 +235,7 @@
 		B093484B1637B3D3AF65DF2232FDBADC /* mach_excServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 28B79D09D2B5E5C37EC454A55575DFA6 /* mach_excServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B111807B83DE0DD1BB490690CD28B1D7 /* AddCreditCardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058A3A21CA332E2D566B2D44FE2DC76 /* AddCreditCardRouter.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B2504901F77DE1E65DDAF12B82BF3F9F /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = AB75B325289354EE36B39B517AF7E7ED /* QCKDSL.m */; };
+		B2B655DC1FAB1CB600C855A9 /* BasicBenefit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B655DB1FAB1CB600C855A9 /* BasicBenefit.swift */; };
 		B2CB21771FA9B70E000EC73A /* Benefit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CB21761FA9B70E000EC73A /* Benefit.swift */; };
 		B318DF5D725C1FB689E13AF10FF03B35 /* Dictionary+Append.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C394FD3FD6FFECC76D503E094C80C5 /* Dictionary+Append.swift */; };
 		B38C14F035ED4BDD7B3870A43A81CC88 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB3C614C5E9C347098A39174686E940 /* Media.xcassets */; };
@@ -875,6 +876,7 @@
 		B0E847EEEE0CA8623469AD6DD9E6382A /* Pods-MyCheckDine_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MyCheckDine_Example.modulemap"; sourceTree = "<group>"; };
 		B23EC9BAA15A59202F24C23037A77778 /* Pods-MyCheckDine_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MyCheckDine_Tests.modulemap"; sourceTree = "<group>"; };
 		B27D501D69A24BB1CE67FF50316F82FD /* Pods-MyCheckDine_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyCheckDine_Example-frameworks.sh"; sourceTree = "<group>"; };
+		B2B655DB1FAB1CB600C855A9 /* BasicBenefit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBenefit.swift; sourceTree = "<group>"; };
 		B2CB21761FA9B70E000EC73A /* Benefit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benefit.swift; sourceTree = "<group>"; };
 		B2D988F09D594A98781EFBBCDF5E2708 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B30CDA7D5D4207C928F318F786CDCB83 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1672,6 +1674,7 @@
 		B2CB21751FA9B6F6000EC73A /* objects */ = {
 			isa = PBXGroup;
 			children = (
+				B2B655DB1FAB1CB600C855A9 /* BasicBenefit.swift */,
 				B2CB21761FA9B70E000EC73A /* Benefit.swift */,
 			);
 			name = objects;
@@ -2408,6 +2411,7 @@
 				262D125FB00F12C97A70BA25F9FE714F /* Order.swift in Sources */,
 				3C35A91C850043C30CE22C9EDE1350AB /* OrderHistoryItem.swift in Sources */,
 				B2CB21771FA9B70E000EC73A /* Benefit.swift in Sources */,
+				B2B655DC1FAB1CB600C855A9 /* BasicBenefit.swift in Sources */,
 				545796E0B07D64FBD43761B3A7BDEE8D /* OrderPoller.swift in Sources */,
 				9E27BC2D4328A9CCD79E6F2B24EF7DD1 /* OrderPollerManager.swift in Sources */,
 				71BAA152C48CE2804F03A6A0D1003403 /* PaymentDetails.swift in Sources */,

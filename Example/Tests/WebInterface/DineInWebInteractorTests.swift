@@ -11,6 +11,8 @@ import MyCheckCore
 class DineInWebInteractorTest : XCTestCase {
     
     class presenterSpy:  DineInWebPresentationLogic{
+   
+        
         
         
         
@@ -28,7 +30,8 @@ class DineInWebInteractorTest : XCTestCase {
         var feedbackResponse: DineInWeb.SendFeedback.Response?
         var callWaiterResponse: DineInWeb.CallWaiter.Response?
         var getLocaleResponse: DineInWeb.getLocale.Response?
-        
+        var getBenefitsResponse: DineInWeb.getBenefits.Response?
+        var redeemedBenefitsResponse:DineInWeb.RedeemBenefit.Response?
         func presentTableCode(response: DineInWeb.GetCode.Response){
             tableCodeResponse = response
         }
@@ -84,6 +87,14 @@ class DineInWebInteractorTest : XCTestCase {
         func gotLocale(response: DineInWeb.getLocale.Response){
             getLocaleResponse = response
             
+        }
+        
+        func gotBenefits(response: DineInWeb.getBenefits.Response){
+            getBenefitsResponse = response
+        }
+        
+        func redeemedBenefits(response: DineInWeb.RedeemBenefit.Response) {
+            redeemedBenefitsResponse = response
         }
     }
     
@@ -519,6 +530,59 @@ class DineInWebInteractorTest : XCTestCase {
         
         //Assert
         XCTAssert(  spy.getLocaleResponse?.callback == callbackName, "callback should be passed on")
+        
+    }
+    
+    func testGetBenefits(){
+        
+        //Arange
+        self.createNewLoggedInSession()
+        guard let validOrderJSON = getJSONFromFile( named: "benefits") else{
+            XCTFail("should not fail")
+            
+            return;
+        }
+        Benefits.network = RequestProtocolMock(response: .success(validOrderJSON))
+        
+        let (interactor , spy) = getInteractorWithPresenterSpy()
+        let restaurantId = "123"
+        //Act
+        interactor.getBenefits(request: DineInWeb.getBenefits.Request(callback: callbackName, restaurantId: restaurantId))
+        
+        //Assert
+        
+        XCTAssert(spy.getBenefitsResponse!.benefits.count == 3)
+        XCTAssert(spy.getBenefitsResponse!.benefits[0].id == "1")
+
+        XCTAssert(  spy.getBenefitsResponse!.callback == callbackName, "callback should be passed on")
+        
+        
+        
+    }
+    
+    func testRedeemBenefits(){
+        
+        //Arange
+        self.createNewLoggedInSession()
+        guard let validOrderJSON = getJSONFromFile( named: "redeemSuccess") else{
+            XCTFail("should not fail")
+            
+            return;
+        }
+        Benefits.network = RequestProtocolMock(response: .success(validOrderJSON))
+        
+        let (interactor , spy) = getInteractorWithPresenterSpy()
+        let restaurantId = "123"
+        let benefit = Benefit.getBenefitStub()
+        //Act
+        interactor.redeemBenefits(request: DineInWeb.RedeemBenefit.Request(callback: callbackName, restaurantId: restaurantId, benefit: benefit))
+        
+        //Assert
+        
+    
+        XCTAssert(  spy.redeemedBenefitsResponse!.callback == callbackName, "callback should be passed on")
+        
+        
         
     }
 }

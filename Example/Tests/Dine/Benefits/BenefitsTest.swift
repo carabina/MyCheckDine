@@ -66,7 +66,6 @@ class BenefitsTest: XCTestCase {
         XCTAssert(benefit.description == "5" )
         XCTAssert(benefit.redeemable == true )
         XCTAssert(benefit.imageURL == nil )
-        XCTAssert(benefit.categoryID == nil )
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -129,7 +128,7 @@ class BenefitsTest: XCTestCase {
         let bid = "123ef"
         let expectedError = NSError(domain: "12", code: 12003, userInfo:  [NSLocalizedDescriptionKey : "MINIMUM_PURCHASE_AMOUNT"])
         var optionalError : NSError? = nil
-        let benefit = getBenefit()
+        let benefit = Benefit.getBenefitStub()
         //Act
         Benefits.redeem(benefit: benefit, restaurantId: bid,  success: { benefitsRecieved in
             XCTFail("fail should of been called")
@@ -170,7 +169,7 @@ return
         
         let bid = "123ef"
         var success: Bool = false
-        let benefit = getBenefit()
+        let benefit = Benefit.getBenefitStub()
         //Act
         Benefits.redeem(benefit: benefit, restaurantId: bid,  success: { benefitsRecieved in
             success = true
@@ -194,20 +193,6 @@ return
 
 }
 
-fileprivate extension BenefitsTest{
-    
-    func getBenefit() -> Benefit{
-        let JSON: [String: Any] = [
-            "id": "360304",
-            "provider": "fishbowl",
-            "name": "15% discount",
-            "subtitle": "15% discount",
-            "description": "15% discount",
-            "redeemable": true,
-            "redeem_method": "MANUAL",
-        ]
-     return Benefit(JSON: JSON)!
-    }
-}
+
 
 

@@ -15,8 +15,10 @@ open class BasicItem: NSObject , Gloss.Decodable {
     open let quantity : Int
     ///Was the item paid for.
     open var paid : Bool
-    
-    
+    ///The serial Id of the item.
+    open let serialId : String?
+    ///modifiers of the item. This can be a list of toppings or any other kind of complementary item.
+    open let modifiers : [Item]
     //The constructor is for internal use only. Items should be obtained from an Order objects items array or from the modifiers array in the Items object.
     public required init?(json: JSON) {
         
@@ -49,9 +51,16 @@ open class BasicItem: NSObject , Gloss.Decodable {
         }else{
         self.paid = false
         }
+        
+        serialId = "serial_id" <~~ json
+
+        guard let modifiers: [Item] = "modifiers" <~~ json else{
+            return nil
+        }
+        self.modifiers = modifiers
     }
     
-  
+
     
     internal func createPaymentJSON() -> JSON? {
     
@@ -61,6 +70,24 @@ open class BasicItem: NSObject , Gloss.Decodable {
             ])
     }
     
+    internal func createPaymentRequestJSON(amount: Int) -> JSON? {
+        //creating modifiers json
+        var modifierJSONs :[JSON] = []
+        for modifier in modifiers{
+            if let json = modifier.createReorderJSON(amount:1){
+                modifierJSONs.append(json)
+            }
+        }
+        return jsonify([
+            "ID" ~~> self.Id,
+            "Quantity" ~~> quantity,
+            "Modifiers" ~~> modifierJSONs,
+            "Price" ~~> self.price,
+            "Serial_id" ~~> self.serialId,
+            "Name" ~~> self.name
+            
+            ])
+    }
     
 }
 

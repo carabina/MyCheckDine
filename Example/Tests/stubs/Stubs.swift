@@ -74,3 +74,19 @@ fileprivate func getJSONFromFile(named name: String) -> [String:Any]? {
   
   return jsonDictionary
 }
+
+extension Benefit{
+    
+   static func getBenefitStub() -> Benefit{
+        let JSON: [String: Any] = [
+            "id": "360304",
+            "provider": "fishbowl",
+            "name": "15% discount",
+            "subtitle": "15% discount",
+            "description": "15% discount",
+            "redeemable": true,
+            "redeem_method": "MANUAL",
+            ]
+        return Benefit(JSON: JSON)!
+    }
+}

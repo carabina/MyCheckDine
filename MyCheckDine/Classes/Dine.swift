@@ -210,7 +210,7 @@ public class Dine: NSObject{
       var params : [String: Any] = [  "orderId" :  paymentDetails.order.orderId]
     if let items = paymentDetails.items{
       
-      let itemJSONs = items.map({ $0.createPaymentJSON().flatMap({$0})})
+        let itemJSONs = items.map({ $0.createPaymentRequestJSON(amount: 1).flatMap({$0})})
         
         let jsonData = try! JSONSerialization.data(withJSONObject: itemJSONs, options: JSONSerialization.WritingOptions())
         

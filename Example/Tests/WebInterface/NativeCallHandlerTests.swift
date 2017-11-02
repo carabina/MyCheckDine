@@ -17,6 +17,8 @@ class NativeCallHandlerTests: XCTestCase {
     
     
     class InteractorSpy: DineInWebBusinessLogic{
+     
+        
         
         
         
@@ -35,6 +37,9 @@ class NativeCallHandlerTests: XCTestCase {
         var sendFeedbackRequest: DineInWeb.SendFeedback.Request?
         var callWaiterRequest: DineInWeb.CallWaiter.Request?
         var getLocaleRequest: DineInWeb.getLocale.Request?
+        
+        var  getBenefitsRequest: DineInWeb.getBenefits.Request?
+        var redeemBenefitsRequest: DineInWeb.RedeemBenefit.Request?
         
         func setupInteractor(request: DineInWeb.SetupDinein.Request){
             setupRequest = request
@@ -93,6 +98,14 @@ class NativeCallHandlerTests: XCTestCase {
         
         func callGeneratePaymentRequest(request: DineInWeb.GeneratePayRequest.Request) {
             generatePaymentRequestRequest = request
+        }
+        
+        func getBenefits(request: DineInWeb.getBenefits.Request) {
+            getBenefitsRequest = request
+        }
+        
+        func redeemBenefits(request: DineInWeb.RedeemBenefit.Request) {
+            redeemBenefitsRequest = request
         }
     }
     
@@ -449,7 +462,35 @@ class NativeCallHandlerTests: XCTestCase {
                 
                 
             }
-            
+    
+    func testGetBenefits() {
+        //Arrange
+        let spy = setAndReturnSpy()
+        
+        //Act
+        runJSSynchronously(JSExpresion:"getBenefits();")
+        
+        //Assert
+        XCTAssert(spy.getBenefitsRequest?.callback == "gotBenefits")
+        XCTAssert(spy.getBenefitsRequest?.restaurantId == "1234")
+
+        
+    }
+    
+    func testRedeemBenefits() {
+        //Arrange
+        let spy = setAndReturnSpy()
+        
+        //Act
+        runJSSynchronously(JSExpresion:"redeemBenefit();")
+        
+        //Assert
+        XCTAssert(spy.redeemBenefitsRequest?.callback == "redeemBenefit")
+        XCTAssert(spy.redeemBenefitsRequest?.restaurantId == "1234")
+        
+        
+    }
+    
             func completeDineInOrderError() {
                 //Arrange
                 let spy = setAndReturnSpy()

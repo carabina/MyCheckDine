@@ -10,7 +10,7 @@ import Foundation
 
 
 /// Reprisents a benefit
-public struct Benefit{
+public class Benefit: BasicBenefit{
     
     
     /// The method the benefit can be redeemed by.
@@ -26,11 +26,7 @@ public struct Benefit{
     }
     
     
-    /// The benefits id
-    public let id: String
-    
-    /// The providers name
-    public let provider: String
+  
     
     /// The benefits name
     public let name: String
@@ -47,8 +43,7 @@ public struct Benefit{
     /// A url of an image for the benefit
     public let imageURL: URL?
     
-    /// The Id of the category the benefit belongs to
-    public let categoryID: String? 
+
     
     /// The method the benefit can be redeemed by (by calling the redeem function or automaticly)
     public let redeemMethod: RedeemMethod
@@ -59,9 +54,8 @@ public struct Benefit{
     /// The date the benefit expires
     public let expirationDate: Date?
     
-    internal init?(JSON: [String: Any]){
-        guard let id = JSON["id"] as? String,
-            let provider = JSON["provider"] as? String,
+    public override init?(JSON: [String: Any]){
+        guard
             let name = JSON["name"] as? String,
             let subtitle = JSON["subtitle"] as? String,
             let description = JSON["description"] as? String,
@@ -70,8 +64,7 @@ public struct Benefit{
             let redeemMethod = RedeemMethod(rawValue: redeemMethodStr) else{
                 return nil
         }
-        self.id = id
-        self.provider = provider
+      
         self.name = name
         self.subtitle = subtitle
         self.description = description
@@ -85,11 +78,6 @@ public struct Benefit{
             self.imageURL = nil
         }
         
-        if let category_id = JSON["category_id"] as? String{
-            self.categoryID = category_id
-        }else{
-            self.categoryID = nil
-        }
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -113,6 +101,36 @@ public struct Benefit{
             startDate = nil
             expirationDate = nil
         }
+        super.init(JSON: JSON)
+
+    }
+    
+   public func JSONify() -> [String: Any] {
+        var JSON = ["name": name,
+                    "subtitle": subtitle,
+                    "description": description,
+                    "redeemable": redeemable,
+                    "redeem_method": redeemMethod.rawValue
+            ] as [String : Any]
+        if let imageURL = imageURL{
+            JSON["image"] = imageURL
+        }
         
+        if startDate != nil || expirationDate != nil {
+          
+            var timing: [String: Any] = [:]
+            
+            if let startDate = startDate{
+                timing["start_time"] = startDate
+            }
+            
+            if let expirationDate = expirationDate{
+                timing["expire_time"] = expirationDate
+           
+            }
+            JSON["timing"] = timing
+
+        }
+    return JSON
     }
 }
