@@ -62,6 +62,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'MyCheckDine_Example' do
     pod 'MyCheckDine', :path => '../'
+    pod 'MyCheckDine/Benefits', :path => '../'
+
     pod 'MyCheckCore', :path => '../../MyCheck-Core'
     pod 'MyCheckDineUIWeb', :path => '../../WebInterfaceSDK'
 
@@ -73,6 +75,8 @@ target 'MyCheckDine_Example' do
 
     target 'MyCheckDine_Tests' do
         inherit! :search_paths
+        pod 'MyCheckDine/Benefits', :path => '../'
+
         pod 'MyCheckCore', :path => '../../MyCheck-Core'
         pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
        # pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
@@ -87,6 +91,8 @@ target 'MyCheckDine_Example' do
         pod 'Nimble', '~> 5.1.1'
     end
     target 'emptyTargetForTesting' do
+        pod 'MyCheckDine/Benefits', :path => '../'
+
         pod 'MyCheckCore', :path => '../../MyCheck-Core'
         pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
         #pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'

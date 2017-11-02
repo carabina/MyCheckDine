@@ -1,0 +1,17 @@
+{
+"status": "OK",
+"redemptions": [
+{
+"status": "SUCCESS",
+"outcome": 12001,
+"provider_benefit_id": "627",
+"provider": "mycheck",
+"reward": {
+"id": 627,
+"benefit_received_id": 23325,
+"discount": 6.71,
+"name": ""
+}
+}
+]
+}

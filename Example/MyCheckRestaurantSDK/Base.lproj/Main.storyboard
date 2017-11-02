@@ -560,7 +560,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ObG-fJ-FCh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show dine In web view" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFw-mF-Wov">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
@@ -591,6 +591,29 @@
                                             <action selector="openTablePressed:" destination="d0R-zc-eYY" eventType="touchUpInside" id="Os8-o0-n3p"/>
                                         </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="dgu-Ed-wkd">
+                                        <rect key="frame" x="0.0" y="130" width="375" height="55"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="GS3-5e-fcV">
+                                                <rect key="frame" x="20" y="0.0" width="335" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1k-bt-Xvu">
+                                                        <rect key="frame" x="0.0" y="0.0" width="39.5" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="en_US" borderStyle="roundedRect" placeholder="locale" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sWt-BQ-o6e">
+                                                        <rect key="frame" x="45.5" y="0.0" width="289.5" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="25" right="20"/>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -604,6 +627,7 @@
                     <tabBarItem key="tabBarItem" title="Dine UI" image="dinein_tab" id="dRH-p0-FfY"/>
                     <connections>
                         <outlet property="BIDField" destination="C8p-Wq-2yZ" id="uck-7J-CrT"/>
+                        <outlet property="localeField" destination="sWt-BQ-o6e" id="4Fb-LD-GDp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwF-2I-Z3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -859,6 +883,7 @@
                         <segue destination="xRu-6I-JXG" kind="relationship" relationship="viewControllers" id="wK8-TZ-2Jb"/>
                         <segue destination="esY-ET-0Jo" kind="relationship" relationship="viewControllers" id="sCX-gh-5Xd"/>
                         <segue destination="d0R-zc-eYY" kind="relationship" relationship="viewControllers" id="sou-Rb-yFn"/>
+                        <segue destination="umy-gr-Laq" kind="relationship" relationship="viewControllers" id="rve-BC-IFE"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j7Q-DH-ECx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1111,12 +1136,76 @@
             </objects>
             <point key="canvasLocation" x="1758" y="118"/>
         </scene>
+        <!--Benefits VC-->
+        <scene sceneID="gGA-g0-X5V">
+            <objects>
+                <viewController storyboardIdentifier="BenefitsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="umy-gr-Laq" userLabel="Benefits VC" customClass="BenefitsViewController" customModule="MyCheckDine_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EtH-QW-eIm"/>
+                        <viewControllerLayoutGuide type="bottom" id="4FI-b9-QsD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UZh-ky-RLp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="331"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZHH-9J-HU8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLp-XP-6D4">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="qyg-Pt-AiZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9295" borderStyle="roundedRect" placeholder="BID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xj8-We-jg7">
+                                        <rect key="frame" x="0.0" y="40" width="375" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIL-0S-wHo">
+                                        <rect key="frame" x="0.0" y="70" width="375" height="30"/>
+                                        <state key="normal" title="Get benefit List"/>
+                                        <connections>
+                                            <action selector="getBenefitsPressed:" destination="umy-gr-Laq" eventType="touchUpInside" id="6hC-6x-5h5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNp-da-09k">
+                                        <rect key="frame" x="0.0" y="100" width="375" height="30"/>
+                                        <state key="normal" title="Redeem benefit"/>
+                                        <connections>
+                                            <action selector="redeemBenefitPressed:" destination="umy-gr-Laq" eventType="touchUpInside" id="IZu-bG-Lg8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZHH-9J-HU8" firstAttribute="leading" secondItem="UZh-ky-RLp" secondAttribute="leading" id="5Ui-6w-Dbg"/>
+                            <constraint firstItem="ZHH-9J-HU8" firstAttribute="top" secondItem="EtH-QW-eIm" secondAttribute="bottom" id="jTv-YV-0kh"/>
+                            <constraint firstAttribute="trailing" secondItem="ZHH-9J-HU8" secondAttribute="trailing" id="kRQ-p2-5eI"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Benefits" image="gift-icon" id="low-0N-O0l" userLabel="Benefits"/>
+                    <connections>
+                        <outlet property="BIDField" destination="Xj8-We-jg7" id="anc-ql-hyU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ezw-zJ-GQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-482" y="606"/>
+        </scene>
     </scenes>
     <resources>
         <image name="copy_icon" width="25" height="25"/>
         <image name="dinein_tab" width="25" height="25"/>
         <image name="drag_icon" width="64" height="64"/>
         <image name="email_icon" width="25" height="25"/>
+        <image name="gift-icon" width="25" height="25"/>
         <image name="led_red" width="150" height="150"/>
         <image name="trash" width="30" height="30"/>
         <image name="user_tab" width="25" height="25"/>

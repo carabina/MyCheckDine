@@ -587,7 +587,7 @@ extension DineInWebInteractorTest{
         "isInclusive": false
       ]
     ]
-   return ["totalTax": totalTax , "totalBeforeTax": subtotal , "totalAfterTax": amount,
+   return ["totalTax": totalTax , "priceBeforeTax": subtotal , "priceAfterTax": amount,
                                     "taxList": taxList]
     
   }

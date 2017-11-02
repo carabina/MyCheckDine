@@ -13,11 +13,12 @@ import MyCheckCore
 import MyCheckDine
 class ShowDineInWebViewController: ViewController {
 
+    @IBOutlet weak var localeField: UITextField!
     @IBOutlet weak var BIDField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        localeField.addDoneButtonToKeyboard(target: self, action: #selector(self.doneOnKeyboardPressed))
         
         BIDField.addDoneButtonToKeyboard(target:self, action: #selector(self.doneOnKeyboardPressed))
     }
@@ -39,7 +40,7 @@ class ShowDineInWebViewController: ViewController {
     */
     @IBAction func dinePressed(_ sender: Any) {
         
-        DineInWebViewControllerFactory.dineIn(at: BIDField.text!, locale: NSLocale(localeIdentifier:"en_US") , displayDelegate: self, applePayController: Wallet.shared.applePayController, delegate: self)
+        DineInWebViewControllerFactory.dineIn(at: BIDField.text!, locale: NSLocale(localeIdentifier:localeField.text!) , displayDelegate: self, applePayController: Wallet.shared.applePayController, delegate: self)
     }
 
     @IBAction func openTablePressed(_ sender: Any) {
@@ -94,6 +95,8 @@ fileprivate extension ShowDineInWebViewController{
     @objc func doneOnKeyboardPressed()
     {
         self.BIDField.resignFirstResponder()
+        self.localeField.resignFirstResponder()
+
     }
     
 }

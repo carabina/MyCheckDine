@@ -1,0 +1,60 @@
+
+{
+    "status": "OK",
+    "benefits": [
+                 {
+                 "id": "1",
+                 "provider": "2",
+                 "name": "3",
+                 "subtitle": "4",
+                 "description": "5",
+                 "redeemable": true,
+                 "image": null,
+                 "category_id": null,
+                 "redeem_method": "AUTO",
+                 "timing": {
+                 "start_time": "2017-04-01 08:15:30",
+                 "expire_time": "2017-04-01 08:15:30"
+                 }
+                 },
+                 {
+                 "id": "360304",
+                 "provider": "fishbowl",
+                 "name": "15% discount",
+                 "subtitle": "15% discount",
+                 "description": "15% discount",
+                 "redeemable": true,
+                 "image": null,
+                 "category_id": null,
+                 "redeem_method": "MANUAL",
+                 "timing": null
+                 },
+                 {
+                 "id": "1805461_16_0_6238b50d27d7fb0b11740f7ca2b22583",
+                 "provider": "paytronix_guest",
+                 "name": "Kids Meal",
+                 "subtitle": "Kids Meal",
+                 "description": "Kids Meal",
+                 "redeem_method": "MANUAL",
+                 "redeemable": true,
+                 "image": null,
+                 "category_id": null,
+                 "timing": null
+                 }
+                 ],
+    "settings": [
+                 {
+                 "provider": "mycheck",
+                 "max_redeems": 1
+                 },
+                 {
+                 "provider": "fishbowl",
+                 "max_redeems": 1
+                 },
+                 {
+                 "provider": "paytronix_guest",
+                 "max_redeems": 1
+                 }
+                 ],
+    "ErrorCode": 0
+}

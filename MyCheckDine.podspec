@@ -210,7 +210,7 @@ s.source           = { :git => 'https://bitbucket.org/erez_spatz/mycheckrestaura
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
-  s.source_files = 'MyCheckDine/Classes/**/*'
+  s.source_files = 'MyCheckDine/Classes/*' , 'MyCheckDine/Classes/extenshions tools/**' ,'MyCheckDine/Classes/Networking/**','MyCheckDine/Classes/objects/**','MyCheckDine/Classes/OrderPoller/**'
 s.dependency 'MyCheckCore'
 s.dependency   'Gloss', '~> 1.1'
 
@@ -223,7 +223,14 @@ s.dependency   'Gloss', '~> 1.1'
   # s.dependency 'AFNetworking', '~> 2.3'
 
 
+s.subspec 'Benefits' do |benefits|
+benefits.dependency 'MyCheckCore'
 
+benefits.source_files = 'MyCheckDine/Classes/Benefits/**/*'
+benefits.ios.deployment_target = '9.0'
+benefits.platform = :ios, '9.0'
+
+end
 
 
 end

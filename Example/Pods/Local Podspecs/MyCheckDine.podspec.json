@@ -18,7 +18,13 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "MyCheckDine/Classes/**/*",
+  "source_files": [
+    "MyCheckDine/Classes/*",
+    "MyCheckDine/Classes/extenshions tools/**",
+    "MyCheckDine/Classes/Networking/**",
+    "MyCheckDine/Classes/objects/**",
+    "MyCheckDine/Classes/OrderPoller/**"
+  ],
   "dependencies": {
     "MyCheckCore": [
 
@@ -26,5 +32,19 @@
     "Gloss": [
       "~> 1.1"
     ]
-  }
+  },
+  "subspecs": [
+    {
+      "name": "Benefits",
+      "dependencies": {
+        "MyCheckCore": [
+
+        ]
+      },
+      "source_files": "MyCheckDine/Classes/Benefits/**/*",
+      "platforms": {
+        "ios": "9.0"
+      }
+    }
+  ]
 }

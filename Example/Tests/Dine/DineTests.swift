@@ -418,7 +418,7 @@ class DineTests: XCTestCase {
       "isInclusive": false
     ]
     ]
-    let validJSON: [String: Any] = ["totalTax": totalTax , "totalBeforeTax": subtotal , "totalAfterTax": amount,
+    let validJSON: [String: Any] = ["totalTax": totalTax , "priceBeforeTax": subtotal , "priceAfterTax": amount,
                                     "taxList": taxList]
     Dine.shared.network = RequestProtocolMock(response: .success(validJSON)){ sent in
       paramsSent = sent

@@ -219,7 +219,6 @@ class DineInViewController: UITableViewController {
          
             })
         }else{
-            self.showErrorMessage(message: "Invalid payment request (invalid amount or closed order)")
             
         }
         

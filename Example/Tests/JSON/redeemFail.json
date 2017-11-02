@@ -1,0 +1,10 @@
+{
+    "status": "OK",
+    "redemptions": [{
+                    "status": "FAILED",
+                    "outcome": 12003,
+                    "provider_benefit_id": "627",
+                    "provider": "mycheck",
+                    "error": "MINIMUM_PURCHASE_AMOUNT"
+                    }]
+}
