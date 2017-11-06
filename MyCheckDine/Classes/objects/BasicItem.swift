@@ -67,10 +67,7 @@ open class BasicItem: NSObject , Gloss.Decodable {
     
     internal func createPaymentJSON() -> JSON? {
     
-        return jsonify([
-            "id" ~~> self.Id,
-            "amount" ~~> price
-            ])
+        return createPaymentRequestJSON(amount:1)
     }
     
     internal func createPaymentRequestJSON(amount: Int) -> JSON? {
