@@ -10,8 +10,8 @@ import MyCheckCore
 
 extension  URIs{
     
-    static let getBenefits = "/restaurants/api/v1/benefits"
-    static let redeemBenefits = "/restaurants/api/v1/redeemBenefits"
+//    static let getBenefits = "/restaurants/api/v1/benefits"
+//    static let redeemBenefits = "/restaurants/api/v1/redeemBenefits"
     
     
 }
@@ -46,7 +46,7 @@ public class Benefits{
             }
             return
         }
-        let urlStr = domain + URIs.getBenefits
+        let urlStr = domain + "/restaurants/api/v1/benefits"
         
         return  network.request(urlStr, method: .get, parameters: params , success: { JSON in
             
@@ -100,7 +100,7 @@ public class Benefits{
             }
             return
         }
-        let urlStr = domain + URIs.redeemBenefits
+        let urlStr = domain + "/restaurants/api/v1/redeemBenefits"
         
         return  network.request(urlStr, method: .post, parameters: params , success: { JSON in
             
