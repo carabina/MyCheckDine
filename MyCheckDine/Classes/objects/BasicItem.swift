@@ -54,9 +54,12 @@ open class BasicItem: NSObject , Gloss.Decodable {
         
         serialId = "serial_id" <~~ json
 
-        guard let modifiers: [Item] = "modifiers" <~~ json else{
+        guard let modifiersJSON: [[String: Any]] = "modifiers" <~~ json
+            else{
             return nil
         }
+        let modifiers = modifiersJSON.map({Item(json:$0)}).flatMap({$0})
+
         self.modifiers = modifiers
     }
     
