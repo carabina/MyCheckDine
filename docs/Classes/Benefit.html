@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Benefit Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/Benefit" class="dashAnchor"></a>
+    <a title="Benefit Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">MyCheckDine Docs</a> (84% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">MyCheckDine Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Benefit Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/BasicBenefit.html">BasicBenefit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BasicItem.html">BasicItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Benefit.html">Benefit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Benefit.html#/s:OC11MyCheckDine7Benefit12RedeemMethod">– RedeemMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Benefits.html">Benefits</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Dine.html">Dine</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Dine/PaymentResponse.html">– PaymentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Item.html">Item</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Order.html">Order</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OrderPoller.html">OrderPoller</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Status.html">Status</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/OrderPollerDelegate.html">OrderPollerDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Bill.html">Bill</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:V11MyCheckDine16OrderHistoryItem">OrderHistoryItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaymentDetails.html">PaymentDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Settings.html">Settings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TaxItem.html">TaxItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TaxSettings.html">TaxSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:V11MyCheckDine14UserStatistics">UserStatistics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserSummary.html">UserSummary</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Benefit</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Benefit</span><span class="p">:</span> <span class="kt"><a href="../Classes/BasicBenefit.html">BasicBenefit</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Reprisents a benefit</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:OC11MyCheckDine7Benefit12RedeemMethod"></a>
+                    <a name="//apple_ref/swift/Enum/RedeemMethod" class="dashAnchor"></a>
+                    <a class="token" href="#/s:OC11MyCheckDine7Benefit12RedeemMethod">RedeemMethod</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The method the benefit can be redeemed by.</p>
+
+<ul>
+<li>manual: In order to redeem redeem benefit must be called with this benefit</li>
+<li>automatic: The benefit will be redeemed automatically when the condition will be met</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RedeemMethod</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11MyCheckDine7Benefit4nameSS"></a>
+                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11MyCheckDine7Benefit4nameSS">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The benefits name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11MyCheckDine7Benefit8subtitleSS"></a>
+                    <a name="//apple_ref/swift/Property/subtitle" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11MyCheckDine7Benefit8subtitleSS">subtitle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Subtitle text for the benefit</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">subtitle</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11MyCheckDine7Benefit11descriptionSS"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11MyCheckDine7Benefit11descriptionSS">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A description of the benefit</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11MyCheckDine7Benefit10redeemableSb"></a>
+                    <a name="//apple_ref/swift/Property/redeemable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11MyCheckDine7Benefit10redeemableSb">redeemable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Whether or not the benefit redeemable</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span>  <span class="nv">redeemable</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11MyCheckDine7Benefit8imageURLGSqV10Foundation3URL_"></a>
+                    <a name="//apple_ref/swift/Property/imageURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11MyCheckDine7Benefit8imageURLGSqV10Foundation3URL_">imageURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A url of an image for the benefit</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">imageURL</span><span class="p">:</span> <span class="kt">URL</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11MyCheckDine7Benefit12redeemMethodOS0_12RedeemMethod"></a>
+                    <a name="//apple_ref/swift/Property/redeemMethod" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11MyCheckDine7Benefit12redeemMethodOS0_12RedeemMethod">redeemMethod</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The method the benefit can be redeemed by (by calling the redeem function or automaticly)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">redeemMethod</span><span class="p">:</span> <span class="kt"><a href="../Classes/Benefit.html#/s:OC11MyCheckDine7Benefit12RedeemMethod">RedeemMethod</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11MyCheckDine7Benefit9startDateGSqV10Foundation4Date_"></a>
+                    <a name="//apple_ref/swift/Property/startDate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11MyCheckDine7Benefit9startDateGSqV10Foundation4Date_">startDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The date the benefit begins to be valid</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">startDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC11MyCheckDine7Benefit14expirationDateGSqV10Foundation4Date_"></a>
+                    <a name="//apple_ref/swift/Property/expirationDate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC11MyCheckDine7Benefit14expirationDateGSqV10Foundation4Date_">expirationDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The date the benefit expires</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">expirationDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="http://www.mycheck.io/" target="_blank" rel="external">elad schiller</a>. All rights reserved. (Last updated: 2017-11-06)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
