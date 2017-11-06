@@ -33,7 +33,7 @@ public struct PaymentDetails {
     ///   - parameter amount: The amount that is going to be paid. The value must be between 0 and the order balance.
     ///   - parameter tip: The tip that is going to be paid. If not supplied 0 tip will be paid.
     
-    public init?(order: Order , amount:Double? = nil , tip:Double? = nil ) {
+    public init(order: Order , amount:Double? = nil , tip:Double? = nil ) {
         self.order = order
         if let amount = amount {
             self.amount = Money(value: amount)
@@ -47,10 +47,7 @@ public struct PaymentDetails {
             self.tipValue = Money(value:0)
         }
         
-        //If the amount is not within the bounds we will return nil
-        if self.amount > Money(value: order.summary.balance) || order.status != .open{
-            return nil
-        }
+   
         items = nil
     }
     
@@ -62,7 +59,7 @@ public struct PaymentDetails {
     ///   - parameter tip: The tip that is going to be paid. If not supplied 0 tip will be paid.
     
     
-    public init?(order: Order , items:[BasicItem] , tip:Double? = nil ) {
+    public init(order: Order , items:[BasicItem] , tip:Double? = nil ) {
         self.order = order
         
         //adding up all the items amount * quntity apart from the items that where already paid for
@@ -74,10 +71,7 @@ public struct PaymentDetails {
             self.tipValue = Money(value:0)
         }
         
-        //If the amount is not within the bounds we will return nil
-        if self.amount - EPSILON > Money(value: order.summary.balance)  || order.status != .open{
-            return nil
-        }
+        
     }
     
 }

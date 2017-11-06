@@ -209,7 +209,7 @@ class DineInViewController: UITableViewController {
         }
         
         
-        if let details = PaymentDetails(order: order, amount: Double(self.amountField.text!), tip: Double(self.tipField.text!)){
+         let details = PaymentDetails(order: order, amount: Double(self.amountField.text!), tip: Double(self.tipField.text!))
             
             Dine.shared.generatePaymentRequest(paymentDetails: details, success: {summary in
                 self.paymentRequest = summary
@@ -218,9 +218,7 @@ class DineInViewController: UITableViewController {
             }, fail: {error in
          
             })
-        }else{
-            
-        }
+        
         
     }
   
@@ -244,16 +242,13 @@ class DineInViewController: UITableViewController {
         return []
       }
     }()
-    if let details = PaymentDetails(order: order, items: items, tip: Double(self.tipField.text!)){
+     let details = PaymentDetails(order: order, items: items, tip: Double(self.tipField.text!))
       
       Dine.shared.generatePaymentRequest(paymentDetails: details, success: {summary in
         self.showGeneratePaymentRequestAlert(summary)
         self.paymentRequest = summary
       }, fail: {error in })
-    }else{
-      self.showErrorMessage(message: "Invalid payment request (invalid amount or closed order)")
-      
-    }
+    
     
   }
   
@@ -294,31 +289,14 @@ class DineInViewController: UITableViewController {
             return
             
         }
-        let items: [Item] = {
-            
-            switch self.selectItemSeg.selectedSegmentIndex{
-            case self.firstSeg:
-                return [order.items.first!]
-            case self.lastSeg:
-                return [order.items.last!]
-                
-            case self.allSeg:
-                return order.items
-            default:
-                return []
-            }
-        }()
-        if let details = PaymentDetails(order: order, items: items, tip: Double(self.tipField.text!)){
-            
+     
+        
             Dine.shared.makePayment(paymentRequest: paymentRequest, paymentMethod: paymentMethod, displayDelegate: self, success: {_ in
                 
             }, fail: {error in
                 
             })
-        }else{
-            self.showErrorMessage(message: "Invalid payment request (invalid amount or closed order)")
-            
-        }
+        
         
     }
   
