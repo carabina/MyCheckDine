@@ -99,7 +99,10 @@ class WalletUIViewController: UIViewController {
                 return
         }
         let locale = NSLocale(localeIdentifier: localeTxt)
-        Wallet.shared.setLocale(locale:locale, completion: {resutl in })
+        Wallet.shared.setLocale(locale:locale, completion: {resutl in
+          
+          self.checkoutViewController?.refresh()
+        })
     }
     
     

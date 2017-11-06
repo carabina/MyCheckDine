@@ -81,7 +81,7 @@ public class Benefits{
     public static func redeem(benefit: BasicBenefit,restaurantId: String?, success: @escaping (() -> Void),
                               fail:  ((NSError) -> Void)?){
         
-        let benefitJSON : [String: Any] = ["id": benefit.id, "provider": "mycheck"]
+        let benefitJSON : [String: Any] = ["id": benefit.id, "provider": benefit.provider]
         
         let jsonData = try! JSONSerialization.data(withJSONObject: [benefitJSON], options: JSONSerialization.WritingOptions())
         

@@ -37,7 +37,14 @@ return
         }
         let BID = BIDField.text!.characters.count > 0 ? BIDField.text : nil
 
-        Benefits.redeem(benefit: benefit, restaurantId: BID, success: {}, fail: nil)
+        Benefits.redeem(benefit: benefit, restaurantId: BID, success: {
+          
+          TerminalModel.shared.print(string: "benefit redeemed")
+        }, fail: {error in
+          TerminalModel.shared.print(string: "fail callback of benefit redeem called (disregard success line above)")
+
+          
+        })
     }
     
     func keyboardDoneButtonPressed(){

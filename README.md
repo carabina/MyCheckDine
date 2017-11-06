@@ -1,6 +1,6 @@
 # MyCheck Dine SDK
 
-An SDK that enables the developer to open a table at a restaurant, follow the order and reorder items (payment - coming soon). 
+An SDK that enables the developer to open a table at a restaurant, follow the order and reorder items (payment - coming soon).
 
 This SDK will enable your app to access an open check on a table at a restaurant, view the check (bill), reorder items and pay the check (payment functions coming soon).
 
@@ -102,7 +102,7 @@ func failingToReceiveUpdates(lastReceivedError: NSError , failCount:Int){
 ```
 
 
-In order to reorder items send an array of tuples to the reorder call. Each tuple has an Int representing the amount to order and the item to reorder. 
+In order to reorder items send an array of tuples to the reorder call. Each tuple has an Int representing the amount to order and the item to reorder.
 
 ```
 MyCheck.shared.reorderItems(items: [(3, order.items.first!)], success: {
@@ -118,13 +118,13 @@ The first step is to create a `PaymentDetails` object
 ```
 let details = PaymentDetails(order: THE_ORDER, amount: THE_AMOUNT_TO_CHARGE, tip: TIP_AMOUNT, paymentMethod: A_PAYMENT_METHOD)
 
-// OR 
+// OR
 
 let details = PaymentDetails(order: THE_ORDER, items: ITEMS_THAT_SHOULD_BE_BOUGHT, tip: TIP_AMOUNT, paymentMethod: A_PAYMENT_METHOD)
 ```
 
 The `PaymentDetails` has 2 failable constructors. One is for paying by amount and the second is for paying by items. The constructors will fail if the order supplied is not open or if the amount is greater than the order balance.
-You will also need to get a `PaymentMethodInterface` object, For more on this please review the MyCheckWalletUI documents. 
+You will also need to get a `PaymentMethodInterface` object, For more on this please review the MyCheckWalletUI documents.
 Once you have a `PaymentDetails` object call the `makePayment` function.
 
 ```
@@ -139,8 +139,8 @@ Dine.shared.makePayment(paymentDetails: details, displayDelegate: self, success:
 
 In order to set up Apple Pay please review the MyCheckWallet or MyCheckWalletUI docs. Once Apple Pay is set up their are 2 additional changes you will need to make in order for it to work with the Dine SDK.
 ### Generate Code
-When generating a code MyCheck must be able to charge the default payment method without the users interaction in certain cases (for example if the user walks out and forgets to pay). Apple Pay creates tokens that can be used only once that expires after some time. For this reason we will need to prompt the user to Pay with Apple Pay at this point. 
-In order to accomplish this the generateCode function has 2 extra optional parameters (that are required for Apple Pay support): 
+When generating a code MyCheck must be able to charge the default payment method without the users interaction in certain cases (for example if the user walks out and forgets to pay). Apple Pay creates tokens that can be used only once that expires after some time. For this reason we will need to prompt the user to Pay with Apple Pay at this point.
+In order to accomplish this the generateCode function has 2 extra optional parameters (that are required for Apple Pay support):
 1. DisplayViewControllerDelegate :  The delegate function will be called when a Apple Pay view controller needs to be displayed or dismissed.
 2. ApplePayController -  The controller will supply the Dine SDK with the means to query the wallet about Apple Pay and create Apple Pay tokens. You should get the instance of the ApplePayController from the Wallet singleton (e.g. 'Wallet.shared.applePayController')
 
@@ -169,12 +169,22 @@ func dismiss(viewController: UIViewController) {
 viewController.dismiss(animated: true, completion: nil)
 
 }
-``` 
+```
 In the same manner, you must pass the `displayDelegate` to the payment function in order for Apple Pay to work.
 
+
+##Benefits
+
+In order to support benefits add the following line to your podfile:
+```
+pod "MyCheckDine/Benefits"
+```
+
+You can now use the static functions in the Benefits class to query and redeem benefits. Please refer to the API docs for more information.
 ## Authors
 
 Elad Schiller, eladsc@mycheck.co.il
 ## License
 
 Please read the LICENSE file available in the project
+
