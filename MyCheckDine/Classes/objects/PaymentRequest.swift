@@ -66,6 +66,12 @@ public struct PaymentRequest{
        taxItems = JSONArray.map({ TaxItem(JSON:$0) }).flatMap({$0})
       
   }
+    
+    public func isExceedingTableTotalAmount() -> Bool{
+        
+   return total > paymentDetails.order.summary.totalAmount
+    }
+    
 }
 
 
