@@ -74,6 +74,27 @@ public struct PaymentDetails {
         
     }
     
+    
+    /// Create a new payment request for the underlying order supplied. The amount to be paid will be eqaul to the amount . If the order is not open or if the sum is larger than the balance nil will be returned.
+    ///
+    ///   - parameter order: The order that is going to be paid for. If only an order is supplied the payment amount will be the full balance of the order.
+    ///   - parameter tip: The tip that is going to be paid. If not supplied 0 tip will be paid.
+    
+    public init(order: Order  , tip:Double? = nil ) {
+        self.order = order
+        //to-do change balance
+        //adding up all the items amount * quntity apart from the items that where already paid for
+        self.amount = Money(value:order.summary.balance)
+        if let tip = tip {
+            self.tipValue = Money(value: tip)
+        }else{
+            self.tipValue = Money(value:0)
+        }
+        
+        items = nil
+
+    }
+    
 }
 
 

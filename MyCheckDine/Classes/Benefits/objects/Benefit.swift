@@ -138,3 +138,18 @@ public class Benefit: BasicBenefit{
     return JSON
   }
 }
+
+extension Benefit: Equatable{
+    public static func ==(lhs: Benefit, rhs: Benefit) -> Bool {
+       return lhs.name == rhs.name &&
+        lhs.id == rhs.id &&
+        lhs.name == rhs.name &&
+        lhs.subtitle == rhs.subtitle &&
+        lhs.description == rhs.description &&
+        lhs.redeemable == rhs.redeemable &&
+        lhs.redeemMethod == rhs.redeemMethod &&
+        lhs.provider == rhs.provider
+    }
+    
+    
+}

@@ -17,10 +17,7 @@ class NativeCallHandlerTests: XCTestCase {
     
     
     class InteractorSpy: DineInWebBusinessLogic{
-     
-        
-        
-        
+      
         
         var setupRequest: DineInWeb.SetupDinein.Request?
         var getCodeRequest: DineInWeb.GetCode.Request?
@@ -40,7 +37,7 @@ class NativeCallHandlerTests: XCTestCase {
         
         var  getBenefitsRequest: DineInWeb.getBenefits.Request?
         var redeemBenefitsRequest: DineInWeb.RedeemBenefit.Request?
-        
+        var displayErrorRequest: DineInWeb.DisplayError.Request?
         func setupInteractor(request: DineInWeb.SetupDinein.Request){
             setupRequest = request
         }
@@ -106,6 +103,10 @@ class NativeCallHandlerTests: XCTestCase {
         
         func redeemBenefits(request: DineInWeb.RedeemBenefit.Request) {
             redeemBenefitsRequest = request
+        }
+        
+        func displayError(request: DineInWeb.DisplayError.Request) {
+            displayErrorRequest = request
         }
     }
     

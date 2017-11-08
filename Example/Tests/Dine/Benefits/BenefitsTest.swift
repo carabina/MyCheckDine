@@ -9,6 +9,7 @@
 import XCTest
 @testable import MyCheckDine
 import MyCheckCore
+@testable import MyCheckDineUIWeb
 class BenefitsTest: XCTestCase {
     
     override func setUp() {
@@ -185,7 +186,19 @@ return
         XCTAssert(paramsSent?.parameters!["businessId"] as! String == bid)
         XCTAssert((paramsSent?.url.hasSuffix(URIs.redeemBenefits))!)
         
-        
+        guard let benefitsJSONString = paramsSent?.parameters!["benefits"]as? String,
+        let benefitsJSONArray = benefitsJSONString.JSONStringToJSONArray()
+        else{
+            XCTFail("benefit parsing failed")
+
+            return
+        }
+        XCTAssert( benefitsJSONArray.count == 1)
+     
+        let benefitsSummerayJSON = benefitsJSONArray[0]
+        XCTAssert( benefitsSummerayJSON["id"] as? String == benefit.id)
+        XCTAssert( benefitsSummerayJSON["provider"] as? String == benefit.provider)
+
         XCTAssert(success == true )
         
         

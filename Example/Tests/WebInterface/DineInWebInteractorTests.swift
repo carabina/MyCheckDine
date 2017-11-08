@@ -12,10 +12,6 @@ class DineInWebInteractorTest : XCTestCase {
     
     class presenterSpy:  DineInWebPresentationLogic{
    
-        
-        
-        
-        
         var tableCodeResponse: DineInWeb.GetCode.Response?
         var pollToggleResponse: DineInWeb.Poll.Response?
         var getOrderResponse: DineInWeb.GetOrderDetails.Response?
@@ -32,6 +28,8 @@ class DineInWebInteractorTest : XCTestCase {
         var getLocaleResponse: DineInWeb.getLocale.Response?
         var getBenefitsResponse: DineInWeb.getBenefits.Response?
         var redeemedBenefitsResponse:DineInWeb.RedeemBenefit.Response?
+        var displayApplePayViewControllerResponse: DineInWeb.DisplayApplePayViewController.Response?
+        
         func presentTableCode(response: DineInWeb.GetCode.Response){
             tableCodeResponse = response
         }
@@ -95,6 +93,10 @@ class DineInWebInteractorTest : XCTestCase {
         
         func redeemedBenefits(response: DineInWeb.RedeemBenefit.Response) {
             redeemedBenefitsResponse = response
+        }
+        
+        func displayApplePayViewController(response: DineInWeb.DisplayApplePayViewController.Response) {
+            displayApplePayViewControllerResponse = response
         }
     }
     
@@ -585,6 +587,46 @@ class DineInWebInteractorTest : XCTestCase {
         
         
     }
+    
+    func testDisplayApplePay(){
+        
+        //Arange
+        self.createNewLoggedInSession()
+      
+        
+        let (interactor , spy) = getInteractorWithPresenterSpy()
+ 
+        let controller =  UIViewController()
+        //Act
+        interactor.display(viewController:controller)
+        
+        //Assert
+        
+        XCTAssert(  spy.displayApplePayViewControllerResponse?.show == true)
+        XCTAssert(  spy.displayApplePayViewControllerResponse?.viewController == controller)
+
+        
+    }
+    func testDismissApplePay(){
+        
+        //Arange
+        self.createNewLoggedInSession()
+        
+        
+        let (interactor , spy) = getInteractorWithPresenterSpy()
+        
+        let controller =  UIViewController()
+        //Act
+        interactor.dismiss(viewController:controller)
+        
+        //Assert
+        
+        XCTAssert(  spy.displayApplePayViewControllerResponse?.show == false)
+        XCTAssert(  spy.displayApplePayViewControllerResponse?.viewController == controller)
+        
+        
+    }
+    
 }
 //helper methods that create stubs objects
 
@@ -662,7 +704,7 @@ extension DineInWebInteractorTest{
         let paymentDetails = PaymentDetails(order: order!, amount: amount, tip: 1)
       
     let validJSON = getPaymentRequestJSON(amount: amount)
-      return PaymentRequest(paymentDetails: paymentDetails!, json: validJSON)!
+      return PaymentRequest(paymentDetails: paymentDetails, json: validJSON)!
     }
     
     

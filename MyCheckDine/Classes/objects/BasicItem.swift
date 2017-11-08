@@ -67,8 +67,22 @@ open class BasicItem: NSObject , Gloss.Decodable {
     
     internal func createPaymentJSON() -> JSON? {
     
-        return createPaymentRequestJSON(amount:1)
-    }
+        //creating modifiers json
+        var modifierJSONs :[JSON] = []
+        for modifier in modifiers{
+            if let json = modifier.createReorderJSON(amount:1){
+                modifierJSONs.append(json)
+            }
+        }
+        return jsonify([
+            "id" ~~> self.Id,
+            "Quantity" ~~> quantity,
+            "Modifiers" ~~> modifierJSONs,
+            "amount" ~~> self.price,
+            "Serial_id" ~~> self.serialId,
+            "Name" ~~> self.name
+            
+            ])    }
     
     internal func createPaymentRequestJSON(amount: Int) -> JSON? {
         //creating modifiers json

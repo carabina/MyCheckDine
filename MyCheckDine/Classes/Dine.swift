@@ -409,6 +409,8 @@ public class Dine: NSObject{
                     let userStats = UserStatistics(json: statsJSON) else{
                         
                         if let fail = fail{
+                            self.broadcastString(string: "Failed paesing stats")
+
                             fail(ErrorCodes.badJSON.getError())
                         }
                         return
@@ -537,6 +539,13 @@ public class Dine: NSObject{
             if let fail = fail{
                 fail(ErrorCodes.notConifgured.getError())
             }
+        }
+    }
+    
+    internal func broadcastString(string: String){
+        if Session.logDebugData {
+            
+            NotificationCenter.default.post(name:  Notification.Name("MyCheck comunication ouput") , object: string)
         }
     }
 }

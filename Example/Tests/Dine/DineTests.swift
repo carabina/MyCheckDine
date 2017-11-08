@@ -392,10 +392,9 @@ class DineTests: XCTestCase {
     let amount = 18.21
     let totalTax = 3.21
     let subtotal = amount - totalTax
-    guard let order = getOrderDetails(),
-      let paymentDetails = PaymentDetails(order: order, amount: amount, tip: 1)
-      else {return}
-    
+    guard let order = getOrderDetails()  else {return}
+    let paymentDetails = PaymentDetails(order: order, amount: amount, tip: 1)
+
     let taxList:[[String:Any]] =  [
       [
       "name": "Tax1",
