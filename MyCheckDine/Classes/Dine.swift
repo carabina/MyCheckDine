@@ -219,8 +219,9 @@ public class Dine: NSObject{
         
 
     }else{
-      
-    params["amount"] = paymentDetails.amount.rawValue
+      let amount = paymentDetails.amount.rawValue
+
+        params["amount"] = String(format: "%.2f" , amount)
     }
     
     
@@ -263,7 +264,7 @@ public class Dine: NSObject{
             let paymentDetails = paymentRequest.paymentDetails
             var params : [String: Any] = [  "orderId" :  paymentRequest.paymentDetails.order.orderId,
                                             "amount": paymentRequest.total,
-                                            "tip": paymentDetails.tip,
+                                            "tip":String(format: "%.2f" , paymentDetails.tip),
                                             "ccToken": token]
             
             if let items = paymentDetails.items{
