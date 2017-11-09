@@ -67,6 +67,9 @@ public struct PaymentRequest{
       
   }
     
+    /// Returns wether or not this is a valid payment or if it exceeds the maximum amount possible on the table.
+    ///
+    /// - Returns: true if exceeds maximum
     public func isExceedingTableTotalAmount() -> Bool{
         
    return total > paymentDetails.order.summary.balance

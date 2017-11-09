@@ -8,13 +8,6 @@
 import Foundation
 import MyCheckCore
 
-extension  URIs{
-    
-    static let getBenefits = "/restaurants/api/v1/benefits"
-    static let redeemBenefits = "/restaurants/api/v1/redeemBenefits"
-    
-    
-}
 
 /// This object enables the ability to query the list of benefits that can be displyed to the user and redeem them if the benefit's type allowes it.
 public class Benefits{
@@ -46,7 +39,7 @@ public class Benefits{
             }
             return
         }
-        let urlStr = domain + URIs.getBenefits
+        let urlStr = domain + "/restaurants/api/v1/benefits"
         
         return  network.request(urlStr, method: .get, parameters: params , success: { JSON in
             
@@ -100,7 +93,7 @@ public class Benefits{
             }
             return
         }
-        let urlStr = domain + URIs.redeemBenefits
+        let urlStr = domain + "/restaurants/api/v1/redeemBenefits"
         
         return  network.request(urlStr, method: .post, parameters: params , success: { JSON in
             
