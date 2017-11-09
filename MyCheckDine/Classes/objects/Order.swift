@@ -31,6 +31,7 @@ public enum Status: String {
   //The balance of the bill.
    public let balance: Double
  
+    public let balanceWithoutTax: Double
   ///Information about the currant users payments in the bill.
    public let userSummary : UserSummary
     ///The amount (in the currency the venue is using) of tax that must be charge.
@@ -72,6 +73,11 @@ public enum Status: String {
     
     self.taxAmount = taxAmount
 
+    guard let balanceWithoutTax: Double = "bill.global_summary.balance_without_tax" <~~ json else{
+        
+        return nil
+    }
+    self.balanceWithoutTax = balanceWithoutTax
   }
 }
 

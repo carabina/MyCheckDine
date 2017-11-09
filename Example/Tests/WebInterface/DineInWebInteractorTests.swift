@@ -346,6 +346,8 @@ class DineInWebInteractorTest : XCTestCase {
         XCTAssert(response?.totalBeforeTax == 1.02)
         XCTAssert(response?.totalAfterTax == 2.12)
         XCTAssert(response?.totalTax == 1.1)
+        XCTAssert(response?.isExceedingTableTotalAmount == false)
+
 
     }
     

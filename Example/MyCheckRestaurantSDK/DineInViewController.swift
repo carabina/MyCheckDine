@@ -45,6 +45,8 @@ class DineInViewController: UITableViewController {
     
     let byAmountSeg = 0
     let byItemsSeg = 1
+    let payAllSeg = 2
+
   var poller : OrderPoller?
   
     override func viewDidLoad() {
@@ -143,15 +145,21 @@ class DineInViewController: UITableViewController {
       }
       
      
-      
-      if self.payTypeSeg.selectedSegmentIndex == self.byAmountSeg {
-        
-        self.generatePaymentRequestByAmount(order: order, paymentMethod: method )
-        
-      }else{//by items
-        
-        self.generatePaymentRequestByItem(order: order, paymentMethod: method)
-      }
+        switch  self.payTypeSeg.selectedSegmentIndex {
+        case self.byAmountSeg:
+            self.generatePaymentRequestByAmount(order: order, paymentMethod: method )
+
+        case self.byItemsSeg:
+            self.generatePaymentRequestByItem(order: order, paymentMethod: method)
+
+        case self.payAllSeg:
+            self.generatePaymentRequestForAll(order: order, paymentMethod: method)
+
+        default:
+            break
+            
+        }
+    
       
     }, fail: {
       error in
@@ -222,6 +230,24 @@ class DineInViewController: UITableViewController {
         
     }
   
+    private func generatePaymentRequestForAll(order: Order , paymentMethod: PaymentMethodInterface){
+        
+     
+        
+        
+        let details = PaymentDetails(order: order,  tip: Double(self.tipField.text!))
+        
+        Dine.shared.generatePaymentRequest(paymentDetails: details, success: {summary in
+            self.paymentRequest = summary
+            
+            self.showGeneratePaymentRequestAlert(summary)
+        }, fail: {error in
+            
+        })
+        
+        
+    }
+    
   private func generatePaymentRequestByItem(order: Order , paymentMethod: PaymentMethodInterface){
     guard order.items.count > 0 else{
       self.showErrorMessage(message: "No items in order")
@@ -312,6 +338,9 @@ class DineInViewController: UITableViewController {
             amountStack.isHidden = true
             selectItemsStack.isHidden = false
             
+        case payAllSeg:
+            amountStack.isHidden = true
+            selectItemsStack.isHidden = true
             
         default:
             break

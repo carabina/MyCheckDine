@@ -84,7 +84,7 @@ public struct PaymentDetails {
         self.order = order
         //to-do change balance
         //adding up all the items amount * quntity apart from the items that where already paid for
-        self.amount = Money(value:order.summary.balance)
+        self.amount = Money(value:order.summary.balanceWithoutTax)
         if let tip = tip {
             self.tipValue = Money(value: tip)
         }else{

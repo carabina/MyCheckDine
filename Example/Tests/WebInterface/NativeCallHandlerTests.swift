@@ -367,7 +367,9 @@ class NativeCallHandlerTests: XCTestCase {
             XCTAssert(items[0].price == 8.95)
             
             
-            
+        case .fullAmount:
+            XCTFail("should not have amount")
+
             
         }
     }
@@ -393,17 +395,50 @@ class NativeCallHandlerTests: XCTestCase {
             case .amount(let amount):
                 XCTAssert(amount == 1.1)
                 
-                
             case .items(_):
                 XCTFail("should not have amount")
                 
-                
+            case .fullAmount:
+                XCTFail("should not have amount")
                 
                 
                 
             }
     }
+    
+    
+    func testMakePaymentRequestForFullAmount() {
+        //Arrange
+        let spy = setAndReturnSpy()
+        
+        //Act
+        runJSSynchronously(JSExpresion:"makePaymentRequestForFullBill();")
+        
+        //Assert
+        XCTAssert(spy.generatePaymentRequestRequest?.callback == "generatedPaymentRequest")
+        XCTAssert(spy.generatePaymentRequestRequest?.tip == 0.5)
+
+        
+        
+        
+        let payfor:DineInWeb.GeneratePayRequest.Request.PayFor = (spy.generatePaymentRequestRequest?.payFor)!
+        
+        var fullPayment : Bool = false
+        switch payfor{
             
+        case .amount(_):
+            XCTFail("should not have amount")
+
+        case .items(_):
+            XCTFail("should not have amount")
+            
+        case .fullAmount:
+            fullPayment = true
+            break;
+            
+        }
+        XCTAssert(fullPayment == true )
+    }
      
             
             func testGetLocale(){

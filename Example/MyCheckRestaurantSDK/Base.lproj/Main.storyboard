@@ -285,6 +285,7 @@
                                                             <segments>
                                                                 <segment title="insert amount"/>
                                                                 <segment title="select items"/>
+                                                                <segment title="pay all"/>
                                                             </segments>
                                                             <connections>
                                                                 <action selector="payBySelected:" destination="xRu-6I-JXG" eventType="valueChanged" id="pBi-Kq-9OZ"/>

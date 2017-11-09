@@ -24,7 +24,9 @@
             "paid_amount":0,
             "total_amount":0,
             "balance":0,
-            "tax_amount":"0.00"
+            "tax_amount":"0.00",
+            "balance_without_tax": 11.12
+
         },
         "user_summary":{
             "paid_amount":0,

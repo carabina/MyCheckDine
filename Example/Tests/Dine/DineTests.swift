@@ -395,30 +395,8 @@ class DineTests: XCTestCase {
     guard let order = getOrderDetails()  else {return}
     let paymentDetails = PaymentDetails(order: order, amount: amount, tip: 1)
 
-    let taxList:[[String:Any]] =  [
-      [
-      "name": "Tax1",
-      "amount": 1.33,
-      "isInclusive": true
-    ],
-    [
-      "name": "Tax2",
-      "amount": 0.0,
-      "isInclusive": false
-    ],
-    [
-      "name": "Tax3",
-      "amount": 0.0,
-      "isInclusive": false
-    ],
-    [
-      "name": "Tax4",
-      "amount": 0.0,
-      "isInclusive": false
-    ]
-    ]
-    let validJSON: [String: Any] = ["totalTax": totalTax , "priceBeforeTax": subtotal , "priceAfterTax": amount,
-                                    "taxList": taxList]
+    let validJSON = getPaymentRequestResponseJSON(amount: amount, tax: totalTax)
+
     Dine.shared.network = RequestProtocolMock(response: .success(validJSON)){ sent in
       paramsSent = sent
     }
@@ -453,7 +431,51 @@ class DineTests: XCTestCase {
     
   }
   
-  
+    func testGeneratePaymentRequestForFullTableSuccess() {
+        //Arrange
+        var paramsSent: RequestParameters? = nil
+        var response: PaymentRequest? = nil
+        
+        let amount = 18.21
+        let totalTax = 3.21
+        let subtotal = amount - totalTax
+        guard let order = getOrderDetails()  else {return}
+        let paymentDetails = PaymentDetails(order: order, tip: 1)
+        
+let validJSON = getPaymentRequestResponseJSON(amount: amount, tax: totalTax)
+        Dine.shared.network = RequestProtocolMock(response: .success(validJSON)){ sent in
+            paramsSent = sent
+        }
+        
+        
+        //Act
+        
+        Dine.shared.generatePaymentRequest(paymentDetails: paymentDetails, success: {
+            summary in
+            response = summary
+        }, fail: {error in
+            XCTFail("should not fail")
+            
+        })
+        //Assert
+        
+        XCTAssert(response != nil)
+        XCTAssert(paramsSent?.parameters?["items"]  == nil)
+        
+        XCTAssert(paramsSent?.parameters?["amount"] as? Double == order.summary.balanceWithoutTax)
+        XCTAssert( (paramsSent?.url.hasSuffix(URIs.generatePaymentRequest))!)
+        XCTAssert( paramsSent?.method == .get)
+        
+        XCTAssert( response?.total == amount)
+        XCTAssert( response?.taxAmount == totalTax )
+        XCTAssert( response?.subtotal == subtotal )
+        XCTAssert( response?.taxItems.count == 4 )
+        XCTAssert( response?.taxItems[0].amount == 1.33 )
+        XCTAssert( response?.taxItems[0].name == "Tax1" )
+        XCTAssert( response?.taxItems[0].isInclusive == true )
+        
+        
+    }
   
   func testGeneratePaymentRequestByItems() {
 //    //Arrange
@@ -521,5 +543,33 @@ fileprivate extension DineTests{
     
   }
   
-  
+    fileprivate func getPaymentRequestResponseJSON (amount:Double, tax: Double)-> [String: Any]{
+        let taxList:[[String:Any]] =  [
+            [
+                "name": "Tax1",
+                "amount": 1.33,
+                "isInclusive": true
+            ],
+            [
+                "name": "Tax2",
+                "amount": 0.0,
+                "isInclusive": false
+            ],
+            [
+                "name": "Tax3",
+                "amount": 0.0,
+                "isInclusive": false
+            ],
+            [
+                "name": "Tax4",
+                "amount": 0.0,
+                "isInclusive": false
+            ]
+        ]
+        let subtotal = amount - tax
+
+        let toReturn: [String: Any] = ["totalTax": tax , "priceBeforeTax": subtotal , "priceAfterTax": amount,
+                                        "taxList": taxList]
+        return toReturn
+    }
 }

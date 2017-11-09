@@ -69,7 +69,7 @@ public struct PaymentRequest{
     
     public func isExceedingTableTotalAmount() -> Bool{
         
-   return total > paymentDetails.order.summary.totalAmount
+   return total > paymentDetails.order.summary.balance
     }
     
 }
