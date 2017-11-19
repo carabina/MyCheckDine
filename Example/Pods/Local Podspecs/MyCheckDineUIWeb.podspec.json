@@ -1,7 +1,7 @@
 {
   "name": "MyCheckDineUIWeb",
   "summary": "A SDK that provides UI for the MyCheck Dine In proccess.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "README.md",
   "homepage": "https://github.com/elad schiller/MyCheckDineUIWeb",
   "license": {
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://bitbucket.org/erez_spatz/mycheckdineuiweb-ios.git",
-    "tag": "1.0.4"
+    "tag": "1.0.5"
   },
   "platforms": {
     "ios": "9.0"
