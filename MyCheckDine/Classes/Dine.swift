@@ -171,11 +171,7 @@ public class Dine: NSObject{
             orderId = order.orderId
             stamp = order.stamp
         }
-        
-        if let lastOrder = lastOrder{//if not first call
-            stamp = lastOrder.stamp
-            orderId = lastOrder.orderId
-        }
+ 
         self.callGetOrder(orderId: orderId, stamp: stamp, success: { order in
           
             self.lastOrder = order.status == .open ? order : nil
