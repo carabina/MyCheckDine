@@ -1,31 +1,73 @@
 {
   "warnings": [
     {
-      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/PaymentDetails.swift",
-      "line": 82,
-      "symbol": "PaymentDetails.subtotalEntry",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/Benefits/objects/BasicBenefit.swift",
+      "line": 20,
+      "symbol": "BasicBenefit.init(JSON:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/PaymentDetails.swift",
-      "line": 84,
-      "symbol": "PaymentDetails.taxEntry",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/Benefits/objects/BasicBenefit.swift",
+      "line": 20,
+      "symbol": "BasicBenefit.init(JSON:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/PaymentDetails.swift",
-      "line": 86,
-      "symbol": "PaymentDetails.tipEntry",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/Benefits/objects/Benefit.swift",
+      "line": 22,
+      "symbol": "Benefit.RedeemMethod.manual",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/PaymentDetails.swift",
-      "line": 88,
-      "symbol": "PaymentDetails.totalEntry",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/Benefits/objects/Benefit.swift",
+      "line": 22,
+      "symbol": "Benefit.RedeemMethod.manual",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/Benefits/objects/Benefit.swift",
+      "line": 24,
+      "symbol": "Benefit.RedeemMethod.automatic",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/Benefits/objects/Benefit.swift",
+      "line": 24,
+      "symbol": "Benefit.RedeemMethod.automatic",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/Benefits/objects/Benefit.swift",
+      "line": 59,
+      "symbol": "Benefit.init(JSON:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/Benefits/objects/Benefit.swift",
+      "line": 59,
+      "symbol": "Benefit.init(JSON:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/Benefits/objects/Benefit.swift",
+      "line": 110,
+      "symbol": "Benefit.JSONify()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/Benefits/objects/Benefit.swift",
+      "line": 110,
+      "symbol": "Benefit.JSONify()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -37,7 +79,7 @@
     },
     {
       "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Item.swift",
-      "line": 26,
+      "line": 24,
       "symbol": "Item.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -51,50 +93,64 @@
     },
     {
       "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
-      "line": 40,
+      "line": 34,
+      "symbol": "Bill.balanceWithoutTax",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
+      "line": 41,
       "symbol": "Bill.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
-      "line": 85,
+      "line": 91,
       "symbol": "UserSummary.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
-      "line": 103,
+      "line": 109,
       "symbol": "TaxSettings.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
-      "line": 124,
+      "line": 130,
       "symbol": "Settings.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
-      "line": 167,
+      "line": 173,
       "symbol": "Order.stamp",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
-      "line": 237,
+      "line": 243,
       "symbol": "Order.isEqual(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/PrePaySummary.swift",
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/PaymentRequest.swift",
+      "line": null,
+      "symbol": "PaymentRequest",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/PaymentRequest.swift",
       "line": 11,
-      "symbol": "PrePaySummary",
+      "symbol": "PaymentRequest",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     }

@@ -75,7 +75,7 @@ public struct PaymentDetails {
     }
     
     
-    /// Create a new payment request for the underlying order supplied. The amount to be paid will be eqaul to the amount . If the order is not open or if the sum is larger than the balance nil will be returned.
+    /// Create a new payment request for the underlying order supplied. The amount to be paid will be eqaul to the total amount of the bill. If the order is not open or if the sum is larger than the balance nil will be returned.
     ///
     ///   - parameter order: The order that is going to be paid for. If only an order is supplied the payment amount will be the full balance of the order.
     ///   - parameter tip: The tip that is going to be paid. If not supplied 0 tip will be paid.
