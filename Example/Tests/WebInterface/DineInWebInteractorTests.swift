@@ -383,7 +383,7 @@ class DineInWebInteractorTest : XCTestCase {
         XCTAssert((sentRequest?.url.hasSuffix(URIs.payment))!)
         XCTAssert(sentRequest?.method == .post)
         XCTAssert(sentRequest?.parameters!["amount"] as! Double == paymentRequest.total)
-        XCTAssert(sentRequest?.parameters!["tip"] as! Double == 0.5)
+        XCTAssert(sentRequest?.parameters!["tip"] as! String == "0.50")
         XCTAssert(sentRequest?.parameters!["ccToken"] as! String == "abc")
         XCTAssert(response?.response.newBalance == 1.12)
         XCTAssert(response?.response.fullyPaid == false)

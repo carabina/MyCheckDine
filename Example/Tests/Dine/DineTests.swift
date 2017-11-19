@@ -21,8 +21,74 @@ class DineTests: XCTestCase {
   override func tearDown() {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     super.tearDown()
+    Dine.shared.dispose()
+
   }
   
+    func testGetClientCodeSuccess(){
+        //Arrange
+        let clientCode = 1234
+        let restuarantId = "resID"
+        guard let validJSON = getJSONFromFile( named: "generateCode") else{
+            XCTFail("test failed because JSON not working")
+            return;
+        }
+        var paramsSent: RequestParameters? = nil
+        Dine.shared.network = RequestProtocolMock(response: .success(validJSON)){ sent in
+            paramsSent = sent
+        }
+        var responseCode: String? = nil
+        
+         //Act
+        Dine.shared.generateCode(hotelId: nil, restaurantId: restuarantId, success: {code in
+            responseCode = code
+            
+        }, fail: {error in
+            XCTFail("should not fail")
+            
+        })
+        XCTAssert(responseCode == String(clientCode))
+        XCTAssert( paramsSent?.method == .post)
+        XCTAssert( paramsSent?.parameters!["restaurant_id"] as! String == restuarantId)
+        XCTAssert( paramsSent?.parameters!["externalBusinessId"] == nil )
+
+        XCTAssert( (paramsSent?.url.hasSuffix(URIs.generateCode))!)
+
+    }
+    
+    func testGetClientCodeInExternalIdModeSuccess(){
+        //Arrange
+
+        self.createNewLoggedInSession(configFileName: "configureForExternalIdGenerateCode")
+        let clientCode = 1234
+        let restuarantId = "resID"
+        guard let validJSON = getJSONFromFile( named: "generateCode") else{
+            XCTFail("test failed because JSON not working")
+            return;
+        }
+        var paramsSent: RequestParameters? = nil
+        Dine.shared.network = RequestProtocolMock(response: .success(validJSON)){ sent in
+            paramsSent = sent
+        }
+        var responseCode: String? = nil
+        
+        //Act
+        Dine.shared.generateCode(hotelId: nil, restaurantId: restuarantId, success: {code in
+            responseCode = code
+            
+        }, fail: {error in
+            XCTFail("should not fail")
+            
+        })
+        XCTAssert(responseCode == String(clientCode))
+        XCTAssert( paramsSent?.method == .post)
+        XCTAssert( paramsSent?.parameters!["restaurant_id"] == nil)
+        XCTAssert( paramsSent?.parameters!["externalBusinessId"] as! String == restuarantId )
+        
+        XCTAssert( (paramsSent?.url.hasSuffix(URIs.generateCode))!)
+        
+    }
+    
   func testFriendListSuccess() {
     //Arrange
     guard let validJSON = getJSONFromFile( named: "friendList") else{
@@ -416,7 +482,7 @@ class DineTests: XCTestCase {
     XCTAssert(response != nil)
     XCTAssert(paramsSent?.parameters?["items"]  == nil)
 
-    XCTAssert(paramsSent?.parameters?["amount"] as? Double == amount)
+    XCTAssert(paramsSent?.parameters?["amount"] as? String ==  String(format: "%.2f" , amount))
     XCTAssert( (paramsSent?.url.hasSuffix(URIs.generatePaymentRequest))!)
     XCTAssert( paramsSent?.method == .get)
     
@@ -462,7 +528,7 @@ let validJSON = getPaymentRequestResponseJSON(amount: amount, tax: totalTax)
         XCTAssert(response != nil)
         XCTAssert(paramsSent?.parameters?["items"]  == nil)
         
-        XCTAssert(paramsSent?.parameters?["amount"] as? Double == order.summary.balanceWithoutTax)
+        XCTAssert(paramsSent?.parameters?["amount"] as! String ==  String(format: "%.2f" , order.summary.balanceWithoutTax) )
         XCTAssert( (paramsSent?.url.hasSuffix(URIs.generatePaymentRequest))!)
         XCTAssert( paramsSent?.method == .get)
         

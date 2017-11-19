@@ -16,8 +16,8 @@ extension XCTestCase{
     ///
     /// - Returns: true if successfull
     @discardableResult
-    func createNewValidConfiguredMockSession() ->Bool{
-        guard let validJSON = getJSONFromFile( named: "configure") else{
+    func createNewValidConfiguredMockSession(fileName: String = "configure") ->Bool{
+        guard let validJSON = getJSONFromFile( named: fileName) else{
             return false;
         }
         Session.shared.dispose()
@@ -30,8 +30,13 @@ extension XCTestCase{
         return true
     }
     
-    func createNewLoggedInSession() {
+    func createNewLoggedInSession(configFileName: String? = nil) {
+        if let configFileName = configFileName{
+            self.createNewValidConfiguredMockSession(fileName: configFileName)
+
+        }else{
         self.createNewValidConfiguredMockSession()
+        }
         guard let validJSON = getJSONFromFile( named: "login") else{
             expect("getJSONFromFile") == "success"
             return;

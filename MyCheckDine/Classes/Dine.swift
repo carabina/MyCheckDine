@@ -39,6 +39,8 @@ public class Dine: NSObject{
         return _shared!
     }
     
+    
+    private var usingExternalId = false
     //Used for session managment and calling server.
     internal var network: RequestProtocol = Networking.shared;
     
@@ -46,12 +48,22 @@ public class Dine: NSObject{
     internal override init() {
         super.init()
         Networking.shared.configure(success: { JSON in
-            if let dineConfig = JSON["dine"] as? [String:Any], let intervalNum = dineConfig["pollingInterval"] as? NSNumber{
+            if let dineConfig = JSON["dine"] as? [String:Any]{
+                
+                if  let intervalNum = dineConfig["pollingInterval"] as? NSNumber{
                 let interval = intervalNum.doubleValue
                 if interval > 0 {
                     self.pollerManager.pollingInterval = interval
                 }
+                }
+                
+                if let externalIdMode = dineConfig["externalBusinessId"] as? Bool{
+                    self.usingExternalId = externalIdMode
+                }
+
+                
             }
+            
         }, fail: nil)
         
     }
@@ -108,8 +120,8 @@ public class Dine: NSObject{
     }
     
     private func callGenerateCode(hotelId: String? , restaurantId: String , success: @escaping ((String) -> Void) , fail: ((NSError) -> Void)? ) {
-        
-        var params : [String: Any] = [  "restaurant_id" :  restaurantId]
+        let bidKey = usingExternalId ? "externalBusinessId":  "restaurant_id"
+        var params : [String: Any] = [ bidKey :  restaurantId]
         
         if let hotelId = hotelId{
             params ["hotelId"] = hotelId
@@ -548,6 +560,13 @@ public class Dine: NSObject{
             
             NotificationCenter.default.post(name:  Notification.Name("MyCheck comunication ouput") , object: string)
         }
+    }
+    
+    //This is an internal function meant only for unit testing!
+    //It will dispose of the singleton an thus triger creation of a new instance next time the shrard property is accessed.
+    internal func dispose()
+    {
+        Dine._shared = nil
     }
 }
 

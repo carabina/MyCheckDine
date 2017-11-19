@@ -114,13 +114,13 @@
                             "backButton":"ffffff",
                             "headerText":"ffffff"
                         },
-                        "images":{  
+                        "images":{
                             "defaultButton":"https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/Wallet\/v%403x.png",
                             "removeButton":"https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/Wallet\/delete%403x.png",
                             "headerBackButton":"https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/Wallet\/back.png"
                         }
                     },
-                    "addCreditColors":{  
+                    "addCreditColors":{
                         "inputError":"cb1621",
                         "hintTextColor":"acacac",
                         "applyBackgroundColor":"77111d",
@@ -132,9 +132,9 @@
                     }
                 }
             },
-            "dine":{  
+            "dine":{
                 "pollingInterval":5,
-                "externalBusinessId":false
+                "externalBusinessId":true
             }
         }
     },

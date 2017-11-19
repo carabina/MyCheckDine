@@ -40,6 +40,7 @@
 		B270CC7B1F0E57100064983D /* orderDetailsNoItems.json in Resources */ = {isa = PBXBuildFile; fileRef = B270CC7A1F0E57100064983D /* orderDetailsNoItems.json */; };
 		B270D7F81E1BEB91009BA1E2 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B270D7F71E1BEB91009BA1E2 /* ConfigureViewController.swift */; };
 		B270D7FA1E1BFB46009BA1E2 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B270D7F91E1BFB46009BA1E2 /* TerminalViewController.swift */; };
+		B27A38541FC18D1200B1E3E2 /* configureForExternalIdGenerateCode.json in Resources */ = {isa = PBXBuildFile; fileRef = B27A38531FC18D1200B1E3E2 /* configureForExternalIdGenerateCode.json */; };
 		B27D02DC1E1CDE310099E514 /* TerminalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D02DB1E1CDE310099E514 /* TerminalModel.swift */; };
 		B27D02DE1E1CE2900099E514 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27D02DD1E1CE2900099E514 /* SessionViewController.swift */; };
 		B2818B471F5FDCE700DC7F77 /* AddMasterPassPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2818B431F5FDCE700DC7F77 /* AddMasterPassPresenterTests.swift */; };
@@ -158,6 +159,7 @@
 		B270CC7A1F0E57100064983D /* orderDetailsNoItems.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orderDetailsNoItems.json; sourceTree = "<group>"; };
 		B270D7F71E1BEB91009BA1E2 /* ConfigureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
 		B270D7F91E1BFB46009BA1E2 /* TerminalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
+		B27A38531FC18D1200B1E3E2 /* configureForExternalIdGenerateCode.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = configureForExternalIdGenerateCode.json; sourceTree = "<group>"; };
 		B27D02DB1E1CDE310099E514 /* TerminalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalModel.swift; sourceTree = "<group>"; };
 		B27D02DD1E1CE2900099E514 /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		B2818B431F5FDCE700DC7F77 /* AddMasterPassPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMasterPassPresenterTests.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 				B296BE141F33343000E5657C /* addCreditCard.json */,
 				B289F9A01F3091A800CEC772 /* PaymentMethods.json */,
 				B260FB211F0CC839002605EE /* configure.json */,
+				B27A38531FC18D1200B1E3E2 /* configureForExternalIdGenerateCode.json */,
 				B260FB221F0CC839002605EE /* login.json */,
 				B2AD9B6D1F0BE95900059FAA /* generateCode.json */,
 				B2AD9B6F1F0BE99F00059FAA /* orderDetails.json */,
@@ -648,6 +651,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B27A38541FC18D1200B1E3E2 /* configureForExternalIdGenerateCode.json in Resources */,
 				B2AA60241F49A1A000826612 /* usageStats.json in Resources */,
 				B270CC7B1F0E57100064983D /* orderDetailsNoItems.json in Resources */,
 				B2CB217D1FAA1B9F000EC73A /* redeemFail.json in Resources */,
