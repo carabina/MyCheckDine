@@ -35,4 +35,12 @@ public struct TaxItem: Equatable{
     return lhs.name == rhs.name && lhs.amount == rhs.amount && lhs.isInclusive == rhs.isInclusive
   }
   
+    public func jsonify()-> [String: Any] {
+        let JSON = [
+                    "name": name,
+                    "amount": amount,
+                    "isInclusive": isInclusive
+            ] as [String : Any]
+        return JSON
+    }
 }

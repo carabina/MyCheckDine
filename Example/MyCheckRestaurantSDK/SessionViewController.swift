@@ -42,6 +42,7 @@ class SessionViewController: SuperViewController {
             }, fail: self.fail)
         }
     }
+    
     @IBAction func logoutPressed(_ sender: Any) {
         Session.shared.logout()
         updateLoggedInUI()
