@@ -50,7 +50,7 @@ open class Item: BasicItem {
       "ID" ~~> self.Id,
       "Quantity" ~~> quantity,
       "Modifiers" ~~> modifierJSONs,
-      "Price" ~~> self.price,
+      "Price" ~~> self.price.roundedStringForJSON(),
       "Serial_id" ~~> self.serialId,
       "Name" ~~> self.name
 

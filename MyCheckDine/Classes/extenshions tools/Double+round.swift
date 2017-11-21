@@ -14,4 +14,9 @@ extension Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded() / divisor
     }
+    
+    /// Rounds the double to decimal places value
+  public  func roundedStringForJSON() -> Decimal {
+        return Decimal(self).roundedCurrency
+    }
 }

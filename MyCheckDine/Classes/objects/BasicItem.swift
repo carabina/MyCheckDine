@@ -54,13 +54,14 @@ open class BasicItem: NSObject , Gloss.Decodable {
         
         serialId = "serial_id" <~~ json
 
-        guard let modifiersJSON: [[String: Any]] = "modifiers" <~~ json
-            else{
-            return nil
-        }
-        let modifiers = modifiersJSON.map({Item(json:$0)}).flatMap({$0})
+        if let modifiersJSON: [[String: Any]] = "modifiers" <~~ json{
+            let modifiers = modifiersJSON.map({Item(json:$0)}).flatMap({$0})
+            self.modifiers = modifiers
 
-        self.modifiers = modifiers
+        }else{
+            self.modifiers = []
+        }
+
     }
     
 
@@ -78,7 +79,7 @@ open class BasicItem: NSObject , Gloss.Decodable {
             "id" ~~> self.Id,
             "Quantity" ~~> quantity,
             "Modifiers" ~~> modifierJSONs,
-            "amount" ~~> self.price,
+            "amount" ~~> self.price.roundedStringForJSON(),
             "Serial_id" ~~> self.serialId,
             "Name" ~~> self.name
             
@@ -96,7 +97,7 @@ open class BasicItem: NSObject , Gloss.Decodable {
             "ID" ~~> self.Id,
             "Quantity" ~~> quantity,
             "Modifiers" ~~> modifierJSONs,
-            "Price" ~~> self.price,
+            "Price" ~~> self.price.roundedStringForJSON(),
             "Serial_id" ~~> self.serialId,
             "Name" ~~> self.name
             
