@@ -29,7 +29,7 @@ public class Benefits{
         var params : [String: Any] = [:]
         
         if let restaurantId = restaurantId{
-            params[""] = restaurantId
+            params["businessId"] = restaurantId
         }
         
         

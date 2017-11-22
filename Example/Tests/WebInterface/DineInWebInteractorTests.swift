@@ -346,6 +346,12 @@ class DineInWebInteractorTest : XCTestCase {
         XCTAssert(response?.totalBeforeTax == 1.02)
         XCTAssert(response?.totalAfterTax == 2.12)
         XCTAssert(response?.totalTax == 1.1)
+        XCTAssert(response?.taxList.count == 4)
+        XCTAssert(response?.taxList[0].amount == 1.33)
+        XCTAssert(response?.taxList[0].name == "Tax1")
+        XCTAssert(response?.taxList[0].isInclusive == true)
+
+
         XCTAssert(response?.isExceedingTableTotalAmount == false)
 
 
@@ -383,7 +389,7 @@ class DineInWebInteractorTest : XCTestCase {
         XCTAssert((sentRequest?.url.hasSuffix(URIs.payment))!)
         XCTAssert(sentRequest?.method == .post)
         XCTAssert(sentRequest?.parameters!["amount"] as! Double == paymentRequest.total)
-        XCTAssert(sentRequest?.parameters!["tip"] as! String == "0.50")
+        XCTAssert(sentRequest?.parameters!["tip"] as! Decimal == Decimal(0.5))
         XCTAssert(sentRequest?.parameters!["ccToken"] as! String == "abc")
         XCTAssert(response?.response.newBalance == 1.12)
         XCTAssert(response?.response.fullyPaid == false)

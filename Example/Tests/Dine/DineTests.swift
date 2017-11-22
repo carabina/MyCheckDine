@@ -482,7 +482,7 @@ class DineTests: XCTestCase {
     XCTAssert(response != nil)
     XCTAssert(paramsSent?.parameters?["items"]  == nil)
 
-    XCTAssert(paramsSent?.parameters?["amount"] as? String ==  String(format: "%.2f" , amount))
+    XCTAssert(paramsSent?.parameters?["amount"] as! Decimal ==  amount.roundedStringForJSON())
     XCTAssert( (paramsSent?.url.hasSuffix(URIs.generatePaymentRequest))!)
     XCTAssert( paramsSent?.method == .get)
     
@@ -528,7 +528,7 @@ let validJSON = getPaymentRequestResponseJSON(amount: amount, tax: totalTax)
         XCTAssert(response != nil)
         XCTAssert(paramsSent?.parameters?["items"]  == nil)
         
-        XCTAssert(paramsSent?.parameters?["amount"] as! String ==  String(format: "%.2f" , order.summary.balanceWithoutTax) )
+        XCTAssert(paramsSent?.parameters?["amount"] as! Decimal ==  Decimal( order.summary.balanceWithoutTax) )
         XCTAssert( (paramsSent?.url.hasSuffix(URIs.generatePaymentRequest))!)
         XCTAssert( paramsSent?.method == .get)
         
