@@ -45,6 +45,8 @@ public class Dine: NSObject{
     internal var network: RequestProtocol = Networking.shared;
     
     
+   
+    
     internal override init() {
         super.init()
         Networking.shared.configure(success: { JSON in
@@ -65,6 +67,7 @@ public class Dine: NSObject{
             }
             
         }, fail: nil)
+        setUpObservers()
         
     }
     //When activated this object polls the MyCheck server in order to fetch order updates. Call The startPolling function and set the delegate in order to receive updates. You should generally start useing the poller  when a 4 digit code is created until the order is closed or canceled.
@@ -565,6 +568,20 @@ public class Dine: NSObject{
     internal func dispose()
     {
         Dine._shared = nil
+    }
+}
+fileprivate extension Dine{
+   
+    fileprivate func setUpObservers() {
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(Dine.receivedLogoutNotification), name: NSNotification.Name(rawValue: Session.Const.loggedOutNotification), object: nil)
+        
+    }
+    
+    @objc func receivedLogoutNotification(notification: Notification){
+        
+        self.lastOrder = nil
+        self.pollerManager.logedout()
     }
 }
 

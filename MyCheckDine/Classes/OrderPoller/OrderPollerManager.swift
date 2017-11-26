@@ -123,5 +123,11 @@ internal class OrderPollerManager : NSObject{
   internal func addNewPoller(poller: OrderPollerManagerDelegate){
   delegates += poller
   }
+    
+    internal func logedout(){
+        lastUpdate = nil
+        order = nil
+        
+    }
 }
 
