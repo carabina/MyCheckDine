@@ -26,6 +26,7 @@ extension Dine{
     if let orderId = orderId{
       params ["orderId"] = orderId
     }
+
     if let stamp = stamp{
       params ["stamp"] = stamp
     }

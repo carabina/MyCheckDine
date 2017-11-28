@@ -276,7 +276,7 @@ public class Dine: NSObject{
         paymentMethod.generatePaymentToken(for: paymentRequest, displayDelegate: displayDelegate, success: { token in
             let paymentDetails = paymentRequest.paymentDetails
             var params : [String: Any] = [  "orderId" :  paymentRequest.paymentDetails.order.orderId,
-                                            "amount": paymentRequest.total,
+                                            "amount": paymentRequest.total.roundedStringForJSON(),
                                             "tip": paymentDetails.tip.roundedStringForJSON(),
                                             "ccToken": token]
             
