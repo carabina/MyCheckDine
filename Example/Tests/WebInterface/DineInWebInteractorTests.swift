@@ -388,7 +388,7 @@ class DineInWebInteractorTest : XCTestCase {
         XCTAssert(response?.callback == callbackName, "callback was not passed properly")
         XCTAssert((sentRequest?.url.hasSuffix(URIs.payment))!)
         XCTAssert(sentRequest?.method == .post)
-        XCTAssert(sentRequest?.parameters!["amount"] as! Double == paymentRequest.total)
+        XCTAssert(sentRequest?.parameters!["amount"] as! Decimal == paymentRequest.total.roundedStringForJSON())
         XCTAssert(sentRequest?.parameters!["tip"] as! Decimal == Decimal(0.5))
         XCTAssert(sentRequest?.parameters!["ccToken"] as! String == "abc")
         XCTAssert(response?.response.newBalance == 1.12)

@@ -728,7 +728,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyCheckDine_Tests/Pods-MyCheckDine_Tests-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/MyCheckDineUIWeb/MyCheckDineUIWeb.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/MyCheckDineUIWeb/MyCheckDineUIWeb.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -796,7 +796,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyCheckDine_Example-emptyTargetForTesting/Pods-MyCheckDine_Example-emptyTargetForTesting-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/MyCheckDineUIWeb/MyCheckDineUIWeb.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/MyCheckDineUIWeb/MyCheckDineUIWeb.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -814,7 +814,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyCheckDine_Example/Pods-MyCheckDine_Example-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/MyCheckDineUIWeb/MyCheckDineUIWeb.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/MyCheckDineUIWeb/MyCheckDineUIWeb.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
