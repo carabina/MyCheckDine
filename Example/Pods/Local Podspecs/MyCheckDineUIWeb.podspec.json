@@ -1,7 +1,7 @@
 {
   "name": "MyCheckDineUIWeb",
   "summary": "A SDK that provides UI for the MyCheck Dine In proccess.",
-  "version": "1.0.7",
+  "version": "0.0.1",
   "description": "README.md",
   "homepage": "https://github.com/elad schiller/MyCheckDineUIWeb",
   "license": {
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://bitbucket.org/erez_spatz/mycheckdineuiweb-ios.git",
-    "tag": "1.0.7"
+    "tag": "0.0.1"
   },
   "platforms": {
     "ios": "9.0"
@@ -26,22 +26,10 @@
     ]
   },
   "dependencies": {
-    "MyCheckCore": [
+    "MyCheckDine": [
 
     ],
     "MyCheckWalletUI": [
-
-    ],
-    "MyCheckWalletUI/MasterPass": [
-
-    ],
-    "MyCheckWalletUI/VisaCheckout": [
-
-    ],
-    "MyCheckWalletUI/ApplePay": [
-
-    ],
-    "MyCheckDine": [
 
     ]
   }
