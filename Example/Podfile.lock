@@ -2,13 +2,13 @@ PODS:
   - Alamofire (4.5.1)
   - Gloss (1.2.4)
   - Kingfisher (3.13.1)
-  - MyCheckCore (1.0.3):
+  - MyCheckCore (1.0.4):
     - Alamofire (~> 4.0)
-  - MyCheckDine (1.3.8):
+  - MyCheckDine (1.3.9):
     - Gloss (~> 1.1)
     - MyCheckCore
-    - MyCheckDine/Benefits (= 1.3.8)
-  - MyCheckDine/Benefits (1.3.8):
+    - MyCheckDine/Benefits (= 1.3.9)
+  - MyCheckDine/Benefits (1.3.9):
     - Gloss (~> 1.1)
     - MyCheckCore
   - MyCheckDineUIWeb (1.0.8):
@@ -41,27 +41,38 @@ PODS:
   - Quick (1.0.0)
 
 DEPENDENCIES:
-  - MyCheckCore
-  - MyCheckDine
-  - MyCheckDine/Benefits
-  - MyCheckDineUIWeb
-  - MyCheckWalletUI
-  - MyCheckWalletUI/ApplePay
-  - MyCheckWalletUI/VisaCheckout
+  - MyCheckCore (from `../../MyCheck-Core`)
+  - MyCheckDine (from `../`)
+  - MyCheckDine/Benefits (from `../`)
+  - MyCheckDineUIWeb (from `../../WebInterfaceSDK`)
+  - MyCheckWalletUI (from `../../MyCheckWalletUI`)
+  - MyCheckWalletUI/ApplePay (from `../../MyCheckWalletUI`)
+  - MyCheckWalletUI/MasterPass (from `../../MyCheckWalletUI`)
+  - MyCheckWalletUI/VisaCheckout (from `../../MyCheckWalletUI`)
   - Nimble (~> 5.1.1)
   - Quick (~> 1.0.0)
+
+EXTERNAL SOURCES:
+  MyCheckCore:
+    :path: ../../MyCheck-Core
+  MyCheckDine:
+    :path: ../
+  MyCheckDineUIWeb:
+    :path: ../../WebInterfaceSDK
+  MyCheckWalletUI:
+    :path: ../../MyCheckWalletUI
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
   Kingfisher: ed9707a409cc47fddafbcd12a43a9757e3600af5
-  MyCheckCore: 4c579636140ee481ddd88fab8b935ec20433ebcd
-  MyCheckDine: 7866c35ab2c7497f467aff0fab72212960a72b60
-  MyCheckDineUIWeb: 533876addd2f27f8026bb69d749e6818ec661441
-  MyCheckWalletUI: 5c19dcbeb43c298d0dab48b9fea95a6256f7a9dd
+  MyCheckCore: 7d3fa35834e326d8e5b6cdcdfb624e5f4bb411fa
+  MyCheckDine: be50925707eec4b598f71e8346b1d127b3852dcc
+  MyCheckDineUIWeb: c3e5a8c7a87b480978f5d5e37ba50e1768a9408a
+  MyCheckWalletUI: 3ec934404c917282eacd3ed7755882db75a69495
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
 
-PODFILE CHECKSUM: f1c945e0b026f0b82b7fb83bf63f78f845e853f0
+PODFILE CHECKSUM: bba5d1ad1e4ec6925e1ee9ae764e95b0b37d8476
 
 COCOAPODS: 1.3.1
