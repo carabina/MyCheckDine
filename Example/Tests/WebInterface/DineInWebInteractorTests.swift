@@ -367,6 +367,7 @@ class DineInWebInteractorTest : XCTestCase {
         Dine.shared.network = RequestProtocolMock(response: .success(["status":"OK" , "orderBalance":1.12 , "fullyPaid":false]),
                                                   callback:{ params in
                                                     sentRequest = params
+                                                    //setting up the next response
         }
         )
         
@@ -396,7 +397,45 @@ class DineInWebInteractorTest : XCTestCase {
         
         
     }
-    
+//    
+//    
+//    
+//    func testCompleteAfterPayUpdatesOrder() {
+//        
+//        //Arange
+//        self.createNewLoggedInSession()
+//        
+//        Dine.shared.network = RequestProtocolMock(response: .success(["status":"OK" , "orderBalance":1.12 , "fullyPaid":false]),
+//                                                  callback:{ params in
+//                                                    //setting up the next response
+//                                                    Dine.shared.network = RequestProtocolMock(response:.success(self.getOrderDetailsJSON()!))
+//        }
+//        )
+//        
+//        let (interactor , spy) = getInteractorWithPresenterSpy()
+//        interactor.model.order = getOrderDetails()
+//        let paymentMethod = getPaymentMethod()
+//        let paymentRequest = getPaymentRequest()
+//        interactor.model.paymentMethods = [paymentMethod]
+//        interactor.model.paymentRequest = paymentRequest
+//        
+//        interactor.makePayment(request: DineInWeb.Pay.Request(callback: callbackName,  tip: 0.5, paymentMethodId:paymentMethod.ID, paymentMethodToken: "abc"    , paymentMethodType: paymentMethod.type))
+//        
+//        //Act
+//
+//        interactor.complete(request: DineInWeb.Complete.Request(reason: .completedOrder, callback: callbackName))
+//        let responseComplete = spy.completeResponse
+//       
+//        //Assert
+//        XCTAssert(spy.failedResponse == nil)
+//        
+//        XCTAssert(responseComplete?.callback == callbackName, "callback was not passed properly")
+//        XCTAssert(responseComplete?.order == getOrderDetails())
+//       
+//        
+//        
+//        
+//    }
     
     
     func testPayFail() {
@@ -664,8 +703,17 @@ extension DineInWebInteractorTest{
         return (interactor , spy)
     }
     
+    
+    fileprivate func getOrderDetailsJSON() -> [String: Any]?{
+        guard let validOrderJSON = getJSONFromFile( named: "orderDetails")  else{
+            
+            return nil;
+        }
+        return validOrderJSON
+    }
+    
     fileprivate func getOrderDetails() -> Order?{
-        guard let validOrderJSON = getJSONFromFile( named: "orderDetails") , let order = Order(json: validOrderJSON) else{
+        guard let validOrderJSON = getOrderDetailsJSON(), let order = Order(json: validOrderJSON) else{
             
             return nil;
         }
