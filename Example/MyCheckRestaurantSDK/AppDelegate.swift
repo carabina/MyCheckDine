@@ -11,6 +11,8 @@ import MyCheckCore
 import MyCheckDine
 import MyCheckWalletUI
 import PassKit
+import Firebase
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -35,7 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         }
         
-       
+        FirebaseApp.configure()
+
         return true
     }
 

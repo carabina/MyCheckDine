@@ -8,6 +8,7 @@
 
 import UIKit
 import MyCheckCore
+import Alamofire
 
 extension Dine{
   
@@ -21,7 +22,7 @@ extension Dine{
   ///    - fail: Called when the function fails for any reason
   
   func callGetOrder( orderId: String?, stamp: String?, success: @escaping ((Order) -> Void) , fail: ((NSError) -> Void)? ) {
-        var params : [String: Any] = [   :  ]
+        var params : [String: Any] = ["requestID":randomString(length: 8)]
     
     if let orderId = orderId{
       params ["orderId"] = orderId
@@ -33,7 +34,7 @@ extension Dine{
     if let domain = Networking.shared.domain {
       let urlStr = domain + URIs.orderDetails 
       
-        network.request(urlStr, method: .get, parameters: params , success: { JSON in
+        network.request(urlStr, method: .get, parameters: params, success: { JSON in
         guard let order = Order(json: JSON) else {
           guard let fail = fail else{
             return
@@ -55,4 +56,23 @@ extension Dine{
     }
   }
   
+}
+
+fileprivate extension Dine{
+    
+    func randomString(length: Int) -> String {
+        
+        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let len = UInt32(letters.length)
+        
+        var randomString = ""
+        
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
+        }
+        
+        return randomString
+    }
 }

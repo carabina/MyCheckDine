@@ -71,6 +71,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 
 target 'MyCheckDine_Example' do
+    pod 'Firebase/Core'
     pod 'MyCheckDine', :path => '../'
     pod 'MyCheckDine/Benefits', :path => '../'
 

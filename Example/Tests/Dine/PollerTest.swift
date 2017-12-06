@@ -121,6 +121,74 @@ class PollerTest: QuickSpec {
             
         }
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        describe("Testing poller sends order id and stoppes sending it after logout") {
+            
+            guard let validOrderJSON = getJSONFromFile( named: "orderDetails") else{
+                expect("getJSONFromFile") == "success"
+                return;
+            }
+            
+            it("will call the update delegate method when an order is first recieved") {
+                
+                //Arrange
+                self.createNewLoggedInSession()
+                
+             
+                var firstRequestSent: RequestParameters? = nil
+                let request = RequestProtocolMock(response: .success(validOrderJSON), callback: {response in
+                    firstRequestSent = response
+                    
+                })
+                Dine.shared.network = request
+                var callsToPoller = 0
+                let poller = Dine.shared.createNewPoller(delegate: self)
+                Dine.shared.pollerManager.delayer = DelayMock(callback: { _ in
+                    callsToPoller += 1
+                    //Assert
+                    guard let  request = firstRequestSent else{
+                        expect("not to be here") == "false"
+return
+                    }
+                    
+                    if Session.shared.isLoggedIn(){
+                    expect(request.parameters!["orderId"] as? String) == "47759"
+                        Session.shared.logout()
+                    }else{
+                        XCTAssert(request.parameters!["orderId"] == nil)
+                        poller.stopPolling()
+
+
+                    }
+                    //removing response for next call to delay
+                    self.pollerResponse = nil
+                    firstRequestSent = nil
+                    // called before every order details callback
+                
+                })
+                
+                //act
+                
+                poller.startPolling()
+                XCTAssert(callsToPoller == 2)
+
+                
+                
+            }
+            
+            
+            
+        }
     }
     
     
