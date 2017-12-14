@@ -250,6 +250,9 @@
 		B093484B1637B3D3AF65DF2232FDBADC /* mach_excServer.h in Headers */ = {isa = PBXBuildFile; fileRef = C507CCD4893B110117F94C512C1A10AE /* mach_excServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16C886BFF7E33A37171311D2EC233E6 /* PaymentMethodInterface+getBackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1442F841521136193BDE0093DC911C /* PaymentMethodInterface+getBackgroundImage.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B2504901F77DE1E65DDAF12B82BF3F9F /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = DA515B901D19AFEBFA562EA4B5016D8D /* QCKDSL.m */; };
+		B2D8D6E11FE2698E0027B80F /* LocalData+MCPaymentMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D8D6E01FE2698E0027B80F /* LocalData+MCPaymentMethodsViewController.swift */; };
+		B2D8D6E31FE296390027B80F /* UIStatusBarStyle+createFromBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D8D6E21FE296390027B80F /* UIStatusBarStyle+createFromBool.swift */; };
+		B2D8D6E41FE296390027B80F /* UIStatusBarStyle+createFromBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D8D6E21FE296390027B80F /* UIStatusBarStyle+createFromBool.swift */; };
 		B38C14F035ED4BDD7B3870A43A81CC88 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D3D06D250D1F1E6C9C7CFE0A798903 /* Media.xcassets */; };
 		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEC4B6EDF07BC8E8111EDCC9CCCEA90 /* MultipartFormData.swift */; };
 		B9BD565DAB07F8E2288A960A1D3EFAC1 /* MatcherFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F071D807C1DB3465E3332E45F03153 /* MatcherFunc.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -950,6 +953,8 @@
 		B1D9E18E9BDDB024782A511CED9A2FE3 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		B23EC9BAA15A59202F24C23037A77778 /* Pods-MyCheckDine_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MyCheckDine_Tests.modulemap"; sourceTree = "<group>"; };
 		B27D501D69A24BB1CE67FF50316F82FD /* Pods-MyCheckDine_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MyCheckDine_Example-frameworks.sh"; sourceTree = "<group>"; };
+		B2D8D6E01FE2698E0027B80F /* LocalData+MCPaymentMethodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalData+MCPaymentMethodsViewController.swift"; sourceTree = "<group>"; };
+		B2D8D6E21FE296390027B80F /* UIStatusBarStyle+createFromBool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStatusBarStyle+createFromBool.swift"; sourceTree = "<group>"; };
 		B2D988F09D594A98781EFBBCDF5E2708 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B38646D714D166683D12488A1C64230D /* AdapterProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AdapterProtocols.swift; path = Sources/Nimble/Adapters/AdapterProtocols.swift; sourceTree = "<group>"; };
 		B3DE5B2B01460C77C26A559659FF489A /* ExampleMetadata.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExampleMetadata.swift; path = Sources/Quick/ExampleMetadata.swift; sourceTree = "<group>"; };
@@ -1586,6 +1591,7 @@
 				AF3EEF57E90535E064376D1E65C39533 /* Dictionary+Append.swift */,
 				8EAD9D6C02AE99956F3CBED286606F18 /* LocalData+MCCheckoutViewController.swift */,
 				FB586247ED4539C7ABF45F595E5E68FF /* LocalData+MCCreditCardsViewController.swift */,
+				B2D8D6E01FE2698E0027B80F /* LocalData+MCPaymentMethodsViewController.swift */,
 				87991E93647312B45A9F86BA51AE94CE /* String+Capital.swift */,
 				21903D483115D6D9D5CA56C94DFFE9BE /* UIBarButtonItem+Kingsfisher.swift */,
 				0E678A77522D2ABECE60FB3812AE74F9 /* UIColor+CustomColors.swift */,
@@ -1593,6 +1599,7 @@
 				ABD3DC35607A7B757B15E9D9522BA29C /* UIFont+customFonts.swift */,
 				51144FA08A8C3367C4F25018649815BE /* UITextField+Placeholder.swift */,
 				6FC0C3B282AD7C42A13ACE3A518F7353 /* UIViewController+Toast.swift */,
+				B2D8D6E21FE296390027B80F /* UIStatusBarStyle+createFromBool.swift */,
 			);
 			name = extensionTools;
 			path = MyCheckWalletUI/Classes/extensionTools;
@@ -2878,6 +2885,7 @@
 				FCF849D5295C3B14731423C8A2073C27 /* MCPaymentMethodsViewController.swift in Sources */,
 				A0BB6375522385DA950FFAB3722811F7 /* MCScrollView.swift in Sources */,
 				35035E9F0B7DEE23846762B8CD075698 /* MCTextField.swift in Sources */,
+				B2D8D6E41FE296390027B80F /* UIStatusBarStyle+createFromBool.swift in Sources */,
 				A40828F5E705ECDBA29538329EC95649 /* MCViewController.swift in Sources */,
 				25260F5651D3B7507C9F4878403470AE /* MyCheckWallet+VisaCheckout.swift in Sources */,
 				86958DEC57B45BB24D46E42F2D3A0219 /* MyCheckWalletUI-dummy.m in Sources */,
@@ -2889,6 +2897,7 @@
 				A616A6A0AAB39A93901A210729869366 /* PaymentMethodType+imageURLForFropDown.swift in Sources */,
 				236B8986E830A59AA59A387C2C156E86 /* String+Capital.swift in Sources */,
 				0207DE8449A13AAE858F9046A8EDD8EB /* UIBarButtonItem+Kingsfisher.swift in Sources */,
+				B2D8D6E11FE2698E0027B80F /* LocalData+MCPaymentMethodsViewController.swift in Sources */,
 				3786C2E9E4A5ED7B4590386FDD795190 /* UIColor+CustomColors.swift in Sources */,
 				10A5FC1606840129F7074095CB24B730 /* UIColor+Hex.swift in Sources */,
 				0C95A968F5D7A423BE6AC4A4A5ECFB41 /* UIFont+customFonts.swift in Sources */,
@@ -3029,6 +3038,7 @@
 				E4C9C048A99F9068862513A9EDF93AD3 /* DineInWebViewController.swift in Sources */,
 				AD7AC1963945493228C795EBC0987886 /* DineInWebViewControllerFactory.swift in Sources */,
 				C2D0ACC043E2CF6020D3DB3E0DED8177 /* DineInWebWorker.swift in Sources */,
+				B2D8D6E31FE296390027B80F /* UIStatusBarStyle+createFromBool.swift in Sources */,
 				2FE308A13D4D9175039A90E05D952BEE /* MyCheckDineUIWeb-dummy.m in Sources */,
 				759941BEF3A466CAC6BD3F6A362F4933 /* NativeCallHandler.swift in Sources */,
 				083E7B989F83E5E0BAFBA05A4849E824 /* OrderJSONGenerator.swift in Sources */,
