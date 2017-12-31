@@ -89,4 +89,43 @@ extension Benefit{
             ]
         return Benefit(JSON: JSON)!
     }
+    
+   
+}
+
+
+extension BenefitRedeemResult{
+    static func getBenefitJSONStubSuccess() -> [String: Any]{
+        let JSON: [String: Any] = [
+            "outcome": 360304,
+            "success": true,
+            "provider_benefit_id": "15% discount",
+            "provider": "15% discount",
+            ]
+        return JSON
+    }
+   
+    static func getBenefitStubSuccess() -> BenefitRedeemResult{
+      let JSON = getBenefitJSONStubSuccess()
+        return BenefitRedeemResult(JSON: JSON)!
+}
+  
+    
+    static func getBenefitJSONStubFail() -> [String: Any]{
+        let JSON: [String: Any] = [
+            "outcome": 360304,
+            "success": false,
+            "provider_benefit_id": "15% discount",
+            "provider": "15% discount",
+            "error": "ERROR_KEY",
+            "message": "message"
+            ]
+        return JSON
+    }
+    
+    static func getBenefitStubFail() -> BenefitRedeemResult{
+        let JSON = getBenefitJSONStubFail()
+        return BenefitRedeemResult(JSON: JSON)!
+    }
+    
 }

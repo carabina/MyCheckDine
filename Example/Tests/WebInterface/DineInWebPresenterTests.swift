@@ -384,7 +384,7 @@ class DineInWebPresenterTests: XCTestCase
         
         
         // Act
-        presenter.redeemedBenefits(response: response)
+        presenter.redeemedBenefit(response: response)
         
         // Assert
         guard let JS = spy.JSString else{
@@ -395,7 +395,29 @@ class DineInWebPresenterTests: XCTestCase
         let emptyBody:[String:Any] = [:]
         XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: emptyBody)))
         
+        
     }
+    func testRedeemBenefits()
+    {
+        // Arrange
+        let response = DineInWeb.RedeemBenefits.Response(callback: callback, results: [BenefitRedeemResult.getBenefitStubSuccess(),BenefitRedeemResult.getBenefitStubFail() ])
+        
+        
+        // Act
+        presenter.redeemedBenefits(response: response)
+        
+        // Assert
+        guard let JS = spy.JSString else{
+            XCTFail("should of recieved a call to viewcontroller")
+            return
+        }
+        let JSONArr = [BenefitRedeemResult.getBenefitJSONStubSuccess(),BenefitRedeemResult.getBenefitJSONStubFail() ]
+        let body:[String:Any] = ["redemptions":JSONArr]
+        XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: body)))
+        
+    }
+    
+    
     
     func testDisplayApplePay(){
         
@@ -412,10 +434,10 @@ class DineInWebPresenterTests: XCTestCase
             return
         }
         
-      //Assert
-      XCTAssert(spyResponse.show == response.show)
+        //Assert
+        XCTAssert(spyResponse.show == response.show)
         XCTAssert(spyResponse.viewController == response.viewController)
-
+        
         
         
     }

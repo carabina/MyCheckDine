@@ -203,8 +203,75 @@ return
         
         
     }
+    
+    
+    func testRedeemMultipleBenefits(){
+        //Arrange
+        var paramsSent: RequestParameters? = nil
+        
+        guard let validJSON = getJSONFromFile( named: "redeemMultipleResponse") else{
+            XCTFail("test failed because JSON not working")
+            return;
+        }
+        
+        Benefits.network = RequestProtocolMock(response: .success(validJSON)){ sent in
+            paramsSent = sent
+        }
+        
+        let bid = "123e"
+        var responseOptional: [BenefitRedeemResult]? = nil
+        let benefit = Benefit.getBenefitStub()
+        //Act
+        Benefits.redeem(benefits: [benefit, benefit], restaurantId: bid,  success: { benefitsRecieved in
+            responseOptional = benefitsRecieved
+            
+        }, fail: {error in
+            XCTFail("success should of been called")
+            
+        })
+        
+        //Assert
+        
+        XCTAssert(paramsSent?.method == .post)
+        XCTAssert(paramsSent?.parameters!["businessId"] as! String == bid)
+        //      XCTAssert((paramsSent?.url.hasSuffix(URIs.redeemBenefits))!)
+        
+        guard let benefitsJSONString = paramsSent?.parameters!["benefits"]as? String,
+            let benefitsJSONArray = benefitsJSONString.JSONStringToJSONArray()
+            else{
+                XCTFail("benefit parsing failed")
+                
+                return
+        }
+        XCTAssert( benefitsJSONArray.count == 2)
+        
+        let benefitsSummerayJSON = benefitsJSONArray[0]
+        XCTAssert( benefitsSummerayJSON["id"] as? String == benefit.id)
+        XCTAssert( benefitsSummerayJSON["provider"] as? String == benefit.provider)
+        
+        guard let response = responseOptional else {
+            XCTFail()
+            return
+        }
+        XCTAssert(response.count == 2)
+        XCTAssert(response[0].error == nil)
+        XCTAssert(response[0].errorMessage == nil)
+        XCTAssert(response[0].outcome == 12001)
+        XCTAssert(response[0].provider == "mycheck")
+        XCTAssert(response[0].providerBenefitId == "627")
 
+        XCTAssert(response[1].error == "ERROR_KEY")
+        XCTAssert(response[1].errorMessage == "message ")
+        XCTAssert(response[1].outcome == 123)
+        XCTAssert(response[1].provider == "mycheck")
+        XCTAssert(response[1].providerBenefitId == "32")
+
+    }
+
+    
+    
 }
+
 
 
 

@@ -11,6 +11,8 @@ import MyCheckCore
 class DineInWebInteractorTest : XCTestCase {
     
     class presenterSpy:  DineInWebPresentationLogic{
+       
+        
    
         var tableCodeResponse: DineInWeb.GetCode.Response?
         var pollToggleResponse: DineInWeb.Poll.Response?
@@ -27,7 +29,9 @@ class DineInWebInteractorTest : XCTestCase {
         var callWaiterResponse: DineInWeb.CallWaiter.Response?
         var getLocaleResponse: DineInWeb.getLocale.Response?
         var getBenefitsResponse: DineInWeb.getBenefits.Response?
-        var redeemedBenefitsResponse:DineInWeb.RedeemBenefit.Response?
+        var redeemedBenefitResponse:DineInWeb.RedeemBenefit.Response?
+        var redeemedBenefitsResponse:DineInWeb.RedeemBenefits.Response?
+
         var displayApplePayViewControllerResponse: DineInWeb.DisplayApplePayViewController.Response?
         
         func presentTableCode(response: DineInWeb.GetCode.Response){
@@ -91,10 +95,14 @@ class DineInWebInteractorTest : XCTestCase {
             getBenefitsResponse = response
         }
         
-        func redeemedBenefits(response: DineInWeb.RedeemBenefit.Response) {
-            redeemedBenefitsResponse = response
+        func redeemedBenefit(response: DineInWeb.RedeemBenefit.Response) {
+            redeemedBenefitResponse = response
         }
         
+        func redeemedBenefits(response: DineInWeb.RedeemBenefits.Response) {
+            redeemedBenefitsResponse = response
+
+        }
         func displayApplePayViewController(response: DineInWeb.DisplayApplePayViewController.Response) {
             displayApplePayViewControllerResponse = response
         }
@@ -609,7 +617,7 @@ class DineInWebInteractorTest : XCTestCase {
         
     }
     
-    func testRedeemBenefits(){
+    func testRedeemBenefit(){
         
         //Arange
         self.createNewLoggedInSession()
@@ -624,12 +632,12 @@ class DineInWebInteractorTest : XCTestCase {
         let restaurantId = "123"
         let benefit = Benefit.getBenefitStub()
         //Act
-        interactor.redeemBenefits(request: DineInWeb.RedeemBenefit.Request(callback: callbackName, restaurantId: restaurantId, benefit: benefit))
+        interactor.redeemBenefit(request: DineInWeb.RedeemBenefit.Request(callback: callbackName, restaurantId: restaurantId, benefit: benefit))
         
         //Assert
         
     
-        XCTAssert(  spy.redeemedBenefitsResponse!.callback == callbackName, "callback should be passed on")
+        XCTAssert(  spy.redeemedBenefitResponse!.callback == callbackName, "callback should be passed on")
         
         
         

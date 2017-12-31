@@ -19,6 +19,8 @@ class NativeCallHandlerTests: XCTestCase {
     class InteractorSpy: DineInWebBusinessLogic{
       
         
+      
+        
         var setupRequest: DineInWeb.SetupDinein.Request?
         var getCodeRequest: DineInWeb.GetCode.Request?
         var pollRequest: DineInWeb.Poll.Request?
@@ -36,7 +38,9 @@ class NativeCallHandlerTests: XCTestCase {
         var getLocaleRequest: DineInWeb.getLocale.Request?
         
         var  getBenefitsRequest: DineInWeb.getBenefits.Request?
-        var redeemBenefitsRequest: DineInWeb.RedeemBenefit.Request?
+        var redeemBenefitRequest: DineInWeb.RedeemBenefit.Request?
+        var redeemBenefitsRequest: DineInWeb.RedeemBenefits.Request?
+
         var displayErrorRequest: DineInWeb.DisplayError.Request?
         func setupInteractor(request: DineInWeb.SetupDinein.Request){
             setupRequest = request
@@ -101,7 +105,11 @@ class NativeCallHandlerTests: XCTestCase {
             getBenefitsRequest = request
         }
         
-        func redeemBenefits(request: DineInWeb.RedeemBenefit.Request) {
+        func redeemBenefit(request: DineInWeb.RedeemBenefit.Request) {
+            redeemBenefitRequest = request
+        }
+        
+        func redeemBenefits(request: DineInWeb.RedeemBenefits.Request) {
             redeemBenefitsRequest = request
         }
         
@@ -513,7 +521,7 @@ class NativeCallHandlerTests: XCTestCase {
         
     }
     
-    func testRedeemBenefits() {
+    func testRedeemBenefit() {
         //Arrange
         let spy = setAndReturnSpy()
         
@@ -521,9 +529,24 @@ class NativeCallHandlerTests: XCTestCase {
         runJSSynchronously(JSExpresion:"redeemBenefit();")
         
         //Assert
-        XCTAssert(spy.redeemBenefitsRequest?.callback == "redeemBenefit")
-        XCTAssert(spy.redeemBenefitsRequest?.restaurantId == "1234")
+        XCTAssert(spy.redeemBenefitRequest?.callback == "redeemBenefit")
+        XCTAssert(spy.redeemBenefitRequest?.restaurantId == "1234")
         
+        
+    }
+    
+    func testRedeemBenefits() {
+        //Arrange
+        let spy = setAndReturnSpy()
+        
+        //Act
+        runJSSynchronously(JSExpresion:"redeemBenefits();")
+        
+        //Assert
+        XCTAssert(spy.redeemBenefitsRequest?.callback == "redeemBenefits")
+        XCTAssert(spy.redeemBenefitsRequest?.restaurantId == "1234")
+        XCTAssert(spy.redeemBenefitsRequest?.benefits.count == 2)
+
         
     }
     

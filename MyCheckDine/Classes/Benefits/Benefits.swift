@@ -9,10 +9,11 @@ import Foundation
 import MyCheckCore
 
 
+
 /// This object enables the ability to query the list of benefits that can be displyed to the user and redeem them if the benefit's type allowes it.
 public class Benefits{
     fileprivate static let redemptionSuccessCode = 12001
-    
+    fileprivate static let redeemURI = "/restaurants/api/v1/redeemBenefits"
     
     internal static var network : RequestProtocol = Networking.shared
     
@@ -93,7 +94,7 @@ public class Benefits{
             }
             return
         }
-        let urlStr = domain + "/restaurants/api/v1/redeemBenefits"
+        let urlStr = domain + redeemURI
         
         return  network.request(urlStr, method: .post, parameters: params , success: { JSON in
             
@@ -141,6 +142,71 @@ public class Benefits{
         }, fail: fail)
     }
     
+
+
+
+/// Redeems multiple benefits.
+///
+/// - Parameters:
+///   - benefit: The benefit that should be redeemed.
+///   - restaurantId: The Id of the restaurant related to the redeem (optional)
+///   - success: This callback will be called when a benefit is successfully redeemed.
+///   - fail: Called when the request fails.
+public static func redeem(benefits: [BasicBenefit],restaurantId: String?, success: @escaping (([BenefitRedeemResult]) -> Void),
+                          fail:  ((NSError) -> Void)?){
+    
+    let benefitsJSONObjects = benefits.map{ ["id": $0.id, "provider": $0.provider]}
+    let jsonData = try! JSONSerialization.data(withJSONObject: benefitsJSONObjects, options: JSONSerialization.WritingOptions())
+    
+    let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+    
+    var params : [String: Any] = ["benefits":jsonString]
+    
+    if let restaurantId = restaurantId{
+        params["businessId"] = restaurantId
+    }
+    
+    
+    guard let domain = Networking.shared.domain else{
+        if let fail = fail{
+            fail(ErrorCodes.notConifgured.getError())
+        }
+        return
+    }
+    let urlStr = domain + redeemURI
+    
+    return  network.request(urlStr, method: .post, parameters: params , success: { JSON in
+        
+        
+        guard let redemptionsJSONArray = JSON["redemptions"] as? [[String:Any]] else{
+            if let fail = fail{
+                fail(ErrorCodes.badJSON.getError())
+            }
+            return
+        }
+        
+        
+        
+      
+        let redemtions = redemptionsJSONArray.map{ BenefitRedeemResult(JSON: $0)}.flatMap{$0}
+        
+      
+        if redemtions.count > 0{
+            success(redemtions)
+            
+        }else{
+            guard let fail = fail else {
+                return
+            }
+           
+            let error = ErrorCodes.badJSON.getError()
+            fail(error)
+            
+            
+        }
+    }, fail: fail)
+}
+
 }
 
 fileprivate extension Benefits{

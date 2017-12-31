@@ -25,6 +25,7 @@
 		B20607B11F1DF95F0029F056 /* PollerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20607AA1F1DF95F0029F056 /* PollerTest.swift */; };
 		B20607B21F1DF95F0029F056 /* TestCreditCardValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20607AC1F1DF95F0029F056 /* TestCreditCardValidation.swift */; };
 		B20EE89E1F9F10CE0041E94B /* PrePaySummaryNoItems.json in Resources */ = {isa = PBXBuildFile; fileRef = B20EE89D1F9F10CE0041E94B /* PrePaySummaryNoItems.json */; };
+		B211015F1FF8FA43004D030E /* redeemMultipleResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B211015D1FF8D4DC004D030E /* redeemMultipleResponse.json */; };
 		B226C0B51E1CEB3D0045D73A /* SuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226C0B41E1CEB3D0045D73A /* SuperViewController.swift */; };
 		B226C0B71E1D423C0045D73A /* DineInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226C0B61E1D423C0045D73A /* DineInViewController.swift */; };
 		B22F35641F1674D700D85946 /* UITextField+doneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22F35631F1674D700D85946 /* UITextField+doneButton.swift */; };
@@ -142,6 +143,7 @@
 		B20607AA1F1DF95F0029F056 /* PollerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollerTest.swift; sourceTree = "<group>"; };
 		B20607AC1F1DF95F0029F056 /* TestCreditCardValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCreditCardValidation.swift; sourceTree = "<group>"; };
 		B20EE89D1F9F10CE0041E94B /* PrePaySummaryNoItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PrePaySummaryNoItems.json; sourceTree = "<group>"; };
+		B211015D1FF8D4DC004D030E /* redeemMultipleResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = redeemMultipleResponse.json; sourceTree = "<group>"; };
 		B226C0B41E1CEB3D0045D73A /* SuperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperViewController.swift; sourceTree = "<group>"; };
 		B226C0B61E1D423C0045D73A /* DineInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DineInViewController.swift; sourceTree = "<group>"; };
 		B22F35631F1674D700D85946 /* UITextField+doneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+doneButton.swift"; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 				B20EE89D1F9F10CE0041E94B /* PrePaySummaryNoItems.json */,
 				B2CB21781FA9CA28000EC73A /* benefits.json */,
 				B2CB217A1FAA123E000EC73A /* redeemSuccess.json */,
+				B211015D1FF8D4DC004D030E /* redeemMultipleResponse.json */,
 				B2CB217C1FAA1B9F000EC73A /* redeemFail.json */,
 			);
 			path = JSON;
@@ -673,6 +676,7 @@
 				B260FB231F0CC839002605EE /* configure.json in Resources */,
 				B2A8A1131F49768900A25D05 /* friendList.json in Resources */,
 				B260FB241F0CC839002605EE /* login.json in Resources */,
+				B211015F1FF8FA43004D030E /* redeemMultipleResponse.json in Resources */,
 				B24CE7901F60047500DEF760 /* MasterPassCallNative.js in Resources */,
 				B24CE7921F60047500DEF760 /* testMasterPass.html in Resources */,
 				B2AA60281F49B1C300826612 /* orderList.json in Resources */,

@@ -95,7 +95,7 @@ MasterPassFactory.initiate()
             VisaCheckoutFactory.initiate(apiKey: environment.getVisaCheckoutKey())
         }
         
-        
+        Wallet.shared.configureWallet()
 //        Wallet.shared.ui.regularFont = UIFont(name: "Zapfino", size: 1)!
 //        Wallet.shared.ui.headersFont = UIFont(name: "Zapfino", size: 1)!
 //        Wallet.shared.ui.buttonsFont = UIFont(name: "Zapfino", size: 1)!

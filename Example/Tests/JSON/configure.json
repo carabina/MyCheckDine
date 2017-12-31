@@ -2,14 +2,15 @@
     "config":{
         "Config":{
             "core":{
-                "Domain":"https:\/\/the-sandbox.mycheckapp.com"
+                "Domain":"https:\/\/the.mycheckapp.com"
             },
             "dineWebUI":{
-                "noOpenOrderURL":"https:\/\/test.mycheckapp.com\/dinein\/applications\/bostonpizza\/",
-                "openOrderURL":"https:\/\/test.mycheckapp.com\/dinein\/applications\/bostonpizza\/?hasOpenOrder=true"
+                "noOpenOrderURL":"https:\/\/dinein.mycheckapp.com\/applications\/bostonpizza\/index.html",
+                "openOrderURL":"https:\/\/dinein.mycheckapp.com\/applications\/bostonpizza\/index.html?hasOpenOrder=true",
+                "StatusBarIsLightContent":false
             },
             "wallet":{
-                "PCI":"https:\/\/devpm.mycheckapp.com",
+                "PCI":"https:\/\/pm.mycheckapp.com",
                 "currencyCode":"USD",
                 "applePay":{
                     "supportedApplePayCardTypes":[
@@ -21,14 +22,16 @@
                 },
                 "walletUI":{
                     "settings":{
-                        "doNotStoreEnabled":"False"
+                        "doNotStoreEnabled":"False",
+                        "StatusBarIsLightContent":false
                     },
                     "lang":{
-                        "en_US":"https:\/\/mywalletcdn-sandbox.mycheckapp.com\/lang\/v1\/en\/general.json",
-                        "en_GB":"https:\/\/s3-eu-west-1.amazonaws.com\/mywallet-sdk-testing\/lang\/v1\/en_GB\/general.json"
+                        "en_US":"https:\/\/s3-eu-west-1.amazonaws.com\/mywallet-sdk-sandbox\/lang\/BP\/en\/V1\/general.json",
+                        "en_GB":"https:\/\/s3-eu-west-1.amazonaws.com\/mywallet-sdk-testing\/lang\/v1\/en_GB\/general.json",
+                        "fr_FR":"https:\/\/s3-eu-west-1.amazonaws.com\/mywallet-sdk-sandbox\/lang\/v1\/fr\/fr.json"
                     },
                     "masterpass":{
-                        "url":"https:\/\/mywalletcdn-test.mycheckapp.com\/external\/masterpass.html"
+                        "url":"https:\/\/mywalletcdn-prod.mycheckapp.com\/external\/masterpass.html"
                     },
                     "visaCheckout":{
                         "url":"https:\/\/mywalletcdn-test.mycheckapp.com\/external\/visacheckout.html"
@@ -45,16 +48,12 @@
                     "acceptedCardsPM":[
                                        "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/visa.png",
                                        "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/mastercard.png",
-                                       "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/amex.png",
-                                       "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/dinersclub.png",
-                                       "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/discover.png"
+                                       "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/amex.png"
                                        ],
                     "acceptedCardsCheckout":[
                                              "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/visa.png",
                                              "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/mastercard.png",
-                                             "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/amex.png",
-                                             "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/dinersclub.png",
-                                             "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/discover.png"
+                                             "https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/amex.png"
                                              ],
                     "cardsDropDown":{
                         "visa":"https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/credit_logos_colored\/visa.png",
@@ -77,26 +76,26 @@
                             "headerTextColor":"ffffff",
                             "applyButtonText":"ffffff",
                             "cancelButtonText":"ffffff",
-                            "hintTextColor":"77111d",
-                            "seporator":918684,
-                            "applyBut":"77111d",
-                            "applyButBorder":"77111d",
-                            "cancelBut":918684,
-                            "cancelButBorder":918684,
-                            "pciNotice":"b5b5b5",
-                            "pickerArrowColor":918684,
-                            "headerBackground":"4B4442",
-                            "cardAccepted":"77111d",
-                            "background":"f9e5c5",
-                            "fieldBorder":918684,
+                            "hintTextColor":"E6333333",
+                            "seporator":"918684",
+                            "applyBut":"FFCC092F",
+                            "applyButBorder":"FFCC092F",
+                            "cancelBut":"FF979797",
+                            "cancelButBorder":"FF979797",
+                            "pciNotice":"FF979797",
+                            "pickerArrowColor":"FF979797",
+                            "headerBackground":"CC092F",
+                            "cardAccepted":"E6333333",
+                            "background":"ffffff",
+                            "fieldBorder":"E6121212",
                             "notStoreCard":"ffffff",
-                            "managePMButton":"77111d",
-                            "checkoutSubHeader":"77111d",
-                            "cardDropDownHeader":"77111d",
-                            "textField":"77111d",
+                            "managePMButton":"E6121212",
+                            "checkoutSubHeader":"E6121212",
+                            "cardDropDownHeader":"E6121212",
+                            "textField":"E6333333",
                             "errorInput":"cb1621",
-                            "orAddCardWith":"77111d",
-                            "cardNameDropDown":"77111d"
+                            "orAddCardWith":"E6333333",
+                            "cardNameDropDown":"E6333333"
                         },
                         "images":{
                             "dropDownArrow":"https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/Wallet\/drop.png"
@@ -104,35 +103,39 @@
                     },
                     "managePaymentMethods":{
                         "colors":{
-                            "headerBackground":"77111d",
-                            "background":"f9e5c5",
+                            "headerBackground":"CC092F",
+                            "background":"ffffff",
                             "paymentMethodText":"ffffff",
-                            "seporator":918684,
-                            "seporatorText":"77111d",
-                            "pciNotice":"b5b5b5",
+                            "seporator":"DDDDDD",
+                            "seporatorText":"E6333333",
+                            "pciNotice":"FF979797",
                             "editButtonText":"ffffff",
                             "backButton":"ffffff",
-                            "headerText":"ffffff"
+                            "headerText":"ffffff",
+                            "addCardTint":"979797",
+                            "addCardText":"979797",
+                            "StatusBarIsLightContent":false
                         },
-                        "images":{  
+                        "images":{
                             "defaultButton":"https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/Wallet\/v%403x.png",
                             "removeButton":"https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/Wallet\/delete%403x.png",
-                            "headerBackButton":"https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/Wallet\/back.png"
+                            "headerBackButton":"https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/Wallet\/back.png",
+                            "addCard":"https:\/\/s3-eu-west-1.amazonaws.com\/cdn-storage\/Wallet\/addCard.png"
                         }
                     },
-                    "addCreditColors":{  
+                    "addCreditColors":{
                         "inputError":"cb1621",
-                        "hintTextColor":"acacac",
-                        "applyBackgroundColor":"77111d",
-                        "cancelColor":"3b3534",
-                        "fieldText":"9cadb5",
-                        "undeline":"77111d",
+                        "hintTextColor":"E6333333",
+                        "applyBackgroundColor":"FFCC092F",
+                        "cancelColor":"FF979797",
+                        "fieldText":"E6333333",
+                        "undeline":"E6121212",
                         "applyButtonText":"ffffff",
                         "cancelButtonText":"ffffff"
                     }
                 }
             },
-            "dine":{  
+            "dine":{
                 "pollingInterval":5,
                 "externalBusinessId":false
             }
