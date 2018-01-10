@@ -225,7 +225,7 @@ s.source           = { :git => 'https://bitbucket.org/erez_spatz/mycheckrestaura
   s.ios.deployment_target = '9.0'
   s.source_files = 'MyCheckDine/Classes/*' , 'MyCheckDine/Classes/extenshions tools/**' ,'MyCheckDine/Classes/Networking/**','MyCheckDine/Classes/objects/**','MyCheckDine/Classes/OrderPoller/**'
 s.dependency 'MyCheckCore'
-s.dependency   'Gloss', '~> 1.1'
+s.dependency   'Gloss'
 
   # s.resource_bundles = {
   #   'MyCheckDine' => ['MyCheckDineyes/Assets/*.png']
