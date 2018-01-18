@@ -11,9 +11,7 @@ import MyCheckCore
 class DineInWebInteractorTest : XCTestCase {
     
     class presenterSpy:  DineInWebPresentationLogic{
-       
         
-   
         var tableCodeResponse: DineInWeb.GetCode.Response?
         var pollToggleResponse: DineInWeb.Poll.Response?
         var getOrderResponse: DineInWeb.GetOrderDetails.Response?
@@ -31,7 +29,7 @@ class DineInWebInteractorTest : XCTestCase {
         var getBenefitsResponse: DineInWeb.getBenefits.Response?
         var redeemedBenefitResponse:DineInWeb.RedeemBenefit.Response?
         var redeemedBenefitsResponse:DineInWeb.RedeemBenefits.Response?
-
+        
         var displayApplePayViewControllerResponse: DineInWeb.DisplayApplePayViewController.Response?
         
         func presentTableCode(response: DineInWeb.GetCode.Response){
@@ -101,7 +99,7 @@ class DineInWebInteractorTest : XCTestCase {
         
         func redeemedBenefits(response: DineInWeb.RedeemBenefits.Response) {
             redeemedBenefitsResponse = response
-
+            
         }
         func displayApplePayViewController(response: DineInWeb.DisplayApplePayViewController.Response) {
             displayApplePayViewControllerResponse = response
@@ -308,11 +306,9 @@ class DineInWebInteractorTest : XCTestCase {
         //Arange
         self.createNewLoggedInSession()
         var sentRequest: RequestParameters? = nil
-      Dine.shared.network = RequestProtocolMock(response: .success(getPaymentRequestJSON(amount: 2.12)) ,
-                                                  callback:{ params in
-                                                    sentRequest = params
-        }
-        )
+        Dine.shared.network = RequestProtocolMock(response: .success(getPaymentRequestJSON(amount: 2.12)), callback:{ params in
+            sentRequest = params
+        })
         
         let (interactor , spy) = getInteractorWithPresenterSpy()
         interactor.model.order = getOrderDetails()
@@ -336,21 +332,16 @@ class DineInWebInteractorTest : XCTestCase {
         let request =  DineInWeb.GeneratePayRequest.Request(callback: callbackName, payFor:payFor, tip: 0.5)
         
         //Act
-        
-        
         interactor.callGeneratePaymentRequest(request:request)
-        
         let response =  spy.generatePaymentRequestResponse
+        
         //Assert
-        
-        
         
         XCTAssert(spy.failedResponse == nil)
         
         XCTAssert(response?.callback == callbackName, "callback was not passed properly")
         XCTAssert((sentRequest?.url.hasSuffix(URIs.generatePaymentRequest))!)
         XCTAssert(sentRequest?.method == .get)
-        
         XCTAssert(response?.totalBeforeTax == 1.02)
         XCTAssert(response?.totalAfterTax == 2.12)
         XCTAssert(response?.totalTax == 1.1)
@@ -358,11 +349,7 @@ class DineInWebInteractorTest : XCTestCase {
         XCTAssert(response?.taxList[0].amount == 1.33)
         XCTAssert(response?.taxList[0].name == "Tax1")
         XCTAssert(response?.taxList[0].isInclusive == true)
-
-
         XCTAssert(response?.isExceedingTableTotalAmount == false)
-
-
     }
     
     
@@ -376,8 +363,7 @@ class DineInWebInteractorTest : XCTestCase {
                                                   callback:{ params in
                                                     sentRequest = params
                                                     //setting up the next response
-        }
-        )
+        })
         
         let (interactor , spy) = getInteractorWithPresenterSpy()
         interactor.model.order = getOrderDetails()
@@ -385,15 +371,14 @@ class DineInWebInteractorTest : XCTestCase {
         let paymentRequest = getPaymentRequest()
         interactor.model.paymentMethods = [paymentMethod]
         interactor.model.paymentRequest = paymentRequest
-        //Act
         
+        //Act
         interactor.makePayment(request: DineInWeb.Pay.Request(callback: callbackName,  tip: 0.5, paymentMethodId:paymentMethod.ID, paymentMethodToken: "abc"    , paymentMethodType: paymentMethod.type))
         
         let response  = spy.payResponse
         
         //Assert
         XCTAssert(spy.failedResponse == nil)
-        
         XCTAssert(response?.callback == callbackName, "callback was not passed properly")
         XCTAssert((sentRequest?.url.hasSuffix(URIs.payment))!)
         XCTAssert(sentRequest?.method == .post)
@@ -405,45 +390,45 @@ class DineInWebInteractorTest : XCTestCase {
         
         
     }
-//    
-//    
-//    
-//    func testCompleteAfterPayUpdatesOrder() {
-//        
-//        //Arange
-//        self.createNewLoggedInSession()
-//        
-//        Dine.shared.network = RequestProtocolMock(response: .success(["status":"OK" , "orderBalance":1.12 , "fullyPaid":false]),
-//                                                  callback:{ params in
-//                                                    //setting up the next response
-//                                                    Dine.shared.network = RequestProtocolMock(response:.success(self.getOrderDetailsJSON()!))
-//        }
-//        )
-//        
-//        let (interactor , spy) = getInteractorWithPresenterSpy()
-//        interactor.model.order = getOrderDetails()
-//        let paymentMethod = getPaymentMethod()
-//        let paymentRequest = getPaymentRequest()
-//        interactor.model.paymentMethods = [paymentMethod]
-//        interactor.model.paymentRequest = paymentRequest
-//        
-//        interactor.makePayment(request: DineInWeb.Pay.Request(callback: callbackName,  tip: 0.5, paymentMethodId:paymentMethod.ID, paymentMethodToken: "abc"    , paymentMethodType: paymentMethod.type))
-//        
-//        //Act
-//
-//        interactor.complete(request: DineInWeb.Complete.Request(reason: .completedOrder, callback: callbackName))
-//        let responseComplete = spy.completeResponse
-//       
-//        //Assert
-//        XCTAssert(spy.failedResponse == nil)
-//        
-//        XCTAssert(responseComplete?.callback == callbackName, "callback was not passed properly")
-//        XCTAssert(responseComplete?.order == getOrderDetails())
-//       
-//        
-//        
-//        
-//    }
+    //
+    //
+    //
+    //    func testCompleteAfterPayUpdatesOrder() {
+    //
+    //        //Arange
+    //        self.createNewLoggedInSession()
+    //
+    //        Dine.shared.network = RequestProtocolMock(response: .success(["status":"OK" , "orderBalance":1.12 , "fullyPaid":false]),
+    //                                                  callback:{ params in
+    //                                                    //setting up the next response
+    //                                                    Dine.shared.network = RequestProtocolMock(response:.success(self.getOrderDetailsJSON()!))
+    //        }
+    //        )
+    //
+    //        let (interactor , spy) = getInteractorWithPresenterSpy()
+    //        interactor.model.order = getOrderDetails()
+    //        let paymentMethod = getPaymentMethod()
+    //        let paymentRequest = getPaymentRequest()
+    //        interactor.model.paymentMethods = [paymentMethod]
+    //        interactor.model.paymentRequest = paymentRequest
+    //
+    //        interactor.makePayment(request: DineInWeb.Pay.Request(callback: callbackName,  tip: 0.5, paymentMethodId:paymentMethod.ID, paymentMethodToken: "abc"    , paymentMethodType: paymentMethod.type))
+    //
+    //        //Act
+    //
+    //        interactor.complete(request: DineInWeb.Complete.Request(reason: .completedOrder, callback: callbackName))
+    //        let responseComplete = spy.completeResponse
+    //
+    //        //Assert
+    //        XCTAssert(spy.failedResponse == nil)
+    //
+    //        XCTAssert(responseComplete?.callback == callbackName, "callback was not passed properly")
+    //        XCTAssert(responseComplete?.order == getOrderDetails())
+    //
+    //
+    //
+    //
+    //    }
     
     
     func testPayFail() {
@@ -458,7 +443,6 @@ class DineInWebInteractorTest : XCTestCase {
         let paymentMethod = getPaymentMethod()
         interactor.model.paymentMethods = [paymentMethod]
         
-        
         //Act
         interactor.model.paymentRequest = getPaymentRequest()
         
@@ -470,16 +454,11 @@ class DineInWebInteractorTest : XCTestCase {
         
         
         assertFailedResponse(response: spy.failedResponse)
-        
-        
-        
-        
-        
     }
+    
     func testFeedbackSuccess() {
         
         //Arange
-        
         var paramsSent: RequestParameters? = nil
         Dine.shared.network = RequestProtocolMock(response:  .success(["status":"OK"])){ sent in
             paramsSent = sent
@@ -502,11 +481,6 @@ class DineInWebInteractorTest : XCTestCase {
         
     }
     
-    
-    
-    
-    
-    
     func testGetPaymentMethodsSuccess() {
         
         //Arange
@@ -516,7 +490,6 @@ class DineInWebInteractorTest : XCTestCase {
             
             return ;
         }
-        
         
         Wallet.shared.network = RequestProtocolMock(response: .success(validJSON))
         
@@ -529,12 +502,8 @@ class DineInWebInteractorTest : XCTestCase {
         let methods = spy.paymentMethodsResponse?.methods
         let callback = spy.paymentMethodsResponse?.callback
         XCTAssert(methods?.count == 1, "callback was not passed properly")
-        
         XCTAssert(callback == callbackName, "callback was not passed properly")
-        
-        
         XCTAssert(spy.failedResponse == nil)
-        
     }
     
     
@@ -542,7 +511,6 @@ class DineInWebInteractorTest : XCTestCase {
         
         //Arange
         self.createNewLoggedInSession()
-        
         
         Wallet.shared.network = RequestProtocolMock(response: .fail(ErrorCodes.badRequest.getError()))
         
@@ -555,10 +523,6 @@ class DineInWebInteractorTest : XCTestCase {
         XCTAssert(spy.paymentMethodsResponse == nil)
         
         assertFailedResponse(response: spy.failedResponse)
-        
-        
-        
-        
     }
     
     func testComplete() {
@@ -576,18 +540,13 @@ class DineInWebInteractorTest : XCTestCase {
         
     }
     
-    
     func testGetLocale(){
-        
-        
-        
         let (interactor , spy) = getInteractorWithPresenterSpy()
         //Act
         interactor.getLocale(request: DineInWeb.getLocale.Request(callback: callbackName))
         
         //Assert
         XCTAssert(  spy.getLocaleResponse?.callback == callbackName, "callback should be passed on")
-        
     }
     
     func testGetBenefits(){
@@ -610,11 +569,7 @@ class DineInWebInteractorTest : XCTestCase {
         
         XCTAssert(spy.getBenefitsResponse!.benefits.count == 3)
         XCTAssert(spy.getBenefitsResponse!.benefits[0].id == "1")
-
         XCTAssert(  spy.getBenefitsResponse!.callback == callbackName, "callback should be passed on")
-        
-        
-        
     }
     
     func testRedeemBenefit(){
@@ -635,22 +590,16 @@ class DineInWebInteractorTest : XCTestCase {
         interactor.redeemBenefit(request: DineInWeb.RedeemBenefit.Request(callback: callbackName, restaurantId: restaurantId, benefit: benefit))
         
         //Assert
-        
-    
         XCTAssert(  spy.redeemedBenefitResponse!.callback == callbackName, "callback should be passed on")
-        
-        
-        
     }
     
     func testDisplayApplePay(){
         
         //Arange
         self.createNewLoggedInSession()
-      
         
         let (interactor , spy) = getInteractorWithPresenterSpy()
- 
+        
         let controller =  UIViewController()
         //Act
         interactor.display(viewController:controller)
@@ -659,27 +608,21 @@ class DineInWebInteractorTest : XCTestCase {
         
         XCTAssert(  spy.displayApplePayViewControllerResponse?.show == true)
         XCTAssert(  spy.displayApplePayViewControllerResponse?.viewController == controller)
-
-        
     }
+    
     func testDismissApplePay(){
         
         //Arange
         self.createNewLoggedInSession()
-        
-        
         let (interactor , spy) = getInteractorWithPresenterSpy()
-        
         let controller =  UIViewController()
+        
         //Act
         interactor.dismiss(viewController:controller)
         
         //Assert
-        
         XCTAssert(  spy.displayApplePayViewControllerResponse?.show == false)
         XCTAssert(  spy.displayApplePayViewControllerResponse?.viewController == controller)
-        
-        
     }
     
 }
@@ -732,43 +675,43 @@ extension DineInWebInteractorTest{
         
         return CreditCardPaymentMethod(for: .creditCard, name: "Elad", Id: "123", token: "abc", checkoutName: "checkout name")
     }
-  fileprivate func getPaymentRequestJSON(amount: Double) -> [String:Any]{
-    let totalTax = 1.1
-    let subtotal = amount - totalTax
-    let taxList:[[String:Any]] =  [
-      [
-        "name": "Tax1",
-        "amount": 1.33,
-        "isInclusive": true
-      ],
-      [
-        "name": "Tax2",
-        "amount": 0.0,
-        "isInclusive": false
-      ],
-      [
-        "name": "Tax3",
-        "amount": 0.0,
-        "isInclusive": false
-      ],
-      [
-        "name": "Tax4",
-        "amount": 0.0,
-        "isInclusive": false
-      ]
-    ]
-   return ["totalTax": totalTax , "priceBeforeTax": subtotal , "priceAfterTax": amount,
-                                    "taxList": taxList]
-    
-  }
+    fileprivate func getPaymentRequestJSON(amount: Double) -> [String:Any]{
+        let totalTax = 1.1
+        let subtotal = amount - totalTax
+        let taxList:[[String:Any]] =  [
+            [
+                "name": "Tax1",
+                "amount": 1.33,
+                "isInclusive": true
+            ],
+            [
+                "name": "Tax2",
+                "amount": 0.0,
+                "isInclusive": false
+            ],
+            [
+                "name": "Tax3",
+                "amount": 0.0,
+                "isInclusive": false
+            ],
+            [
+                "name": "Tax4",
+                "amount": 0.0,
+                "isInclusive": false
+            ]
+        ]
+        return ["totalTax": totalTax , "priceBeforeTax": subtotal , "priceAfterTax": amount,
+                "taxList": taxList]
+        
+    }
     fileprivate func getPaymentRequest() -> PaymentRequest{
-      let amount = 11.1
-
-       let order = getOrderDetails()
+        let amount = 11.1
+        
+        let order = getOrderDetails()
         let paymentDetails = PaymentDetails(order: order!, amount: amount, tip: 1)
-      
-    let validJSON = getPaymentRequestJSON(amount: amount)
-      return PaymentRequest(paymentDetails: paymentDetails, json: validJSON)!
+        
+        let validJSON = getPaymentRequestJSON(amount: amount)
+        return PaymentRequest(paymentDetails: paymentDetails, json: validJSON)!
     }
     
     

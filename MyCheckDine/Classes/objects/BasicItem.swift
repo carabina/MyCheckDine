@@ -4,7 +4,7 @@ import UIKit
 import Gloss
 
 ///Represents A single item in an order , or a modifier of an item.
-open class BasicItem: NSObject, JSONDecodable{
+open class BasicItem: NSObject, JSONDecodable {
     ///The Id of the item.
     open let Id : Int
     ///The name of the item as it was received from the POS.
