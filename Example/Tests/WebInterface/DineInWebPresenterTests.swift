@@ -397,27 +397,24 @@ class DineInWebPresenterTests: XCTestCase
         
         
     }
+    
     func testRedeemBenefits()
     {
         // Arrange
-        let response = DineInWeb.RedeemBenefits.Response(callback: callback, results: [BenefitRedeemResult.getBenefitStubSuccess(),BenefitRedeemResult.getBenefitStubFail() ])
-        
+        let response = DineInWeb.RedeemBenefits.Response(callback: callback, results: [BenefitRedeemResult.getBenefitStubSuccess(), BenefitRedeemResult.getBenefitStubFail()])
         
         // Act
         presenter.redeemedBenefits(response: response)
         
         // Assert
-        guard let JS = spy.JSString else{
+        guard let JS = spy.JSString else {
             XCTFail("should of recieved a call to viewcontroller")
             return
         }
-        let JSONArr = [BenefitRedeemResult.getBenefitJSONStubSuccess(),BenefitRedeemResult.getBenefitJSONStubFail() ]
+        let JSONArr = [BenefitRedeemResult.getBenefitJSONStubSuccess(), BenefitRedeemResult.getBenefitJSONStubFail()]
         let body:[String:Any] = ["redemptions":JSONArr]
         XCTAssert(JSISValid(JS: JS, callback: callback, validJSON: createSuccessJSON(with: body)))
-        
     }
-    
-    
     
     func testDisplayApplePay(){
         
@@ -437,15 +434,8 @@ class DineInWebPresenterTests: XCTestCase
         //Assert
         XCTAssert(spyResponse.show == response.show)
         XCTAssert(spyResponse.viewController == response.viewController)
-        
-        
-        
     }
 }
-
-
-
-
 
 fileprivate extension DineInWebPresenterTests{
     func JSISValid(JS: String, callback:String, validJSON:[String:Any]?) -> Bool{
@@ -462,14 +452,10 @@ fileprivate extension DineInWebPresenterTests{
         print("\n\n\n\n\n")
         print(JS)
         return  NSDictionary(dictionary: JSON).isEqual(to: validJSON)
-        
-        
-        
     }
     
     func extractJSON(from JS:String) ->[String:Any]?{
         let split1 =  JS.components(separatedBy: "(")
-        
         
         if split1.count != 2{
             return nil

@@ -97,7 +97,7 @@ extension Benefit{
 extension BenefitRedeemResult{
     static func getBenefitJSONStubSuccess() -> [String: Any]{
         let JSON: [String: Any] = [
-            "outcome": 360304,
+            "outcome": 12001,
             "success": true,
             "provider_benefit_id": "15% discount",
             "provider": "15% discount",
