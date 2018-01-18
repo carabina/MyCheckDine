@@ -146,7 +146,7 @@ public struct Settings {
 }
 
 ///Represents an order in a venue. The order includes the orders status , bill information and some general information.
-open class Order: NSObject  {
+open class Order: NSObject , Gloss.JSONDecodable {
   ///The Id of the order
    open let orderId : String
   /// The status of the order.

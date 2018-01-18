@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>UserSummary Structure Reference</title>
+    <title>BenefitRedeemResult Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/UserSummary" class="dashAnchor"></a>
-    <a title="UserSummary Structure Reference"></a>
+    <a name="//apple_ref/swift/Struct/BenefitRedeemResult" class="dashAnchor"></a>
+    <a title="BenefitRedeemResult Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">MyCheckDine Docs</a> (81% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">MyCheckDine Reference</a>
         <img id="carat" src="../img/carat.png" />
-        UserSummary Structure Reference
+        BenefitRedeemResult Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -123,14 +123,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>UserSummary</h1>
+            <h1>BenefitRedeemResult</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">UserSummary</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">BenefitRedeemResult</span></code></pre>
 
                 </div>
               </div>
-            <p>Holds information about the logged in users payments.</p>
+            <p>Discribes the result of redeeming a benefit.</p>
 
           </section>
           <section class="section task-group-section">
@@ -139,9 +139,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11MyCheckDine11UserSummaryV10paidAmountSdv"></a>
-                    <a name="//apple_ref/swift/Property/paidAmount" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11MyCheckDine11UserSummaryV10paidAmountSdv">paidAmount</a>
+                    <a name="/s:11MyCheckDine19BenefitRedeemResultVACSgs10DictionaryVySSypG4JSON_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(JSON:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11MyCheckDine19BenefitRedeemResultVACSgs10DictionaryVySSypG4JSON_tcfc">init(JSON:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -149,41 +149,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The amount already paid by the user.</p>
+                        <p>The constructor of the struct</p>
+
+<ul>
+<li>JSON: The JSON object received</li>
+</ul>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">paidAmount</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:11MyCheckDine11UserSummaryV7paidTipSdv"></a>
-                    <a name="//apple_ref/swift/Property/paidTip" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11MyCheckDine11UserSummaryV7paidTipSdv">paidTip</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The amount of tip the user paid</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">paidTip</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="kt">JSON</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>

@@ -71,6 +71,27 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/Benefits/objects/BenefitRedeemResult.swift",
+      "line": 48,
+      "symbol": "BenefitRedeemResult.JSONify()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/Benefits/objects/BenefitRedeemResult.swift",
+      "line": 48,
+      "symbol": "BenefitRedeemResult.JSONify()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/BasicItem.swift",
+      "line": 23,
+      "symbol": "BasicItem.init(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/DiningFriend.swift",
       "line": 13,
       "symbol": "DiningFriend",
@@ -135,6 +156,13 @@
     },
     {
       "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
+      "line": 174,
+      "symbol": "Order.init(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/Order.swift",
       "line": 243,
       "symbol": "Order.isEqual(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -152,6 +180,13 @@
       "line": 11,
       "symbol": "PaymentRequest",
       "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/eladschiller/Documents/iOS Projects/MyCheckRestaurantSDK/MyCheckDine/Classes/objects/TaxItem.swift",
+      "line": 38,
+      "symbol": "TaxItem.jsonify()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }
   ],
