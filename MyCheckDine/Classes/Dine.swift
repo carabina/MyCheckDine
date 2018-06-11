@@ -109,7 +109,7 @@ public class Dine: NSObject{
         a = method
         
         if method.isDefault{
-            method.generatePaymentToken(for: nil, displayDelegate: displayDelegate, success: {token in
+            method.generatePaymentParams(for: nil, displayDelegate: displayDelegate, success: {params in
                 self.callGenerateCode(hotelId: hotelId, restaurantId: restaurantId, success: success, fail: fail)
             }, fail: {error in
                 if let fail = fail{
@@ -273,12 +273,13 @@ public class Dine: NSObject{
             fail(ErrorCodes.paymentRequestAlreadyUsed.getError())
             return
         }
-        paymentMethod.generatePaymentToken(for: paymentRequest, displayDelegate: displayDelegate, success: { token in
+        paymentMethod.generatePaymentParams(for: paymentRequest, displayDelegate: displayDelegate, success: { params in
             let paymentDetails = paymentRequest.paymentDetails
-            var params : [String: Any] = [  "orderId" :  paymentRequest.paymentDetails.order.orderId,
+            var serverParams : [String: Any] = [  "orderId" :  paymentRequest.paymentDetails.order.orderId,
                                             "amount": paymentRequest.total.roundedStringForJSON(),
-                                            "tip": paymentDetails.tip.roundedStringForJSON(),
-                                            "ccToken": token]
+                                            "tip": paymentDetails.tip.roundedStringForJSON()]
+            serverParams.append(other: params)
+            
             
             if let items = paymentDetails.items{
                 let itemJSONs = items.map({ $0.createPaymentJSON().flatMap({$0})})
@@ -286,7 +287,7 @@ public class Dine: NSObject{
                 let jsonData = try! JSONSerialization.data(withJSONObject: itemJSONs, options: JSONSerialization.WritingOptions())
                 
                 let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
-                params["items"] =  jsonString
+                serverParams["items"] =  jsonString
                 
                 
                 
@@ -297,7 +298,7 @@ public class Dine: NSObject{
             }
             let urlStr = domain + URIs.payment
             
-            self.network.request(urlStr, method: .post, parameters: params, success: { JSON in
+            self.network.request(urlStr, method: .post, parameters: serverParams, success: { JSON in
                 
                 guard let balance = JSON["orderBalance"] as? Double,
                     let fullyPaid = JSON["fullyPaid"] as? Bool else{
