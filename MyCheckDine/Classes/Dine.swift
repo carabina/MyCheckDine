@@ -41,6 +41,13 @@ public class Dine: NSObject{
     
     
     private var usingExternalId = false
+    
+    private var with_giftcards = false
+    
+    public func isWithGiftCard() -> Bool {
+        return with_giftcards
+    }
+    
     //Used for session managment and calling server.
     internal var network: RequestProtocol = Networking.shared;
     
@@ -62,6 +69,11 @@ public class Dine: NSObject{
                 if let externalIdMode = dineConfig["externalBusinessId"] as? Bool{
                     self.usingExternalId = externalIdMode
                 }
+                
+                if let withGiftCard = dineConfig["with_giftcards"] as? Bool{
+                    self.with_giftcards = withGiftCard
+                }
+                
 
                 
             }
@@ -273,6 +285,7 @@ public class Dine: NSObject{
             fail(ErrorCodes.paymentRequestAlreadyUsed.getError())
             return
         }
+        
         paymentMethod.generatePaymentParams(for: paymentRequest, displayDelegate: displayDelegate, success: { params in
             let paymentDetails = paymentRequest.paymentDetails
             var serverParams : [String: Any] = [  "orderId" :  paymentRequest.paymentDetails.order.orderId,
@@ -369,9 +382,14 @@ public class Dine: NSObject{
                     return
                 }
                 
-                let friends = friendsJSON.map { DiningFriend(json: $0) } as! [DiningFriend]
+                guard let friends = (friendsJSON.map {DiningFriend(json: $0)}) as? [DiningFriend] else{
+                    if let fail = fail{
+                        fail(ErrorCodes.badJSON.getError())
+                    }
+                    return
+                }
                 
-                success( friends )
+                success(friends)
                 
             }, fail: fail)
         }else{
