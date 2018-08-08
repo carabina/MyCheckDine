@@ -75,11 +75,11 @@ target 'MyCheckDine_Example' do
     pod 'MyCheckDine', :path => '../'
     pod 'MyCheckDine/Benefits', :path => '../'
 
-    pod 'MyCheckCore', :path => '../../MyCheck-Core'
-    pod 'MyCheckDineUIWeb', :path => '../../WebInterfaceSDK'
+    pod 'MyCheckCore', :path => '../../MyCheckCore'
+    pod 'MyCheckDineUIWeb', :path => '../../MyCheckRestaurantSDK'
 
     pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
-   # pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
+    pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
     pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
     pod 'MyCheckWalletUI/VisaCheckout', :path => '../../MyCheckWalletUI'
     pod 'MyCheckWalletUI/MasterPass', :path =>  '../../MyCheckWalletUI'
@@ -88,14 +88,14 @@ target 'MyCheckDine_Example' do
         inherit! :search_paths
         pod 'MyCheckDine/Benefits', :path => '../'
 
-        pod 'MyCheckCore', :path => '../../MyCheck-Core'
+        pod 'MyCheckCore', :path => '../../MyCheckCore'
         pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
-       # pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
+       pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/MasterPass', :path =>  '../../MyCheckWalletUI'
 
         pod 'MyCheckWalletUI/VisaCheckout', :path => '../../MyCheckWalletUI'
-        pod 'MyCheckDineUIWeb', :path => '../../WebInterfaceSDK'
+        pod 'MyCheckDineUIWeb', :path => '../../MyCheckRestaurantSDK'
 
 
         pod 'Quick', '~> 1.0.0'
@@ -104,14 +104,14 @@ target 'MyCheckDine_Example' do
     target 'emptyTargetForTesting' do
         pod 'MyCheckDine/Benefits', :path => '../'
 
-        pod 'MyCheckCore', :path => '../../MyCheck-Core'
+        pod 'MyCheckCore', :path => '../../MyCheckCore'
         pod 'MyCheckWalletUI', :path => '../../MyCheckWalletUI'
-        #pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
+        pod 'MyCheckWalletUI/PayPal', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/ApplePay', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/VisaCheckout', :path => '../../MyCheckWalletUI'
         pod 'MyCheckWalletUI/MasterPass', :path =>  '../../MyCheckWalletUI'
 
-        pod 'MyCheckDineUIWeb', :path => '../../WebInterfaceSDK'
+        pod 'MyCheckDineUIWeb', :path => '../../MyCheckRestaurantSDK'
 
     end
     
