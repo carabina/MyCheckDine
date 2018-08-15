@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MyCheckDine'
-  s.version          = '1.3.9'
+  s.version          = '1.4.0'
 s.summary          = 'A SDK that enables the developer to open a table at a restaurant, follow the order and reorder items.'
 
 # This description is used to generate tags and improve search results.
@@ -43,8 +43,8 @@ Swift 3.0
 MyCheck Restaurant SDK is available through [CocoaPods](http://cocoapods.org). You will first need to ask a MyCheck team member to give you read privileges to the MyCheck Repository. Once you have gotten the privileges, install it by simply adding the following lines to the top of your Podfile:
 
 ```
-source 'https://bitbucket.org/erez_spatz/pod-spec-repo.git'
-source 'https://github.com/CocoaPods/Specs.git'
+source 'http://bitbucket.org/erez_spatz/pod-spec-repo.git'
+source 'http://github.com/CocoaPods/Specs.git'
 ```
 This will set both the public CocoaPods repo and the MyCheck private repo as targets for CocoaPods to search for frameworks from.
 
@@ -219,7 +219,7 @@ DESC
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'Custom', :file => 'LICENSE' }
   s.author           = { 'elad schiller' => 'eladsc@mycheck.co.il' }
-s.source           = { :git => 'https://bitbucket.org/erez_spatz/mycheckrestaurantsdk-ios.git', :tag => s.version.to_s }
+s.source           = { :git => 'http://bitbucket.org/erez_spatz/mycheckrestaurantsdk-ios.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
