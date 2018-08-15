@@ -237,7 +237,7 @@ s.dependency   'Gloss'
 
 
 s.subspec 'Benefits' do |benefits|
-benefits.dependency 'MyCheckCore'
+benefits.dependency 'MyCheckCore', '~> 1.0.6'
 
 benefits.source_files = 'MyCheckDine/Classes/Benefits/**/*'
 benefits.ios.deployment_target = '9.0'
